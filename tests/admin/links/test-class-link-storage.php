@@ -47,7 +47,7 @@ class WPSEO_Link_Storage_Test extends WPSEO_UnitTestCase {
 	 *
 	 * @todo make this test having sense
 	 */
-	public function _test_create_table() {
+	public function test_create_table() {
 		$storage = new WPSEO_Link_Storage();
 
 		$this->assertEquals( 1, $storage->create_table() );
