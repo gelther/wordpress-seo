@@ -46,9 +46,8 @@ class WPSEO_Configuration_Page {
 		exit;
 	}
 
-
 	/**
-	 *  Registers the page for the wizard.
+	 * Registers the page for the wizard.
 	 */
 	public function add_wizard_page() {
 		add_dashboard_page( '', '', 'wpseo_manage_options', self::PAGE_IDENTIFIER, '' );
@@ -68,7 +67,7 @@ class WPSEO_Configuration_Page {
 	public function enqueue_assets() {
 		wp_enqueue_media();
 
-		/*
+		/**
 		 * Print the `forms.css` WP stylesheet before any Yoast style, this way
 		 * it's easier to override selectors with the same specificity later.
 		 */
@@ -148,7 +147,6 @@ class WPSEO_Configuration_Page {
 		</body>
 		</html>
 		<?php
-
 	}
 
 	/**
@@ -188,7 +186,7 @@ class WPSEO_Configuration_Page {
 	 *
 	 * @deprecated 4.9
 	 *
-	 * @returns array The translations for the configuration wizard.
+	 * @return s array The translations for the configuration wizard.
 	 */
 	public function get_translations() {
 		_deprecated_function( __METHOD__, 'WPSEO 4.9', 'WPSEO_' );
@@ -273,4 +271,5 @@ class WPSEO_Configuration_Page {
 	private function get_options() {
 		return get_option( 'wpseo' );
 	}
+
 }
