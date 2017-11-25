@@ -160,4 +160,5 @@ class WPSEO_Snippet_Preview {
 	protected function set_content_through_filter( $content ) {
 		_deprecated_function( __METHOD__, 'WPSEO 3.0', esc_html__( 'Use javascript instead.', 'wordpress-seo' ) );
 	}
+
 }
