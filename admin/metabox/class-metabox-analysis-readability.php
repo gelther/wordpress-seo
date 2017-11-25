@@ -36,4 +36,5 @@ class WPSEO_Metabox_Analysis_Readability implements WPSEO_Metabox_Analysis {
 
 		return (bool) $options['content_analysis_active'];
 	}
+
 }
