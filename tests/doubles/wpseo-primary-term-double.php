@@ -20,4 +20,5 @@ class WPSEO_Primary_Term_Double extends WPSEO_Primary_Term {
 			),
 		);
 	}
+
 }
