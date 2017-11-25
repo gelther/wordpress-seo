@@ -12,7 +12,6 @@ class WPSEO_Slug_Change_Watcher implements WPSEO_WordPress_Integration {
 	 * @return void
 	 */
 	public function register_hooks() {
-
 		// If the current plugin is Yoast SEO Premium, stop registering.
 		if ( WPSEO_Utils::is_yoast_seo_premium() ) {
 			return;
@@ -40,9 +39,9 @@ class WPSEO_Slug_Change_Watcher implements WPSEO_WordPress_Integration {
 	/**
 	 * Detects if the slug changed, hooked into 'post_updated'.
 	 *
-	 * @param integer $post_id     The ID of the post. Unused.
-	 * @param WP_Post $post        The post with the new values.
-	 * @param WP_Post $post_before The post with the previous values.
+	 * @param  integer $post_id     The ID of the post. Unused.
+	 * @param  WP_Post $post        The post with the new values.
+	 * @param  WP_Post $post_before The post with the previous values.
 	 *
 	 * @return void
 	 */
@@ -75,9 +74,9 @@ class WPSEO_Slug_Change_Watcher implements WPSEO_WordPress_Integration {
 	/**
 	 * Checks whether the given post status is visible or not.
 	 *
-	 * @param string $post_status The post status to check.
+	 * @param  string $post_status The post status to check.
 	 *
-	 * @return bool Whether or not the post is visible.
+	 * @return bool                Whether or not the post is visible.
 	 */
 	protected function check_visible_post_status( $post_status ) {
 		$visible_post_statuses = array(
@@ -92,7 +91,7 @@ class WPSEO_Slug_Change_Watcher implements WPSEO_WordPress_Integration {
 	/**
 	 * Adds a notification to be shown on the next page request since posts are updated in an ajax request.
 	 *
-	 * @param string $post_type_label The singular_name label from a post_type_object.
+	 * @param  string $post_type_label The singular_name label from a post_type_object.
 	 *
 	 * @return void
 	 */
@@ -113,4 +112,5 @@ class WPSEO_Slug_Change_Watcher implements WPSEO_WordPress_Integration {
 		$notification_center = Yoast_Notification_Center::get();
 		$notification_center->add_notification( $notification );
 	}
+
 }
