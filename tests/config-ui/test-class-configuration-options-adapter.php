@@ -230,7 +230,6 @@ class WPSEO_Configuration_Options_Adapter_Test extends PHPUnit_Framework_TestCas
 	 * @covers WPSEO_Configuration_Options_Adapter::get()
 	 */
 	public function test_get_unknown_type() {
-
 		$field_name = 'field';
 
 		$class = $this
@@ -240,7 +239,6 @@ class WPSEO_Configuration_Options_Adapter_Test extends PHPUnit_Framework_TestCas
 
 		$this->adapter->add_lookup( $field_name, 'some_type', 'some_option' );
 		$this->assertEquals( null, $this->adapter->get( $class, 'value' ) );
-
 	}
 
 	/**
@@ -343,4 +341,5 @@ class WPSEO_Configuration_Options_Adapter_Test extends PHPUnit_Framework_TestCas
 	public function custom_option_get() {
 		return 'custom_option_get';
 	}
+
 }
