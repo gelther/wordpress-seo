@@ -85,7 +85,6 @@ class WPSEO_Post_Metabox_Formatter_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Post_Metabox_Formatter::base_url_for_js
 	 */
 	public function test_post_on_add_page() {
-
 		$GLOBALS['pagenow'] = 'post-new.php';
 
 		$instance = new WPSEO_Post_Metabox_Formatter( $this->post, array(), '' );
@@ -138,7 +137,6 @@ class WPSEO_Post_Metabox_Formatter_Test extends WPSEO_UnitTestCase {
 
 		$this->assertEquals( $result['title_template'], 'This is the title' );
 		$this->assertEquals( $result['metadesc_template'], '' );
-
 	}
 
 }
