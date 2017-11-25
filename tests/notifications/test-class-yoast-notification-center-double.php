@@ -13,4 +13,5 @@ class Yoast_Notification_Center_Double extends Yoast_Notification_Center {
 	 * This is to override the private constructor in the parent class for mocking purposes.
 	 */
 	public function __construct() {}
+
 }
