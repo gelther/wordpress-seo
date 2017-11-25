@@ -13,4 +13,5 @@ class WPSEO_Role_Manager_Factory_Tests extends PHPUnit_Framework_TestCase {
 
 		$this->assertEquals( $instance, $instance2 );
 	}
+
 }
