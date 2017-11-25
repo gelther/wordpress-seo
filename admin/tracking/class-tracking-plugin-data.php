@@ -25,7 +25,6 @@ class WPSEO_Tracking_Plugin_Data implements WPSEO_Collection {
 	 * @return array The formatted plugins.
 	 */
 	protected function get_plugin_data() {
-
 		if ( ! function_exists( 'get_plugin_data' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
@@ -40,9 +39,9 @@ class WPSEO_Tracking_Plugin_Data implements WPSEO_Collection {
 	/**
 	 * Formats the plugin array.
 	 *
-	 * @param array $plugin The plugin details.
+	 * @param  array $plugin The plugin details.
 	 *
-	 * @return array The formatted array.
+	 * @return array         The formatted array.
 	 */
 	protected function format_plugin( array $plugin ) {
 		return array(
@@ -55,4 +54,5 @@ class WPSEO_Tracking_Plugin_Data implements WPSEO_Collection {
 			),
 		);
 	}
+
 }
