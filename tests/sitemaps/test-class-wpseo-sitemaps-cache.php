@@ -12,7 +12,6 @@ class WPSEO_Sitemaps_Cache_Test extends WPSEO_UnitTestCase {
 	 * Clean up
 	 */
 	public function tearDown() {
-
 		parent::tearDown();
 
 		remove_action( 'update_option', array( 'WPSEO_Sitemaps_Cache', 'clear_on_option_update' ) );
@@ -24,7 +23,6 @@ class WPSEO_Sitemaps_Cache_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Sitemaps_Cache::get_sitemap_data()
 	 */
 	public function test_transient_not_set() {
-
 		$cache  = new WPSEO_Sitemaps_Cache();
 		$result = $cache->get_sitemap_data( 'post', 1 );
 
@@ -39,7 +37,6 @@ class WPSEO_Sitemaps_Cache_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Sitemaps_Cache::get_sitemap_data()
 	 */
 	public function test_transient_cache_data_object() {
-
 		$sitemap = 'this_is_a_sitemap';
 		$type    = 'post';
 		$page    = 1;
@@ -64,7 +61,6 @@ class WPSEO_Sitemaps_Cache_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Sitemap_Cache_Data::is_usable()
 	 */
 	public function test_transient_string_to_cache_data() {
-
 		$sitemap = 'this is not a wpseo_sitemap_cache_data object';
 		$type    = 'post';
 		$page    = 1;
@@ -84,7 +80,6 @@ class WPSEO_Sitemaps_Cache_Test extends WPSEO_UnitTestCase {
 	 * Clearing all cache.
 	 */
 	public function test_clear() {
-
 		$type         = 'page';
 		$page         = 1;
 		$test_content = 'test_content';
@@ -107,7 +102,6 @@ class WPSEO_Sitemaps_Cache_Test extends WPSEO_UnitTestCase {
 	 * Clearing specific cache.
 	 */
 	public function test_clear_type() {
-
 		$type         = 'page';
 		$page         = 1;
 		$test_content = 'test_content';
@@ -131,7 +125,6 @@ class WPSEO_Sitemaps_Cache_Test extends WPSEO_UnitTestCase {
 	 * Clearing specific cache should also clear index.
 	 */
 	public function test_clear_index_also_cleared() {
-
 		$test_index_content = 'test_content';
 
 		$index_cache_key = WPSEO_Sitemaps_Cache_Validator::get_storage_key();
@@ -156,7 +149,6 @@ class WPSEO_Sitemaps_Cache_Test extends WPSEO_UnitTestCase {
 	 * Clearing specific cache should not touch other type.
 	 */
 	public function test_clear_type_isolation() {
-
 		$type_a         = 'page';
 		$type_a_content = 'content_a';
 
@@ -185,7 +177,6 @@ class WPSEO_Sitemaps_Cache_Test extends WPSEO_UnitTestCase {
 	 * Make sure the hook is registered on registration
 	 */
 	public function test_register_clear_on_option_update() {
-
 		new WPSEO_Sitemaps_Cache();
 		// Hook will be added on default priority.
 		$this->assertEquals( 10, has_action( 'update_option', array(
@@ -198,7 +189,6 @@ class WPSEO_Sitemaps_Cache_Test extends WPSEO_UnitTestCase {
 	 * Option update should clear cache for registered type.
 	 */
 	public function test_clear_transient_cache() {
-
 		$type         = 'page';
 		$page         = 1;
 		$test_content = 'test_content';
@@ -223,4 +213,5 @@ class WPSEO_Sitemaps_Cache_Test extends WPSEO_UnitTestCase {
 		// Assert.
 		$this->assertEmpty( $result );
 	}
+
 }
