@@ -38,5 +38,5 @@ class WPSEO_Config_Field_Suggestions extends WPSEO_Config_Field {
 
 		$this->properties['suggestions'][] = $suggestion;
 	}
-}
 
+}
