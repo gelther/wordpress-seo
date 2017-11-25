@@ -25,4 +25,5 @@ class WPSEO_Import_Jetpack_SEO extends WPSEO_Import_External {
 	private function import_metas() {
 		WPSEO_Meta::replace_meta( 'advanced_seo_description', WPSEO_Meta::$meta_prefix . 'metadesc', $this->replace );
 	}
+
 }
