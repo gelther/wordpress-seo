@@ -54,9 +54,9 @@ class WPSEO_Help_Center {
 	/**
 	 * Format the required data for localized script.
 	 *
-	 * @param WPSEO_Option_Tab[] $tabs Yoast admin pages navigational tabs.
+	 * @param  WPSEO_Option_Tab[] $tabs Yoast admin pages navigational tabs.
 	 *
-	 * @return array Associative array containing data for help center component.
+	 * @return array                    Associative array containing data for help center component.
 	 */
 	protected function format_data( array $tabs ) {
 		$formatted_data = array( 'tabs' => array() );
@@ -120,9 +120,9 @@ class WPSEO_Help_Center {
 	/**
 	 * Convert WPSEO_Help_Center_Item into help center format.
 	 *
-	 * @param WPSEO_Help_Center_Item $item The item to convert.
+	 * @param  WPSEO_Help_Center_Item $item The item to convert.
 	 *
-	 * @return array Formatted item.
+	 * @return array                        Formatted item.
 	 */
 	protected function format_helpcenter_tab( WPSEO_Help_Center_Item $item ) {
 		return array(
@@ -153,8 +153,8 @@ class WPSEO_Help_Center {
 	 */
 	private function add_contact_support_item() {
 		/* translators: %s: expands to 'Yoast SEO Premium'. */
-		$popup_title   = sprintf( __( 'Email support is a %s feature', 'wordpress-seo' ), 'Yoast SEO Premium' );
-		$popup_content = '<p class="yoast-measure">' . __( 'Go Premium and our experts will be there for you to answer any questions you might have about the set-up and use of the plug-in!', 'wordpress-seo' ) . '</p>';
+		$popup_title    = sprintf( __( 'Email support is a %s feature', 'wordpress-seo' ), 'Yoast SEO Premium' );
+		$popup_content  = '<p class="yoast-measure">' . __( 'Go Premium and our experts will be there for you to answer any questions you might have about the set-up and use of the plug-in!', 'wordpress-seo' ) . '</p>';
 		/* translators: %1$s: expands to 'Yoast SEO Premium'. */
 		$popup_content .= '<p>' . sprintf( __( 'Other benefits of %1$s for you:', 'wordpress-seo' ), 'Yoast SEO Premium' ) . '</p>';
 		$popup_content .= '<ul class="wpseo-premium-advantages-list">';
@@ -189,7 +189,7 @@ class WPSEO_Help_Center {
 	 *
 	 * %s is replaced with <code>%s</code> and replaced again in the javascript with the actual variable.
 	 *
-	 * @return  array Translated text strings for the help center.
+	 * @return array Translated text strings for the help center.
 	 */
 	public static function get_translated_texts() {
 		return array(
@@ -224,4 +224,5 @@ class WPSEO_Help_Center {
 		_deprecated_function( 'WPSEO_Help_Center::output_help_center', 'WPSEO 5.6.0', 'WPSEO_Help_Center::mount()' );
 		$this->mount();
 	}
+
 }
