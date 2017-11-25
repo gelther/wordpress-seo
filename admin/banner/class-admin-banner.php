@@ -84,4 +84,5 @@ class WPSEO_Admin_Banner {
 	public function get_height() {
 		return $this->height;
 	}
+
 }
