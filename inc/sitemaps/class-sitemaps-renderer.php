@@ -27,7 +27,6 @@ class WPSEO_Sitemaps_Renderer {
 	 * Set up object properties.
 	 */
 	public function __construct() {
-
 		$stylesheet_url       = preg_replace( '/(^http[s]?:)/', '', esc_url( home_url( 'main-sitemap.xsl' ) ) );
 		$this->stylesheet     = '<?xml-stylesheet type="text/xsl" href="' . $stylesheet_url . '"?>';
 		$this->charset        = get_bloginfo( 'charset' );
@@ -46,12 +45,11 @@ class WPSEO_Sitemaps_Renderer {
 	}
 
 	/**
-	 * @param array $links Set of sitemaps index links.
+	 * @param  array  $links Set of sitemaps index links.
 	 *
 	 * @return string
 	 */
 	public function get_index( $links ) {
-
 		$xml = '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
 
 		foreach ( $links as $link ) {
@@ -70,14 +68,13 @@ class WPSEO_Sitemaps_Renderer {
 	}
 
 	/**
-	 * @param array  $links        Set of sitemap links.
-	 * @param string $type         Sitemap type.
-	 * @param int    $current_page Current sitemap page number.
+	 * @param  array  $links        Set of sitemap links.
+	 * @param  string $type         Sitemap type.
+	 * @param  int    $current_page Current sitemap page number.
 	 *
 	 * @return string
 	 */
 	public function get_sitemap( $links, $type, $current_page ) {
-
 		$urlset = '<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" '
 			. 'xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd '
 			. 'http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" '
@@ -113,13 +110,12 @@ class WPSEO_Sitemaps_Renderer {
 	/**
 	 * Produce final XML output with debug information.
 	 *
-	 * @param string  $sitemap    Sitemap XML.
-	 * @param boolean $transient  Transient cache flag.
+	 * @param  string  $sitemap   Sitemap XML.
+	 * @param  boolean $transient Transient cache flag.
 	 *
 	 * @return string
 	 */
 	public function get_output( $sitemap, $transient ) {
-
 		$output = '<?xml version="1.0" encoding="' . esc_attr( $this->output_charset ) . '"?>';
 
 		if ( $this->stylesheet ) {
@@ -147,8 +143,8 @@ class WPSEO_Sitemaps_Renderer {
 
 		if ( defined( 'SAVEQUERIES' ) && SAVEQUERIES ) {
 
-			$queries = print_r( $GLOBALS['wpdb']->queries, true );
-			$output .= "\n<!-- {$queries} -->";
+			$queries  = print_r( $GLOBALS['wpdb']->queries, true );
+			$output  .= "\n<!-- {$queries} -->";
 		}
 
 		return $output;
@@ -175,12 +171,11 @@ class WPSEO_Sitemaps_Renderer {
 	/**
 	 * Build the `<sitemap>` tag for a given URL.
 	 *
-	 * @param array $url Array of parts that make up this entry.
+	 * @param  array  $url Array of parts that make up this entry.
 	 *
 	 * @return string
 	 */
 	protected function sitemap_index_url( $url ) {
-
 		$date = null;
 
 		if ( ! empty( $url['lastmod'] ) ) {
@@ -202,12 +197,11 @@ class WPSEO_Sitemaps_Renderer {
 	 *
 	 * Public access for backwards compatibility reasons.
 	 *
-	 * @param array $url Array of parts that make up this entry.
+	 * @param  array  $url Array of parts that make up this entry.
 	 *
 	 * @return string
 	 */
 	public function sitemap_url( $url ) {
-
 		$date = null;
 
 
@@ -270,7 +264,7 @@ class WPSEO_Sitemaps_Renderer {
 		 *
 		 * @api   string $output The output for the sitemap url tag.
 		 *
-		 * @param array  $url The sitemap url array on which the output is based.
+		 * @param array $url The sitemap url array on which the output is based.
 		 */
 		return apply_filters( 'wpseo_sitemap_url', $output, $url );
 	}
@@ -278,12 +272,11 @@ class WPSEO_Sitemaps_Renderer {
 	/**
 	 * Apply some best effort conversion to comply with RFC3986.
 	 *
-	 * @param string $url URL to encode.
+	 * @param  string $url URL to encode.
 	 *
 	 * @return string
 	 */
 	protected function encode_url_rfc3986( $url ) {
-
 		if ( filter_var( $url, FILTER_VALIDATE_URL ) ) {
 			return $url;
 		}
@@ -313,8 +306,7 @@ class WPSEO_Sitemaps_Renderer {
 
 			if ( defined( 'PHP_QUERY_RFC3986' ) ) { // PHP 5.4+.
 				$parsed_query = http_build_query( $parsed_query, null, '&amp;', PHP_QUERY_RFC3986 );
-			}
-			else {
+			} else {
 				$parsed_query = http_build_query( $parsed_query, null, '&amp;' );
 				$parsed_query = str_replace( '+', '%20', $parsed_query );
 				$parsed_query = str_replace( '%7E', '~', $parsed_query );
@@ -325,4 +317,5 @@ class WPSEO_Sitemaps_Renderer {
 
 		return $url;
 	}
+
 }
