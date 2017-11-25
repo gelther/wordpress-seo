@@ -51,9 +51,9 @@ class WPSEO_Bulk_Description_List_Table extends WPSEO_Bulk_List_Table {
 	/**
 	 * Parse the metadescription
 	 *
-	 * @param string $column_name Column name.
-	 * @param object $record      Data object.
-	 * @param string $attributes  HTML attributes.
+	 * @param  string $column_name Column name.
+	 * @param  object $record      Data object.
+	 * @param  string $attributes  HTML attributes.
 	 *
 	 * @return string
 	 */
@@ -72,4 +72,5 @@ class WPSEO_Bulk_Description_List_Table extends WPSEO_Bulk_List_Table {
 				break;
 		}
 	}
+
 } /* End of class */
