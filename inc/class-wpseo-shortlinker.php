@@ -23,9 +23,9 @@ class WPSEO_Shortlinker {
 	/**
 	 * Builds a URL to use in the plugin as shortlink.
 	 *
-	 * @param string $url The URL to build upon.
+	 * @param  string $url The URL to build upon.
 	 *
-	 * @return string The final URL.
+	 * @return string      The final URL.
 	 */
 	public function build_shortlink( $url ) {
 		return $url . '?utm_content=' . $this->version;
@@ -34,9 +34,9 @@ class WPSEO_Shortlinker {
 	/**
 	 * Returns a version of the URL with a utm_content with the current version.
 	 *
-	 * @param string $url The URL to build upon.
+	 * @param  string $url The URL to build upon.
 	 *
-	 * @return string The final URL.
+	 * @return string      The final URL.
 	 */
 	public static function get( $url ) {
 		$version = WPSEO_VERSION;
@@ -56,4 +56,5 @@ class WPSEO_Shortlinker {
 	public static function show( $url ) {
 		echo esc_url( self::get( $url ) );
 	}
+
 }
