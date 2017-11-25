@@ -27,4 +27,5 @@ class WPSEO_Register_Roles implements WPSEO_WordPress_Integration {
 		$role_manager->register( 'wpseo_manager', 'SEO Manager', 'editor' );
 		$role_manager->register( 'wpseo_editor', 'SEO Editor', 'editor' );
 	}
+
 }
