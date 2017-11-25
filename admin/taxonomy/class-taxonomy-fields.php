@@ -34,8 +34,7 @@ abstract class WPSEO_Taxonomy_Fields {
 		$this->term = $term;
 		if ( $options !== null ) {
 			$this->options = $options;
-		}
-		else {
+		} else {
 			$this->options = WPSEO_Options::get_options( array(
 				'wpseo_titles',
 				'wpseo_internallinks',
@@ -54,11 +53,11 @@ abstract class WPSEO_Taxonomy_Fields {
 	/**
 	 * Returns array with the field data
 	 *
-	 * @param string       $label       The label displayed before the field.
-	 * @param string       $description Description which will explain the field.
-	 * @param string       $type        The field type, for example: input, select.
-	 * @param string|array $options     Optional. Array with additional options.
-	 * @param bool         $hide        Should the field be hidden.
+	 * @param  string       $label       The label displayed before the field.
+	 * @param  string       $description Description which will explain the field.
+	 * @param  string       $type        The field type, for example: input, select.
+	 * @param  string|array $options     Optional. Array with additional options.
+	 * @param  bool         $hide        Should the field be hidden.
 	 *
 	 * @return array
 	 */
@@ -75,7 +74,7 @@ abstract class WPSEO_Taxonomy_Fields {
 	/**
 	 * Filter the hidden fields.
 	 *
-	 * @param array $fields Array with the form fields that has will be filtered.
+	 * @param  array $fields Array with the form fields that has will be filtered.
 	 *
 	 * @return array
 	 */
@@ -88,4 +87,5 @@ abstract class WPSEO_Taxonomy_Fields {
 
 		return $fields;
 	}
+
 }
