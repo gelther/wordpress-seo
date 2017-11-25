@@ -28,7 +28,6 @@ class WPSEO_Options_Test extends WPSEO_UnitTestCase {
 		$this->assertArrayHasKey( 'breadcrumbs-prefix', $result );
 	}
 
-
 	/**
 	 * Test if the get_options function returns an empty array if you pass an empty array.
 	 *
@@ -59,7 +58,6 @@ class WPSEO_Options_Test extends WPSEO_UnitTestCase {
 		$this->assertArrayHasKey( 'opengraph', $result );
 		$this->assertArrayHasKey( 'metakey-home-wpseo', $result );
 	}
-
 
 	/**
 	 * Test if the get_option function returns an empty array if you pass null.
@@ -100,4 +98,5 @@ class WPSEO_Options_Test extends WPSEO_UnitTestCase {
 		$result = WPSEO_Options::get_option( 'wpseo' );
 		$this->assertArrayHasKey( 'website_name', $result );
 	}
+
 }
