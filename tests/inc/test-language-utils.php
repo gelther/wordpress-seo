@@ -29,4 +29,5 @@ class WPSEO_Language_Utils_Test extends PHPUnit_Framework_TestCase {
 
 		$this->assertEquals( 'en', $language );
 	}
+
 }
