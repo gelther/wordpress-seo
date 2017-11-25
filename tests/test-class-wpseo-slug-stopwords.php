@@ -14,7 +14,7 @@ class WPSEO_Slug_Stopwords_Test extends WPSEO_UnitTestCase {
 	private $class_instance;
 
 	/**
-	 *  Setting up an instance of the WPSEO_Admin
+	 * Setting up an instance of the WPSEO_Admin
 	 */
 	public function setUp() {
 		parent::setUp();
@@ -81,6 +81,7 @@ class WPSEO_Slug_Stopwords_Test extends WPSEO_UnitTestCase {
 	public function test_with_title_and_slug() {
 		$this->assertEquals( 'morning-will-eat-lot-eggs-with-vinegar', $this->class_instance->filter_stopwords_from_slug( 'morning-will-eat-lot-eggs-with-vinegar', 'In the morning I will eat a lot of eggs without sugar on it.' ) );
 	}
+
 	/**
 	 * Test for draft status with an empty slug and with a filled title. The result should be the use of the empty slug.
 	 *
