@@ -81,7 +81,7 @@ class WPSEO_Option_MS extends WPSEO_Option {
 	/**
 	 * Add filters to make sure that the option default is returned if the option is not set
 	 *
-	 * @return  void
+	 * @return void
 	 */
 	public function add_default_filters() {
 		// Don't change, needs to check for false as could return prio 0 which would evaluate to false.
@@ -90,22 +90,20 @@ class WPSEO_Option_MS extends WPSEO_Option {
 		}
 	}
 
-
 	/**
 	 * Remove the default filters.
 	 * Called from the validate() method to prevent failure to add new options
 	 *
-	 * @return  void
+	 * @return void
 	 */
 	public function remove_default_filters() {
 		remove_filter( 'default_site_option_' . $this->option_name, array( $this, 'get_defaults' ) );
 	}
 
-
 	/**
 	 * Add filters to make sure that the option is merged with its defaults before being returned
 	 *
-	 * @return  void
+	 * @return void
 	 */
 	public function add_option_filters() {
 		// Don't change, needs to check for false as could return prio 0 which would evaluate to false.
@@ -114,17 +112,15 @@ class WPSEO_Option_MS extends WPSEO_Option {
 		}
 	}
 
-
 	/**
 	 * Remove the option filters.
 	 * Called from the clean_up methods to make sure we retrieve the original old option
 	 *
-	 * @return  void
+	 * @return void
 	 */
 	public function remove_option_filters() {
 		remove_filter( 'site_option_' . $this->option_name, array( $this, 'get_option' ) );
 	}
-
 
 	/* *********** METHODS influencing add_uption(), update_option() and saving from admin pages *********** */
 
@@ -136,17 +132,15 @@ class WPSEO_Option_MS extends WPSEO_Option {
 	 * @param  array $clean Clean value for the option, normally the defaults.
 	 * @param  array $old   Old value of the option.
 	 *
-	 * @return  array      Validated clean value for the option to be saved to the database
+	 * @return array        Validated clean value for the option to be saved to the database
 	 */
 	protected function validate_option( $dirty, $clean, $old ) {
-
 		foreach ( $clean as $key => $value ) {
 			switch ( $key ) {
 				case 'access':
 					if ( isset( $dirty[ $key ] ) && in_array( $dirty[ $key ], self::$allowed_access_options, true ) ) {
 						$clean[ $key ] = $dirty[ $key ];
-					}
-					elseif ( function_exists( 'add_settings_error' ) ) {
+					} elseif ( function_exists( 'add_settings_error' ) ) {
 						add_settings_error(
 							$this->group_name, // Slug title of the setting.
 							'_' . $key, // Suffix-id for the error message box.
@@ -166,8 +160,7 @@ class WPSEO_Option_MS extends WPSEO_Option {
 							$exists = get_blog_details( $int, false );
 							if ( $exists && $exists->deleted === '0' ) {
 								$clean[ $key ] = $int;
-							}
-							elseif ( function_exists( 'add_settings_error' ) ) {
+							} elseif ( function_exists( 'add_settings_error' ) ) {
 								add_settings_error(
 									$this->group_name, // Slug title of the setting.
 									'_' . $key, // Suffix-id for the error message box.
@@ -182,8 +175,7 @@ class WPSEO_Option_MS extends WPSEO_Option {
 								);
 							}
 							unset( $exists );
-						}
-						elseif ( function_exists( 'add_settings_error' ) ) {
+						} elseif ( function_exists( 'add_settings_error' ) ) {
 							add_settings_error(
 								$this->group_name, // Slug title of the setting.
 								'_' . $key, // Suffix-id for the error message box.
@@ -204,7 +196,6 @@ class WPSEO_Option_MS extends WPSEO_Option {
 		return $clean;
 	}
 
-
 	/**
 	 * Clean a given option value
 	 *
@@ -215,13 +206,13 @@ class WPSEO_Option_MS extends WPSEO_Option {
 	 * @param  array  $all_old_option_values (optional) Only used when importing old options to have
 	 *                                       access to the real old values, in contrast to the saved ones.
 	 *
-	 * @return  array            Cleaned option
+	 * @return array                         Cleaned option
 	 */
 
 	/*
 	Protected function clean_option( $option_value, $current_version = null, $all_old_option_values = null ) {
-
 		return $option_value;
 	}
+
 	*/
 }
