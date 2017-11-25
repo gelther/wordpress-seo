@@ -49,9 +49,9 @@ class WPSEO_Extensions {
 	/**
 	 * Checks if the extension is valid.
 	 *
-	 * @param string $extension The extension to get the name for.
+	 * @param  string $extension The extension to get the name for.
 	 *
-	 * @return bool Returns true when valid.
+	 * @return bool              Returns true when valid.
 	 */
 	public function is_valid( $extension ) {
 		$extensions = new WPSEO_Extension_Manager();
@@ -64,7 +64,7 @@ class WPSEO_Extensions {
 	 * @param string $extension The extension to invalidate.
 	 */
 	public function invalidate( $extension ) {
-		/*
+		/**
 		 * Make sure we clear the current site and multisite options.
 		 *
 		 * Because plugins can be site-activated or multi-site activated we need to clear
@@ -80,9 +80,9 @@ class WPSEO_Extensions {
 	/**
 	 * Checks if the plugin has been installed.
 	 *
-	 * @param string $extension The name of the plugin to check.
+	 * @param  string $extension The name of the plugin to check.
 	 *
-	 * @return bool Returns true when installed.
+	 * @return bool              Returns true when installed.
 	 */
 	public function is_installed( $extension ) {
 		return class_exists( $this->extensions[ $extension ]['classname'] );
@@ -91,11 +91,12 @@ class WPSEO_Extensions {
 	/**
 	 * Converts the extension to the required option name.
 	 *
-	 * @param string $extension The extension name to convert.
+	 * @param  string $extension The extension name to convert.
 	 *
-	 * @return string Returns the option name.
+	 * @return string            Returns the option name.
 	 */
 	protected function get_option_name( $extension ) {
 		return sanitize_title_with_dashes( $this->extensions[ $extension ]['slug'] . '_', null, 'save' ) . 'license';
 	}
+
 }
