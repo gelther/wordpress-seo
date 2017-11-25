@@ -47,4 +47,5 @@ class WPSEO_Link_Installer {
 	protected function get_installables() {
 		return $this->installables;
 	}
+
 }
