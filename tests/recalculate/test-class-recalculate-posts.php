@@ -54,7 +54,6 @@ class WPSEO_Recalculate_Posts_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Recalculate_Posts::save_scores
 	 */
 	public function test_save_scores_with_focus_kw() {
-
 		$this->assertEquals( WPSEO_Meta::get_value( 'linkdex', $this->posts[1] ), 0 );
 
 		$this->instance->save_scores(
@@ -98,7 +97,6 @@ class WPSEO_Recalculate_Posts_Test extends WPSEO_UnitTestCase {
 
 		$this->assertEquals( 2, $response['total_items'] );
 		$this->assertTrue( is_array( $response['items'] ) );
-
 	}
 
 	/**
@@ -169,9 +167,9 @@ class WPSEO_Recalculate_Posts_Test extends WPSEO_UnitTestCase {
 	/**
 	 * Mock the post metadata to include a thumbnail
 	 *
-	 * @param string|null $value     Metadata value.
-	 * @param integer     $object_id Post object ID.
-	 * @param string      $meta_key  Metadata key.
+	 * @param  string|null $value     Metadata value.
+	 * @param  integer     $object_id Post object ID.
+	 * @param  string      $meta_key  Metadata key.
 	 *
 	 * @return int
 	 */
@@ -186,9 +184,9 @@ class WPSEO_Recalculate_Posts_Test extends WPSEO_UnitTestCase {
 	/**
 	 * Returns the mock thumbnail
 	 *
-	 * @param string  $html              HTML.
-	 * @param integer $post_id           Post ID.
-	 * @param integer $post_thumbnail_id Post Thumbnail ID.
+	 * @param  string  $html              HTML.
+	 * @param  integer $post_id           Post ID.
+	 * @param  integer $post_thumbnail_id Post Thumbnail ID.
 	 *
 	 * @return string
 	 */
@@ -199,8 +197,8 @@ class WPSEO_Recalculate_Posts_Test extends WPSEO_UnitTestCase {
 	/**
 	 * Provide filter dummy data
 	 *
-	 * @param string       $content Content to add.
-	 * @param WP_Post|null $post    Post object.
+	 * @param  string       $content Content to add.
+	 * @param  WP_Post|null $post    Post object.
 	 *
 	 * @return string
 	 */
@@ -211,8 +209,8 @@ class WPSEO_Recalculate_Posts_Test extends WPSEO_UnitTestCase {
 	/**
 	 * Provide filler dummy data with shortcode
 	 *
-	 * @param string       $content Content to add.
-	 * @param WP_Post|null $post    Post object.
+	 * @param  string       $content Content to add.
+	 * @param  WP_Post|null $post    Post object.
 	 *
 	 * @return string
 	 */
