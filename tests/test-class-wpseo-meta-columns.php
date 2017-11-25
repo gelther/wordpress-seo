@@ -301,7 +301,6 @@ class WPSEO_Meta_Columns_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Metabox::column_hidden()
 	 */
 	public function test_column_hidden_KEEP_OPTION() {
-
 		// Option shouldn't be touched if the user has set it already.
 		$user = $this->getMockBuilder( 'WP_User' )
 			->getMock();
@@ -393,4 +392,5 @@ class WPSEO_Meta_Columns_Test extends WPSEO_UnitTestCase {
 
 		$this->assertEquals( $expected, $result );
 	}
+
 }
