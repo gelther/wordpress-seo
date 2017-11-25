@@ -26,7 +26,6 @@ class WPSEO_Sitemaps_Cache {
 	 * Hook methods for invalidation on necessary events.
 	 */
 	public function __construct() {
-
 		add_action( 'init', array( $this, 'init' ) );
 
 		add_action( 'deleted_term_relationships', array( __CLASS__, 'invalidate' ) );
@@ -47,7 +46,6 @@ class WPSEO_Sitemaps_Cache {
 	 * Setup context for static calls.
 	 */
 	public function init() {
-
 		self::$is_enabled = $this->is_enabled();
 	}
 
@@ -59,7 +57,6 @@ class WPSEO_Sitemaps_Cache {
 	 * @return boolean
 	 */
 	public function is_enabled() {
-
 		/**
 		 * Filter if XML sitemap transient cache is enabled.
 		 *
@@ -68,19 +65,17 @@ class WPSEO_Sitemaps_Cache {
 		return apply_filters( 'wpseo_enable_xml_sitemap_transient_caching', true );
 	}
 
-
 	/**
 	 * Retrieve the sitemap page from cache.
 	 *
 	 * @since 3.2
 	 *
-	 * @param string $type Sitemap type.
-	 * @param int    $page Page number to retrieve.
+	 * @param  string         $type Sitemap type.
+	 * @param  int            $page Page number to retrieve.
 	 *
 	 * @return string|boolean
 	 */
 	public function get_sitemap( $type, $page ) {
-
 		$transient_key = WPSEO_Sitemaps_Cache_Validator::get_storage_key( $type, $page );
 		if ( false === $transient_key ) {
 			return false;
@@ -92,13 +87,12 @@ class WPSEO_Sitemaps_Cache {
 	/**
 	 * Get the sitemap that is cached
 	 *
-	 * @param string $type Sitemap type.
-	 * @param int    $page Page number to retrieve.
+	 * @param  string                        $type Sitemap type.
+	 * @param  int                           $page Page number to retrieve.
 	 *
-	 * @return null|WPSEO_Sitemap_Cache_Data Null on no cache found otherwise object containing sitemap and meta data.
+	 * @return null|WPSEO_Sitemap_Cache_Data       Null on no cache found otherwise object containing sitemap and meta data.
 	 */
 	public function get_sitemap_data( $type, $page ) {
-
 		$sitemap = $this->get_sitemap( $type, $page );
 
 		if ( empty( $sitemap ) ) {
@@ -124,15 +118,14 @@ class WPSEO_Sitemaps_Cache {
 	 *
 	 * @since 3.2
 	 *
-	 * @param string $type    Sitemap type.
-	 * @param int    $page    Page number to store.
-	 * @param string $sitemap Sitemap body to store.
-	 * @param bool   $usable  Is this a valid sitemap or a cache of an invalid sitemap.
+	 * @param  string $type    Sitemap type.
+	 * @param  int    $page    Page number to store.
+	 * @param  string $sitemap Sitemap body to store.
+	 * @param  bool   $usable  Is this a valid sitemap or a cache of an invalid sitemap.
 	 *
 	 * @return bool
 	 */
 	public function store_sitemap( $type, $page, $sitemap, $usable = true ) {
-
 		$transient_key = WPSEO_Sitemaps_Cache_Validator::get_storage_key( $type, $page );
 
 		if ( false === $transient_key ) {
@@ -156,12 +149,11 @@ class WPSEO_Sitemaps_Cache {
 	 * @since 1.5.4
 	 * @since 3.2   Changed from function wpseo_invalidate_sitemap_cache() to method in this class.
 	 *
-	 * @param string $type Sitemap type to invalidate.
+	 * @param  string $type Sitemap type to invalidate.
 	 *
 	 * @return void
 	 */
 	public static function invalidate( $type ) {
-
 		self::clear( array( $type ) );
 	}
 
@@ -170,13 +162,12 @@ class WPSEO_Sitemaps_Cache {
 	 *
 	 * @since 3.2
 	 *
-	 * @param int    $unused Unused term ID value.
-	 * @param string $type   Taxonomy to invalidate.
+	 * @param  int    $unused Unused term ID value.
+	 * @param  string $type   Taxonomy to invalidate.
 	 *
 	 * @return void
 	 */
 	public static function invalidate_helper( $unused, $type ) {
-
 		$sitemap_options = WPSEO_Options::get_option( 'wpseo_xml' );
 
 		$taxonomy_not_in_sitemap = 'taxonomies-' . $type . '-not_in_sitemap';
@@ -191,7 +182,6 @@ class WPSEO_Sitemaps_Cache {
 	 * @param int $user_id User ID.
 	 */
 	public static function invalidate_author( $user_id ) {
-
 		$user = get_user_by( 'id', $user_id );
 
 		if ( 'user_register' === current_action() ) {
@@ -211,12 +201,11 @@ class WPSEO_Sitemaps_Cache {
 	 * @since 1.5.4
 	 * @since 3.2   Changed from function wpseo_invalidate_sitemap_cache_on_save_post() to method in this class.
 	 *
-	 * @param int $post_id Post ID to invalidate type for.
+	 * @param  int  $post_id Post ID to invalidate type for.
 	 *
 	 * @return void
 	 */
 	public static function invalidate_post( $post_id ) {
-
 		if ( wp_is_post_revision( $post_id ) ) {
 			return;
 		}
@@ -230,12 +219,11 @@ class WPSEO_Sitemaps_Cache {
 	 * @since 1.8.0
 	 * @since 3.2   Moved from WPSEO_Utils to this class.
 	 *
-	 * @param array $types Set of sitemap types to delete cache transients for.
+	 * @param  array $types Set of sitemap types to delete cache transients for.
 	 *
 	 * @return void
 	 */
 	public static function clear( $types = array() ) {
-
 		if ( ! self::$is_enabled ) {
 			return;
 		}
@@ -263,7 +251,6 @@ class WPSEO_Sitemaps_Cache {
 	 * Invalidate storage for cache types queued to clear.
 	 */
 	public static function clear_queued() {
-
 		if ( self::$clear_all ) {
 
 			WPSEO_Sitemaps_Cache_Validator::invalidate_storage();
@@ -289,7 +276,6 @@ class WPSEO_Sitemaps_Cache {
 	 * @param string $type   Sitemap type.
 	 */
 	public static function register_clear_on_option_update( $option, $type = '' ) {
-
 		self::$cache_clear[ $option ] = $type;
 	}
 
@@ -298,23 +284,22 @@ class WPSEO_Sitemaps_Cache {
 	 *
 	 * @since 3.2
 	 *
-	 * @param string $option The option name that's being updated.
+	 * @param  string $option The option name that's being updated.
 	 *
 	 * @return void
 	 */
 	public static function clear_on_option_update( $option ) {
-
 		if ( array_key_exists( $option, self::$cache_clear ) ) {
 
 			if ( empty( self::$cache_clear[ $option ] ) ) {
 				// Clear all caches.
 				self::clear();
-			}
-			else {
+			} else {
 				// Clear specific provided type(s).
 				$types = (array) self::$cache_clear[ $option ];
 				self::clear( $types );
 			}
 		}
 	}
+
 }
