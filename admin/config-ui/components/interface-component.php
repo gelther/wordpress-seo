@@ -20,7 +20,7 @@ interface WPSEO_Config_Component {
 	/**
 	 * Save changes
 	 *
-	 * @param array $data Data provided by the API.
+	 * @param  array $data Data provided by the API.
 	 *
 	 * @return mixed
 	 */
