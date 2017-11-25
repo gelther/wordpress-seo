@@ -68,4 +68,5 @@ class WPSEO_Configuration_Components {
 			);
 		}
 	}
+
 }
