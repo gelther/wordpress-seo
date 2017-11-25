@@ -13,9 +13,9 @@ abstract class WPSEO_Abstract_Role_Manager implements WPSEO_Role_Manager {
 	/**
 	 * Registers a role.
 	 *
-	 * @param string      $role         Role to register.
-	 * @param string      $display_name Display name to use.
-	 * @param null|string $template     Optional. Role to base the new role on.
+	 * @param  string      $role         Role to register.
+	 * @param  string      $display_name Display name to use.
+	 * @param  null|string $template     Optional. Role to base the new role on.
 	 *
 	 * @return void
 	 */
@@ -63,9 +63,9 @@ abstract class WPSEO_Abstract_Role_Manager implements WPSEO_Role_Manager {
 	/**
 	 * Returns the capabilities for the specified role.
 	 *
-	 * @param string $role Role to fetch capabilities from.
+	 * @param  string $role Role to fetch capabilities from.
 	 *
-	 * @return array List of capabilities.
+	 * @return array        List of capabilities.
 	 */
 	protected function get_capabilities( $role ) {
 		if ( ! is_string( $role ) || empty( $role ) ) {
@@ -83,10 +83,10 @@ abstract class WPSEO_Abstract_Role_Manager implements WPSEO_Role_Manager {
 	/**
 	 * Returns true if the capability exists on the role.
 	 *
-	 * @param WP_Role $role       Role to check capability against.
-	 * @param string  $capability Capability to check.
+	 * @param  WP_Role $role       Role to check capability against.
+	 * @param  string  $capability Capability to check.
 	 *
-	 * @return bool True if the capability is defined for the role.
+	 * @return bool                True if the capability is defined for the role.
 	 */
 	protected function capability_exists( WP_Role $role, $capability ) {
 		return ! array_key_exists( $capability, $role->capabilities );
@@ -97,10 +97,10 @@ abstract class WPSEO_Abstract_Role_Manager implements WPSEO_Role_Manager {
 	 *
 	 * This makes sure we don't override configurations that have been previously set.
 	 *
-	 * @param string $role         The role to check against.
-	 * @param array  $capabilities The capabilities that should be set.
+	 * @param  string $role         The role to check against.
+	 * @param  array  $capabilities The capabilities that should be set.
 	 *
-	 * @return array Capabilties that can be safely set.
+	 * @return array                Capabilties that can be safely set.
 	 */
 	protected function filter_existing_capabilties( $role, array $capabilities ) {
 		if ( $capabilities === array() ) {
@@ -124,9 +124,9 @@ abstract class WPSEO_Abstract_Role_Manager implements WPSEO_Role_Manager {
 	/**
 	 * Adds a role to the system.
 	 *
-	 * @param string $role         Role to add.
-	 * @param string $display_name Name to display for the role.
-	 * @param array  $capabilities Capabilities to add to the role.
+	 * @param  string $role         Role to add.
+	 * @param  string $display_name Name to display for the role.
+	 * @param  array  $capabilities Capabilities to add to the role.
 	 *
 	 * @return void
 	 */
@@ -135,7 +135,7 @@ abstract class WPSEO_Abstract_Role_Manager implements WPSEO_Role_Manager {
 	/**
 	 * Removes a role from the system
 	 *
-	 * @param string $role Role to remove.
+	 * @param  string $role Role to remove.
 	 *
 	 * @return void
 	 */
