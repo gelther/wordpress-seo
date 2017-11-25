@@ -37,9 +37,9 @@ class WPSEO_Post_Type {
 	/**
 	 * Checks if the request post type is public and indexable.
 	 *
-	 * @param string $post_type_name The name of the post type to lookup.
+	 * @param  string $post_type_name The name of the post type to lookup.
 	 *
-	 * @return bool True when post type is set to index.
+	 * @return bool                   True when post type is set to index.
 	 */
 	public static function is_post_type_indexable( $post_type_name ) {
 		$option = WPSEO_Options::get_option( 'wpseo_titles' );
@@ -54,13 +54,14 @@ class WPSEO_Post_Type {
 	/**
 	 * Filters the attachment post type from an array with post_types.
 	 *
-	 * @param array $post_types The array to filter the attachment post type from.
+	 * @param  array $post_types The array to filter the attachment post type from.
 	 *
-	 * @return array The filtered array.
+	 * @return array             The filtered array.
 	 */
 	public static function filter_attachment_post_type( array $post_types ) {
 		unset( $post_types['attachment'] );
 
 		return $post_types;
 	}
+
 }
