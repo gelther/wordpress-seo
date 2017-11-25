@@ -27,7 +27,6 @@ class WPSEO_OnPage_Double extends WPSEO_OnPage {
 	 * @return void
 	 */
 	protected function notify_admins() {
-
 	}
 
 }
