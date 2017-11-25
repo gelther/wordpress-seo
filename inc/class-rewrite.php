@@ -54,7 +54,7 @@ class WPSEO_Rewrite {
 	/**
 	 * Override the category link to remove the category base.
 	 *
-	 * @param string $link Unused, overridden by the function.
+	 * @param  string $link Unused, overridden by the function.
 	 *
 	 * @return string
 	 */
@@ -78,7 +78,7 @@ class WPSEO_Rewrite {
 	/**
 	 * Update the query vars with the redirect var when stripcategorybase is active
 	 *
-	 * @param array $query_vars Main query vars to filter.
+	 * @param  array $query_vars Main query vars to filter.
 	 *
 	 * @return array
 	 */
@@ -95,7 +95,7 @@ class WPSEO_Rewrite {
 	/**
 	 * Redirect the "old" category URL to the new one.
 	 *
-	 * @param array $query_vars Query vars to check for existence of redirect var.
+	 * @param  array $query_vars Query vars to check for existence of redirect var.
 	 *
 	 * @return array
 	 */
@@ -135,8 +135,7 @@ class WPSEO_Rewrite {
 				if ( $category->parent == $category->cat_ID ) {
 					// Recursive recursion.
 					$category->parent = 0;
-				}
-				elseif ( $taxonomy->rewrite['hierarchical'] != 0 && $category->parent !== 0 ) {
+				} elseif ( $taxonomy->rewrite['hierarchical'] != 0 && $category->parent !== 0 ) {
 					$parents = get_category_parents( $category->parent, false, '/', true );
 					if ( ! is_wp_error( $parents ) ) {
 						$category_nicename = $parents . $category_nicename;
@@ -146,7 +145,7 @@ class WPSEO_Rewrite {
 
 				$category_rewrite[ $blog_prefix . '(' . $category_nicename . ')/(?:feed/)?(feed|rdf|rss|rss2|atom)/?$' ]                = 'index.php?category_name=$matches[1]&feed=$matches[2]';
 				$category_rewrite[ $blog_prefix . '(' . $category_nicename . ')/' . $wp_rewrite->pagination_base . '/?([0-9]{1,})/?$' ] = 'index.php?category_name=$matches[1]&paged=$matches[2]';
-				$category_rewrite[ $blog_prefix . '(' . $category_nicename . ')/?$' ] = 'index.php?category_name=$matches[1]';
+				$category_rewrite[ $blog_prefix . '(' . $category_nicename . ')/?$' ]                                                   = 'index.php?category_name=$matches[1]';
 			}
 			unset( $categories, $category, $category_nicename );
 		}
@@ -159,4 +158,5 @@ class WPSEO_Rewrite {
 
 		return $category_rewrite;
 	}
+
 } /* End of class */
