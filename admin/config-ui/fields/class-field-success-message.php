@@ -32,4 +32,5 @@ class WPSEO_Config_Field_Success_Message extends WPSEO_Config_Field {
 			)
 		);
 	}
+
 }
