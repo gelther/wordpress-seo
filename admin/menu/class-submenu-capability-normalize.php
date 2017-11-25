@@ -23,9 +23,9 @@ class WPSEO_Submenu_Capability_Normalize implements WPSEO_WordPress_Integration 
 	 * This is needed as the module plugins are not updated with the new capabilities directly,
 	 * but they should not be shown as main menu items.
 	 *
-	 * @param array $submenu_pages List of subpages to convert.
+	 * @param  array $submenu_pages List of subpages to convert.
 	 *
-	 * @return array Converted subpages.
+	 * @return array                Converted subpages.
 	 */
 	public function normalize_submenus_capability( $submenu_pages ) {
 		foreach ( $submenu_pages as $index => $submenu_page ) {
@@ -36,4 +36,5 @@ class WPSEO_Submenu_Capability_Normalize implements WPSEO_WordPress_Integration 
 
 		return $submenu_pages;
 	}
+
 }
