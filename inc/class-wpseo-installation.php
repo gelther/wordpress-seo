@@ -42,4 +42,5 @@ class WPSEO_Installation {
 
 		update_option( 'wpseo', $options );
 	}
+
 }
