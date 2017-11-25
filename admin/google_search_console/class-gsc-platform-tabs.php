@@ -78,9 +78,9 @@ class WPSEO_GSC_Platform_Tabs {
 	/**
 	 * Parses the tab
 	 *
-	 * @param string $platform_target Platform (desktop, mobile, feature phone).
-	 * @param string $platform_value  Link anchor.
-	 * @param string $admin_link      Link URL admin base.
+	 * @param  string $platform_target Platform (desktop, mobile, feature phone).
+	 * @param  string $platform_value  Link anchor.
+	 * @param  string $admin_link      Link URL admin base.
 	 *
 	 * @return string
 	 */
@@ -92,4 +92,5 @@ class WPSEO_GSC_Platform_Tabs {
 
 		return '<a class="nav-tab' . esc_attr( $active ) . '" id="' . esc_attr( $platform_target . '-tab' ) . '" href="' . esc_url( $admin_link . $platform_target ) . '">' . esc_html( $platform_value ) . '</a>';
 	}
+
 }
