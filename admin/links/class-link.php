@@ -59,4 +59,5 @@ class WPSEO_Link {
 	public function get_type() {
 		return $this->type;
 	}
+
 }
