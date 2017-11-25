@@ -181,13 +181,14 @@ class WPSEO_Post_Type_Test extends WPSEO_UnitTestCase {
 	/**
 	 * Callback for the 'wpseo_accessible_post_types' filter, used in 'test_get_accessible_post_types_with_a_filter_hook'
 	 *
-	 * @param array $post_types The post types to filter.
+	 * @param  array $post_types The post types to filter.
 	 *
-	 * @return array The filtered post_types.
+	 * @return array             The filtered post_types.
 	 */
 	public function filter_attachment( array $post_types ) {
 		unset( $post_types['attachment'] );
 
 		return $post_types;
 	}
+
 }
