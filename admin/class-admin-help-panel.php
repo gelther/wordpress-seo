@@ -31,10 +31,10 @@ class WPSEO_Admin_Help_Panel {
 	/**
 	 * Constructor.
 	 *
-	 * @param string $id                Unique identifier of the element the inline help refers to, used as an identifier in the html.
-	 * @param string $help_button_text  The Help Button text.
-	 * @param string $help_content      The Help Panel content.
-	 * @param string $wrapper           Optional Whether to print out a container div element for the Help Panel, used for styling.
+	 * @param string $id               Unique identifier of the element the inline help refers to, used as an identifier in the html.
+	 * @param string $help_button_text The Help Button text.
+	 * @param string $help_content     The Help Panel content.
+	 * @param string $wrapper          Optional Whether to print out a container div element for the Help Panel, used for styling.
 	 *                                  Pass a `has-wrapper` value to print out the container. Default: no container.
 	 */
 	public function __construct( $id, $help_button_text, $help_content, $wrapper = '' ) {
@@ -50,7 +50,6 @@ class WPSEO_Admin_Help_Panel {
 	 * @return string
 	 */
 	public function get_button_html() {
-
 		if ( ! $this->id || ! $this->help_button_text || ! $this->help_content ) {
 			return '';
 		}
@@ -68,7 +67,6 @@ class WPSEO_Admin_Help_Panel {
 	 * @return string
 	 */
 	public function get_panel_html() {
-
 		if ( ! $this->id || ! $this->help_button_text || ! $this->help_content ) {
 			return '';
 		}
@@ -89,4 +87,5 @@ class WPSEO_Admin_Help_Panel {
 			$wrapper_end
 		);
 	}
+
 }
