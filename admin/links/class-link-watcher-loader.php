@@ -20,4 +20,5 @@ class WPSEO_Link_Watcher_Loader {
 		$link_watcher      = new WPSEO_Link_Watcher( $content_processor );
 		$link_watcher->register_hooks();
 	}
+
 }
