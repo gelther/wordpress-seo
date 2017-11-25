@@ -129,8 +129,7 @@ function wpseo_kill_blocking_files() {
 	if ( $errors ) {
 		$message = implode( '<br />', $errors );
 		wp_send_json_error( array( 'message' => $message ) );
-	}
-	else {
+	} else {
 		$message = __( 'Files successfully removed.', 'wordpress-seo' );
 		wp_send_json_success( array( 'message' => $message ) );
 	}
@@ -196,16 +195,15 @@ function wpseo_save_what( $what ) {
  * Helper function to update a post's meta data, returning relevant information
  * about the information updated and the results or the meta update.
  *
- * @param int    $post_id         Post ID.
- * @param string $new_meta_value  New meta value to record.
- * @param string $orig_meta_value Original meta value.
- * @param string $meta_key        Meta key string.
- * @param string $return_key      Return key string to use in results.
+ * @param  int    $post_id         Post ID.
+ * @param  string $new_meta_value  New meta value to record.
+ * @param  string $orig_meta_value Original meta value.
+ * @param  string $meta_key        Meta key string.
+ * @param  string $return_key      Return key string to use in results.
  *
  * @return string
  */
 function wpseo_upsert_meta( $post_id, $new_meta_value, $orig_meta_value, $meta_key, $return_key ) {
-
 	$post_id                  = intval( $post_id );
 	$sanitized_new_meta_value = wp_strip_all_tags( $new_meta_value );
 	$orig_meta_value          = wp_strip_all_tags( $orig_meta_value );
@@ -323,10 +321,10 @@ function wpseo_save_all( $what ) {
 /**
  * Insert a new value
  *
- * @param string $what     Item type (such as title).
- * @param int    $post_id  Post ID.
- * @param string $new      New value to record.
- * @param string $original Original value.
+ * @param  string $what     Item type (such as title).
+ * @param  int    $post_id  Post ID.
+ * @param  string $new      New value to record.
+ * @param  string $original Original value.
  *
  * @return string
  */
@@ -404,10 +402,10 @@ add_action( 'wp_ajax_get_term_keyword_usage', 'ajax_get_term_keyword_usage' );
 /**
  * Removes stopword from the sample permalink that is generated in an AJAX request
  *
- * @param array  $permalink The permalink generated for this post by WordPress.
- * @param int    $post_id   The ID of the post.
- * @param string $title     The title for the post that the user used.
- * @param string $name      The name for the post that the user used.
+ * @param  array  $permalink The permalink generated for this post by WordPress.
+ * @param  int    $post_id   The ID of the post.
+ * @param  string $title     The title for the post that the user used.
+ * @param  string $name      The name for the post that the user used.
  *
  * @return array
  */
@@ -418,7 +416,7 @@ function wpseo_remove_stopwords_sample_permalink( $permalink, $post_id, $title, 
 		return $permalink;
 	}
 
-	/*
+	/**
 	 * If the name is empty and the title is not, WordPress will generate a slug. In that case we want to remove stop
 	 * words from the slug.
 	 */
