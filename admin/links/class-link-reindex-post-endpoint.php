@@ -50,5 +50,5 @@ class WPSEO_Link_Reindex_Post_Endpoint {
 	public function can_retrieve_data() {
 		return current_user_can( self::CAPABILITY_RETRIEVE );
 	}
-}
 
+}
