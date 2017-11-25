@@ -54,7 +54,7 @@ class WPSEO_Menu implements WPSEO_WordPress_Integration {
 	/**
 	 * Shows an admin settings page.
 	 *
-	 * @param string $page Page to display.
+	 * @param  string $page Page to display.
 	 *
 	 * @return void
 	 */
@@ -101,4 +101,5 @@ class WPSEO_Menu implements WPSEO_WordPress_Integration {
 				break;
 		}
 	}
+
 }
