@@ -26,4 +26,5 @@ class WPSEO_Taxonomy_Test extends PHPUnit_Framework_TestCase {
 		$this->assertFalse( WPSEO_Taxonomy::is_term_overview( '' ) );
 		$this->assertFalse( WPSEO_Taxonomy::is_term_overview( 'random' ) );
 	}
+
 }
