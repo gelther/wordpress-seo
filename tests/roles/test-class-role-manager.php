@@ -48,4 +48,5 @@ class Capability_Role_Tests extends PHPUnit_Framework_TestCase {
 		$result = $instance->get_capabilities( 'fake_role' );
 		$this->assertEquals( array(), $result );
 	}
+
 }
