@@ -58,7 +58,7 @@ class WPSEO_Link_Reindex_Post_Service {
 	/**
 	 * Processes the post.
 	 *
-	 * @param stdObject $post The post to process.
+	 * @param  stdObject $post The post to process.
 	 *
 	 * @return void
 	 */
@@ -90,4 +90,5 @@ class WPSEO_Link_Reindex_Post_Service {
 
 		return $content_processor;
 	}
+
 }
