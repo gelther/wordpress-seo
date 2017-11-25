@@ -116,4 +116,5 @@ class WPSEO_Configuration_Notifier_Test extends WPSEO_UnitTestCase {
 
 		$notifier->listen();
 	}
+
 }
