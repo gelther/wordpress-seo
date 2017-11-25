@@ -45,4 +45,5 @@ final class WPSEO_Capability_Manager_WP extends WPSEO_Abstract_Capability_Manage
 			}
 		}
 	}
+
 }
