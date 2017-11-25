@@ -23,8 +23,7 @@ if ( $options['enablexmlsitemap'] === true ) {
 	echo '<br/>';
 	_e( 'You do <strong>not</strong> need to generate the XML sitemap, nor will it take up time to generate after publishing a post.', 'wordpress-seo' );
 	echo '</p>';
-}
-else {
+} else {
 	echo '<p>', esc_html__( 'Save your settings to activate your XML Sitemap.', 'wordpress-seo' ), '</p>';
 }
 
