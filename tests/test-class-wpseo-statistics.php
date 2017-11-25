@@ -168,4 +168,5 @@ class WPSEO_Statistics_Test extends WPSEO_UnitTestCase {
 
 		$this->assertEquals( 7, $this->instance->get_post_count( new WPSEO_Rank( WPSEO_Rank::NO_INDEX ) ) );
 	}
+
 }
