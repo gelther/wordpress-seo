@@ -49,9 +49,9 @@ class WPSEO_Statistics_Service {
 	/**
 	 * Gets a header summarizing the given statistics results.
 	 *
-	 * @param array $statistics The statistics results.
+	 * @param  array  $statistics The statistics results.
 	 *
-	 * @return string The header summing up the statistics results.
+	 * @return string             The header summing up the statistics results.
 	 */
 	private function get_header_from_statistics( array $statistics ) {
 		// Personal interpretation to allow release, should be looked at later.
@@ -100,10 +100,10 @@ class WPSEO_Statistics_Service {
 	/**
 	 * Set the statistics transient cache for a specific user
 	 *
-	 * @param array $transient The current stored transient with the cached data.
-	 * @param int   $user The user's ID to assign the retrieved values to.
+	 * @param  array $transient The current stored transient with the cached data.
+	 * @param  int   $user      The user's ID to assign the retrieved values to.
 	 *
-	 * @return array The statistics transient for the user.
+	 * @return array            The statistics transient for the user.
 	 */
 	private function set_statistic_items_for_user( $transient, $user ) {
 		$scores   = $this->get_seo_scores_with_post_count();
@@ -123,9 +123,9 @@ class WPSEO_Statistics_Service {
 	/**
 	 * Gets the division of SEO scores.
 	 *
-	 * @param array $scores The SEO scores.
+	 * @param  array      $scores The SEO scores.
 	 *
-	 * @return array|bool The division of SEO scores, false if there are no posts.
+	 * @return array|bool         The division of SEO scores, false if there are no posts.
 	 */
 	private function get_seo_score_division( array $scores ) {
 		$total    = 0;
@@ -160,9 +160,9 @@ class WPSEO_Statistics_Service {
 	/**
 	 * Converts a rank to data usable in the dashboard widget.
 	 *
-	 * @param WPSEO_Rank $rank The rank to map.
+	 * @param  WPSEO_Rank $rank The rank to map.
 	 *
-	 * @return array The mapped rank.
+	 * @return array            The mapped rank.
 	 */
 	private function map_rank_to_widget( WPSEO_Rank $rank ) {
 		return array(
@@ -176,9 +176,9 @@ class WPSEO_Statistics_Service {
 	/**
 	 * Returns a dashboard widget label to use for a certain rank.
 	 *
-	 * @param WPSEO_Rank $rank The rank to return a label for.
+	 * @param  WPSEO_Rank $rank The rank to return a label for.
 	 *
-	 * @return string The label for the rank.
+	 * @return string           The label for the rank.
 	 */
 	private function get_label_for_rank( WPSEO_Rank $rank ) {
 		return $this->labels[ $rank->get_rank() ];
@@ -207,9 +207,9 @@ class WPSEO_Statistics_Service {
 	/**
 	 * Filter items if they have a count of zero.
 	 *
-	 * @param array $item The item to potentially filter out.
+	 * @param  array $item The item to potentially filter out.
 	 *
-	 * @return bool Whether or not the count is zero.
+	 * @return bool        Whether or not the count is zero.
 	 */
 	private function filter_items( $item ) {
 		return $item['count'] !== 0;
@@ -218,9 +218,9 @@ class WPSEO_Statistics_Service {
 	/**
 	 * Returns a link for the overview of posts of a certain rank.
 	 *
-	 * @param WPSEO_Rank $rank The rank to return a link for.
+	 * @param  WPSEO_Rank $rank The rank to return a link for.
 	 *
-	 * @return string The link that shows an overview of posts with that rank.
+	 * @return string           The link that shows an overview of posts with that rank.
 	 */
 	private function get_link_for_rank( WPSEO_Rank $rank ) {
 		if ( current_user_can( 'edit_others_posts' ) === false ) {
@@ -229,4 +229,5 @@ class WPSEO_Statistics_Service {
 
 		return esc_url( admin_url( 'edit.php?post_status=publish&post_type=post&seo_filter=' . $rank->get_rank() ) );
 	}
+
 }
