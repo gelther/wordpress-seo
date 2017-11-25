@@ -105,4 +105,5 @@ class WPSEO_GSC_Ajax {
 
 		wp_die( wp_json_encode( $component->get_data() ) );
 	}
+
 }
