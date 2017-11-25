@@ -63,9 +63,9 @@ class WPSEO_Link_Storage implements WPSEO_Installable {
 	/**
 	 * Returns an array of links from the database.
 	 *
-	 * @param int $post_id The post to get the links for.
+	 * @param  int          $post_id The post to get the links for.
 	 *
-	 * @return WPSEO_Link[] The links connected to the post.
+	 * @return WPSEO_Link[]          The links connected to the post.
 	 */
 	public function get_links( $post_id ) {
 		global $wpdb;
@@ -94,8 +94,8 @@ class WPSEO_Link_Storage implements WPSEO_Installable {
 	/**
 	 * Walks the given links to save them.
 	 *
-	 * @param integer      $post_id The post id to save.
-	 * @param WPSEO_Link[] $links   The link to save.
+	 * @param  integer      $post_id The post id to save.
+	 * @param  WPSEO_Link[] $links   The link to save.
 	 *
 	 * @return void
 	 */
@@ -106,9 +106,9 @@ class WPSEO_Link_Storage implements WPSEO_Installable {
 	/**
 	 * Removes all records for given post_id.
 	 *
-	 * @param int $post_id The post_id to remove the records for.
+	 * @param  int       $post_id The post_id to remove the records for.
 	 *
-	 * @return int|false The number of rows updated, or false on error.
+	 * @return int|false          The number of rows updated, or false on error.
 	 */
 	public function cleanup( $post_id ) {
 		$is_deleted = $this->database_proxy->delete(
@@ -126,9 +126,9 @@ class WPSEO_Link_Storage implements WPSEO_Installable {
 	/**
 	 * Inserts the link into the database.
 	 *
-	 * @param WPSEO_Link $link     The link to save.
-	 * @param int        $link_key The link key. Unused.
-	 * @param int        $post_id  The post id to save the link for.
+	 * @param  WPSEO_Link $link     The link to save.
+	 * @param  int        $link_key The link key. Unused.
+	 * @param  int        $post_id  The post id to save the link for.
 	 *
 	 * @return void
 	 */
@@ -147,4 +147,5 @@ class WPSEO_Link_Storage implements WPSEO_Installable {
 			WPSEO_Link_Table_Accessible::set_inaccessible();
 		}
 	}
+
 }
