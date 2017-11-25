@@ -28,4 +28,5 @@ class OnPage_Option_Mock extends WPSEO_OnPage_Option {
 	public function should_be_fetched() {
 		return $this->can_fetch;
 	}
+
 }
