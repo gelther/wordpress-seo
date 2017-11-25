@@ -23,9 +23,9 @@ class WPSEO_Link_Filter {
 	/**
 	 * Filters all internal links that contains an fragment in the URL.
 	 *
-	 * @param WPSEO_Link $link The link that might be filtered.
+	 * @param  WPSEO_Link $link The link that might be filtered.
 	 *
-	 * @return bool False when url contains a fragment.
+	 * @return bool             False when url contains a fragment.
 	 */
 	public function internal_link_with_fragment_filter( WPSEO_Link $link ) {
 		// When the type is external.
@@ -45,11 +45,12 @@ class WPSEO_Link_Filter {
 	/**
 	 * Is the url path the same as the current page path.
 	 *
-	 * @param string $url_path The url path.
+	 * @param  string $url_path The url path.
 	 *
-	 * @return bool True when path is equal to the current page path.
+	 * @return bool             True when path is equal to the current page path.
 	 */
 	protected function is_current_page( $url_path ) {
 		return ( ! empty( $url_path ) && $url_path === $this->current_page_path );
 	}
+
 }
