@@ -66,15 +66,14 @@ class WPSEO_Taxonomy_Fields_Presenter {
 	/**
 	 * Generates the html for the given field config.
 	 *
-	 * @param string $field_type  The fieldtype, e.g: text, checkbox, etc.
-	 * @param string $field_name  The name of the field.
-	 * @param string $field_value The value of the field.
-	 * @param array  $options     Array with additional options.
+	 * @param  string $field_type  The fieldtype, e.g: text, checkbox, etc.
+	 * @param  string $field_name  The name of the field.
+	 * @param  string $field_value The value of the field.
+	 * @param  array  $options     Array with additional options.
 	 *
 	 * @return string
 	 */
 	private function get_field( $field_type, $field_name, $field_value, array $options ) {
-
 		$class            = $this->get_class( $options );
 		$field            = '';
 		$description      = '';
@@ -140,8 +139,8 @@ class WPSEO_Taxonomy_Fields_Presenter {
 					$select_options = ( array_key_exists( 'options', $options ) ) ? $options['options'] : $options;
 
 					foreach ( $select_options as $option => $option_label ) {
-						$selected = selected( $option, $field_value, false );
-						$field   .= '<option ' . $selected . ' value="' . esc_attr( $option ) . '">' . esc_html( $option_label ) . '</option>';
+						$selected  = selected( $option, $field_value, false );
+						$field    .= '<option ' . $selected . ' value="' . esc_attr( $option ) . '">' . esc_html( $option_label ) . '</option>';
 					}
 					unset( $option, $option_label, $selected );
 
@@ -159,7 +158,7 @@ class WPSEO_Taxonomy_Fields_Presenter {
 	/**
 	 * Getting the value for given field_name
 	 *
-	 * @param string $field_name The fieldname to get the value for.
+	 * @param  string $field_name The fieldname to get the value for.
 	 *
 	 * @return string
 	 */
@@ -174,7 +173,7 @@ class WPSEO_Taxonomy_Fields_Presenter {
 	/**
 	 * Getting the class attributes if $options contains a class key
 	 *
-	 * @param array $options The array with field options.
+	 * @param  array  $options The array with field options.
 	 *
 	 * @return string
 	 */
@@ -189,8 +188,8 @@ class WPSEO_Taxonomy_Fields_Presenter {
 	/**
 	 * Getting the label HTML
 	 *
-	 * @param string $label      The label value.
-	 * @param string $field_name The target field.
+	 * @param  string $label      The label value.
+	 * @param  string $field_name The target field.
 	 *
 	 * @return string
 	 */
@@ -205,9 +204,9 @@ class WPSEO_Taxonomy_Fields_Presenter {
 	/**
 	 * Returns the HTML for the row which contains label, help and the field.
 	 *
-	 * @param string                 $label       The html for the label if there was a label set.
-	 * @param WPSEO_Admin_Help_Panel $help        The help panel to render in this row.
-	 * @param string                 $field       The html for the field.
+	 * @param  string                 $label The html for the label if there was a label set.
+	 * @param  WPSEO_Admin_Help_Panel $help  The help panel to render in this row.
+	 * @param  string                 $field The html for the field.
 	 *
 	 * @return string
 	 */
@@ -222,9 +221,9 @@ class WPSEO_Taxonomy_Fields_Presenter {
 	/**
 	 * Creates a sections specific row.
 	 *
-	 * @param string                 $content      The content to show.
-	 * @param string                 $esc_form_key Escaped form key name.
-	 * @param WPSEO_Admin_Help_Panel $help         The help button.
+	 * @param  string                 $content      The content to show.
+	 * @param  string                 $esc_form_key Escaped form key name.
+	 * @param  WPSEO_Admin_Help_Panel $help         The help button.
 	 *
 	 * @return string
 	 */
@@ -233,4 +232,5 @@ class WPSEO_Taxonomy_Fields_Presenter {
 		$html .= '<div class="wpseo_hidden" id="help-yoast-' . $esc_form_key . '">' . $help->get_button_html() . $help->get_panel_html() . '</div>';
 		return $html;
 	}
+
 }
