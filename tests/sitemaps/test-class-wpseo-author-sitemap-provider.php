@@ -131,7 +131,7 @@ class Test_WPSEO_Author_Sitemap_Provider extends WPSEO_UnitTestCase {
 	/**
 	 * Exclude author by role
 	 *
-	 * @param mixed $false False.
+	 * @param  mixed $false False.
 	 *
 	 * @return array
 	 */
@@ -147,7 +147,7 @@ class Test_WPSEO_Author_Sitemap_Provider extends WPSEO_UnitTestCase {
 	/**
 	 * Don't exclude author by role
 	 *
-	 * @param mixed $false False.
+	 * @param  mixed $false False.
 	 *
 	 * @return array
 	 */
@@ -158,7 +158,7 @@ class Test_WPSEO_Author_Sitemap_Provider extends WPSEO_UnitTestCase {
 	/**
 	 * Exclude author that has no posts
 	 *
-	 * @param mixed $false False.
+	 * @param  mixed $false False.
 	 *
 	 * @return array
 	 */
@@ -174,7 +174,7 @@ class Test_WPSEO_Author_Sitemap_Provider extends WPSEO_UnitTestCase {
 	/**
 	 * Exclude author by profile setting
 	 *
-	 * @param mixed $value Value.
+	 * @param  mixed  $value Value.
 	 *
 	 * @return string
 	 */
@@ -185,7 +185,7 @@ class Test_WPSEO_Author_Sitemap_Provider extends WPSEO_UnitTestCase {
 	/**
 	 * Pretend user has 0 posts
 	 *
-	 * @param mixed $count Null.
+	 * @param  mixed $count Null.
 	 *
 	 * @return int
 	 */
@@ -196,11 +196,12 @@ class Test_WPSEO_Author_Sitemap_Provider extends WPSEO_UnitTestCase {
 	/**
 	 * Pretend user has posts
 	 *
-	 * @param mixed $count Null.
+	 * @param  mixed $count Null.
 	 *
 	 * @return int
 	 */
 	public function filter_user_has_posts( $count = 0 ) {
 		return 1;
 	}
+
 }
