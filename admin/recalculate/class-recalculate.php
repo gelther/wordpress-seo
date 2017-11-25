@@ -28,7 +28,7 @@ abstract class WPSEO_Recalculate {
 	/**
 	 * Gets the items and parses it to an response
 	 *
-	 * @param integer $paged The current page number.
+	 * @param  integer $paged The current page number.
 	 *
 	 * @return string
 	 */
@@ -37,7 +37,7 @@ abstract class WPSEO_Recalculate {
 	/**
 	 * Maps the items to an array for the response
 	 *
-	 * @param mixed $item Object with data to parse.
+	 * @param  mixed $item Object with data to parse.
 	 *
 	 * @return array
 	 */
@@ -47,9 +47,9 @@ abstract class WPSEO_Recalculate {
 	/**
 	 * Gets the items to recalculate
 	 *
-	 * @param int $paged The current page number.
+	 * @param  int   $paged The current page number.
 	 *
-	 * @return array Items that can be recalculated.
+	 * @return array        Items that can be recalculated.
 	 */
 	public function get_items_to_recalculate( $paged ) {
 		$return = array();
@@ -72,7 +72,7 @@ abstract class WPSEO_Recalculate {
 	/**
 	 * Parse the posts|terms with the value we need
 	 *
-	 * @param array $items The items to parse.
+	 * @param  array $items The items to parse.
 	 *
 	 * @return array
 	 */
@@ -91,8 +91,8 @@ abstract class WPSEO_Recalculate {
 	/**
 	 * Get default from the options for given field
 	 *
-	 * @param string $field  The field for which to get the default options.
-	 * @param string $suffix The post type.
+	 * @param  string      $field  The field for which to get the default options.
+	 * @param  string      $suffix The post type.
 	 *
 	 * @return bool|string
 	 */
@@ -104,4 +104,5 @@ abstract class WPSEO_Recalculate {
 
 		return false;
 	}
+
 }
