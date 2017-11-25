@@ -50,9 +50,9 @@ class WPSEO_Remote_Request {
 	/**
 	 * Sends the data to the given endpoint.
 	 *
-	 * @param string $method The type of request to send.
+	 * @param  string $method The type of request to send.
 	 *
-	 * @return bool True when sending data has been successful.
+	 * @return bool           True when sending data has been successful.
 	 */
 	public function send( $method = self::METHOD_POST ) {
 		switch ( $method ) {
@@ -92,9 +92,9 @@ class WPSEO_Remote_Request {
 	/**
 	 * Processes the given response.
 	 *
-	 * @param mixed $response The response to process.
+	 * @param  mixed $response The response to process.
 	 *
-	 * @return bool True when response is valid.
+	 * @return bool            True when response is valid.
 	 */
 	protected function process_response( $response ) {
 		if ( $response instanceof WP_Error ) {
@@ -125,4 +125,5 @@ class WPSEO_Remote_Request {
 	protected function get() {
 		return wp_remote_get( $this->endpoint, $this->args );
 	}
+
 }
