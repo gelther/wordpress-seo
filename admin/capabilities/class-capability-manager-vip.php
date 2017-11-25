@@ -47,11 +47,11 @@ final class WPSEO_Capability_Manager_VIP extends WPSEO_Abstract_Capability_Manag
 	/**
 	 * Returns the roles which the capability is registered on.
 	 *
-	 * @param array  $role_capabilities List of all roles with their capabilities.
-	 * @param string $capability        Capability to filter roles for.
-	 * @param array  $roles             List of default roles.
+	 * @param  array  $role_capabilities List of all roles with their capabilities.
+	 * @param  string $capability        Capability to filter roles for.
+	 * @param  array  $roles             List of default roles.
 	 *
-	 * @return array List of capabilities.
+	 * @return array                     List of capabilities.
 	 */
 	protected function get_role_capabilities( $role_capabilities, $capability, $roles ) {
 		// Allow filtering of roles.
@@ -67,4 +67,5 @@ final class WPSEO_Capability_Manager_VIP extends WPSEO_Abstract_Capability_Manag
 
 		return $role_capabilities;
 	}
+
 }
