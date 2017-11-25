@@ -29,7 +29,7 @@ class WPSEO_Cornerstone {
 	/**
 	 * Saves the meta value to the database.
 	 *
-	 * @param int $post_id The post id to save the meta value for.
+	 * @param  int  $post_id The post id to save the meta value for.
 	 *
 	 * @return void
 	 */
@@ -57,9 +57,9 @@ class WPSEO_Cornerstone {
 	/**
 	 * Checks if the current page matches one of the pages that contains the cornerstone content field.
 	 *
-	 * @param string $page The page to check.
+	 * @param  string $page The page to check.
 	 *
-	 * @return bool True when the page contains the cornerstone content field.
+	 * @return bool         True when the page contains the cornerstone content field.
 	 */
 	protected function page_contains_cornerstone_content_field( $page ) {
 		return WPSEO_Metabox::is_post_edit( $page );
@@ -68,8 +68,8 @@ class WPSEO_Cornerstone {
 	/**
 	 * Updates the cornerstone content post meta with the given cornerstone content value.
 	 *
-	 * @param int  $post_id                The post id to save the meta value for.
-	 * @param bool $is_cornerstone_content Whether or not the post should be considered to be cornerstone content.
+	 * @param  int  $post_id                The post id to save the meta value for.
+	 * @param  bool $is_cornerstone_content Whether or not the post should be considered to be cornerstone content.
 	 *
 	 * @return void
 	 */
@@ -80,11 +80,12 @@ class WPSEO_Cornerstone {
 	/**
 	 * Deletes the cornerstone content post meta for the given post id.
 	 *
-	 * @param int $post_id The post id to delete the cornerstone content meta value for..
+	 * @param  int  $post_id The post id to delete the cornerstone content meta value for..
 	 *
 	 * @return void
 	 */
 	protected function delete_meta( $post_id ) {
 		delete_post_meta( $post_id, self::META_NAME );
 	}
+
 }
