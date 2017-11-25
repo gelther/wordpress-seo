@@ -37,7 +37,6 @@ class WPSEO_Link_Watcher_Test extends WPSEO_UnitTestCase {
 	 * Test the is processable
 	 */
 	public function test_is_processable_post_revision() {
-
 		$post_parent = $this->factory->post->create_and_get();
 		$post        = $this->factory->post->create_and_get(
 			array(
@@ -62,7 +61,6 @@ class WPSEO_Link_Watcher_Test extends WPSEO_UnitTestCase {
 	 * See https://github.com/Yoast/wordpress-seo/pull/8068#issuecomment-338146035
 	 */
 	public function test_is_processable_draft() {
-
 		$post = $this->factory->post->create_and_get(
 			array( 'post_status' => 'draft' )
 		);
@@ -99,7 +97,6 @@ class WPSEO_Link_Watcher_Test extends WPSEO_UnitTestCase {
 	 * Test with a post not containing content.
 	 */
 	public function test_is_processable_without_content() {
-
 		$post = $this->factory->post->create_and_get(
 			array(
 				'post_content' => '',
@@ -120,7 +117,6 @@ class WPSEO_Link_Watcher_Test extends WPSEO_UnitTestCase {
 	 * Test with a post with content..
 	 */
 	public function test_is_processable_with_content() {
-
 		$post = $this->factory->post->create_and_get(
 			array(
 				'post_content' => 'This is content',
