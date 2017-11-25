@@ -22,7 +22,7 @@ class WPSEO_Suggested_Plugins implements WPSEO_WordPress_Integration {
 	 * WPSEO_Suggested_Plugins constructor.
 	 *
 	 * @param WPSEO_Plugin_Availability $availability_checker The availability checker to use.
-	 * @param Yoast_Notification_Center $notification_center The notification center to add notifications to.
+	 * @param Yoast_Notification_Center $notification_center  The notification center to add notifications to.
 	 */
 	public function __construct( WPSEO_Plugin_Availability $availability_checker, Yoast_Notification_Center $notification_center ) {
 		$this->availability_checker = $availability_checker;
@@ -71,11 +71,11 @@ class WPSEO_Suggested_Plugins implements WPSEO_WordPress_Integration {
 	/**
 	 * Build Yoast SEO suggested plugins notification.
 	 *
-	 * @param string $name   The plugin name to use for the unique ID.
-	 * @param array  $plugin The plugin to retrieve the data from.
-	 * @param string $dependency_name The name of the dependency.
+	 * @param  string             $name            The plugin name to use for the unique ID.
+	 * @param  array              $plugin          The plugin to retrieve the data from.
+	 * @param  string             $dependency_name The name of the dependency.
 	 *
-	 * @return Yoast_Notification The notification containing the suggested plugin.
+	 * @return Yoast_Notification                  The notification containing the suggested plugin.
 	 */
 	protected function get_yoast_seo_suggested_plugins_notification( $name, $plugin, $dependency_name ) {
 		$message = $this->create_install_suggested_plugin_message( $plugin, $dependency_name );
@@ -97,10 +97,10 @@ class WPSEO_Suggested_Plugins implements WPSEO_WordPress_Integration {
 	/**
 	 * Creates a message to suggest the installation of a particular plugin.
 	 *
-	 * @param array $suggested_plugin The suggested plugin.
-	 * @param array $third_party_plugin The third party plugin that we have a suggested plugin for.
+	 * @param  array  $suggested_plugin   The suggested plugin.
+	 * @param  array  $third_party_plugin The third party plugin that we have a suggested plugin for.
 	 *
-	 * @return string The install suggested plugin message.
+	 * @return string                     The install suggested plugin message.
 	 */
 	protected function create_install_suggested_plugin_message( $suggested_plugin, $third_party_plugin ) {
 		/* translators: %1$s expands to Yoast SEO, %2$s expands to the dependency name, %3$s expands to the install link, %4$s expands to the more info link. */
@@ -119,10 +119,10 @@ class WPSEO_Suggested_Plugins implements WPSEO_WordPress_Integration {
 	/**
 	 * Creates a more information link that directs the user to WordPress.org Plugin repository.
 	 *
-	 * @param string $url The URL to the plugin's page.
-	 * @param string $name The name of the plugin.
+	 * @param  string $url  The URL to the plugin's page.
+	 * @param  string $name The name of the plugin.
 	 *
-	 * @return string The more information link.
+	 * @return string       The more information link.
 	 */
 	protected function create_more_information_link( $url, $name ) {
 		return sprintf(
@@ -137,10 +137,10 @@ class WPSEO_Suggested_Plugins implements WPSEO_WordPress_Integration {
 	/**
 	 * Creates a message to suggest the activation of a particular plugin.
 	 *
-	 * @param array $suggested_plugin The suggested plugin.
-	 * @param array $third_party_plugin The third party plugin that we have a suggested plugin for.
+	 * @param  array  $suggested_plugin   The suggested plugin.
+	 * @param  array  $third_party_plugin The third party plugin that we have a suggested plugin for.
 	 *
-	 * @return string The activate suggested plugin message.
+	 * @return string                     The activate suggested plugin message.
 	 */
 	protected function create_activate_suggested_plugin_message( $suggested_plugin, $third_party_plugin ) {
 		/* translators: %1$s expands to Yoast SEO, %2$s expands to the dependency name, %3$s expands to activation link. */
@@ -154,4 +154,5 @@ class WPSEO_Suggested_Plugins implements WPSEO_WordPress_Integration {
 			sprintf( '<a href="%s">%s</a>', $activation_url, $suggested_plugin['title'] )
 		);
 	}
+
 }
