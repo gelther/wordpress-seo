@@ -11,12 +11,11 @@ class WPSEO_Cornerstone_Field {
 	/**
 	 * Returns a label with a checkbox in it. Make it possible to mark the page as cornerstone content.
 	 *
-	 * @param WP_POST $post The post object.
+	 * @param  WP_POST $post The post object.
 	 *
-	 * @return string The HTML to show.
+	 * @return string        The HTML to show.
 	 */
 	public function get_html( $post ) {
-
 		$post_types = apply_filters( 'wpseo_cornerstone_post_types', WPSEO_Post_Type::get_accessible_post_types() );
 		if ( ! is_array( $post_types ) || ! isset( $post_types[ get_post_type( $post ) ] ) ) {
 			return '';
@@ -45,11 +44,12 @@ class WPSEO_Cornerstone_Field {
 	/**
 	 * Gets the meta value from the database.
 	 *
-	 * @param int $post_id The post id to get the meta value for.
+	 * @param  int         $post_id The post id to get the meta value for.
 	 *
-	 * @return null|string The meta value from the database.
+	 * @return null|string          The meta value from the database.
 	 */
 	protected function get_meta_value( $post_id ) {
 		return get_post_meta( $post_id, WPSEO_Cornerstone::META_NAME, true );
 	}
+
 }
