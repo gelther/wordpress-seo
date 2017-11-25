@@ -50,9 +50,9 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Adds the column headings for the SEO plugin for edit posts / pages overview.
 	 *
-	 * @param array $columns Already existing columns.
+	 * @param  array $columns Already existing columns.
 	 *
-	 * @return array Array containing the column headings.
+	 * @return array          Array containing the column headings.
 	 */
 	public function column_heading( $columns ) {
 		if ( $this->is_metabox_hidden() === true ) {
@@ -116,9 +116,9 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Indicates which of the SEO columns are sortable.
 	 *
-	 * @param array $columns Appended with their orderby variable.
+	 * @param  array $columns Appended with their orderby variable.
 	 *
-	 * @return array Array containing the sortable columns.
+	 * @return array          Array containing the sortable columns.
 	 */
 	public function column_sort( $columns ) {
 		if ( $this->is_metabox_hidden() === true ) {
@@ -137,11 +137,11 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Hides the SEO title, meta description and focus keyword columns if the user hasn't chosen which columns to hide.
 	 *
-	 * @param array|false $result The hidden columns.
-	 * @param string      $option The option name used to set which columns should be hidden.
-	 * @param WP_User     $user   The User.
+	 * @param  array|false $result The hidden columns.
+	 * @param  string      $option The option name used to set which columns should be hidden.
+	 * @param  WP_User     $user   The User.
 	 *
-	 * @return array      $result Array containing the columns to hide.
+	 * @return array       $result Array containing the columns to hide.
 	 */
 	public function column_hidden( $result, $option, $user ) {
 		global $wpdb;
@@ -216,11 +216,11 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Generates an <option> element.
 	 *
-	 * @param string $value       The option's value.
-	 * @param string $label       The option's label.
-	 * @param bool   $selected    Whether or not the option should be selected.
+	 * @param  string $value    The option's value.
+	 * @param  string $label    The option's label.
+	 * @param  bool   $selected Whether or not the option should be selected.
 	 *
-	 * @return string The generated <option> element.
+	 * @return string           The generated <option> element.
 	 */
 	protected function generate_option( $value, $label, $selected = false ) {
 		return '<option ' . $selected . ' value="' . $value . '">' . $label . '</option>';
@@ -229,9 +229,9 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Determines the SEO score filter to be later used in the meta query, based on the passed SEO filter.
 	 *
-	 * @param string $seo_filter The SEO filter to use to determine what further filter to apply.
+	 * @param  string $seo_filter The SEO filter to use to determine what further filter to apply.
 	 *
-	 * @return array The SEO score filter.
+	 * @return array              The SEO score filter.
 	 */
 	protected function determine_seo_filters( $seo_filter ) {
 		if ( $seo_filter === WPSEO_Rank::NO_FOCUS ) {
@@ -250,9 +250,9 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Determines the Readabilty score filter to the meta query, based on the passed Readabilty filter.
 	 *
-	 * @param string $readability_filter The Readability filter to use to determine what further filter to apply.
+	 * @param  string $readability_filter The Readability filter to use to determine what further filter to apply.
 	 *
-	 * @return array The Readability score filter.
+	 * @return array                      The Readability score filter.
 	 */
 	protected function determine_readability_filters( $readability_filter ) {
 		$rank = new WPSEO_Rank( $readability_filter );
@@ -263,9 +263,9 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Creates a keyword filter for the meta query, based on the passed Keyword filter.
 	 *
-	 * @param string $keyword_filter The keyword filter to use.
+	 * @param  string $keyword_filter The keyword filter to use.
 	 *
-	 * @return array The keyword filter.
+	 * @return array                  The keyword filter.
 	 */
 	protected function get_keyword_filter( $keyword_filter ) {
 		return array(
@@ -278,9 +278,9 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Determines whether the passed filter is considered to be valid.
 	 *
-	 * @param mixed $filter The filter to check against.
+	 * @param  mixed $filter The filter to check against.
 	 *
-	 * @return bool Whether or not the filter is considered valid.
+	 * @return bool          Whether or not the filter is considered valid.
 	 */
 	protected function is_valid_filter( $filter ) {
 		return ! empty( $filter ) && is_string( $filter );
@@ -325,9 +325,9 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Modify the query based on the filters that are being passed.
 	 *
-	 * @param array $vars Query variables that need to be modified based on the filters.
+	 * @param  array $vars Query variables that need to be modified based on the filters.
 	 *
-	 * @return array Array containing the meta query to use for filtering the posts overview.
+	 * @return array       Array containing the meta query to use for filtering the posts overview.
 	 */
 	public function column_sort_orderby( $vars ) {
 		$collected_filters = $this->collect_filters();
@@ -362,9 +362,9 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Determines the score filters to be used. If more than one is passed, it created an AND statement for the query.
 	 *
-	 * @param array $score_filters Array containing the score filters.
+	 * @param  array $score_filters Array containing the score filters.
 	 *
-	 * @return array Array containing the score filters that need to be applied to the meta query.
+	 * @return array                Array containing the score filters that need to be applied to the meta query.
 	 */
 	protected function determine_score_filters( $score_filters ) {
 		if ( count( $score_filters ) > 1 ) {
@@ -413,10 +413,10 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Uses the vars to create a complete filter query that can later be executed to filter out posts.
 	 *
-	 * @param array $vars Array containing the variables that will be used in the meta query.
-	 * @param array $filters Array containing the filters that we need to apply in the meta query.
+	 * @param  array $vars    Array containing the variables that will be used in the meta query.
+	 * @param  array $filters Array containing the filters that we need to apply in the meta query.
 	 *
-	 * @return array Array containing the complete filter query.
+	 * @return array          Array containing the complete filter query.
 	 */
 	protected function build_filter_query( $vars, $filters ) {
 		// If no filters were applied, just return everything.
@@ -440,10 +440,10 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Creates a Readability score filter.
 	 *
-	 * @param number $low The lower boundary of the score.
-	 * @param number $high The higher boundary of the score.
+	 * @param  number $low  The lower boundary of the score.
+	 * @param  number $high The higher boundary of the score.
 	 *
-	 * @return array The Readability Score filter.
+	 * @return array        The Readability Score filter.
 	 */
 	protected function create_readability_score_filter( $low, $high ) {
 		return array(
@@ -459,10 +459,10 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Creates an SEO score filter.
 	 *
-	 * @param number $low The lower boundary of the score.
-	 * @param number $high The higher boundary of the score.
+	 * @param  number $low  The lower boundary of the score.
+	 * @param  number $high The higher boundary of the score.
 	 *
-	 * @return array The SEO score filter.
+	 * @return array        The SEO score filter.
 	 */
 	protected function create_seo_score_filter( $low, $high ) {
 		return array(
@@ -513,9 +513,9 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Returns filters when $order_by is matched in the if-statement.
 	 *
-	 * @param string $order_by The ID of the column by which to order the posts.
+	 * @param  string $order_by The ID of the column by which to order the posts.
 	 *
-	 * @return array Array containing the order filters.
+	 * @return array            Array containing the order filters.
 	 */
 	private function filter_order_by( $order_by ) {
 		switch ( $order_by ) {
@@ -538,9 +538,9 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Parses the score column.
 	 *
-	 * @param integer $post_id The ID of the post for which to show the score.
+	 * @param  integer $post_id The ID of the post for which to show the score.
 	 *
-	 * @return string The HTML for the SEO score indicator.
+	 * @return string           The HTML for the SEO score indicator.
 	 */
 	private function parse_column_score( $post_id ) {
 		if ( WPSEO_Meta::get_value( 'meta-robots-noindex', $post_id ) === '1' ) {
@@ -569,9 +569,9 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Parsing the readability score column.
 	 *
-	 * @param int $post_id The ID of the post for which to show the readability score.
+	 * @param  int    $post_id The ID of the post for which to show the readability score.
 	 *
-	 * @return string The HTML for the readability score indicator.
+	 * @return string          The HTML for the readability score indicator.
 	 */
 	private function parse_column_score_readability( $post_id ) {
 		$score = (int) WPSEO_Meta::get_value( 'content_score', $post_id );
@@ -600,7 +600,7 @@ class WPSEO_Meta_Columns {
 						'column_sort',
 					), 10, 2 );
 
-					/*
+					/**
 					 * Use the `get_user_option_{$option}` filter to change the output of the get_user_option
 					 * function for the `manage{$screen}columnshidden` option, which is based on the current
 					 * admin screen. The admin screen we want to target is the `edit-{$post_type}` screen.
@@ -628,7 +628,7 @@ class WPSEO_Meta_Columns {
 	 *
 	 * @param  string $post_type Optional. The post type to test, defaults to the current post post_type.
 	 *
-	 * @return  bool        Whether or not the meta box (and associated columns etc) should be hidden.
+	 * @return bool              Whether or not the meta box (and associated columns etc) should be hidden.
 	 */
 	private function is_metabox_hidden( $post_type = null ) {
 		if ( ! isset( $post_type ) ) {
@@ -652,7 +652,7 @@ class WPSEO_Meta_Columns {
 	/**
 	 * Retrieve the page title.
 	 *
-	 * @param int $post_id Post to retrieve the title for.
+	 * @param  int    $post_id Post to retrieve the title for.
 	 *
 	 * @return string
 	 */
@@ -676,10 +676,10 @@ class WPSEO_Meta_Columns {
 	}
 
 	/**
-	 * @param WPSEO_Rank $rank  The rank this indicator should have.
-	 * @param string     $title Optional. The title for this rank, defaults to the title of the rank.
+	 * @param  WPSEO_Rank $rank  The rank this indicator should have.
+	 * @param  string     $title Optional. The title for this rank, defaults to the title of the rank.
 	 *
-	 * @return string The HTML for a score indicator.
+	 * @return string            The HTML for a score indicator.
 	 */
 	private function render_score_indicator( $rank, $title = '' ) {
 		if ( empty( $title ) ) {
@@ -696,12 +696,11 @@ class WPSEO_Meta_Columns {
 	 * @deprecated 3.5 Unnecessary with nested meta queries in core.
 	 * @codeCoverageIgnore
 	 *
-	 * @param    string $where Where clause.
+	 * @param  string $where Where clause.
 	 *
-	 * @return    string
+	 * @return string
 	 */
 	public function seo_score_posts_where( $where ) {
-
 		_deprecated_function( __METHOD__, '3.5' );
 
 		global $wpdb;
@@ -727,4 +726,5 @@ class WPSEO_Meta_Columns {
 	public function can_display_filter() {
 		return $GLOBALS['pagenow'] !== 'upload.php' && $this->is_metabox_hidden() === false;
 	}
+
 }
