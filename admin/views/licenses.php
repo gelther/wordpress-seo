@@ -22,12 +22,12 @@ $extensions->add(
 	'wordpress-seo-premium',
 	new WPSEO_Extension(
 		array(
-			'url'       => WPSEO_Shortlinker::get( 'https://yoa.st/pe-premium-page' ),
-			'title'     => 'Yoast SEO Premium',
+			'url'      => WPSEO_Shortlinker::get( 'https://yoa.st/pe-premium-page' ),
+			'title'    => 'Yoast SEO Premium',
 			/* translators: %1$s expands to Yoast SEO */
-			'desc'      => sprintf( __( 'The premium version of %1$s with more features & support.', 'wordpress-seo' ), 'Yoast SEO' ),
-			'image'     => plugins_url( 'images/extensions-premium-ribbon.png', WPSEO_FILE ),
-			'benefits'  => array(),
+			'desc'     => sprintf( __( 'The premium version of %1$s with more features & support.', 'wordpress-seo' ), 'Yoast SEO' ),
+			'image'    => plugins_url( 'images/extensions-premium-ribbon.png', WPSEO_FILE ),
+			'benefits' => array(),
 		)
 	)
 );
@@ -36,12 +36,12 @@ $extensions->add(
 	'wpseo-video',
 	new WPSEO_Extension(
 		array(
-			'buyUrl'    => WPSEO_Shortlinker::get( 'https://yoa.st/zx/' ),
-			'infoUrl'   => WPSEO_Shortlinker::get( 'https://yoa.st/zw/' ),
-			'title'     => 'Video SEO',
-			'desc'      => __( 'Optimize your videos to show them off in search results and get more clicks!', 'wordpress-seo' ),
-			'image'     => plugins_url( 'images/extensions-video.png', WPSEO_FILE ),
-			'benefits'  => array(
+			'buyUrl'   => WPSEO_Shortlinker::get( 'https://yoa.st/zx/' ),
+			'infoUrl'  => WPSEO_Shortlinker::get( 'https://yoa.st/zw/' ),
+			'title'    => 'Video SEO',
+			'desc'     => __( 'Optimize your videos to show them off in search results and get more clicks!', 'wordpress-seo' ),
+			'image'    => plugins_url( 'images/extensions-video.png', WPSEO_FILE ),
+			'benefits' => array(
 				__( 'Show your videos in Google Videos', 'wordpress-seo' ),
 				__( 'Enhance the experience of sharing posts with videos', 'wordpress-seo' ),
 				__( 'Make videos responsive through enabling fitvids.js', 'wordpress-seo' ),
@@ -54,12 +54,12 @@ $extensions->add(
 	'wpseo-news',
 	new WPSEO_Extension(
 		array(
-			'buyUrl'    => WPSEO_Shortlinker::get( 'https://yoa.st/zv/' ),
-			'infoUrl'   => WPSEO_Shortlinker::get( 'https://yoa.st/zu/' ),
-			'title'     => 'News SEO',
-			'desc'      => __( 'Are you in Google News? Increase your traffic from Google News by optimizing for it!', 'wordpress-seo' ),
-			'image'     => plugins_url( 'images/extensions-news.png', WPSEO_FILE ),
-			'benefits'  => array(
+			'buyUrl'   => WPSEO_Shortlinker::get( 'https://yoa.st/zv/' ),
+			'infoUrl'  => WPSEO_Shortlinker::get( 'https://yoa.st/zu/' ),
+			'title'    => 'News SEO',
+			'desc'     => __( 'Are you in Google News? Increase your traffic from Google News by optimizing for it!', 'wordpress-seo' ),
+			'image'    => plugins_url( 'images/extensions-news.png', WPSEO_FILE ),
+			'benefits' => array(
 				__( 'Optimize your site for Google News', 'wordpress-seo' ),
 				__( 'Immediately pings Google on the publication of a new post', 'wordpress-seo' ),
 				__( 'Creates XML News Sitemaps', 'wordpress-seo' ),
@@ -72,12 +72,12 @@ $extensions->add(
 	'wpseo-local',
 	new WPSEO_Extension(
 		array(
-			'buyUrl'    => WPSEO_Shortlinker::get( 'https://yoa.st/zt' ),
-			'infoUrl'   => WPSEO_Shortlinker::get( 'https://yoa.st/zs' ),
-			'title'     => 'Local SEO',
-			'desc'      => __( 'Rank better locally and in Google Maps, without breaking a sweat!', 'wordpress-seo' ),
-			'image'     => plugins_url( 'images/extensions-local.png', WPSEO_FILE ),
-			'benefits'  => array(
+			'buyUrl'   => WPSEO_Shortlinker::get( 'https://yoa.st/zt' ),
+			'infoUrl'  => WPSEO_Shortlinker::get( 'https://yoa.st/zs' ),
+			'title'    => 'Local SEO',
+			'desc'     => __( 'Rank better locally and in Google Maps, without breaking a sweat!', 'wordpress-seo' ),
+			'image'    => plugins_url( 'images/extensions-local.png', WPSEO_FILE ),
+			'benefits' => array(
 				__( 'Get found by potential clients', 'wordpress-seo' ),
 				__( 'Easily insert Google Maps, a store locator, opening hours and more', 'wordpress-seo' ),
 				__( 'Improve the usability of your contact page', 'wordpress-seo' ),
