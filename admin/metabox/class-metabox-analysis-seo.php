@@ -36,4 +36,5 @@ class WPSEO_Metabox_Analysis_SEO implements WPSEO_Metabox_Analysis {
 
 		return (bool) $options['keyword_analysis_active'];
 	}
+
 }
