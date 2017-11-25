@@ -58,7 +58,6 @@ class WPSEO_Configuration_Storage_Test extends PHPUnit_Framework_TestCase {
 	public function test_is_not_null() {
 		$this->assertTrue( $this->storage->is_not_null( '1' ) );
 		$this->assertFalse( $this->storage->is_not_null( null ) );
-
 	}
 
 	/**
@@ -304,4 +303,5 @@ class WPSEO_Configuration_Storage_Test extends PHPUnit_Framework_TestCase {
 
 		$this->assertEquals( $expected, $result );
 	}
+
 }
