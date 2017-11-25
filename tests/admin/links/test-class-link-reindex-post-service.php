@@ -136,4 +136,5 @@ class WPSEO_Link_Reindex_Post_Service_Test extends WPSEO_UnitTestCase {
 			->setMethods( array( 'process' ) )
 			->getMock();
 	}
+
 }
