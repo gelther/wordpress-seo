@@ -22,10 +22,10 @@ class WPSEO_Link_Utils {
 	/**
 	 * Returns the value that is part of the given url.
 	 *
-	 * @param string $url  The url to parse.
-	 * @param string $part The url part to use.
+	 * @param  string $url  The url to parse.
+	 * @param  string $part The url part to use.
 	 *
-	 * @return string The value of the url part.
+	 * @return string       The value of the url part.
 	 */
 	public static function get_url_part( $url, $part ) {
 		$url_parts = wp_parse_url( $url );
@@ -36,4 +36,5 @@ class WPSEO_Link_Utils {
 
 		return '';
 	}
+
 }
