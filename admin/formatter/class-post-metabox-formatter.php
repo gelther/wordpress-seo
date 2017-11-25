@@ -123,9 +123,9 @@ class WPSEO_Post_Metabox_Formatter implements WPSEO_Metabox_Formatter_Interface 
 	/**
 	 * Retrieves the additional keywords from Premium, that are associated with the post.
 	 *
-	 * @param array $usage The original keyword usage for the main keyword.
+	 * @param  array $usage The original keyword usage for the main keyword.
 	 *
-	 * @return array The keyword usage, including the additional keywords.
+	 * @return array        The keyword usage, including the additional keywords.
 	 */
 	protected function get_premium_keywords( $usage ) {
 		$additional_keywords = json_decode( WPSEO_Meta::get_value( 'focuskeywords', $this->post->ID ), true );
@@ -146,9 +146,9 @@ class WPSEO_Post_Metabox_Formatter implements WPSEO_Metabox_Formatter_Interface 
 	/**
 	 * Gets the keyword usage for the current post and the specified keyword.
 	 *
-	 * @param string $keyword The keyword to check the usage of.
+	 * @param  string $keyword The keyword to check the usage of.
 	 *
-	 * @return array The post IDs which use the passed keyword.
+	 * @return array           The post IDs which use the passed keyword.
 	 */
 	protected function get_keyword_usage_for_current_post( $keyword ) {
 		return WPSEO_Meta::keyword_usage( $keyword, $this->post->ID );
@@ -175,7 +175,7 @@ class WPSEO_Post_Metabox_Formatter implements WPSEO_Metabox_Formatter_Interface 
 	/**
 	 * Retrieves a template.
 	 *
-	 * @param String $template_option_name The name of the option in which the template you want to get is saved.
+	 * @param  String $template_option_name The name of the option in which the template you want to get is saved.
 	 *
 	 * @return string
 	 */
@@ -215,4 +215,5 @@ class WPSEO_Post_Metabox_Formatter implements WPSEO_Metabox_Formatter_Interface 
 
 		return isset( $this->options[ $key ] ) && true === $this->options[ $key ];
 	}
+
 }
