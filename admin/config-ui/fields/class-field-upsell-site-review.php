@@ -33,4 +33,5 @@ class WPSEO_Config_Field_Upsell_Site_Review extends WPSEO_Config_Field {
 
 		$this->set_property( 'html', $html );
 	}
+
 }
