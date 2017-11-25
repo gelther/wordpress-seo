@@ -46,7 +46,6 @@ class WPSEO_Taxonomy {
 	 * Add hooks late enough for taxonomy object to be available for checks.
 	 */
 	public function admin_init() {
-
 		$taxonomy = get_taxonomy( $this->taxonomy );
 
 		if ( empty( $taxonomy ) || empty( $taxonomy->public ) || ! $this->show_metabox() ) {
@@ -147,8 +146,8 @@ class WPSEO_Taxonomy {
 	/**
 	 * Determines if the given meta value key is disabled.
 	 *
-	 * @param string $key The key of the meta value.
-	 * @return bool Whether the given meta value key is disabled.
+	 * @param  string $key The key of the meta value.
+	 * @return bool        Whether the given meta value key is disabled.
 	 */
 	public function is_meta_value_disabled( $key ) {
 		if ( 'wpseo_linkdex' === $key && ! $this->analysis_seo->is_enabled() ) {
@@ -189,7 +188,7 @@ class WPSEO_Taxonomy {
 	/**
 	 * Adds shortcode support to category descriptions.
 	 *
-	 * @param string $desc String to add shortcodes in.
+	 * @param  string $desc String to add shortcodes in.
 	 *
 	 * @return string
 	 */
@@ -251,7 +250,7 @@ class WPSEO_Taxonomy {
 	}
 
 	/**
-	 * @param string $page The string to check for the term overview page.
+	 * @param  string $page The string to check for the term overview page.
 	 *
 	 * @return bool
 	 */
@@ -260,7 +259,7 @@ class WPSEO_Taxonomy {
 	}
 
 	/**
-	 * @param string $page The string to check for the term edit page.
+	 * @param  string $page The string to check for the term edit page.
 	 *
 	 * @return bool
 	 */
@@ -351,7 +350,7 @@ class WPSEO_Taxonomy {
 	 *
 	 * Retrieves the title template.
 	 *
-	 * @param object $term Taxonomy term.
+	 * @param  object $term Taxonomy term.
 	 *
 	 * @return string
 	 */
@@ -366,7 +365,7 @@ class WPSEO_Taxonomy {
 	 *
 	 * Retrieves the metadesc template.
 	 *
-	 * @param object $term Taxonomy term.
+	 * @param  object $term Taxonomy term.
 	 *
 	 * @return string
 	 */
@@ -387,5 +386,6 @@ class WPSEO_Taxonomy {
 	public function translate_meta_options() {
 		_deprecated_function( __METHOD__, 'WPSEO 3.2', 'WPSEO_Taxonomy_Settings_Fields::translate_meta_options' );
 	}
+
 	// @codeCoverageIgnoreEnd
 }
