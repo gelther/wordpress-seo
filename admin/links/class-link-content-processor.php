@@ -69,9 +69,9 @@ class WPSEO_Link_Content_Processor {
 	/**
 	 * Retrieves the stored internal links for the supplied post.
 	 *
-	 * @param int $post_id The post to fetch links for.
+	 * @param  int          $post_id The post to fetch links for.
 	 *
-	 * @return WPSEO_Link[] List of internal links connected to the post.
+	 * @return WPSEO_Link[]          List of internal links connected to the post.
 	 */
 	public function get_stored_internal_links( $post_id ) {
 		$links = $this->storage->get_links( $post_id );
@@ -81,9 +81,9 @@ class WPSEO_Link_Content_Processor {
 	/**
 	 * Filters on INTERNAL links.
 	 *
-	 * @param WPSEO_Link $link Link to test type of.
+	 * @param  WPSEO_Link $link Link to test type of.
 	 *
-	 * @return bool True for internal link, false for external link.
+	 * @return bool             True for internal link, false for external link.
 	 */
 	protected function filter_internal_link( WPSEO_Link $link ) {
 		return $link->get_type() === WPSEO_Link::TYPE_INTERNAL;
@@ -92,8 +92,8 @@ class WPSEO_Link_Content_Processor {
 	/**
 	 * Stores the total links for the post.
 	 *
-	 * @param int $post_id             The post id.
-	 * @param int $internal_link_count Total amount of links in the post.
+	 * @param  int  $post_id             The post id.
+	 * @param  int  $internal_link_count Total amount of links in the post.
 	 *
 	 * @return void
 	 */
@@ -104,8 +104,8 @@ class WPSEO_Link_Content_Processor {
 	/**
 	 * Updates the incoming link count.
 	 *
-	 * @param int          $post_id Post which is processed, this needs to be recalculated too.
-	 * @param WPSEO_Link[] $links   Links to update the incoming link count of.
+	 * @param  int          $post_id Post which is processed, this needs to be recalculated too.
+	 * @param  WPSEO_Link[] $links   Links to update the incoming link count of.
 	 *
 	 * @return void
 	 */
@@ -118,9 +118,9 @@ class WPSEO_Link_Content_Processor {
 	/**
 	 * Extract the post IDs from the links.
 	 *
-	 * @param WPSEO_Link[] $links Links to update the incoming link count of.
+	 * @param  WPSEO_Link[] $links Links to update the incoming link count of.
 	 *
-	 * @return int[] List of post IDs.
+	 * @return int[]               List of post IDs.
 	 */
 	protected function get_internal_post_ids( $links ) {
 		$post_ids = array();
@@ -130,4 +130,5 @@ class WPSEO_Link_Content_Processor {
 
 		return array_filter( $post_ids );
 	}
+
 }
