@@ -92,7 +92,7 @@ class WPSEO_Configuration_Storage {
 	/**
 	 * Retrieve the registered fields
 	 *
-	 * @returns array List of settings.
+	 * @return s array List of settings.
 	 */
 	public function retrieve() {
 		$output = array();
@@ -116,9 +116,9 @@ class WPSEO_Configuration_Storage {
 	/**
 	 * Save the data
 	 *
-	 * @param array $data_to_store Data provided by the API which needs to be processed for saving.
+	 * @param  array  $data_to_store Data provided by the API which needs to be processed for saving.
 	 *
-	 * @return string Results
+	 * @return string                Results
 	 */
 	public function store( $data_to_store ) {
 		$output = array();
@@ -158,7 +158,7 @@ class WPSEO_Configuration_Storage {
 	/**
 	 * Filter out null input values
 	 *
-	 * @param mixed $input Input to test against.
+	 * @param  mixed $input Input to test against.
 	 *
 	 * @return bool
 	 */
@@ -169,7 +169,7 @@ class WPSEO_Configuration_Storage {
 	/**
 	 * Get data from a specific field
 	 *
-	 * @param WPSEO_Config_Field $field Field to get data for.
+	 * @param  WPSEO_Config_Field $field Field to get data for.
 	 *
 	 * @return array|mixed
 	 */
@@ -195,4 +195,5 @@ class WPSEO_Configuration_Storage {
 
 		return $data;
 	}
+
 }
