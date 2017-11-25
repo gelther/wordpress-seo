@@ -14,5 +14,6 @@ if ( class_exists( 'WP_REST_Server' ) ) :
 		public function get_endpoints() {
 			return $this->endpoints;
 		}
+
 	}
 endif;
