@@ -23,7 +23,6 @@ class WPSEO_Config_Field_Test extends PHPUnit_Framework_TestCase {
 	 * @covers WPSEO_Config_Field::get_component()
 	 */
 	public function test_constructor() {
-
 		$identifier = 'i';
 		$component  = 'c';
 
@@ -127,4 +126,5 @@ class WPSEO_Config_Field_Test extends PHPUnit_Framework_TestCase {
 		$this->assertArrayHasKey( $property, $result['properties'] );
 		$this->assertEquals( $property_value, $result['properties'][ $property ] );
 	}
+
 }
