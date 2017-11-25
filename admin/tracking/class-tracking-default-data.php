@@ -35,4 +35,5 @@ class WPSEO_Tracking_Default_Data implements WPSEO_Collection {
 
 		return $wp_version;
 	}
+
 }

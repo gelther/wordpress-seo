@@ -153,8 +153,7 @@ class WPSEO_Import {
 			}
 			$this->msg     = __( 'Settings successfully imported.', 'wordpress-seo' );
 			$this->success = true;
-		}
-		else {
+		} else {
 			$this->msg = __( 'Settings could not be imported:', 'wordpress-seo' ) . ' ' . __( 'No settings found in file.', 'wordpress-seo' );
 		}
 	}
@@ -175,8 +174,7 @@ class WPSEO_Import {
 		$option_instance = WPSEO_Options::get_option_instance( $name );
 		if ( is_object( $option_instance ) && method_exists( $option_instance, 'import' ) ) {
 			$option_instance->import( $opt_group, $this->old_wpseo_version, $options );
-		}
-		elseif ( WP_DEBUG === true || ( defined( 'WPSEO_DEBUG' ) && WPSEO_DEBUG === true ) ) {
+		} elseif ( WP_DEBUG === true || ( defined( 'WPSEO_DEBUG' ) && WPSEO_DEBUG === true ) ) {
 			/* translators: %s expands to the name of an outdated setting. */
 			$this->msg = sprintf( __( 'Setting "%s" is no longer used and has been discarded.', 'wordpress-seo' ), $name );
 		}
@@ -197,4 +195,5 @@ class WPSEO_Import {
 			$wp_file->rmdir( $this->path, true );
 		}
 	}
+
 }

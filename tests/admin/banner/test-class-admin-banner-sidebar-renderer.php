@@ -24,7 +24,6 @@ class WPSEO_Admin_Banner_Sidebar_Renderer_Test extends WPSEO_UnitTestCase {
 	 * Test Banner rendering.
 	 */
 	public function test_render() {
-
 		$sidebar_renderer = new WPSEO_Admin_Banner_Sidebar_Renderer( new WPSEO_Admin_Banner_Spot_Renderer() );
 
 		$output = $sidebar_renderer->render( $this->sidebar );
@@ -59,7 +58,5 @@ class WPSEO_Admin_Banner_Sidebar_Renderer_Test extends WPSEO_UnitTestCase {
 
 		$mock->render( $this->sidebar );
 	}
-
-
 
 }

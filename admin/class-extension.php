@@ -67,7 +67,6 @@ class WPSEO_Extension {
 		}
 
 		return $this->get_title();
-
 	}
 
 	/**
@@ -78,4 +77,5 @@ class WPSEO_Extension {
 	public function get_benefits() {
 		return $this->config['benefits'];
 	}
+
 }

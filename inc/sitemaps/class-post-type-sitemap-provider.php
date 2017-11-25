@@ -101,22 +101,20 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Check if provider supports given item type.
 	 *
-	 * @param string $type Type string to check for.
+	 * @param  string  $type Type string to check for.
 	 *
 	 * @return boolean
 	 */
 	public function handles_type( $type ) {
-
 		return post_type_exists( $type );
 	}
 
 	/**
-	 * @param int $max_entries Entries per sitemap.
+	 * @param  int   $max_entries Entries per sitemap.
 	 *
 	 * @return array
 	 */
 	public function get_index_links( $max_entries ) {
-
 		global $wpdb;
 
 		$post_types          = get_post_types( array( 'public' => true ) );
@@ -144,12 +142,12 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 
 				$sql = "
 				SELECT post_modified_gmt
-				    FROM ( SELECT @rownum:=0 ) init 
-				    JOIN {$wpdb->posts} USE INDEX( type_status_date )
-				    WHERE post_status IN ( 'publish', 'inherit' )
-				      AND post_type = %s
-				      AND ( @rownum:=@rownum+1 ) %% %d = 0
-				    ORDER BY post_modified_gmt ASC
+					FROM ( SELECT @rownum:=0 ) init
+					JOIN {$wpdb->posts} USE INDEX( type_status_date )
+					WHERE post_status IN ( 'publish', 'inherit' )
+						AND post_type = %s
+						AND ( @rownum:=@rownum+1 ) %% %d = 0
+					ORDER BY post_modified_gmt ASC
 				";
 
 				$all_dates = $wpdb->get_col( $wpdb->prepare( $sql, $post_type, $max_entries ) );
@@ -165,8 +163,7 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 					if ( ! empty( $last_modified_times[ $post_type ] ) ) {
 						$date = $last_modified_times[ $post_type ];
 					}
-				}
-				else {
+				} else {
 					$date = $all_dates[ $page_counter ];
 				}
 
@@ -183,14 +180,13 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Get set of sitemap link data.
 	 *
-	 * @param string $type         Sitemap type.
-	 * @param int    $max_entries  Entries per sitemap.
-	 * @param int    $current_page Current page of the sitemap.
+	 * @param  string $type         Sitemap type.
+	 * @param  int    $max_entries  Entries per sitemap.
+	 * @param  int    $current_page Current page of the sitemap.
 	 *
 	 * @return array
 	 */
 	public function get_sitemap_links( $type, $max_entries, $current_page ) {
-
 		$links     = array();
 		$post_type = $type;
 
@@ -284,7 +280,6 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	 * @param int $post_id Post ID to possibly invalidate for.
 	 */
 	public function save_post( $post_id ) {
-
 		if ( $this->is_valid_post_type( get_post_type( $post_id ) ) ) {
 			WPSEO_Sitemaps_Cache::invalidate_post( $post_id );
 		}
@@ -293,15 +288,14 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Check if post type should be present in sitemaps.
 	 *
-	 * @param string $post_type Post type string to check for.
+	 * @param  string $post_type Post type string to check for.
 	 *
 	 * @return bool
 	 */
 	public function is_valid_post_type( $post_type ) {
-
 		$options = $this->get_options();
 
-		if ( ! empty( $options[ "post_types-{$post_type}-not_in_sitemap" ] ) ) {
+		if ( ! empty( $options["post_types-{$post_type}-not_in_sitemap"] ) ) {
 			return false;
 		}
 
@@ -325,12 +319,11 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Get count of posts for post type.
 	 *
-	 * @param string $post_type Post type to retrieve count for.
+	 * @param  string $post_type Post type to retrieve count for.
 	 *
 	 * @return int
 	 */
 	protected function get_post_type_count( $post_type ) {
-
 		global $wpdb;
 
 		/**
@@ -365,12 +358,11 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Produces set of links to prepend at start of first sitemap page.
 	 *
-	 * @param string $post_type Post type to produce links for.
+	 * @param  string $post_type Post type to produce links for.
 	 *
 	 * @return array
 	 */
 	protected function get_first_links( $post_type ) {
-
 		$links = array();
 
 		$needs_archive = true;
@@ -386,8 +378,7 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 			);
 
 			$needs_archive = false;
-		}
-		elseif ( $this->get_page_on_front_id() && $post_type === 'post' && $this->get_page_for_posts_id() ) {
+		} elseif ( $this->get_page_on_front_id() && $post_type === 'post' && $this->get_page_for_posts_id() ) {
 
 			$page_for_posts_url = get_permalink( $this->get_page_for_posts_id() );
 
@@ -441,12 +432,11 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	 *
 	 * @since  5.3
 	 *
-	 * @param  string $post_type Post type.
+	 * @param  string      $post_type Post type.
 	 *
-	 * @return string|bool URL or false if it should be excluded.
+	 * @return string|bool            URL or false if it should be excluded.
 	 */
 	protected function get_post_type_archive_link( $post_type ) {
-
 		$options = $this->get_options();
 
 		if ( isset( $options[ 'noindex-ptarchive-' . $post_type ] ) && $options[ 'noindex-ptarchive-' . $post_type ] ) {
@@ -466,14 +456,13 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Retrieve set of posts with optimized query routine.
 	 *
-	 * @param string $post_type Post type to retrieve.
-	 * @param int    $count     Count of posts to retrieve.
-	 * @param int    $offset    Starting offset.
+	 * @param  string   $post_type Post type to retrieve.
+	 * @param  int      $count     Count of posts to retrieve.
+	 * @param  int      $offset    Starting offset.
 	 *
 	 * @return object[]
 	 */
 	protected function get_posts( $post_type, $count, $offset ) {
-
 		global $wpdb;
 
 		static $filters = array();
@@ -535,12 +524,11 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	}
 
 	/**
-	 * @param string $post_type Post type slug.
+	 * @param  string $post_type Post type slug.
 	 *
 	 * @return string
 	 */
 	protected function get_sql_where_clause( $post_type ) {
-
 		global $wpdb;
 
 		$join   = '';
@@ -566,12 +554,11 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Produce array of URL parts for given post object.
 	 *
-	 * @param object $post Post object to get URL parts for.
+	 * @param  object     $post Post object to get URL parts for.
 	 *
 	 * @return array|bool
 	 */
 	protected function get_url( $post ) {
-
 		$url = array();
 
 		/**
@@ -604,7 +591,7 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 		$canonical = WPSEO_Meta::get_value( 'canonical', $post->ID );
 
 		if ( $canonical !== '' && $canonical !== $url['loc'] ) {
-			/*
+			/**
 			 * Let's assume that if a canonical is set for this page and it's different from
 			 * the URL of this post, that page is either already in the XML sitemap OR is on
 			 * an external site, either way, we shouldn't include it here.
@@ -629,7 +616,7 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	 *
 	 * @deprecated 3.5 Priority data dropped from sitemaps.
 	 *
-	 * @param WP_Post $post Post object.
+	 * @param  WP_Post     $post Post object.
 	 *
 	 * @return float|mixed
 	 */
@@ -656,4 +643,5 @@ class WPSEO_Post_Type_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 
 		return $return;
 	}
+
 }

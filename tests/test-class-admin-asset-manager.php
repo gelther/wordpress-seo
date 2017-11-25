@@ -166,7 +166,6 @@ class WPSEO_Admin_Asset_Manager_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Admin_Asset_Manager::register_scripts
 	 */
 	public function test_register_scripts() {
-
 		$class_instance =
 			$this
 				->getMockBuilder( 'WPSEO_Admin_Asset_Manager' )
@@ -180,7 +179,7 @@ class WPSEO_Admin_Asset_Manager_Test extends WPSEO_UnitTestCase {
 				$this->equalTo( new WPSEO_Admin_Asset( array(
 					'name' => 'testfile',
 					'src'  => 'testfile',
-				)))
+				) ) )
 			);
 
 		$class_instance
@@ -193,7 +192,7 @@ class WPSEO_Admin_Asset_Manager_Test extends WPSEO_UnitTestCase {
 					'deps'      => array( 'dep1' ),
 					'version'   => 'version1',
 					'in_footer' => false,
-				)))
+				) ) )
 			);
 
 		$class_instance->register_scripts( array(
@@ -217,7 +216,6 @@ class WPSEO_Admin_Asset_Manager_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Admin_Asset_Manager::register_styles
 	 */
 	public function test_register_styles() {
-
 		$class_instance =
 			$this
 				->getMockBuilder( 'WPSEO_Admin_Asset_Manager' )
@@ -229,9 +227,9 @@ class WPSEO_Admin_Asset_Manager_Test extends WPSEO_UnitTestCase {
 			->method( 'register_style' )
 			->with(
 				$this->equalTo( new WPSEO_Admin_Asset( array(
-					'name'      => 'testfile',
-					'src'       => 'testfile',
-				)))
+					'name' => 'testfile',
+					'src'  => 'testfile',
+				) ) )
 			);
 
 		$class_instance
@@ -239,12 +237,12 @@ class WPSEO_Admin_Asset_Manager_Test extends WPSEO_UnitTestCase {
 			->method( 'register_style' )
 			->with(
 				$this->equalTo( new WPSEO_Admin_Asset( array(
-					'name'      => 'testfile2',
-					'src'       => 'testfile2',
-					'deps'      => array( 'dep1' ),
-					'version'   => 'version1',
-					'media'     => 'screen',
-				)))
+					'name'    => 'testfile2',
+					'src'     => 'testfile2',
+					'deps'    => array( 'dep1' ),
+					'version' => 'version1',
+					'media'   => 'screen',
+				) ) )
 			);
 
 		$class_instance->register_styles( array(
@@ -268,7 +266,6 @@ class WPSEO_Admin_Asset_Manager_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Admin_Asset_Manager::register_assets
 	 */
 	public function test_register_assets() {
-
 		$class_instance =
 			$this
 				->getMockBuilder( 'WPSEO_Admin_Asset_Manager' )
@@ -313,4 +310,5 @@ class WPSEO_Admin_Asset_Manager_Test extends WPSEO_UnitTestCase {
 			array( '1', '1' ),
 		);
 	}
+
 }

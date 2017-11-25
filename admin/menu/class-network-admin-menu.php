@@ -79,4 +79,5 @@ class WPSEO_Network_Admin_Menu implements WPSEO_WordPress_Integration {
 	public function network_config_page() {
 		require_once WPSEO_PATH . 'admin/pages/network.php';
 	}
+
 }

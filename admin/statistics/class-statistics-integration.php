@@ -25,4 +25,5 @@ class WPSEO_Statistic_Integration implements WPSEO_WordPress_Integration {
 	public function clear_cache() {
 		delete_transient( WPSEO_Statistics_Service::CACHE_TRANSIENT_KEY );
 	}
+
 }

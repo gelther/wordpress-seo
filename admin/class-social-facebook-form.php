@@ -46,9 +46,9 @@ class Yoast_Social_Facebook_Form {
 	/**
 	 * Parses the admin_link
 	 *
-	 * @param string      $admin_id Facebook admin ID string.
-	 * @param array       $admin    Admin data array.
-	 * @param string|bool $nonce    Optional nonce string.
+	 * @param  string      $admin_id Facebook admin ID string.
+	 * @param  array       $admin    Admin data array.
+	 * @param  string|bool $nonce    Optional nonce string.
 	 *
 	 * @return string
 	 */
@@ -182,8 +182,8 @@ class Yoast_Social_Facebook_Form {
 	/**
 	 * Parsing the link that directs to the admin removal
 	 *
-	 * @param string $admin_id Facebook admin ID.
-	 * @param string $nonce    Nonce string.
+	 * @param  string $admin_id Facebook admin ID.
+	 * @param  string $nonce    Nonce string.
 	 *
 	 * @return string
 	 */
@@ -260,4 +260,5 @@ class Yoast_Social_Facebook_Form {
 	private function get_delete_nonce() {
 		return wp_create_nonce( 'delfbadmin' );
 	}
+
 }

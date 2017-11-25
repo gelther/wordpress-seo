@@ -62,13 +62,12 @@ class WPSEO_GSC_Issue {
 	/**
 	 * Converting the date to a date format
 	 *
-	 * @param DateTime $date_to_convert Date instance.
-	 * @param string   $format          Format string.
+	 * @param  DateTime $date_to_convert Date instance.
+	 * @param  string   $format          Format string.
 	 *
 	 * @return string
 	 */
 	private function to_date_format( DateTime $date_to_convert, $format = '' ) {
-
 		if ( empty( $format ) ) {
 			$format = get_option( 'date_format' );
 		}
@@ -79,11 +78,12 @@ class WPSEO_GSC_Issue {
 	/**
 	 * Converting the date to a timestamp
 	 *
-	 * @param DateTime $date_to_convert Date object instance.
+	 * @param  DateTime $date_to_convert Date object instance.
 	 *
 	 * @return string
 	 */
 	private function to_timestamp( DateTime $date_to_convert ) {
 		return $date_to_convert->format( 'U' );
 	}
+
 }

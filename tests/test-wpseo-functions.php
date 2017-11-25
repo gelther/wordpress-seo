@@ -19,7 +19,6 @@ class WPSEO_Functions_Test extends WPSEO_UnitTestCase {
 	 * @covers wpseo_replace_vars
 	 */
 	public function test_wpseo_replace_vars() {
-
 		// Create author.
 		$user_id = $this->factory->user->create(
 			array(
@@ -47,10 +46,11 @@ class WPSEO_Functions_Test extends WPSEO_UnitTestCase {
 		$output   = wpseo_replace_vars( $input, (array) $post );
 		$this->assertEquals( $expected, $output );
 
-		/*
+		/**
 		 * @todo
-		 *  - Test all Basic Variables.
-		 *  - Test all Advanced Variables.
+		 * - Test all Basic Variables.
+		 * - Test all Advanced Variables.
 		 */
 	}
+
 }

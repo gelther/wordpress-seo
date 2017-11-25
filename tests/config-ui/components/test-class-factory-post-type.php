@@ -12,7 +12,6 @@ class WPSEO_Config_Factory_Post_Type_Test extends PHPUnit_Framework_TestCase {
 	 * @covers WPSEO_Config_Factory_Post_Type::get_fields()
 	 */
 	public function test_get_fields() {
-
 		$post_types = get_post_types( array( 'public' => true ), 'objects' );
 
 		$factory_post_type = new WPSEO_Config_Factory_Post_Type();
@@ -26,4 +25,5 @@ class WPSEO_Config_Factory_Post_Type_Test extends PHPUnit_Framework_TestCase {
 			$this->assertTrue( in_array( $field->get_post_type(), $post_type_list, true ) );
 		}
 	}
+
 }

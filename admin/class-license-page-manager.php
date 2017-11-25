@@ -28,8 +28,7 @@ class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 			add_filter( 'yoast-license-valid', '__return_true' );
 			add_filter( 'yoast-show-license-notice', '__return_false' );
 			add_action( 'admin_init', array( $this, 'validate_extensions' ), 15 );
-		}
-		else {
+		} else {
 			add_action( 'admin_init', array( $this, 'remove_faulty_notifications' ), 15 );
 		}
 	}
@@ -38,7 +37,6 @@ class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 	 * Validates the extensions and show a notice for the invalid extensions.
 	 */
 	public function validate_extensions() {
-
 		if ( filter_input( INPUT_GET, 'page' ) === WPSEO_Admin::PAGE_IDENTIFIER ) {
 			/**
 			 * Filter: 'yoast-active-extensions' - Collects all active extensions. This hook is implemented in the
@@ -86,11 +84,11 @@ class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 	/**
 	 * Handles the response.
 	 *
-	 * @param array  $response          HTTP response.
-	 * @param array  $request_arguments HTTP request arguments. Unused.
-	 * @param string $url               The request URL.
+	 * @param  array  $response          HTTP response.
+	 * @param  array  $request_arguments HTTP request arguments. Unused.
+	 * @param  string $url               The request URL.
 	 *
-	 * @return array The response array.
+	 * @return array                     The response array.
 	 */
 	public function handle_response( array $response, $request_arguments, $url ) {
 		$response_code = wp_remote_retrieve_response_code( $response );
@@ -153,9 +151,9 @@ class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 	/**
 	 * Parses the response by getting its body and do a unserialize of it.
 	 *
-	 * @param array $response The response to parse.
+	 * @param  array              $response The response to parse.
 	 *
-	 * @return mixed|string|false The parsed response.
+	 * @return mixed|string|false           The parsed response.
 	 */
 	protected function parse_response( $response ) {
 		$response = json_decode( wp_remote_retrieve_body( $response ), true );
@@ -167,9 +165,9 @@ class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 	/**
 	 * Checks if the given url matches the expected endpoint.
 	 *
-	 * @param string $url The url to check.
+	 * @param  string $url The url to check.
 	 *
-	 * @return bool True when url matches the endpoint.
+	 * @return bool        True when url matches the endpoint.
 	 */
 	protected function is_expected_endpoint( $url ) {
 		$url_parts = wp_parse_url( $url );
@@ -183,9 +181,9 @@ class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 	/**
 	 * Creates an instance of Yoast_Notification
 	 *
-	 * @param string $product_name The product to create the notification for.
+	 * @param  string             $product_name The product to create the notification for.
 	 *
-	 * @return Yoast_Notification The created notification.
+	 * @return Yoast_Notification               The created notification.
 	 */
 	protected function create_notification( $product_name ) {
 		$notification_options = array(
@@ -206,4 +204,5 @@ class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 
 		return $notification;
 	}
+
 }

@@ -11,9 +11,9 @@ class WPSEO_Admin_Utils {
 	/**
 	 * Gets the install URL for the passed plugin slug.
 	 *
-	 * @param string $slug The slug to create an install link for.
+	 * @param  string $slug The slug to create an install link for.
 	 *
-	 * @return string The install URL. Empty string if the current user doesn't have the proper capabilities.
+	 * @return string       The install URL. Empty string if the current user doesn't have the proper capabilities.
 	 */
 	public static function get_install_url( $slug ) {
 		if ( ! current_user_can( 'install_plugins' ) ) {
@@ -29,9 +29,9 @@ class WPSEO_Admin_Utils {
 	/**
 	 * Gets the activation URL for the passed plugin slug.
 	 *
-	 * @param string $slug The slug to create an activation link for.
+	 * @param  string $slug The slug to create an activation link for.
 	 *
-	 * @return string The activation URL. Empty string if the current user doesn't have the proper capabilities.
+	 * @return string       The activation URL. Empty string if the current user doesn't have the proper capabilities.
 	 */
 	public static function get_activation_url( $slug ) {
 		if ( ! current_user_can( 'install_plugins' ) ) {
@@ -43,4 +43,5 @@ class WPSEO_Admin_Utils {
 			'activate-plugin_' . $slug
 		);
 	}
+
 }

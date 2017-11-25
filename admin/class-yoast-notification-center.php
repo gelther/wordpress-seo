@@ -27,7 +27,6 @@ class Yoast_Notification_Center {
 	 * Construct
 	 */
 	private function __construct() {
-
 		$this->retrieve_notifications_from_storage();
 
 		add_action( 'all_admin_notices', array( $this, 'display_notifications' ) );
@@ -44,7 +43,6 @@ class Yoast_Notification_Center {
 	 * @return Yoast_Notification_Center
 	 */
 	public static function get() {
-
 		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
@@ -56,7 +54,6 @@ class Yoast_Notification_Center {
 	 * Dismiss a notification
 	 */
 	public static function ajax_dismiss_notification() {
-
 		$notification_center = self::get();
 
 		$notification_id = filter_input( INPUT_POST, 'notification' );
@@ -84,13 +81,12 @@ class Yoast_Notification_Center {
 	/**
 	 * Check if the user has dismissed a notification
 	 *
-	 * @param Yoast_Notification $notification The notification to check for dismissal.
-	 * @param null|int           $user_id      User ID to check on.
+	 * @param  Yoast_Notification $notification The notification to check for dismissal.
+	 * @param  null|int           $user_id      User ID to check on.
 	 *
 	 * @return bool
 	 */
 	public static function is_notification_dismissed( Yoast_Notification $notification, $user_id = null ) {
-
 		$user_id       = ( ! is_null( $user_id ) ? $user_id : get_current_user_id() );
 		$dismissal_key = $notification->get_dismissal_key();
 
@@ -102,13 +98,12 @@ class Yoast_Notification_Center {
 	/**
 	 * Check if the nofitication is being dismissed
 	 *
-	 * @param string|Yoast_Notification $notification Notification to check dismissal of.
-	 * @param string                    $meta_value   Value to set the meta value to if dismissed.
+	 * @param  string|Yoast_Notification $notification Notification to check dismissal of.
+	 * @param  string                    $meta_value   Value to set the meta value to if dismissed.
 	 *
-	 * @return bool True if dismissed.
+	 * @return bool                                    True if dismissed.
 	 */
 	public static function maybe_dismiss_notification( Yoast_Notification $notification, $meta_value = 'seen' ) {
-
 		// Only persistent notifications are dismissible.
 		if ( ! $notification->is_persistent() ) {
 			return false;
@@ -150,12 +145,11 @@ class Yoast_Notification_Center {
 	 * When a cause is resolved, the next time it is present we want to show
 	 * the message again.
 	 *
-	 * @param string|Yoast_Notification $notification Notification to clear the dismissal of.
+	 * @param  string|Yoast_Notification $notification Notification to clear the dismissal of.
 	 *
 	 * @return bool
 	 */
 	public function clear_dismissal( $notification ) {
-
 		if ( $notification instanceof Yoast_Notification ) {
 			$dismissal_key = $notification->get_dismissal_key();
 		}
@@ -180,7 +174,6 @@ class Yoast_Notification_Center {
 	 * @param Yoast_Notification $notification Notification object instance.
 	 */
 	public function add_notification( Yoast_Notification $notification ) {
-
 		// Don't add if the user can't see it.
 		if ( ! $notification->display_for_current_user() ) {
 			return;
@@ -209,12 +202,11 @@ class Yoast_Notification_Center {
 	/**
 	 * Get the notification by ID
 	 *
-	 * @param string $notification_id The ID of the notification to search for.
+	 * @param  string                  $notification_id The ID of the notification to search for.
 	 *
 	 * @return null|Yoast_Notification
 	 */
 	public function get_notification_by_id( $notification_id ) {
-
 		foreach ( $this->notifications as & $notification ) {
 			if ( $notification_id === $notification->get_id() ) {
 				return $notification;
@@ -227,12 +219,11 @@ class Yoast_Notification_Center {
 	/**
 	 * Display the notifications
 	 *
-	 * @param bool $echo_as_json True when notifications should be printed directly.
+	 * @param  bool $echo_as_json True when notifications should be printed directly.
 	 *
 	 * @return void
 	 */
 	public function display_notifications( $echo_as_json = false ) {
-
 		// Never display notifications for network admin.
 		if ( function_exists( 'is_network_admin' ) && is_network_admin() ) {
 			return;
@@ -267,10 +258,9 @@ class Yoast_Notification_Center {
 	 * Remove notification after it has been displayed
 	 *
 	 * @param Yoast_Notification $notification Notification to remove.
-	 * @param bool               $resolve Resolve as fixed.
+	 * @param bool               $resolve      Resolve as fixed.
 	 */
 	public function remove_notification( Yoast_Notification $notification, $resolve = true ) {
-
 		$index = false;
 
 		// Match persistent Notifications by ID, non persistent by item in the array.
@@ -281,8 +271,7 @@ class Yoast_Notification_Center {
 					break;
 				}
 			}
-		}
-		else {
+		} else {
 			$index = array_search( $notification, $this->notifications, true );
 		}
 
@@ -302,12 +291,11 @@ class Yoast_Notification_Center {
 	/**
 	 * Get the notification count
 	 *
-	 * @param bool $dismissed Count dismissed notifications.
+	 * @param  bool $dismissed Count dismissed notifications.
 	 *
-	 * @return int Number of notifications
+	 * @return int             Number of notifications
 	 */
 	public function get_notification_count( $dismissed = false ) {
-
 		$notifications = $this->get_notifications();
 		$notifications = array_filter( $notifications, array( $this, 'filter_persistent_notifications' ) );
 
@@ -326,7 +314,6 @@ class Yoast_Notification_Center {
 	 * @return int
 	 */
 	public function get_resolved_notification_count() {
-
 		return $this->resolved;
 	}
 
@@ -336,7 +323,6 @@ class Yoast_Notification_Center {
 	 * @return array|Yoast_Notification[] Sorted Notifications
 	 */
 	public function get_sorted_notifications() {
-
 		$notifications = $this->get_notifications();
 		if ( empty( $notifications ) ) {
 			return array();
@@ -365,7 +351,6 @@ class Yoast_Notification_Center {
 	 * Remove storage when the plugin is deactivated
 	 */
 	public function deactivate_hook() {
-
 		$this->clear_notifications();
 	}
 
@@ -379,7 +364,6 @@ class Yoast_Notification_Center {
 	 * @return void
 	 */
 	public function update_storage() {
-
 		$notifications = $this->get_notifications();
 
 		/**
@@ -408,7 +392,6 @@ class Yoast_Notification_Center {
 	 * @return array|Yoast_Notification[] Registered notifications.
 	 */
 	public function get_notifications() {
-
 		return $this->notifications;
 	}
 
@@ -418,19 +401,17 @@ class Yoast_Notification_Center {
 	 * @return array
 	 */
 	public function get_new_notifications() {
-
 		return array_map( array( $this, 'get_notification_by_id' ), $this->new );
 	}
 
 	/**
 	 * Get information from the User input
 	 *
-	 * @param string $key Key to retrieve.
+	 * @param  string $key Key to retrieve.
 	 *
-	 * @return mixed value of key if set.
+	 * @return mixed       value of key if set.
 	 */
 	private static function get_user_input( $key ) {
-
 		$filter_input_type = INPUT_GET;
 		if ( 'POST' === strtoupper( $_SERVER['REQUEST_METHOD'] ) ) {
 			$filter_input_type = INPUT_POST;
@@ -445,7 +426,6 @@ class Yoast_Notification_Center {
 	 * @return array Yoast_Notification[] Notifications
 	 */
 	private function retrieve_notifications_from_storage() {
-
 		$stored_notifications = get_user_option( self::STORAGE_KEY, get_current_user_id() );
 
 		// Check if notifications are stored.
@@ -465,13 +445,12 @@ class Yoast_Notification_Center {
 	/**
 	 * Sort on type then priority
 	 *
-	 * @param Yoast_Notification $a Compare with B.
-	 * @param Yoast_Notification $b Compare with A.
+	 * @param  Yoast_Notification $a Compare with B.
+	 * @param  Yoast_Notification $b Compare with A.
 	 *
-	 * @return int 1, 0 or -1 for sorting offset.
+	 * @return int                   1, 0 or -1 for sorting offset.
 	 */
 	private function sort_notifications( Yoast_Notification $a, Yoast_Notification $b ) {
-
 		$a_type = $a->get_type();
 		$b_type = $b->get_type();
 
@@ -493,8 +472,8 @@ class Yoast_Notification_Center {
 	/**
 	 * Dismiss the notification
 	 *
-	 * @param Yoast_Notification $notification Notification to dismiss.
-	 * @param string             $meta_value   Value to save in the dismissal.
+	 * @param  Yoast_Notification $notification Notification to dismiss.
+	 * @param  string             $meta_value   Value to save in the dismissal.
 	 *
 	 * @return bool
 	 */
@@ -507,7 +486,6 @@ class Yoast_Notification_Center {
 	 * Remove all notifications from storage
 	 */
 	private function remove_storage() {
-
 		delete_user_option( get_current_user_id(), self::STORAGE_KEY );
 	}
 
@@ -515,7 +493,6 @@ class Yoast_Notification_Center {
 	 * Clear local stored notifications
 	 */
 	private function clear_notifications() {
-
 		$this->notifications = array();
 	}
 
@@ -529,19 +506,17 @@ class Yoast_Notification_Center {
 	 * @return bool
 	 */
 	private function filter_persistent_notifications( Yoast_Notification $notification ) {
-
 		return $notification->is_persistent();
 	}
 
 	/**
 	 * Filter out dismissed notifications
 	 *
-	 * @param Yoast_Notification $notification Notification to check.
+	 * @param  Yoast_Notification $notification Notification to check.
 	 *
 	 * @return bool
 	 */
 	private function filter_dismissed_notifications( Yoast_Notification $notification ) {
-
 		return ! $this->maybe_dismiss_notification( $notification );
 	}
 
@@ -555,19 +530,17 @@ class Yoast_Notification_Center {
 	 * @return array
 	 */
 	private function notification_to_array( Yoast_Notification $notification ) {
-
 		return $notification->to_array();
 	}
 
 	/**
 	 * Convert stored array to Notification.
 	 *
-	 * @param array $notification_data Array to convert to Notification.
+	 * @param  array              $notification_data Array to convert to Notification.
 	 *
 	 * @return Yoast_Notification
 	 */
 	private function array_to_notification( $notification_data ) {
-
 		return new Yoast_Notification(
 			$notification_data['message'],
 			$notification_data['options']
@@ -577,7 +550,7 @@ class Yoast_Notification_Center {
 	/**
 	 * Filter notifications that should not be displayed for the current user
 	 *
-	 * @param Yoast_Notification $notification Notification to test.
+	 * @param  Yoast_Notification $notification Notification to test.
 	 *
 	 * @return bool
 	 */
@@ -588,9 +561,9 @@ class Yoast_Notification_Center {
 	/**
 	 * Checks if given notification is persistent.
 	 *
-	 * @param Yoast_Notification $notification The notification to check.
+	 * @param  Yoast_Notification $notification The notification to check.
 	 *
-	 * @return bool True when notification is not persistent.
+	 * @return bool                             True when notification is not persistent.
 	 */
 	private function is_notification_persistent( Yoast_Notification $notification ) {
 		return ! $notification->is_persistent();
@@ -607,4 +580,5 @@ class Yoast_Notification_Center {
 	public function set_transient() {
 		_deprecated_function( __METHOD__, 'WPSEO 3.2' );
 	}
+
 }

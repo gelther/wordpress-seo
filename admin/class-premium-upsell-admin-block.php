@@ -75,9 +75,9 @@ class Premium_Upsell_Admin_Block {
 	/**
 	 * Formats the argument to a HTML list item.
 	 *
-	 * @param string $argument The argument to format.
+	 * @param  string $argument The argument to format.
 	 *
-	 * @return string Formatted argument in HTML.
+	 * @return string           Formatted argument in HTML.
 	 */
 	protected function get_argument_html( $argument ) {
 		$class = $this->get_html_class();
@@ -132,4 +132,5 @@ class Premium_Upsell_Admin_Block {
 	protected function get_html_class() {
 		return 'yoast_' . $this->identifier;
 	}
+
 }

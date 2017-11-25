@@ -9,8 +9,8 @@
 class WPSEO_Option_Tabs_Formatter {
 
 	/**
-	 * @param WPSEO_Option_Tabs $option_tabs Option Tabs to get base from.
-	 * @param WPSEO_Option_Tab  $tab         Tab to get name from.
+	 * @param  WPSEO_Option_Tabs $option_tabs Option Tabs to get base from.
+	 * @param  WPSEO_Option_Tab  $tab         Tab to get name from.
 	 *
 	 * @return string
 	 */
@@ -20,11 +20,10 @@ class WPSEO_Option_Tabs_Formatter {
 
 	/**
 	 * @param WPSEO_Option_Tabs $option_tabs Option Tabs to get tabs from.
-	 * @param Yoast_Form        $yform Yoast Form which is being used in the views.
-	 * @param array             $options Options which are being used in the views.
+	 * @param Yoast_Form        $yform       Yoast Form which is being used in the views.
+	 * @param array             $options     Options which are being used in the views.
 	 */
 	public function run( WPSEO_Option_Tabs $option_tabs, Yoast_Form $yform, $options = array() ) {
-
 		echo '<h2 class="nav-tab-wrapper" id="wpseo-tabs">';
 		foreach ( $option_tabs->get_tabs() as $tab ) {
 			printf( '<a class="nav-tab" id="%1$s-tab" href="#top#%1$s">%2$s</a>', $tab->get_name(), $tab->get_label() );
@@ -48,4 +47,5 @@ class WPSEO_Option_Tabs_Formatter {
 			echo '</div>';
 		}
 	}
+
 }

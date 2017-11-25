@@ -58,4 +58,5 @@ class WPSEO_UnitTestCase extends WP_UnitTestCase {
 			$this->assertTrue( $found !== false, sprintf( 'Expected "%s" to be found in "%s" but couldn\'t find it.', $needle, $output ) );
 		}
 	}
+
 }

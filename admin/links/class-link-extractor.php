@@ -43,4 +43,5 @@ class WPSEO_Link_Extractor {
 
 		return $links;
 	}
+
 }

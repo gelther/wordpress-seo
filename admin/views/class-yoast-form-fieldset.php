@@ -54,7 +54,7 @@ class Yoast_Form_Fieldset implements Yoast_Form_Element {
 	 * Render the view.
 	 */
 	public function render_view() {
-		/*
+		/**
 		 * Extract because we want values accessible via variables for later use
 		 * in the view instead of accessing them as an array.
 		 */
@@ -141,9 +141,9 @@ class Yoast_Form_Fieldset implements Yoast_Form_Element {
 	/**
 	 * Return HTML formatted attributes as a string, when there are attributes set.
 	 *
-	 * @param array $attributes Fieldset or legend attributes.
+	 * @param  array  $attributes Fieldset or legend attributes.
 	 *
-	 * @return string A space separated list of HTML formatted attributes or empty string.
+	 * @return string             A space separated list of HTML formatted attributes or empty string.
 	 */
 	private function get_attributes_html( $attributes ) {
 		if ( ! empty( $attributes ) ) {
@@ -165,4 +165,5 @@ class Yoast_Form_Fieldset implements Yoast_Form_Element {
 	private function parse_attribute( & $value, $attribute ) {
 		$value = sprintf( '%s="%s"', esc_html( $attribute ), esc_attr( $value ) );
 	}
+
 }

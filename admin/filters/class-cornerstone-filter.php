@@ -20,9 +20,9 @@ class WPSEO_Cornerstone_Filter extends WPSEO_Abstract_Post_Filter {
 	/**
 	 * Modify the query based on the seo_filter variable in $_GET
 	 *
-	 * @param string $where Query variables.
+	 * @param  string $where Query variables.
 	 *
-	 * @return string The modified query.
+	 * @return string        The modified query.
 	 */
 	public function filter_posts( $where ) {
 		if ( $this->is_filter_active() ) {
@@ -101,4 +101,5 @@ class WPSEO_Cornerstone_Filter extends WPSEO_Abstract_Post_Filter {
 
 		return $post_types;
 	}
+
 }

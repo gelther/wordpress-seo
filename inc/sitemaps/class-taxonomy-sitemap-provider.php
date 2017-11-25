@@ -36,22 +36,20 @@ class WPSEO_Taxonomy_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Check if provider supports given item type.
 	 *
-	 * @param string $type Type string to check for.
+	 * @param  string  $type Type string to check for.
 	 *
 	 * @return boolean
 	 */
 	public function handles_type( $type ) {
-
 		return taxonomy_exists( $type );
 	}
 
 	/**
-	 * @param int $max_entries Entries per sitemap.
+	 * @param  int   $max_entries Entries per sitemap.
 	 *
 	 * @return array
 	 */
 	public function get_index_links( $max_entries ) {
-
 		$taxonomies = get_taxonomies( array( 'public' => true ), 'objects' );
 
 		if ( empty( $taxonomies ) ) {
@@ -131,8 +129,7 @@ class WPSEO_Taxonomy_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 
 				if ( $query->have_posts() ) {
 					$date = $query->posts[0]->post_modified_gmt;
-				}
-				else {
+				} else {
 					$date = $last_modified_gmt;
 				}
 
@@ -149,14 +146,13 @@ class WPSEO_Taxonomy_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Get set of sitemap link data.
 	 *
-	 * @param string $type         Sitemap type.
-	 * @param int    $max_entries  Entries per sitemap.
-	 * @param int    $current_page Current page of the sitemap.
+	 * @param  string $type         Sitemap type.
+	 * @param  int    $max_entries  Entries per sitemap.
+	 * @param  int    $current_page Current page of the sitemap.
 	 *
 	 * @return array
 	 */
 	public function get_sitemap_links( $type, $max_entries, $current_page ) {
-
 		global $wpdb;
 
 		$links    = array();
@@ -242,14 +238,13 @@ class WPSEO_Taxonomy_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Check if taxonomy by name is valid to appear in sitemaps.
 	 *
-	 * @param string $taxonomy_name Taxonomy name to check.
+	 * @param  string $taxonomy_name Taxonomy name to check.
 	 *
 	 * @return bool
 	 */
 	public function is_valid_taxonomy( $taxonomy_name ) {
-
 		$options = $this->get_options();
-		if ( ! empty( $options[ "taxonomies-{$taxonomy_name}-not_in_sitemap" ] ) ) {
+		if ( ! empty( $options["taxonomies-{$taxonomy_name}-not_in_sitemap"] ) ) {
 			return false;
 		}
 
@@ -264,8 +259,8 @@ class WPSEO_Taxonomy_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 		/**
 		 * Filter to exclude the taxonomy from the XML sitemap.
 		 *
-		 * @param boolean $exclude        Defaults to false.
-		 * @param string  $taxonomy_name  Name of the taxonomy to exclude..
+		 * @param boolean $exclude       Defaults to false.
+		 * @param string  $taxonomy_name Name of the taxonomy to exclude..
 		 */
 		if ( apply_filters( 'wpseo_sitemap_exclude_taxonomy', false, $taxonomy_name ) ) {
 			return false;
@@ -286,4 +281,5 @@ class WPSEO_Taxonomy_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 
 		return self::$image_parser;
 	}
+
 }

@@ -31,7 +31,7 @@ $generated_i18n_strings = array(
 
 	// Reference: node_modules/yoastseo/js/assessments/readability/fleschReadingEaseAssessment.js:76
 	/* Translators: %1$s expands to the numeric flesch reading ease score, %2$s to a link to a Yoast.com article about Flesch ease reading score,
-	   %3$s to the easyness of reading, %4$s expands to a note about the flesch reading score. */
+		%3$s to the easyness of reading, %4$s expands to a note about the flesch reading score. */
 	__( 'The copy scores %1$s in the %2$s test, which is considered %3$s to read. %4$s', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/readability/paragraphTooLongAssessment.js:52
@@ -43,39 +43,39 @@ $generated_i18n_strings = array(
 
 	// Reference: node_modules/yoastseo/js/assessments/readability/passiveVoiceAssessment.js:44
 	/* Translators: %1$s expands to the number of sentences in passive voice, %2$s expands to a link on yoast.com,
-	   %3$s expands to the anchor end tag, %4$s expands to the recommended value. */
+		%3$s expands to the anchor end tag, %4$s expands to the recommended value. */
 	__( '%1$s of the sentences contain %2$spassive voice%3$s, which is less than or equal to the recommended maximum of %4$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/readability/passiveVoiceAssessment.js:53
 	/* Translators: %1$s expands to the number of sentences in passive voice, %2$s expands to a link on yoast.com,
-	   %3$s expands to the anchor end tag, %4$s expands to the recommended value. */
+		%3$s expands to the anchor end tag, %4$s expands to the recommended value. */
 	__( '%1$s of the sentences contain %2$spassive voice%3$s, which is more than the recommended maximum of %4$s. Try to use their active counterparts.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/readability/sentenceBeginningsAssessment.js:46
 	/* Translators: %1$d expands to the number of instances where 3 or more consecutive sentences start with the same word.
-	   %2$d expands to the number of consecutive sentences starting with the same word. */
+		%2$d expands to the number of consecutive sentences starting with the same word. */
 	_n_noop( 'The text contains %2$d consecutive sentences starting with the same word. Try to mix things up!', 'The text contains %1$d instances where %2$d or more consecutive sentences start with the same word. Try to mix things up!', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/readability/sentenceLengthInDescriptionAssessment.js:40
 	/* Translators: %1$s expands to a link on yoast.com, %2$s expands to the recommended maximum sentence length,
-	   %3$s expands to the anchor end tag. */
+		%3$s expands to the anchor end tag. */
 	__( 'The meta description contains no sentences %1$sover %2$s words%3$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/readability/sentenceLengthInDescriptionAssessment.js:48
 	/* Translators: %1$d expands to number of sentences, %2$s expands to a link on yoast.com,
-	   %3$s expands to the recommended maximum sentence length, %4$s expands to the anchor end tag. */
+		%3$s expands to the recommended maximum sentence length, %4$s expands to the anchor end tag. */
 	_n_noop( 'The meta description contains %1$d sentence %2$sover %3$s words%4$s. Try to shorten this sentence.', 'The meta description contains %1$d sentences %2$sover %3$s words%4$s. Try to shorten these sentences.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/readability/sentenceLengthInTextAssessment.js:126
 	/* Translators: %1$d expands to percentage of sentences, %2$s expands to a link on yoast.com,
-	   %3$s expands to the recommended maximum sentence length, %4$s expands to the anchor end tag,
-	   %5$s expands to the recommended maximum percentage. */
+		%3$s expands to the recommended maximum sentence length, %4$s expands to the anchor end tag,
+		%5$s expands to the recommended maximum percentage. */
 	__( '%1$s of the sentences contain %2$smore than %3$s words%4$s, which is less than or equal to the recommended maximum of %5$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/readability/sentenceLengthInTextAssessment.js:132
 	/* Translators: %1$d expands to percentage of sentences, %2$s expands to a link on yoast.com,
-	   %3$s expands to the recommended maximum sentence length, %4$s expands to the anchor end tag,
-	   %5$s expands to the recommended maximum percentage. */
+		%3$s expands to the recommended maximum sentence length, %4$s expands to the anchor end tag,
+		%5$s expands to the recommended maximum percentage. */
 	__( '%1$s of the sentences contain %2$smore than %3$s words%4$s, which is more than the recommended maximum of %5$s. Try to shorten the sentences.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/readability/subheadingDistributionTooLongAssessment.js:167
@@ -93,24 +93,24 @@ $generated_i18n_strings = array(
 
 	// Reference: node_modules/yoastseo/js/assessments/readability/transitionWordsAssessment.js:57
 	/* Translators: %1$s expands to the number of sentences containing transition words, %2$s expands to a link on yoast.com,
-	   %3$s expands to the anchor end tag, %4$s expands to the recommended value. */
+		%3$s expands to the anchor end tag, %4$s expands to the recommended value. */
 	__( '%1$s of the sentences contain a %2$stransition word%3$s or phrase, which is less than the recommended minimum of %4$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/readability/transitionWordsAssessment.js:66
 	/* Translators: %1$s expands to the number of sentences containing transition words, %2$s expands to a link on yoast.com,
-	   %3$s expands to the anchor end tag. */
+		%3$s expands to the anchor end tag. */
 	__( '%1$s of the sentences contain a %2$stransition word%3$s or phrase, which is great.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/readability/wordComplexityAssessment.js:56
 	/* Translators: %1$s expands to the percentage of complex words, %2$s expands to a link on yoast.com,
-	   %3$d expands to the recommended maximum number of syllables,
-	   %4$s expands to the anchor end tag, %5$s expands to the recommended maximum number of syllables. */
+		%3$d expands to the recommended maximum number of syllables,
+		%4$s expands to the anchor end tag, %5$s expands to the recommended maximum number of syllables. */
 	__( '%1$s of the words contain %2$sover %3$s syllables%4$s, which is less than or equal to the recommended maximum of %5$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/readability/wordComplexityAssessment.js:66
 	/* Translators: %1$s expands to the percentage of complex words, %2$s expands to a link on yoast.com,
-	   %3$d expands to the recommended maximum number of syllables,
-	   %4$s expands to the anchor end tag, %5$s expands to the recommended maximum number of syllables. */
+		%3$d expands to the recommended maximum number of syllables,
+		%4$s expands to the anchor end tag, %5$s expands to the recommended maximum number of syllables. */
 	__( '%1$s of the words contain %2$sover %3$s syllables%4$s, which is more than the recommended maximum of %5$s.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/seo/internalLinksAssessment.js:16
@@ -142,12 +142,12 @@ $generated_i18n_strings = array(
 
 	// Reference: node_modules/yoastseo/js/assessments/seo/keywordDensityAssessment.js:27
 	/* Translators: %1$s expands to the keyword density percentage, %2$d expands to the keyword count,
-	   %3$s expands to the maximum keyword density percentage. */
+		%3$s expands to the maximum keyword density percentage. */
 	__( 'The keyword density is %1$s, which is way over the advised %3$s maximum; the focus keyword was found %2$d times.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/seo/keywordDensityAssessment.js:35
 	/* Translators: %1$s expands to the keyword density percentage, %2$d expands to the keyword count,
-	   %3$s expands to the maximum keyword density percentage. */
+		%3$s expands to the maximum keyword density percentage. */
 	__( 'The keyword density is %1$s, which is over the advised %3$s maximum; the focus keyword was found %2$d times.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/seo/keywordDensityAssessment.js:42
@@ -223,7 +223,7 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoastseo/js/assessments/seo/textLengthAssessment.js:130
 	// Reference: node_modules/yoastseo/js/assessments/seo/textLengthAssessment.js:137
 	/* Translators: %1$d expands to the number of words in the text.
-	   Translators: %1$d expands to the number of words in the text */
+		Translators: %1$d expands to the number of words in the text */
 	_n_noop( 'The text contains %1$d word.', 'The text contains %1$d words.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/seo/taxonomyTextLengthAssessment.js:20
@@ -234,20 +234,20 @@ $generated_i18n_strings = array(
 	// Reference: node_modules/yoastseo/js/assessments/seo/taxonomyTextLengthAssessment.js:30
 	// Reference: node_modules/yoastseo/js/assessments/seo/textLengthAssessment.js:125
 	/* Translators: The preceding sentence is "The text contains x words.", %2$s expands to the recommended minimum of words.
-	   Translators: The preceding sentence is "The text contains x words.", %2$s expands to the recommended minimum of words */
+		Translators: The preceding sentence is "The text contains x words.", %2$s expands to the recommended minimum of words */
 	_n_noop( 'This is slightly below the recommended minimum of %2$d word. Add a bit more copy.', 'This is slightly below the recommended minimum of %2$d words. Add a bit more copy.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/seo/taxonomyTextLengthAssessment.js:40
 	// Reference: node_modules/yoastseo/js/assessments/seo/taxonomyTextLengthAssessment.js:50
 	// Reference: node_modules/yoastseo/js/assessments/seo/textLengthAssessment.js:132
 	/* Translators: The preceding sentence is "The text contains x words.", %2$s expands to the recommended minimum of words.
-	   Translators: The preceding sentence is "The text contains x words.", %2$s expands to the recommended minimum of words */
+		Translators: The preceding sentence is "The text contains x words.", %2$s expands to the recommended minimum of words */
 	_n_noop( 'This is below the recommended minimum of %2$d word. Add more content that is relevant for the topic.', 'This is below the recommended minimum of %2$d words. Add more content that is relevant for the topic.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/seo/taxonomyTextLengthAssessment.js:60
 	// Reference: node_modules/yoastseo/js/assessments/seo/textLengthAssessment.js:139
 	/* Translators: The preceding sentence is "The text contains x words.", %2$s expands to the recommended minimum of words.
-	   Translators: The preceding sentence is "The text contains x words.", %2$s expands to the recommended minimum of words */
+		Translators: The preceding sentence is "The text contains x words.", %2$s expands to the recommended minimum of words */
 	_n_noop( 'This is far below the recommended minimum of %2$d word. Add more content that is relevant for the topic.', 'This is far below the recommended minimum of %2$d words. Add more content that is relevant for the topic.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/assessments/seo/textCompetingLinksAssessment.js:19
@@ -307,7 +307,7 @@ $generated_i18n_strings = array(
 
 	// Reference: node_modules/yoastseo/js/bundledPlugins/previouslyUsedKeywords.js:82
 	/* Translators: %1$s and $3$s expand to the admin search page for the focus keyword, %2$d expands to the number of times this focus
-	   keyword has been used before, %4$s and %5$s expand to a link to an article on yoast.com about cornerstone content */
+		keyword has been used before, %4$s and %5$s expand to a link to an article on yoast.com about cornerstone content */
 	__( 'You\'ve used this focus keyword %1$s%2$d times before%3$s, it\'s probably a good idea to read %4$sthis post on cornerstone content%5$s and improve your keyword strategy.', 'wordpress-seo' ),
 
 	// Reference: node_modules/yoastseo/js/config/presenter.js:12

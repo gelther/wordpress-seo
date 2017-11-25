@@ -26,7 +26,7 @@ class WPSEO_Plugin_Availability {
 	 */
 	protected function register_yoast_plugins() {
 		$this->plugins = array(
-			'yoast-seo-premium' => array(
+			'yoast-seo-premium'                    => array(
 				'url'          => 'https://yoast.com/wordpress/plugins/seo-premium/',
 				'title'        => 'Yoast SEO Premium',
 				'description'  => sprintf(
@@ -48,7 +48,7 @@ class WPSEO_Plugin_Availability {
 				'version_sync' => true,
 			),
 
-			'yoast-news-seo' => array(
+			'yoast-news-seo'                       => array(
 				'url'          => 'https://yoast.com/wordpress/plugins/news-seo/',
 				'title'        => 'News SEO',
 				'description'  => __( 'Are you in Google News? Increase your traffic from Google News by optimizing for it!', 'wordpress-seo' ),
@@ -57,7 +57,7 @@ class WPSEO_Plugin_Availability {
 				'version_sync' => true,
 			),
 
-			'local-seo-for-yoast-seo' => array(
+			'local-seo-for-yoast-seo'              => array(
 				'url'          => 'https://yoast.com/wordpress/plugins/local-seo/',
 				'title'        => 'Local SEO',
 				'description'  => __( 'Rank better locally and in Google Maps, without breaking a sweat!', 'wordpress-seo' ),
@@ -66,7 +66,7 @@ class WPSEO_Plugin_Availability {
 				'version_sync' => true,
 			),
 
-			'yoast-woocommerce-seo' => array(
+			'yoast-woocommerce-seo'                => array(
 				'url'           => WPSEO_Shortlinker::get( 'https://yoa.st/1o0' ),
 				'title'         => 'Yoast WooCommerce SEO',
 				'description'   => sprintf(
@@ -84,7 +84,7 @@ class WPSEO_Plugin_Availability {
 				'version_sync'  => true,
 			),
 
-			'yoast-acf-analysis' => array(
+			'yoast-acf-analysis'                   => array(
 				'url'           => 'https://wordpress.org/plugins/acf-content-analysis-for-yoast-seo/',
 				'title'         => 'ACF Content Analysis for Yoast SEO',
 				'description'   => sprintf(
@@ -103,7 +103,7 @@ class WPSEO_Plugin_Availability {
 				'version_sync'  => false,
 			),
 
-			'yoastseo-amp' => array(
+			'yoastseo-amp'                         => array(
 				'url'           => 'https://wordpress.org/plugins/glue-for-yoast-seo-amp/',
 				'title'         => 'Yoast SEO AMP Glue',
 				'description'   => sprintf(
@@ -126,7 +126,6 @@ class WPSEO_Plugin_Availability {
 	 * Sets certain plugin properties based on WordPress' status.
 	 */
 	protected function register_yoast_plugins_status() {
-
 		foreach ( $this->plugins as $name => $plugin ) {
 
 			$plugin_slug = $plugin['slug'];
@@ -144,7 +143,7 @@ class WPSEO_Plugin_Availability {
 	/**
 	 * Checks whether or not a plugin is known within the Yoast SEO collection.
 	 *
-	 * @param {string} $plugin The plugin to search for.
+	 * @param       {string} $plugin The plugin to search for.
 	 *
 	 * @return bool Whether or not the plugin is exists.
 	 */
@@ -164,7 +163,7 @@ class WPSEO_Plugin_Availability {
 	/**
 	 * Gets a specific plugin. Returns an empty array if it cannot be found.
 	 *
-	 * @param {string} $plugin The plugin to search for.
+	 * @param        {string} $plugin The plugin to search for.
 	 *
 	 * @return array The plugin properties.
 	 */
@@ -179,7 +178,7 @@ class WPSEO_Plugin_Availability {
 	/**
 	 * Gets the version of the plugin.
 	 *
-	 * @param {string} $plugin The plugin to search for.
+	 * @param         {string} $plugin The plugin to search for.
 	 *
 	 * @return string The version associated with the plugin.
 	 */
@@ -194,7 +193,7 @@ class WPSEO_Plugin_Availability {
 	/**
 	 * Checks if there are dependencies available for the plugin.
 	 *
-	 * @param {string} $plugin The plugin to search for.
+	 * @param       {string} $plugin The plugin to search for.
 	 *
 	 * @return bool Whether or not there is a dependency present.
 	 */
@@ -205,7 +204,7 @@ class WPSEO_Plugin_Availability {
 	/**
 	 * Gets the dependencies for the plugin.
 	 *
-	 * @param {string} $plugin The plugin to search for.
+	 * @param        {string} $plugin The plugin to search for.
 	 *
 	 * @return array Array containing all the dependencies associated with the plugin.
 	 */
@@ -220,7 +219,7 @@ class WPSEO_Plugin_Availability {
 	/**
 	 * Checks if all dependencies are satisfied.
 	 *
-	 * @param {string} $plugin The plugin to search for.
+	 * @param       {string} $plugin The plugin to search for.
 	 *
 	 * @return bool Whether or not the dependencies are satisfied.
 	 */
@@ -238,7 +237,7 @@ class WPSEO_Plugin_Availability {
 	/**
 	 * Checks whether or not one of the plugins is properly installed and usable.
 	 *
-	 * @param {string} $plugin The plugin to search for.
+	 * @param       {string} $plugin The plugin to search for.
 	 *
 	 * @return bool Whether or not the plugin is properly installed.
 	 */
@@ -270,7 +269,7 @@ class WPSEO_Plugin_Availability {
 	/**
 	 * Checks for the availability of the plugin.
 	 *
-	 * @param {string} $plugin The plugin to search for.
+	 * @param       {string} $plugin The plugin to search for.
 	 *
 	 * @return bool Whether or not the plugin is available.
 	 */
@@ -281,7 +280,7 @@ class WPSEO_Plugin_Availability {
 	/**
 	 * Checks whether a dependency is available.
 	 *
-	 * @param {string} $dependency The dependency to look for.
+	 * @param       {string} $dependency The dependency to look for.
 	 *
 	 * @return bool Whether or not the dependency is available.
 	 */
@@ -292,9 +291,9 @@ class WPSEO_Plugin_Availability {
 	/**
 	 * Gets the names of the dependencies.
 	 *
-	 * @param array $plugin The plugin to get the dependency names from.
+	 * @param  array $plugin The plugin to get the dependency names from.
 	 *
-	 * @return array Array containing the names of the associated dependencies.
+	 * @return array         Array containing the names of the associated dependencies.
 	 */
 	public function get_dependency_names( $plugin ) {
 		if ( ! $this->has_dependencies( $plugin ) ) {
@@ -316,11 +315,12 @@ class WPSEO_Plugin_Availability {
 	/**
 	 * Determines whether or not a plugin is active.
 	 *
-	 * @param string $plugin The plugin slug to check.
+	 * @param  string $plugin The plugin slug to check.
 	 *
-	 * @return bool Whether or not the plugin is active.
+	 * @return bool           Whether or not the plugin is active.
 	 */
 	public function is_active( $plugin ) {
 		return is_plugin_active( $plugin );
 	}
+
 }

@@ -54,7 +54,6 @@ class WPSEO_Recalculate_Terms_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Recalculate_Posts::save_scores
 	 */
 	public function test_save_scores_with_focus_kw() {
-
 		$this->assertEquals( WPSEO_Taxonomy_Meta::get_term_meta( 'linkdex', 'category', $this->terms[1] ), 0 );
 
 		$this->instance->save_scores(
@@ -78,7 +77,6 @@ class WPSEO_Recalculate_Terms_Test extends WPSEO_UnitTestCase {
 
 		$this->assertEquals( 4, $response['total_items'] );
 		$this->assertTrue( is_array( $response['items'] ) );
-
 	}
 
 }

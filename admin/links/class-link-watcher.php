@@ -23,7 +23,7 @@ class WPSEO_Link_Watcher {
 	/**
 	 * Registers the hooks.
 	 *
-	 * @returns void
+	 * @return s void
 	 */
 	public function register_hooks() {
 		add_action( 'save_post', array( $this, 'save_post' ), 10, 2 );
@@ -33,8 +33,8 @@ class WPSEO_Link_Watcher {
 	/**
 	 * Saves the links that are used in the post.
 	 *
-	 * @param int     $post_id The post id to.
-	 * @param WP_Post $post    The post object.
+	 * @param  int     $post_id The post id to.
+	 * @param  WP_Post $post    The post object.
 	 *
 	 * @return void
 	 */
@@ -64,7 +64,7 @@ class WPSEO_Link_Watcher {
 	/**
 	 * Removes the seo links when the post is deleted.
 	 *
-	 * @param int $post_id The post id.
+	 * @param  int  $post_id The post id.
 	 *
 	 * @return void
 	 */
@@ -87,9 +87,9 @@ class WPSEO_Link_Watcher {
 	/**
 	 * Checks if the post is processable.
 	 *
-	 * @param int $post_id The post id.
+	 * @param  int  $post_id The post id.
 	 *
-	 * @return bool True when the post is processable.
+	 * @return bool          True when the post is processable.
 	 */
 	protected function is_processable( $post_id ) {
 		$post_types = WPSEO_Post_Type::get_accessible_post_types();
@@ -100,8 +100,8 @@ class WPSEO_Link_Watcher {
 	/**
 	 * Processes the content for the given post id.
 	 *
-	 * @param int    $post_id The post id to process.
-	 * @param string $content The content to process.
+	 * @param  int    $post_id The post id to process.
+	 * @param  string $content The content to process.
 	 *
 	 * @return void
 	 */
@@ -112,4 +112,5 @@ class WPSEO_Link_Watcher {
 
 		$this->content_processor->process( $post_id, $content );
 	}
+
 }

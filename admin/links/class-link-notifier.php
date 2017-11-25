@@ -122,4 +122,5 @@ class WPSEO_Link_Notifier {
 
 		return WPSEO_Link_Query::has_unprocessed_posts( $post_types );
 	}
+
 }

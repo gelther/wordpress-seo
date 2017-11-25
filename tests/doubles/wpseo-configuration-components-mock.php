@@ -25,4 +25,5 @@ class WPSEO_Configuration_Components_Mock extends WPSEO_Configuration_Components
 	public function get_adapter() {
 		return $this->adapter;
 	}
+
 }

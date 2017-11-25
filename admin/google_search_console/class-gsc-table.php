@@ -139,8 +139,8 @@ class WPSEO_GSC_Table extends WP_List_Table {
 	/**
 	 * Default method to display a column
 	 *
-	 * @param array  $item        Data array.
-	 * @param string $column_name Column name key.
+	 * @param  array  $item        Data array.
+	 * @param  string $column_name Column name key.
 	 *
 	 * @return mixed
 	 */
@@ -151,7 +151,7 @@ class WPSEO_GSC_Table extends WP_List_Table {
 	/**
 	 * Checkbox column
 	 *
-	 * @param array $item Item data array.
+	 * @param  array  $item Item data array.
 	 *
 	 * @return string
 	 */
@@ -167,7 +167,7 @@ class WPSEO_GSC_Table extends WP_List_Table {
 	/**
 	 * Formatting the output of the column last crawled into a dateformat
 	 *
-	 * @param array $item Item data array.
+	 * @param  array  $item Item data array.
 	 *
 	 * @return string
 	 */
@@ -178,7 +178,7 @@ class WPSEO_GSC_Table extends WP_List_Table {
 	/**
 	 * Formatting the output of the column first detected into a dateformat
 	 *
-	 * @param array $item Item data array.
+	 * @param  array  $item Item data array.
 	 *
 	 * @return string
 	 */
@@ -189,7 +189,7 @@ class WPSEO_GSC_Table extends WP_List_Table {
 	/**
 	 * URL column
 	 *
-	 * @param array $item Item data array.
+	 * @param  array  $item Item data array.
 	 *
 	 * @return string
 	 */
@@ -303,8 +303,8 @@ class WPSEO_GSC_Table extends WP_List_Table {
 	/**
 	 * Doing the sorting of the issues
 	 *
-	 * @param array $a First data set for comparison.
-	 * @param array $b Second data set for comparison.
+	 * @param  array $a First data set for comparison.
+	 * @param  array $b Second data set for comparison.
 	 *
 	 * @return int
 	 */
@@ -333,9 +333,9 @@ class WPSEO_GSC_Table extends WP_List_Table {
 	/**
 	 * Checks if premium is loaded, if not the nopremium modal will be shown. Otherwise it will load the premium one.
 	 *
-	 * @param string $url URL string.
+	 * @param  string          $url URL string.
 	 *
-	 * @return WPSEO_GSC_Modal Instance of the GSC modal.
+	 * @return WPSEO_GSC_Modal      Instance of the GSC modal.
 	 */
 	private function get_modal_box( $url ) {
 		if ( defined( 'WPSEO_PREMIUM_FILE' ) && class_exists( 'WPSEO_Premium_GSC_Modal' ) ) {
@@ -365,4 +365,5 @@ class WPSEO_GSC_Table extends WP_List_Table {
 		echo '<input id="field_platform" type="hidden" name="platform" value="' . esc_attr( $platform ) . '" />';
 		echo '<input id="field_category" type="hidden" name="category" value="' . esc_attr( $this->current_view ) . '" />';
 	}
+
 }

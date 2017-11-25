@@ -85,10 +85,8 @@ class WPSEO_Configuration_Endpoint_Test extends WPSEO_UnitTestCase {
 
 	/**
 	 * @covers WPSEO_Configuration_Endpoint::register()
-	 *
 	 */
 	public function test_register() {
-
 		if ( ! class_exists( 'WP_REST_Server' ) ) {
 			$this->markTestSkipped( 'WordPress version too low to test with WP_REST_Server.' );
 
@@ -106,4 +104,5 @@ class WPSEO_Configuration_Endpoint_Test extends WPSEO_UnitTestCase {
 		$this->assertTrue( isset( $endpoints[ '/' . WPSEO_Configuration_Endpoint::REST_NAMESPACE . '/' . WPSEO_Configuration_Endpoint::ENDPOINT_RETRIEVE ] ) );
 		$this->assertTrue( isset( $endpoints[ '/' . WPSEO_Configuration_Endpoint::REST_NAMESPACE . '/' . WPSEO_Configuration_Endpoint::ENDPOINT_STORE ] ) );
 	}
+
 }

@@ -41,7 +41,6 @@ class WPSEO_Product_Upsell_Notice {
 	 * Sets the upgrade notice.
 	 */
 	public function set_upgrade_notice() {
-
 		if ( $this->has_first_activated_on() ) {
 			return;
 		}
@@ -198,4 +197,5 @@ class WPSEO_Product_Upsell_Notice {
 	protected function save_options() {
 		update_option( self::OPTION_NAME, $this->options );
 	}
+
 }

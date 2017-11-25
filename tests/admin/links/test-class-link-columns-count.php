@@ -158,4 +158,5 @@ class WPSEO_Link_Column_Count_Test extends WPSEO_UnitTestCase {
 
 		$this->assertEquals( 0, $column_count->get( 120, 'internal_link_count' ) );
 	}
+
 }

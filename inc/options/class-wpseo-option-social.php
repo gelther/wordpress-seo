@@ -89,7 +89,6 @@ class WPSEO_Option_Social extends WPSEO_Option {
 		return self::$instance;
 	}
 
-
 	/**
 	 * Translate/set strings used in the option defaults.
 	 *
@@ -103,7 +102,6 @@ class WPSEO_Option_Social extends WPSEO_Option {
 		self::$twitter_card_types['summary_large_image'] = __( 'Summary with large image', 'wordpress-seo' );
 	}
 
-
 	/**
 	 * Get a Facebook connect key for the blog.
 	 *
@@ -114,7 +112,6 @@ class WPSEO_Option_Social extends WPSEO_Option {
 		return md5( get_bloginfo( 'url' ) . rand() );
 	}
 
-
 	/**
 	 * Validate the option.
 	 *
@@ -122,18 +119,16 @@ class WPSEO_Option_Social extends WPSEO_Option {
 	 * @param  array $clean Clean value for the option, normally the defaults.
 	 * @param  array $old   Old value of the option.
 	 *
-	 * @return  array      Validated clean value for the option to be saved to the database.
+	 * @return array        Validated clean value for the option to be saved to the database.
 	 */
 	protected function validate_option( $dirty, $clean, $old ) {
-
 		foreach ( $clean as $key => $value ) {
 			switch ( $key ) {
 				/* Automagic Facebook connect key. */
 				case 'fbconnectkey':
 					if ( ( isset( $old[ $key ] ) && $old[ $key ] !== '' ) && preg_match( '`^[a-f0-9]{32}$`', $old[ $key ] ) > 0 ) {
 						$clean[ $key ] = $old[ $key ];
-					}
-					else {
+					} else {
 						$clean[ $key ] = self::get_fbconnectkey();
 					}
 					break;
@@ -144,10 +139,9 @@ class WPSEO_Option_Social extends WPSEO_Option {
 					if ( isset( $dirty[ $key ] ) && is_array( $dirty[ $key ] ) ) {
 						if ( $dirty[ $key ] === array() ) {
 							$clean[ $key ] = array();
-						}
-						else {
+						} else {
 							foreach ( $dirty[ $key ] as $user_id => $fb_array ) {
-								/*
+								/**
 								 * @todo [JRF/JRF => Yoast/whomever] add user_id validation -
 								 * are these WP user-ids or FB user-ids ? Probably FB user-ids,
 								 * if so, find out the rules for FB user-ids.
@@ -173,8 +167,7 @@ class WPSEO_Option_Social extends WPSEO_Option {
 							}
 							unset( $user_id, $fb_array, $fb_key, $fb_value );
 						}
-					}
-					elseif ( isset( $old[ $key ] ) && is_array( $old[ $key ] ) ) {
+					} elseif ( isset( $old[ $key ] ) && is_array( $old[ $key ] ) ) {
 						$clean[ $key ] = $old[ $key ];
 					}
 					break;
@@ -222,11 +215,9 @@ class WPSEO_Option_Social extends WPSEO_Option {
 						 */
 						if ( preg_match( '`^[A-Za-z0-9_]{1,25}$`', $twitter_id ) ) {
 							$clean[ $key ] = $twitter_id;
-						}
-						elseif ( preg_match( '`^http(?:s)?://(?:www\.)?twitter\.com/(?P<handle>[A-Za-z0-9_]{1,25})/?$`', $twitter_id, $matches ) ) {
+						} elseif ( preg_match( '`^http(?:s)?://(?:www\.)?twitter\.com/(?P<handle>[A-Za-z0-9_]{1,25})/?$`', $twitter_id, $matches ) ) {
 							$clean[ $key ] = $matches['handle'];
-						}
-						else {
+						} else {
 							if ( isset( $old[ $key ] ) && $old[ $key ] !== '' ) {
 								$twitter_id = sanitize_text_field( ltrim( $old[ $key ], '@' ) );
 								if ( preg_match( '`^[A-Za-z0-9_]{1,25}$`', $twitter_id ) ) {
@@ -275,7 +266,6 @@ class WPSEO_Option_Social extends WPSEO_Option {
 		return $clean;
 	}
 
-
 	/**
 	 * Clean a given option value.
 	 *
@@ -286,10 +276,9 @@ class WPSEO_Option_Social extends WPSEO_Option {
 	 * @param  array  $all_old_option_values Optional. Only used when importing old options to have
 	 *                                       access to the real old values, in contrast to the saved ones.
 	 *
-	 * @return  array Cleaned option.
+	 * @return array                         Cleaned option.
 	 */
 	protected function clean_option( $option_value, $current_version = null, $all_old_option_values = null ) {
-
 		/* Move options from very old option to this one. */
 		$old_option = null;
 		if ( isset( $all_old_option_values ) ) {
@@ -297,8 +286,7 @@ class WPSEO_Option_Social extends WPSEO_Option {
 			if ( isset( $all_old_option_values['wpseo_indexation'] ) && is_array( $all_old_option_values['wpseo_indexation'] ) && $all_old_option_values['wpseo_indexation'] !== array() ) {
 				$old_option = $all_old_option_values['wpseo_indexation'];
 			}
-		}
-		else {
+		} else {
 			$old_option = get_option( 'wpseo_indexation' );
 		}
 
@@ -320,4 +308,5 @@ class WPSEO_Option_Social extends WPSEO_Option {
 
 		return $option_value;
 	}
+
 }

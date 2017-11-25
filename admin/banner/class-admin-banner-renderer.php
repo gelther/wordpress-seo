@@ -14,7 +14,7 @@ class WPSEO_Admin_Banner_Renderer {
 	/**
 	 * Renders the admin banner.
 	 *
-	 * @param WPSEO_Admin_Banner $banner The banner to render.
+	 * @param  WPSEO_Admin_Banner $banner The banner to render.
 	 *
 	 * @return string
 	 */
@@ -38,11 +38,12 @@ class WPSEO_Admin_Banner_Renderer {
 	/**
 	 * Returns the full path for the image.
 	 *
-	 * @param string $image The image path.
+	 * @param  string $image The image path.
 	 *
 	 * @return string
 	 */
 	protected function get_image_path( $image ) {
 		return rtrim( $this->base_path, '/' ) . '/' . ltrim( $image, '/' );
 	}
+
 }

@@ -58,4 +58,5 @@ class WPSEO_Link_Table_Accessible {
 	protected static function transient_name() {
 		return 'wpseo_link_table_accessible';
 	}
+
 }

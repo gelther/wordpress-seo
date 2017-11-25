@@ -150,4 +150,5 @@ class WPSEO_Metabox_Formatter {
 
 		return false;
 	}
+
 }

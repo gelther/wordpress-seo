@@ -11,7 +11,7 @@ class WPSEO_Admin_Banner_Spot_Renderer {
 	/**
 	 * Renders the admin banner spot.
 	 *
-	 * @param WPSEO_Admin_Banner_Spot $banner_spot The spot to render.
+	 * @param  WPSEO_Admin_Banner_Spot $banner_spot The spot to render.
 	 *
 	 * @return string
 	 */
@@ -34,4 +34,5 @@ class WPSEO_Admin_Banner_Spot_Renderer {
 
 		return $output;
 	}
+
 }

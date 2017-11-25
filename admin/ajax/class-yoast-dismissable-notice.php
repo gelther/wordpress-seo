@@ -77,4 +77,5 @@ class Yoast_Dismissable_Notice_Ajax {
 
 		update_user_meta( get_current_user_id(), 'wpseo_dismiss_' . $this->notice_name, 1 );
 	}
+
 }

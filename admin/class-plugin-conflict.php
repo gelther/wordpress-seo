@@ -93,7 +93,7 @@ class WPSEO_Plugin_Conflict extends Yoast_Plugin_Conflict {
 			'rps-sitemap-generator/rps-sitemap-generator.php',
 			// RPS Sitemap Generator (redpixelstudios).
 		),
-		'cloaking' => array(
+		'cloaking'     => array(
 			'rs-head-cleaner/rs-head-cleaner.php',
 			// RS Head Cleaner Plus https://wordpress.org/plugins/rs-head-cleaner/.
 			'rs-head-cleaner-lite/rs-head-cleaner-lite.php',
@@ -104,7 +104,7 @@ class WPSEO_Plugin_Conflict extends Yoast_Plugin_Conflict {
 	/**
 	 * Overrides instance to set with this class as class
 	 *
-	 * @param string $class_name Optional class name.
+	 * @param  string                $class_name Optional class name.
 	 *
 	 * @return Yoast_Plugin_Conflict
 	 */
@@ -120,7 +120,6 @@ class WPSEO_Plugin_Conflict extends Yoast_Plugin_Conflict {
 	 * @param string|bool $plugin Optional plugin basename to check.
 	 */
 	public static function hook_check_for_plugin_conflicts( $plugin = false ) {
-
 		// The instance of itself.
 		$instance = self::get_instance();
 
@@ -161,4 +160,5 @@ class WPSEO_Plugin_Conflict extends Yoast_Plugin_Conflict {
 
 		$instance->check_plugin_conflicts( $plugin_sections );
 	}
+
 }

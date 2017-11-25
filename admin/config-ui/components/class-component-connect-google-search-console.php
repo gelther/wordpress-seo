@@ -55,7 +55,6 @@ class WPSEO_Config_Component_Connect_Google_Search_Console implements WPSEO_Conf
 	 * @return mixed
 	 */
 	public function get_data() {
-
 		$data = array(
 			'profileList'    => $this->get_profilelist(),
 			'profile'        => $this->get_profile(),
@@ -68,12 +67,11 @@ class WPSEO_Config_Component_Connect_Google_Search_Console implements WPSEO_Conf
 	/**
 	 * Save data
 	 *
-	 * @param array $data Data containing changes.
+	 * @param  array $data Data containing changes.
 	 *
 	 * @return mixed
 	 */
 	public function set_data( $data ) {
-
 		$current_data = $this->get_data();
 
 		$this->handle_profile_change( $current_data, $data );
@@ -132,7 +130,7 @@ class WPSEO_Config_Component_Connect_Google_Search_Console implements WPSEO_Conf
 		$profiles = array();
 		$sites    = $this->gsc_service->get_sites();
 		foreach ( $sites as $site_key => $site_value ) {
-			$profiles[ untrailingslashit( $site_key )  ] = untrailingslashit( $site_value );
+			$profiles[ untrailingslashit( $site_key ) ] = untrailingslashit( $site_value );
 		}
 
 		return $profiles;
@@ -146,4 +144,5 @@ class WPSEO_Config_Component_Connect_Google_Search_Console implements WPSEO_Conf
 	private function hasAccessToken() {
 		return ( null !== $this->gsc_service->get_client()->getAccessToken() );
 	}
+
 }

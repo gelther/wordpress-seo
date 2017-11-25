@@ -50,7 +50,6 @@ class WPSEO_Link_Factory_Test extends WPSEO_UnitTestCase {
 	 * @return array
 	 */
 	public function link_provider() {
-
 		return array(
 			array(
 				$this->getClassifierMock( 'internal' ),

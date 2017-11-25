@@ -27,4 +27,5 @@ class WPSEO_Role_Manager_Factory {
 
 		return $manager;
 	}
+
 }

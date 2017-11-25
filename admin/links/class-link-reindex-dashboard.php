@@ -145,7 +145,6 @@ class WPSEO_Link_Reindex_Dashboard {
 		wp_localize_script( WPSEO_Admin_Asset_Manager::PREFIX . 'reindex-links', 'yoastReindexLinksData', array( 'data' => $data ) );
 	}
 
-
 	/**
 	 * Checks if the current page is the dashboard page.
 	 *
@@ -163,4 +162,5 @@ class WPSEO_Link_Reindex_Dashboard {
 	protected function message_already_indexed() {
 		return '<span class="wpseo-checkmark-ok-icon"></span>' . esc_html__( 'Good job! All the links in your texts have been counted.', 'wordpress-seo' );
 	}
+
 }

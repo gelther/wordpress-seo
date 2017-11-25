@@ -9,7 +9,7 @@
 class WPSEO_Admin_Asset_Manager {
 
 	/**
-	 *  Prefix for naming the assets.
+	 * Prefix for naming the assets.
 	 */
 	const PREFIX = 'yoast-seo-';
 
@@ -112,8 +112,8 @@ class WPSEO_Admin_Asset_Manager {
 	/**
 	 * Flattens a version number for use in a filename
 	 *
-	 * @param string $version The original version number.
-	 * @return string The flattened version number.
+	 * @param  string $version The original version number.
+	 * @return string          The flattened version number.
 	 */
 	public function flatten_version( $version ) {
 		$parts = explode( '.', $version );
@@ -133,15 +133,13 @@ class WPSEO_Admin_Asset_Manager {
 	 * @return array scripts that need to be registered.
 	 */
 	private function scripts_to_be_registered() {
-
 		$select2_language = 'en';
 		$user_locale      = WPSEO_Utils::get_user_locale();
 		$language         = WPSEO_Utils::get_language( $user_locale );
 
 		if ( file_exists( WPSEO_PATH . "js/dist/select2/i18n/{$user_locale}.js" ) ) {
 			$select2_language = $user_locale; // Chinese and some others use full locale.
-		}
-		elseif ( file_exists( WPSEO_PATH . "js/dist/select2/i18n/{$language}.js" ) ) {
+		} elseif ( file_exists( WPSEO_PATH . "js/dist/select2/i18n/{$language}.js" ) ) {
 			$select2_language = $language;
 		}
 
@@ -367,8 +365,8 @@ class WPSEO_Admin_Asset_Manager {
 				'deps' => array( self::PREFIX . 'toggle-switch' ),
 			),
 			array(
-				'name'   => 'toggle-switch',
-				'src'    => 'toggle-switch-' . $flat_version,
+				'name' => 'toggle-switch',
+				'src'  => 'toggle-switch-' . $flat_version,
 			),
 			array(
 				'name' => 'dismissible',
@@ -438,4 +436,5 @@ class WPSEO_Admin_Asset_Manager {
 			),
 		);
 	}
+
 }

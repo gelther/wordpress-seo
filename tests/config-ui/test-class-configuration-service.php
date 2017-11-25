@@ -159,7 +159,6 @@ class WPSEO_Configuration_Service_Test extends PHPUnit_Framework_TestCase {
 	 * @covers WPSEO_Configuration_Service::set_configuration()
 	 */
 	public function test_set_configuration() {
-
 		if ( ! class_exists( 'WP_REST_Request' ) ) {
 			$this->markTestSkipped( 'WordPress version too low to test with WP_REST_Request.' );
 
@@ -209,4 +208,5 @@ class WPSEO_Configuration_Service_Test extends PHPUnit_Framework_TestCase {
 			$this->assertNotNull( $configuration_service->get( $property ) );
 		}
 	}
+
 }

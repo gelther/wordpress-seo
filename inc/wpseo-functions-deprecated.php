@@ -10,10 +10,10 @@
  * @deprecated use WPSEO_Meta::get_value()
  * @see        WPSEO_Meta::get_value()
  *
- * @param    string $val    Internal name of the value to get.
- * @param    int    $postid Post ID of the post to get the value for.
+ * @param  string $val    Internal name of the value to get.
+ * @param  int    $postid Post ID of the post to get the value for.
  *
- * @return    string
+ * @return string
  */
 function wpseo_get_value( $val, $postid = 0 ) {
 	_deprecated_function( __FUNCTION__, 'WPSEO 1.5.0', 'WPSEO_Meta::get_value()' );
@@ -28,11 +28,11 @@ function wpseo_get_value( $val, $postid = 0 ) {
  * @deprecated use WPSEO_Meta::set_value() or just use update_post_meta()
  * @see        WPSEO_Meta::set_value()
  *
- * @param    string $meta_key   The meta to change.
- * @param    mixed  $meta_value The value to set the meta to.
- * @param    int    $post_id    The ID of the post to change the meta for.
+ * @param  string $meta_key   The meta to change.
+ * @param  mixed  $meta_value The value to set the meta to.
+ * @param  int    $post_id    The ID of the post to change the meta for.
  *
- * @return    bool    whether the value was changed
+ * @return bool               whether the value was changed
  */
 function wpseo_set_value( $meta_key, $meta_value, $post_id ) {
 	_deprecated_function( __FUNCTION__, 'WPSEO 1.5.0', 'WPSEO_Meta::set_value()' );
@@ -94,11 +94,11 @@ function replace_meta( $old_metakey, $new_metakey, $replace = false ) {
  * @deprecated use WPSEO_Taxonomy_Meta::get_term_meta()
  * @see        WPSEO_Taxonomy_Meta::get_term_meta()
  *
- * @param string|object $term     Term to get the meta value for.
- * @param string        $taxonomy Name of the taxonomy to which the term is attached.
- * @param string        $meta     Meta value to get.
+ * @param  string|object $term     Term to get the meta value for.
+ * @param  string        $taxonomy Name of the taxonomy to which the term is attached.
+ * @param  string        $meta     Meta value to get.
  *
- * @return bool|mixed value when the meta exists, false when it does not
+ * @return bool|mixed              value when the meta exists, false when it does not
  */
 function wpseo_get_term_meta( $term, $taxonomy, $meta ) {
 	_deprecated_function( __FUNCTION__, 'WPSEO 1.5.0', 'WPSEO_Taxonomy_Meta::get_term_meta()' );
@@ -122,11 +122,11 @@ function wpseo_invalid_custom_taxonomy() {
  * @deprecated use WPSEO_Replace_Vars::get_terms()
  * @see        WPSEO_Replace_Vars::get_terms()
  *
- * @param int    $id            ID of the post to get the terms for.
- * @param string $taxonomy      The taxonomy to get the terms for this post from.
- * @param bool   $return_single If true, return the first term.
+ * @param  int    $id            ID of the post to get the terms for.
+ * @param  string $taxonomy      The taxonomy to get the terms for this post from.
+ * @param  bool   $return_single If true, return the first term.
  *
- * @return string Either a single term or a comma delimited string of terms.
+ * @return string                Either a single term or a comma delimited string of terms.
  */
 function wpseo_get_terms( $id, $taxonomy, $return_single = false ) {
 	_deprecated_function( __FUNCTION__, 'WPSEO 1.5.4', 'WPSEO_Replace_Vars::get_terms()' );
@@ -142,7 +142,7 @@ function wpseo_get_terms( $id, $taxonomy, $return_single = false ) {
  * @deprecated use plugin Yoast SEO Premium
  * @see        Yoast SEO Premium
  *
- * @param array $atts The attributes passed to the shortcode.
+ * @param  array  $atts The attributes passed to the shortcode.
  *
  * @return string
  */
@@ -161,7 +161,7 @@ add_shortcode( 'wpseo_sitemap', 'wpseo_sitemap_handler' );
  * @deprecated use WPSEO_Utils::strip_shortcode()
  * @see        WPSEO_Utils::strip_shortcode()
  *
- * @param string $text Input string that might contain shortcodes.
+ * @param  string $text Input string that might contain shortcodes.
  *
  * @return string $text String without shortcodes.
  */
@@ -185,14 +185,14 @@ function wpseo_strip_shortcode( $text ) {
  *
  * @since      1.5.0
  *
- * @param    mixed  $number1   Scalar (string/int/float/bool).
- * @param    string $action    Calculation action to execute.
- * @param    mixed  $number2   Scalar (string/int/float/bool).
- * @param    bool   $round     Whether or not to round the result. Defaults to false.
- * @param    int    $decimals  Decimals for rounding operation. Defaults to 0.
- * @param    int    $precision Calculation precision. Defaults to 10.
+ * @param  mixed  $number1   Scalar (string/int/float/bool).
+ * @param  string $action    Calculation action to execute.
+ * @param  mixed  $number2   Scalar (string/int/float/bool).
+ * @param  bool   $round     Whether or not to round the result. Defaults to false.
+ * @param  int    $decimals  Decimals for rounding operation. Defaults to 0.
+ * @param  int    $precision Calculation precision. Defaults to 10.
  *
- * @return    mixed                Calculation Result or false if either or the numbers isn't scalar or
+ * @return mixed             Calculation Result or false if either or the numbers isn't scalar or
  *                                an invalid operation was passed.
  */
 function wpseo_calc( $number1, $action, $number2, $round = false, $decimals = 0, $precision = 10 ) {
@@ -253,7 +253,7 @@ function wpseo_get_roles() {
  * @deprecated use WPSEO_Utils::is_url_relative()
  * @see        WPSEO_Utils::is_url_relative()
  *
- * @param string $url URL input to check.
+ * @param  string $url URL input to check.
  *
  * @return bool
  */
@@ -272,7 +272,7 @@ function wpseo_is_url_relative( $url ) {
  *
  * @since      1.6.0
  *
- * @param string $string String input to standardize.
+ * @param  string $string String input to standardize.
  *
  * @return string
  */
@@ -403,9 +403,9 @@ function wpseo_ping_search_engines( $sitemapurl = null ) {
  * @deprecated use WPSEO_Sitemaps_Router::get_base_url()
  * @see        WPSEO_Sitemaps_Router::get_base_url()
  *
- * @param string $page Page to append to the base URL.
+ * @param  string $page Page to append to the base URL.
  *
- * @return string Base URL (incl page) for the sitemaps.
+ * @return string       Base URL (incl page) for the sitemaps.
  */
 function wpseo_xml_sitemaps_base_url( $page ) {
 	_deprecated_function( __FUNCTION__, 'WPSEO 3.2.0', 'WPSEO_Sitemaps_Router::get_base_url()' );

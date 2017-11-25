@@ -35,15 +35,15 @@ class WPSEO_Rank {
 			'start' => 0,
 			'end'   => 0,
 		),
-		self::BAD => array(
+		self::BAD      => array(
 			'start' => 1,
 			'end'   => 40,
 		),
-		self::OK => array(
+		self::OK       => array(
 			'start' => 41,
 			'end'   => 70,
 		),
-		self::GOOD => array(
+		self::GOOD     => array(
 			'start' => 71,
 			'end'   => 100,
 		),
@@ -132,9 +132,9 @@ class WPSEO_Rank {
 	 */
 	public function get_drop_down_readability_labels() {
 		$labels = array(
-			self::BAD      => __( 'Readability: Needs improvement', 'wordpress-seo' ),
-			self::OK       => __( 'Readability: OK', 'wordpress-seo' ),
-			self::GOOD     => __( 'Readability: Good', 'wordpress-seo' ),
+			self::BAD  => __( 'Readability: Needs improvement', 'wordpress-seo' ),
+			self::OK   => __( 'Readability: OK', 'wordpress-seo' ),
+			self::GOOD => __( 'Readability: Good', 'wordpress-seo' ),
 		);
 
 		return $labels[ $this->rank ];
@@ -167,7 +167,7 @@ class WPSEO_Rank {
 	/**
 	 * Returns a rank for a specific numeric score
 	 *
-	 * @param int $score The score to determine a rank for.
+	 * @param  int  $score The score to determine a rank for.
 	 *
 	 * @return self
 	 */
@@ -206,11 +206,12 @@ class WPSEO_Rank {
 	/**
 	 * Converts a numeric rank into a WPSEO_Rank object, for use in functional array_* functions
 	 *
-	 * @param string $rank SEO Rank.
+	 * @param  string     $rank SEO Rank.
 	 *
 	 * @return WPSEO_Rank
 	 */
 	private static function create_rank( $rank ) {
 		return new self( $rank );
 	}
+
 }

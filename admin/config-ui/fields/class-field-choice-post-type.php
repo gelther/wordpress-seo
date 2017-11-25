@@ -71,7 +71,7 @@ class WPSEO_Config_Field_Choice_Post_Type extends WPSEO_Config_Field_Choice {
 	/**
 	 * Set new data
 	 *
-	 * @param string $visible Visible (true) or hidden (false).
+	 * @param  string $visible Visible (true) or hidden (false).
 	 *
 	 * @return bool
 	 */
@@ -89,4 +89,5 @@ class WPSEO_Config_Field_Choice_Post_Type extends WPSEO_Config_Field_Choice {
 
 		return ( ( $visible === 'false' ) && $saved_option[ 'post_types-' . $post_type . '-not_in_sitemap' ] === true );
 	}
+
 }

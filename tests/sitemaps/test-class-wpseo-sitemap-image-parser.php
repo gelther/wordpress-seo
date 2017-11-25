@@ -26,7 +26,6 @@ class WPSEO_Sitemap_Image_Parser_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Sitemap_Image_Parser::get_images
 	 */
 	public function test_get_images() {
-
 		$content_src   = 'http://example.org/content-image.jpg';
 		$content_title = 'Content image title.';
 		$content_alt   = 'Content image alt.';
@@ -41,4 +40,5 @@ class WPSEO_Sitemap_Image_Parser_Test extends WPSEO_UnitTestCase {
 		$this->assertEquals( $content_title, $content_image['title'] );
 		$this->assertEquals( $content_alt, $content_image['alt'] );
 	}
+
 }

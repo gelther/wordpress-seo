@@ -45,16 +45,16 @@ class WPSEO_Social_Admin extends WPSEO_Metabox {
 		$options = WPSEO_Options::get_option( 'wpseo_social' );
 
 		$social_networks = array(
-			'opengraph'  => __( 'Facebook', 'wordpress-seo' ),
-			'twitter'    => __( 'Twitter', 'wordpress-seo' ),
+			'opengraph' => __( 'Facebook', 'wordpress-seo' ),
+			'twitter'   => __( 'Twitter', 'wordpress-seo' ),
 		);
 
 		// Source: https://blog.bufferapp.com/ideal-image-sizes-social-media-posts.
 		$recommended_image_sizes = array(
 			/* translators: %1$s expands to the image recommended width, %2$s to its height. */
-			'opengraph'   => sprintf( __( '%1$s by %2$s', 'wordpress-seo' ), '1200', '630' ), // Source: https://developers.facebook.com/docs/sharing/best-practices#images.
+			'opengraph' => sprintf( __( '%1$s by %2$s', 'wordpress-seo' ), '1200', '630' ), // Source: https://developers.facebook.com/docs/sharing/best-practices#images.
 			/* translators: %1$s expands to the image recommended width, %2$s to its height. */
-			'twitter'     => sprintf( __( '%1$s by %2$s', 'wordpress-seo' ), '1024', '512' ),
+			'twitter'   => sprintf( __( '%1$s by %2$s', 'wordpress-seo' ), '1024', '512' ),
 		);
 
 		foreach ( $social_networks as $network => $label ) {
@@ -128,8 +128,8 @@ class WPSEO_Social_Admin extends WPSEO_Metabox {
 	/**
 	 * Generates the html for a social settings tab for one of the supported social media.
 	 *
-	 * @param string $medium          Medium. Can be 'opengraph' or 'twitter'.
-	 * @param array  $meta_field_defs The social meta field definitions.
+	 * @param  string $medium          Medium. Can be 'opengraph' or 'twitter'.
+	 * @param  array  $meta_field_defs The social meta field definitions.
 	 *
 	 * @return string
 	 */
@@ -152,8 +152,8 @@ class WPSEO_Social_Admin extends WPSEO_Metabox {
 	/**
 	 * Returns the Upgrade to Premium notice.
 	 *
-	 * @param string $network The social network.
-	 * @return string The notice HTML on the free version, empty string on premium.
+	 * @param  string $network The social network.
+	 * @return string          The notice HTML on the free version, empty string on premium.
 	 */
 	public function get_premium_notice( $network ) {
 		$features = new WPSEO_Features();
@@ -185,9 +185,9 @@ class WPSEO_Social_Admin extends WPSEO_Metabox {
 	/**
 	 * Filter over the meta boxes to save, this function adds the Social meta boxes.
 	 *
-	 * @param   array $field_defs Array of metaboxes to save.
+	 * @param  array $field_defs Array of metaboxes to save.
 	 *
-	 * @return  array
+	 * @return array
 	 */
 	public function save_meta_boxes( $field_defs ) {
 		return array_merge( $field_defs, $this->get_meta_field_defs( 'social' ) );
@@ -201,7 +201,6 @@ class WPSEO_Social_Admin extends WPSEO_Metabox {
 	 * @param WP_Post $post Post instance.
 	 */
 	public function og_data_compare( $post ) {
-
 		// Check if post data is available, if post_id is set and if original post_status is publish.
 		// @codingStandardsIgnoreStart
 		if (
@@ -237,7 +236,6 @@ class WPSEO_Social_Admin extends WPSEO_Metabox {
 		}
 	}
 
-
 	/********************** DEPRECATED METHODS **********************/
 
 	// @codeCoverageIgnoreStart
@@ -248,9 +246,9 @@ class WPSEO_Social_Admin extends WPSEO_Metabox {
 	 * @deprecated use WPSEO_Meta::get_meta_field_defs()
 	 * @see        WPSEO_Meta::get_meta_field_defs()
 	 *
-	 * @param string $post_type Optional post type string.
+	 * @param  string $post_type Optional post type string.
 	 *
-	 * @return    array    Array containing the meta boxes.
+	 * @return array             Array containing the meta boxes.
 	 */
 	public function get_meta_boxes( $post_type = 'post' ) {
 		_deprecated_function( __METHOD__, 'WPSEO 1.5.0', 'WPSEO_Meta::get_meta_field_defs()' );
@@ -279,5 +277,6 @@ class WPSEO_Social_Admin extends WPSEO_Metabox {
 
 		return '';
 	}
+
 	// @codeCoverageIgnoreEnd
 } /* End of class */

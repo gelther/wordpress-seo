@@ -26,7 +26,6 @@ class WPSEO_Taxonomy_Sitemap_Provider_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Taxonomy_Sitemap_Provider::get_index_links
 	 */
 	public function test_get_index_links() {
-
 		$index_links = self::$class_instance->get_index_links( 1 );
 		$this->assertEmpty( $index_links );
 
@@ -50,11 +49,11 @@ class WPSEO_Taxonomy_Sitemap_Provider_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Taxonomy_Sitemap_Provider::get_sitemap_links
 	 */
 	public function test_get_sitemap_links() {
-
 		$category_id = $this->factory->category->create();
 		$post_id     = $this->factory->post->create();
 		wp_set_post_categories( $post_id, $category_id );
 		$sitemap_links = self::$class_instance->get_sitemap_links( 'category', 1, 1 );
 		$this->assertContains( get_category_link( $category_id ), $sitemap_links[0] );
 	}
+
 }

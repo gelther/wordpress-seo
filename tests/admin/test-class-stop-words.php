@@ -59,4 +59,5 @@ class WPSEO_Admin_Stop_WordsTest extends PHPUnit_Framework_TestCase {
 
 		$this->assertTrue( is_array( $stopwords ) );
 	}
+
 }

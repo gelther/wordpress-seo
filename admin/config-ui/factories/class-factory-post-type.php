@@ -15,7 +15,6 @@ class WPSEO_Config_Factory_Post_Type {
 	 * @return WPSEO_Config_Field_Choice_Post_Type[] List of fields.
 	 */
 	public function get_fields() {
-
 		if ( empty( self::$fields ) ) {
 
 			$fields = array();
@@ -56,11 +55,12 @@ class WPSEO_Config_Factory_Post_Type {
 	 * Because we do not not know what consequences it will have if we convert every HTML entity,
 	 * we will only replace the characters that we have known problems with in text's.
 	 *
-	 * @param string $text The text to decode.
+	 * @param  string $text The text to decode.
 	 *
-	 * @return string String with decoded HTML entities.
+	 * @return string       String with decoded HTML entities.
 	 */
 	private function decode_html_entities( $text ) {
 		return str_replace( '&#39;', '’', $text );
 	}
+
 }

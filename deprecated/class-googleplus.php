@@ -72,4 +72,5 @@ class WPSEO_GooglePlus {
 	public function google_plus_image() {
 		_deprecated_function( __METHOD__, '3.2' );
 	}
+
 }

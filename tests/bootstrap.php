@@ -24,8 +24,7 @@ $GLOBALS['wp_tests_options'] = array(
 
 if ( false !== getenv( 'WP_DEVELOP_DIR' ) ) {
 	require_once getenv( 'WP_DEVELOP_DIR' ) . 'tests/phpunit/includes/bootstrap.php';
-}
-else {
+} else {
 	require_once '../../../../tests/phpunit/includes/bootstrap.php';
 }
 

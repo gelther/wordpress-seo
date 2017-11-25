@@ -51,4 +51,5 @@ class WPSEO_Link_Table_Accessible_Notifier {
 			)
 		);
 	}
+
 }

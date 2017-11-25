@@ -25,8 +25,7 @@ if ( defined( 'WP_DEBUG' ) && WP_DEBUG && WPSEO_GSC_Settings::get_profile() !== 
 // Video explains about the options when connected only.
 if ( null !== $this->service->get_client()->getAccessToken() ) {
 	$video_url = WPSEO_Shortlinker::get( 'https://yoa.st/screencast-search-console' );
-}
-else {
+} else {
 	$video_url = WPSEO_Shortlinker::get( 'https://yoa.st/screencast-connect-search-console' );
 }
 
@@ -53,8 +52,7 @@ switch ( $platform_tabs->current_tab() ) {
 			echo "<input type='hidden' name='gsc[gsc_nonce]' value='" . esc_attr( wp_create_nonce( 'wpseo-gsc_nonce' ) ) . "' />";
 			echo "<input type='submit' name='gsc[Submit]' value='" . esc_attr__( 'Authenticate', 'wordpress-seo' ) . "' class='button button-primary' />";
 			echo "</form>\n";
-		}
-		else {
+		} else {
 			$reset_button = '<a class="button" href="' . esc_url( add_query_arg( 'gsc_reset', 1 ) ) . '">' . esc_html__( 'Reauthenticate with Google ', 'wordpress-seo' ) . '</a>';
 			echo '<h3>', esc_html__( 'Current profile', 'wordpress-seo' ), '</h3>';
 			$profile = WPSEO_GSC_Settings::get_profile();
@@ -67,8 +65,7 @@ switch ( $platform_tabs->current_tab() ) {
 				echo $reset_button;
 				echo '</p>';
 
-			}
-			else {
+			} else {
 				echo "<form action='" . esc_url( admin_url( 'options.php' ) ) . "' method='post'>";
 
 				settings_fields( 'yoast_wpseo_gsc_options' );
@@ -79,8 +76,7 @@ switch ( $platform_tabs->current_tab() ) {
 				if ( ! empty( $profiles ) ) {
 					$show_save = true;
 					echo Yoast_Form::get_instance()->select( 'profile', __( 'Profile', 'wordpress-seo' ), $profiles );
-				}
-				else {
+				} else {
 					$show_save = false;
 					esc_html_e( 'There were no profiles found', 'wordpress-seo' );
 				}

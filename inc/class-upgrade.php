@@ -308,7 +308,7 @@ class WPSEO_Upgrade {
 	private function upgrade_49() {
 		global $wpdb;
 
-		/*
+		/**
 		 * Using a filter to remove the notification for the current logged in user. The notification center is
 		 * initializing the notifications before the upgrade routine has been executedd and is saving the stored
 		 * notifications on shutdown. This causes the returning notification. By adding this filter the shutdown
@@ -319,7 +319,7 @@ class WPSEO_Upgrade {
 		$meta_key = $wpdb->get_blog_prefix() . Yoast_Notification_Center::STORAGE_KEY;
 
 		$usermetas = $wpdb->get_results(
-			$wpdb->prepare('
+			$wpdb->prepare( '
 				SELECT user_id, meta_value
 				FROM ' . $wpdb->usermeta . '
 				WHERE meta_key = %s AND meta_value LIKE "%%wpseo-dismiss-about%%"
@@ -347,9 +347,9 @@ class WPSEO_Upgrade {
 	/**
 	 * Removes the wpseo-dismiss-about notice from a list of notifications.
 	 *
-	 * @param Yoast_Notification[] $notifications The notifications to filter.
+	 * @param  Yoast_Notification[] $notifications The notifications to filter.
 	 *
-	 * @return Yoast_Notification[] The filtered list of notifications. Excluding the wpseo-dismiss-about notification.
+	 * @return Yoast_Notification[]                The filtered list of notifications. Excluding the wpseo-dismiss-about notification.
 	 */
 	public function remove_about_notice( $notifications ) {
 		foreach ( $notifications as $notification_key => $notification ) {
@@ -414,6 +414,5 @@ class WPSEO_Upgrade {
 		$count_storage = new WPSEO_Meta_Storage();
 		$wpdb->query( 'UPDATE ' . $count_storage->get_table_name() . ' SET incoming_link_count = 0 WHERE incoming_link_count IS NULL' );
 	}
-
 
 }

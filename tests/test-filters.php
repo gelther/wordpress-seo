@@ -14,7 +14,6 @@ class Filters_Test extends WPSEO_UnitTestCase {
 	private $wp_filter;
 
 	public function __construct() {
-
 		parent::__construct();
 
 		global $wp_filter;

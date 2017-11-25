@@ -17,7 +17,7 @@ $yform->admin_header( false );
 if ( '' === $tool_page ) {
 
 	$tools = array(
-		'bulk-editor' => array(
+		'bulk-editor'   => array(
 			'title' => __( 'Bulk editor', 'wordpress-seo' ),
 			'desc'  => __( 'This tool allows you to quickly change titles and descriptions of your posts and pages without having to go into the editor for each page.', 'wordpress-seo' ),
 		),
@@ -37,10 +37,10 @@ if ( '' === $tool_page ) {
 		Temporary disabled. See: https://github.com/Yoast/wordpress-seo/issues/4532
 
 		$tools['recalculate'] = array(
-			'href'    => '#TB_inline?width=300&height=150&inlineId=wpseo_recalculate',
-			'attr'    => "id='wpseo_recalculate_link' class='thickbox'",
-			'title'   => __( 'Recalculate SEO scores', 'wordpress-seo' ),
-			'desc'    => __( 'Recalculate SEO scores for all pieces of content with a focus keyword.', 'wordpress-seo' ),
+			'href'  => '#TB_inline?width=300&height=150&inlineId=wpseo_recalculate',
+			'attr'  => "id='wpseo_recalculate_link' class='thickbox'",
+			'title' => __( 'Recalculate SEO scores', 'wordpress-seo' ),
+			'desc'  => __( 'Recalculate SEO scores for all pieces of content with a focus keyword.', 'wordpress-seo' ),
 		);
 
 		if ( filter_input( INPUT_GET, 'recalculate' ) === '1' ) {
@@ -70,8 +70,7 @@ if ( '' === $tool_page ) {
 
 	echo '<input type="hidden" id="wpseo_recalculate_nonce" name="wpseo_recalculate_nonce" value="' . esc_attr( wp_create_nonce( 'wpseo_recalculate' ) ) . '" />';
 
-}
-else {
+} else {
 	echo '<a href="', esc_url( admin_url( 'admin.php?page=wpseo_tools' ) ), '">', esc_html__( '&laquo; Back to Tools page', 'wordpress-seo' ), '</a>';
 
 	$tool_pages = array( 'bulk-editor', 'import-export' );

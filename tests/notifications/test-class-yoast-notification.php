@@ -138,7 +138,6 @@ class Test_Yoast_Notification extends WPSEO_UnitTestCase {
 	 * Test any without matches.
 	 */
 	public function test_match_any_pass() {
-
 		$this->add_cap( 'bla' );
 		$this->remove_cap( 'foo' );
 
@@ -163,7 +162,6 @@ class Test_Yoast_Notification extends WPSEO_UnitTestCase {
 	 * Test any without matches.
 	 */
 	public function test_match_any_fail() {
-
 		$this->remove_cap( 'bla' );
 		$this->remove_cap( 'foo' );
 
@@ -186,7 +184,6 @@ class Test_Yoast_Notification extends WPSEO_UnitTestCase {
 	 * Test any without matches.
 	 */
 	public function test_match_all_pass() {
-
 		$this->add_cap( 'bla' );
 		$this->add_cap( 'foo' );
 
@@ -212,7 +209,6 @@ class Test_Yoast_Notification extends WPSEO_UnitTestCase {
 	 * Test any without matches.
 	 */
 	public function test_match_all_fail() {
-
 		$subject = new Yoast_Notification(
 			'message',
 			array(
@@ -234,7 +230,6 @@ class Test_Yoast_Notification extends WPSEO_UnitTestCase {
 	 * Test capability if we recieve the expected arguments.
 	 */
 	public function test_filter_capability_arguments() {
-
 		$capabilities = array( 'caps' );
 		$id           = 'my_id';
 
@@ -264,8 +259,8 @@ class Test_Yoast_Notification extends WPSEO_UnitTestCase {
 	/**
 	 * Verify capability filter arguments
 	 *
-	 * @param array              $capabilities Capabilities.
-	 * @param Yoast_Notification $notification Notification.
+	 * @param  array              $capabilities Capabilities.
+	 * @param  Yoast_Notification $notification Notification.
 	 *
 	 * @return mixed
 	 */
@@ -280,7 +275,6 @@ class Test_Yoast_Notification extends WPSEO_UnitTestCase {
 	 * Test capability_check if we recieve the expected arguments.
 	 */
 	public function test_filter_capability_check_arguments() {
-
 		$capabilities = array( 'caps' );
 		$id           = 'my_id';
 
@@ -310,8 +304,8 @@ class Test_Yoast_Notification extends WPSEO_UnitTestCase {
 	/**
 	 * Verify capability_check filter arguments.
 	 *
-	 * @param string             $check        Type of the check.
-	 * @param Yoast_Notification $notification Notification.
+	 * @param  string             $check        Type of the check.
+	 * @param  Yoast_Notification $notification Notification.
 	 *
 	 * @return mixed
 	 */
@@ -339,7 +333,7 @@ class Test_Yoast_Notification extends WPSEO_UnitTestCase {
 	/**
 	 * Test notification filter
 	 *
-	 * @param array $current_capabilities Input.
+	 * @param  array $current_capabilities Input.
 	 *
 	 * @return array
 	 */
@@ -350,7 +344,7 @@ class Test_Yoast_Notification extends WPSEO_UnitTestCase {
 	/**
 	 * Any
 	 *
-	 * @param array $current_capabilities Input.
+	 * @param  array  $current_capabilities Input.
 	 *
 	 * @return string
 	 */
@@ -391,4 +385,5 @@ class Test_Yoast_Notification extends WPSEO_UnitTestCase {
 			$me->remove_cap( $capability );
 		}
 	}
+
 }

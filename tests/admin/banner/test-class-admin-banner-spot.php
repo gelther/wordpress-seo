@@ -58,7 +58,6 @@ class WPSEO_Admin_Banner_Spot_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Admin_Banner_Spot::get_description
 	 */
 	public function test_get_description() {
-
 		$admin_banner_spot = new WPSEO_Admin_Banner_Spot( 'title' );
 
 		$admin_banner_spot->set_description( 'description' );
@@ -111,12 +110,10 @@ class WPSEO_Admin_Banner_Spot_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Admin_Banner_Spot::get_random_banner
 	 */
 	public function test_render_banner_with_banners_added() {
-
 		$admin_banner_spot = new WPSEO_Admin_Banner_Spot( 'title', new WPSEO_Admin_Banner_Renderer_Mock() );
 		$admin_banner_spot->add_banner( new WPSEO_Admin_Banner( 'url', 'image', 100, 100, 'alt' ) );
 
 		$this->assertNotEquals( 'url:url|image:image|width:100|height:100|alt:alt', $admin_banner_spot->render_banner() );
 	}
-
 
 }

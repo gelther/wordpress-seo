@@ -34,4 +34,5 @@ class WPSEO_Metabox_Addon_Tab_Section extends WPSEO_Metabox_Tab_Section {
 	protected function has_tabs() {
 		return true;
 	}
+
 }

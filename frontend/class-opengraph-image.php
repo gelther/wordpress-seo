@@ -60,12 +60,11 @@ class WPSEO_OpenGraph_Image {
 	/**
 	 * Display an OpenGraph image tag.
 	 *
-	 * @param string $img Source URL to the image.
+	 * @param  string $img Source URL to the image.
 	 *
 	 * @return bool
 	 */
 	public function add_image( $img ) {
-
 		$original = trim( $img );
 
 		// Filter: 'wpseo_opengraph_image' - Allow changing the OpenGraph image.
@@ -95,7 +94,6 @@ class WPSEO_OpenGraph_Image {
 	 * Check if page is front page or singular and call the corresponding functions. If not, call get_default_image.
 	 */
 	private function set_images() {
-
 		/**
 		 * Filter: wpseo_add_opengraph_images - Allow developers to add images to the OpenGraph tags.
 		 *
@@ -105,8 +103,7 @@ class WPSEO_OpenGraph_Image {
 
 		if ( is_front_page() ) {
 			$this->get_front_page_image();
-		}
-		elseif ( is_home() ) { // Posts page, which won't be caught by is_singular() below.
+		} elseif ( is_home() ) { // Posts page, which won't be caught by is_singular() below.
 			$this->get_posts_page_image();
 		}
 
@@ -141,7 +138,6 @@ class WPSEO_OpenGraph_Image {
 	 * Get the images of the posts page.
 	 */
 	private function get_posts_page_image() {
-
 		$post_id = get_option( 'page_for_posts' );
 
 		if ( $this->get_opengraph_image_post( $post_id ) ) {
@@ -186,7 +182,7 @@ class WPSEO_OpenGraph_Image {
 	/**
 	 * If opengraph-image is set, call add_image and return true.
 	 *
-	 * @param int $post_id Optional post ID to use.
+	 * @param  int  $post_id Optional post ID to use.
 	 *
 	 * @return bool
 	 */
@@ -214,12 +210,11 @@ class WPSEO_OpenGraph_Image {
 	/**
 	 * If there is a featured image, check image size. If image size is correct, call add_image and return true.
 	 *
-	 * @param int $post_id The post ID.
+	 * @param  int  $post_id The post ID.
 	 *
 	 * @return bool
 	 */
 	private function get_featured_image( $post_id ) {
-
 		if ( has_post_thumbnail( $post_id ) ) {
 			/**
 			 * Filter: 'wpseo_opengraph_image_size' - Allow changing the image size used for OpenGraph sharing.
@@ -243,7 +238,7 @@ class WPSEO_OpenGraph_Image {
 	/**
 	 * If this is an attachment page, call add_image with the attachment and return true.
 	 *
-	 * @param int $post_id The post ID.
+	 * @param  int  $post_id The post ID.
 	 *
 	 * @return bool
 	 */
@@ -283,12 +278,11 @@ class WPSEO_OpenGraph_Image {
 	/**
 	 * Check size of featured image. If image is too small, return false, else return true.
 	 *
-	 * @param array $img_data Image info from wp_get_attachment_image_src: url, width, height, icon.
+	 * @param  array $img_data Image info from wp_get_attachment_image_src: url, width, height, icon.
 	 *
 	 * @return bool
 	 */
 	private function check_featured_image_size( $img_data ) {
-
 		if ( ! is_array( $img_data ) ) {
 			return false;
 		}
@@ -304,7 +298,7 @@ class WPSEO_OpenGraph_Image {
 	/**
 	 * Get the relative path of the image.
 	 *
-	 * @param array $img Image data array.
+	 * @param  array       $img Image data array.
 	 *
 	 * @return bool|string
 	 */
@@ -320,4 +314,5 @@ class WPSEO_OpenGraph_Image {
 
 		return $img;
 	}
+
 }

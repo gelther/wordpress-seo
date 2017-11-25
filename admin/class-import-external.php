@@ -75,7 +75,7 @@ class WPSEO_Import_External {
 		WPSEO_Meta::replace_meta( '_headspace_noindex', WPSEO_Meta::$meta_prefix . 'meta-robots-noindex', $this->replace );
 		WPSEO_Meta::replace_meta( '_headspace_nofollow', WPSEO_Meta::$meta_prefix . 'meta-robots-nofollow', $this->replace );
 
-		/*
+		/**
 		 * @todo - [JRF => whomever] check if this can be done more efficiently by querying only the meta table
 		 * possibly directly changing it using concat on the existing values
 		 */
@@ -102,4 +102,5 @@ class WPSEO_Import_External {
 		}
 		$this->set_msg( __( 'HeadSpace2 data successfully imported', 'wordpress-seo' ) );
 	}
+
 }

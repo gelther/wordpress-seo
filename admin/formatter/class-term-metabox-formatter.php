@@ -86,7 +86,6 @@ class WPSEO_Term_Metabox_Formatter implements WPSEO_Metabox_Formatter_Interface 
 	 * @return string
 	 */
 	private function base_url_for_js() {
-
 		$base_url = home_url( '/', null );
 		$options  = WPSEO_Options::get_option( 'wpseo_permalinks' );
 		if ( ! $options['stripcategorybase'] ) {
@@ -128,7 +127,7 @@ class WPSEO_Term_Metabox_Formatter implements WPSEO_Metabox_Formatter_Interface 
 	/**
 	 * Retrieves a template.
 	 *
-	 * @param String $template_option_name The name of the option in which the template you want to get is saved.
+	 * @param  String $template_option_name The name of the option in which the template you want to get is saved.
 	 *
 	 * @return string
 	 */
@@ -140,4 +139,5 @@ class WPSEO_Term_Metabox_Formatter implements WPSEO_Metabox_Formatter_Interface 
 
 		return '';
 	}
+
 }

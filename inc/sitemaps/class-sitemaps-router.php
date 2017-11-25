@@ -12,7 +12,6 @@ class WPSEO_Sitemaps_Router {
 	 * Sets up init logic.
 	 */
 	public function __construct() {
-
 		add_action( 'init', array( $this, 'init' ), 1 );
 		add_filter( 'redirect_canonical', array( $this, 'redirect_canonical' ) );
 		add_action( 'template_redirect', array( $this, 'template_redirect' ), 0 );
@@ -22,7 +21,6 @@ class WPSEO_Sitemaps_Router {
 	 * Sets up rewrite rules.
 	 */
 	public function init() {
-
 		global $wp;
 
 		$wp->add_query_var( 'sitemap' );
@@ -37,12 +35,11 @@ class WPSEO_Sitemaps_Router {
 	/**
 	 * Stop trailing slashes on sitemap.xml URLs.
 	 *
-	 * @param string $redirect The redirect URL currently determined.
+	 * @param  string      $redirect The redirect URL currently determined.
 	 *
 	 * @return bool|string $redirect
 	 */
 	public function redirect_canonical( $redirect ) {
-
 		if ( get_query_var( 'sitemap' ) || get_query_var( 'xsl' ) ) {
 			return false;
 		}
@@ -54,7 +51,6 @@ class WPSEO_Sitemaps_Router {
 	 * Redirects sitemap.xml to sitemap_index.xml.
 	 */
 	public function template_redirect() {
-
 		global $wp_query;
 
 		$current_url = 'http://';
@@ -75,12 +71,11 @@ class WPSEO_Sitemaps_Router {
 	/**
 	 * Create base URL for the sitemap.
 	 *
-	 * @param string $page Page to append to the base URL.
+	 * @param  string $page Page to append to the base URL.
 	 *
-	 * @return string base URL (incl page)
+	 * @return string       base URL (incl page)
 	 */
 	public static function get_base_url( $page ) {
-
 		global $wp_rewrite;
 
 		$base = $wp_rewrite->using_index_permalinks() ? 'index.php/' : '/';
@@ -96,4 +91,5 @@ class WPSEO_Sitemaps_Router {
 		// @todo Replace with call to wp_parse_url() once minimum requirement has gone up to WP 4.7.
 		return home_url( $base . $page, parse_url( get_option( 'home' ), PHP_URL_SCHEME ) );
 	}
+
 }

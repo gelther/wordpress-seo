@@ -179,10 +179,10 @@ class Yoast_Notification {
 		 *
 		 * @since 3.2
 		 *
-		 * @param array              $capabilities The capabilities that must be present for this Notification.
-		 * @param Yoast_Notification $notification The notification object.
+		 * @param  array              $capabilities The capabilities that must be present for this Notification.
+		 * @param  Yoast_Notification $notification The notification object.
 		 *
-		 * @return array of capabilities or empty for no restrictions.
+		 * @return array                            of capabilities or empty for no restrictions.
 		 */
 		$capabilities = apply_filters( 'wpseo_notification_capabilities', $this->options['capabilities'], $this );
 
@@ -196,10 +196,10 @@ class Yoast_Notification {
 		 *
 		 * @since 3.2
 		 *
-		 * @param string             $capability_check The type of check that will be used to determine if an capability is present.
-		 * @param Yoast_Notification $notification     The notification object.
+		 * @param  string             $capability_check The type of check that will be used to determine if an capability is present.
+		 * @param  Yoast_Notification $notification     The notification object.
 		 *
-		 * @return string self::MATCH_ALL or self::MATCH_ANY.
+		 * @return string             self::MATCH_ALL   or self::MATCH_ANY.
 		 */
 		$capability_check = apply_filters( 'wpseo_notification_capability_check', $this->options['capability_check'], $this );
 
@@ -225,7 +225,7 @@ class Yoast_Notification {
 	/**
 	 * Array filter function to find matched capabilities
 	 *
-	 * @param string $capability Capability to test.
+	 * @param  string $capability Capability to test.
 	 *
 	 * @return bool
 	 */
@@ -300,7 +300,7 @@ class Yoast_Notification {
 	/**
 	 * Make sure we only have values that we can work with
 	 *
-	 * @param array $options Options to normalize.
+	 * @param  array $options Options to normalize.
 	 *
 	 * @return array
 	 */
@@ -327,4 +327,5 @@ class Yoast_Notification {
 	private function parse_attributes( & $value, $key ) {
 		$value = sprintf( '%s="%s"', $key, esc_attr( $value ) );
 	}
+
 }

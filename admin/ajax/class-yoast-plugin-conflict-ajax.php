@@ -54,7 +54,7 @@ class Yoast_Plugin_Conflict_Ajax {
 	/**
 	 * Getting the dismissed conflicts from the database
 	 *
-	 * @param string $plugin_section Type of conflict group (such as Open Graph or sitemap).
+	 * @param  string $plugin_section Type of conflict group (such as Open Graph or sitemap).
 	 *
 	 * @return array
 	 */
@@ -102,4 +102,5 @@ class Yoast_Plugin_Conflict_Ajax {
 			$this->dismissed_conflicts[] = $posted_plugin;
 		}
 	}
+
 }

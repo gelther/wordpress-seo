@@ -20,4 +20,5 @@ class WPSEO_Configuration_Structure_Mock extends WPSEO_Configuration_Structure {
 	public function add_step_mock( $identifier, $title, $fields, $navigation = true, $full_width = false ) {
 		$this->add_step( $identifier, $title, $fields, $navigation, $full_width );
 	}
+
 }

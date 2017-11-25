@@ -14,6 +14,7 @@ class WPSEO_Frontend_Double extends WPSEO_Frontend {
 	public function __construct() {
 		parent::__construct();
 	}
+
 	/**
 	 * Get the singleton instance of this class
 	 *
@@ -38,4 +39,5 @@ class WPSEO_Frontend_Double extends WPSEO_Frontend {
 	public function redirect( $location, $status = 302 ) {
 		// Intentionally left empty to remove actual redirection code to be able to test it.
 	}
+
 }

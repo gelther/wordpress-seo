@@ -41,7 +41,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::is_home_posts_page
 	 */
 	public function test_is_home_posts_page() {
-
 		$this->go_to_home();
 		$this->assertTrue( self::$class_instance->is_home_posts_page() );
 
@@ -59,7 +58,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::is_home_static_page
 	 */
 	public function test_is_home_static_page() {
-
 		// On front page.
 		$this->go_to_home();
 		$this->assertFalse( self::$class_instance->is_home_static_page() );
@@ -88,7 +86,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::is_posts_page
 	 */
 	public function test_is_posts_page() {
-
 		// On home with show_on_front != page.
 		update_option( 'show_on_front', 'something' );
 		$this->go_to_home();
@@ -108,7 +105,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::get_content_title
 	 */
 	public function test_get_content_title() {
-
 		// Create and go to post.
 		$post_id = $this->factory->post->create();
 		$this->go_to( get_permalink( $post_id ) );
@@ -131,7 +127,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::get_taxonomy_title
 	 */
 	public function test_get_taxonomy_title() {
-
 		// Create and go to cat archive.
 		$category_id = wp_create_category( 'Category Name' );
 		flush_rewrite_rules();
@@ -150,7 +145,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::get_author_title
 	 */
 	public function test_get_author_title() {
-
 		// Create and go to author.
 		$user_id = $this->factory->user->create();
 		$this->go_to( get_author_posts_url( $user_id ) );
@@ -217,7 +211,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::add_to_title
 	 */
 	public function test_add_to_title() {
-
 		$title      = 'Title';
 		$sep        = ' >> ';
 		$title_part = 'Title Part';
@@ -256,7 +249,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::webmaster_tools_authentication
 	 */
 	public function test_webmaster_tools_authentication_home() {
-
 		$this->go_to_home();
 
 		$this->run_webmaster_tools_authentication_option_test( 'msverify', '<meta name="msvalidate.01" content="msverify" />' . "\n" );
@@ -287,7 +279,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::canonical
 	 */
 	public function test_canonical_single_post_override() {
-
 		// Create and go to post.
 		$post_id = $this->factory->post->create();
 
@@ -432,7 +423,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::publisher
 	 */
 	public function test_publisher() {
-
 		// No publisher set.
 		$this->assertFalse( self::$class_instance->publisher() );
 
@@ -489,7 +479,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::archive_redirect
 	 */
 	public function test_archive_redirect() {
-
 		global $wp_query;
 
 		$c = self::$class_instance;
@@ -624,7 +613,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::remove_reply_to_com
 	 */
 	public function test_remove_reply_to_com() {
-
 		$link     = '<a href="http://yoast.com/post?replytocom=123#respond">Reply to Comment</a>';
 		$expected = '<a href="#comment-123">Reply to Comment</a>';
 
@@ -668,7 +656,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::clean_permalink
 	 */
 	public function test_clean_permalink() {
-
 		$c = self::$class_instance;
 
 		// Test requests to the robots file.
@@ -687,7 +674,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::rss_replace_vars
 	 */
 	public function test_rss_replace_vars() {
-
 		$c = self::$class_instance;
 
 		// Create and go to post.
@@ -718,7 +704,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::embed_rssfooter
 	 */
 	public function test_embed_rssfooter() {
-
 		$input = 'Some content';
 
 		// Go to home (non-feed).
@@ -740,7 +725,6 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::embed_rssfooter_excerpt
 	 */
 	public function test_embed_rssfooter_excerpt() {
-
 		$input = 'Some content';
 
 		// Go to home (non-feed).
@@ -879,7 +863,7 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 			->will( $this->returnValue( true ) );
 
 		$frontend
-			->expects( $this->exactly(2) )
+			->expects( $this->exactly( 2 ) )
 			->method( 'get_debug_mark' );
 
 		// Enables the output buffering.
@@ -911,7 +895,7 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 
 		$frontend->head();
 
-		$this->expectOutputContains( '<!-- / Yoast SEO plugin. -->'  );
+		$this->expectOutputContains( '<!-- / Yoast SEO plugin. -->' );
 	}
 
 	/**
@@ -935,7 +919,7 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 
 		$output = $this->getActualOutput();
 
-		$this->assertFalse( stripos( $output, '<!-- / Yoast SEO plugin. -->' )  );
+		$this->assertFalse( stripos( $output, '<!-- / Yoast SEO plugin. -->' ) );
 	}
 
 	/**
@@ -954,10 +938,8 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 		// @todo
 	}
 
-
-
 	/**
-	 * @param string $initial_url URL to start off from.
+	 * @param  string $initial_url URL to start off from.
 	 *
 	 * @return void
 	 */
@@ -995,7 +977,7 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	}
 
 	/**
-	 * @param string $name Option name.
+	 * @param  string $name Option name.
 	 *
 	 * @return string
 	 */
@@ -1004,8 +986,8 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	}
 
 	/**
-	 * @param string $option_name Option name.
-	 * @param string $expected    Expected output.
+	 * @param  string $option_name Option name.
+	 * @param  string $expected    Expected output.
 	 *
 	 * @return void
 	 */
@@ -1016,7 +998,7 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 	}
 
 	/**
-	 * @param string $expected Expected output.
+	 * @param  string $expected Expected output.
 	 *
 	 * @return void
 	 */
@@ -1066,8 +1048,7 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 				// Parse the url query vars into $_GET.
 				parse_str( $parts['query'], $_GET );
 			}
-		}
-		else {
+		} else {
 			$req = $url;
 		}
 		if ( ! isset( $parts['query'] ) ) {
@@ -1086,4 +1067,5 @@ class WPSEO_Frontend_Test extends WPSEO_UnitTestCase {
 
 		$GLOBALS['wp']->main( $parts['query'] );
 	}
+
 }

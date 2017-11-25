@@ -85,10 +85,9 @@ class WPSEO_Admin_Init {
 	 * Notify about the default tagline if the user hasn't changed it
 	 */
 	public function tagline_notice() {
-
-		$current_url   = ( is_ssl() ? 'https://' : 'http://' );
-		$current_url  .= sanitize_text_field( $_SERVER['SERVER_NAME'] ) . sanitize_text_field( $_SERVER['REQUEST_URI'] );
-		$customize_url = add_query_arg( array(
+		$current_url    = ( is_ssl() ? 'https://' : 'http://' );
+		$current_url   .= sanitize_text_field( $_SERVER['SERVER_NAME'] ) . sanitize_text_field( $_SERVER['REQUEST_URI'] );
+		$customize_url  = add_query_arg( array(
 			'url' => urlencode( $current_url ),
 		), wp_customize_url() );
 
@@ -110,8 +109,7 @@ class WPSEO_Admin_Init {
 		$notification_center = Yoast_Notification_Center::get();
 		if ( $this->has_default_tagline() ) {
 			$notification_center->add_notification( $tagline_notification );
-		}
-		else {
+		} else {
 			$notification_center->remove_notification( $tagline_notification );
 		}
 	}
@@ -120,7 +118,6 @@ class WPSEO_Admin_Init {
 	 * Add an alert if the blog is not publicly visible
 	 */
 	public function blog_public_notice() {
-
 		$info_message  = '<strong>' . __( 'Huge SEO Issue: You\'re blocking access to robots.', 'wordpress-seo' ) . '</strong> ';
 		$info_message .= sprintf(
 			/* translators: %1$s resolves to the opening tag of the link to the reading settings, %1$s resolves to the closing tag for the link */
@@ -141,8 +138,7 @@ class WPSEO_Admin_Init {
 		$notification_center = Yoast_Notification_Center::get();
 		if ( ! $this->is_blog_public() ) {
 			$notification_center->add_notification( $notification );
-		}
-		else {
+		} else {
 			$notification_center->remove_notification( $notification );
 		}
 	}
@@ -151,7 +147,6 @@ class WPSEO_Admin_Init {
 	 * Display notice to disable comment pagination
 	 */
 	public function page_comments_notice() {
-
 		$info_message  = __( 'Paging comments is enabled, this is not needed in 999 out of 1000 cases, we recommend to disable it.', 'wordpress-seo' );
 		$info_message .= '<br/>';
 
@@ -173,8 +168,7 @@ class WPSEO_Admin_Init {
 		$notification_center = Yoast_Notification_Center::get();
 		if ( $this->has_page_comments() ) {
 			$notification_center->add_notification( $tagline_notification );
-		}
-		else {
+		} else {
 			$notification_center->remove_notification( $tagline_notification );
 		}
 	}
@@ -199,7 +193,6 @@ class WPSEO_Admin_Init {
 	 * Show alert when the permalink doesn't contain %postname%
 	 */
 	public function permalink_notice() {
-
 		$info_message  = __( 'You do not have your postname in the URL of your posts and pages, it is highly recommended that you do. Consider setting your permalink structure to <strong>/%postname%/</strong>.', 'wordpress-seo' );
 		$info_message .= '<br/>';
 		$info_message .= sprintf(
@@ -221,8 +214,7 @@ class WPSEO_Admin_Init {
 		$notification_center = Yoast_Notification_Center::get();
 		if ( ! $this->has_postname_in_permalink() ) {
 			$notification_center->add_notification( $notification );
-		}
-		else {
+		} else {
 			$notification_center->remove_notification( $notification );
 		}
 	}
@@ -241,14 +233,12 @@ class WPSEO_Admin_Init {
 	 * on the google search console page.
 	 */
 	public function ga_compatibility_notice() {
-
 		$notification        = $this->get_compatibility_notification();
 		$notification_center = Yoast_Notification_Center::get();
 
 		if ( defined( 'GAWP_VERSION' ) && '5.4.3' === GAWP_VERSION ) {
 			$notification_center->add_notification( $notification );
-		}
-		else {
+		} else {
 			$notification_center->remove_notification( $notification );
 		}
 	}
@@ -305,11 +295,11 @@ class WPSEO_Admin_Init {
 	/**
 	 * Build Yoast SEO suggested plugins notification.
 	 *
-	 * @param string $name   The plugin name to use for the unique ID.
-	 * @param array  $plugin The plugin to retrieve the data from.
-	 * @param string $dependency_name The name of the dependency.
+	 * @param  string             $name            The plugin name to use for the unique ID.
+	 * @param  array              $plugin          The plugin to retrieve the data from.
+	 * @param  string             $dependency_name The name of the dependency.
 	 *
-	 * @return Yoast_Notification The notification containing the suggested plugin.
+	 * @return Yoast_Notification                  The notification containing the suggested plugin.
 	 */
 	private function get_yoast_seo_suggested_plugins_notification( $name, $plugin, $dependency_name ) {
 		$info_message = sprintf(
@@ -355,9 +345,9 @@ class WPSEO_Admin_Init {
 	/**
 	 * Build Yoast SEO compatibility problem notification
 	 *
-	 * @param string $name The plugin name to use for the unique ID.
-	 * @param array  $plugin The plugin to retrieve the data from.
-	 * @param string $level The severity level to use for the notification.
+	 * @param  string             $name   The plugin name to use for the unique ID.
+	 * @param  array              $plugin The plugin to retrieve the data from.
+	 * @param  string             $level  The severity level to use for the notification.
 	 *
 	 * @return Yoast_Notification
 	 */
@@ -419,7 +409,7 @@ class WPSEO_Admin_Init {
 	/**
 	 * Check if the user has dismissed the given notice (by $notice_name)
 	 *
-	 * @param string $notice_name The name of the notice that might be dismissed.
+	 * @param  string $notice_name The name of the notice that might be dismissed.
 	 *
 	 * @return bool
 	 */
@@ -440,7 +430,6 @@ class WPSEO_Admin_Init {
 	 * Determine whether we should load the meta box class and if so, load it.
 	 */
 	private function load_meta_boxes() {
-
 		$is_editor      = WPSEO_Metabox::is_post_overview( $this->pagenow ) || WPSEO_Metabox::is_post_edit( $this->pagenow );
 		$is_inline_save = filter_input( INPUT_POST, 'action' ) === 'inline-save';
 
@@ -487,7 +476,6 @@ class WPSEO_Admin_Init {
 	 * Loads admin page class for all admin pages starting with `wpseo_`.
 	 */
 	private function load_admin_page_class() {
-
 		if ( $this->on_wpseo_admin_page() ) {
 			// For backwards compatabilty, this still needs a global, for now...
 			$GLOBALS['wpseo_admin_pages'] = new WPSEO_Admin_Pages();
@@ -635,7 +623,7 @@ class WPSEO_Admin_Init {
 	/**
 	 * Check if there is a dismiss notice action.
 	 *
-	 * @param string $notice_name The name of the notice to dismiss.
+	 * @param  string $notice_name The name of the notice to dismiss.
 	 *
 	 * @return bool
 	 */
@@ -676,4 +664,5 @@ class WPSEO_Admin_Init {
 	public function after_update_notice() {
 		_deprecated_function( __METHOD__, 'WPSEO 3.5' );
 	}
+
 }

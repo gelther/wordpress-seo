@@ -43,4 +43,5 @@ class WPSEO_Collector {
 	public function get_as_json() {
 		return wp_json_encode( $this->collect() );
 	}
+
 }

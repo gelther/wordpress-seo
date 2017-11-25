@@ -98,4 +98,5 @@ class WPSEO_Statistics_Service_Test extends WPSEO_UnitTestCase {
 
 		$this->assertEquals( 10, $response_data['seo_scores'][0]['count'] );
 	}
+
 }

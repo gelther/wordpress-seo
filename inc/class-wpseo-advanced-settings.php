@@ -37,9 +37,9 @@ class WPSEO_Advanced_Settings {
 	/**
 	 * Adds a page as an advanced settings page if it isn't already present or a default page.
 	 *
-	 * @param string $page The page to add.
+	 * @param  string $page The page to add.
 	 *
-	 * @returns void
+	 * @return s            void
 	 */
 	public static function add_advanced_page( $page ) {
 		if ( ! in_array( $page, self::$default_advanced_pages, true ) && ! in_array( $page, self::$additional_advanced_pages, true ) ) {
@@ -50,9 +50,9 @@ class WPSEO_Advanced_Settings {
 	/**
 	 * Checks if the current page is a Yoast SEO advanced settings page.
 	 *
-	 * @param string $page The page to check.
+	 * @param  string $page The page to check.
 	 *
-	 * @return bool Whether or not the page is considered an advanced settings page.
+	 * @return bool         Whether or not the page is considered an advanced settings page.
 	 */
 	public static function is_advanced_settings_page( $page ) {
 		if ( is_string( $page ) ) {
@@ -61,4 +61,5 @@ class WPSEO_Advanced_Settings {
 
 		return false;
 	}
+
 }

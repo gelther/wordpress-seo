@@ -79,7 +79,6 @@ class WPSEO_Config_Component_Connect_Google_Search_Console_Test extends PHPUnit_
 	 * @covers WPSEO_Config_Component_Connect_Google_Search_Console::set_data()
 	 */
 	public function test_set_data() {
-
 		$data = array(
 			'profile' => 'profile',
 		);
@@ -97,7 +96,6 @@ class WPSEO_Config_Component_Connect_Google_Search_Console_Test extends PHPUnit_
 	 * @covers WPSEO_Config_Component_Connect_Google_Search_Console::set_data()
 	 */
 	public function test_set_data_empty_token() {
-
 		$data = array(
 			'profile' => '',
 		);
@@ -153,11 +151,12 @@ class WPSEO_Config_Component_Connect_Google_Search_Console_Test extends PHPUnit_
 	}
 
 	/**
-	 * @param string $call Function call to check.
+	 * @param  string $call Function call to check.
 	 *
 	 * @return bool
 	 */
 	public function stub_called( $call ) {
 		return in_array( $call, $this->stub_calls, true );
 	}
+
 }

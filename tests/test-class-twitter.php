@@ -67,17 +67,16 @@ class WPSEO_Twitter_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Twitter::type
 	 */
 	public function test_type() {
-
 		// Test invalid option, should default to summary.
 		self::$class_instance->options['twitter_card_type'] = 'something_invalid';
-		$expected = $this->metatag( 'card', 'summary' );
+		$expected                                           = $this->metatag( 'card', 'summary' );
 
 		self::$class_instance->type();
 		$this->expectOutput( $expected );
 
 		// Test valid option.
 		self::$class_instance->options['twitter_card_type'] = 'summary_large_image';
-		$expected = $this->metatag( 'card', 'summary_large_image' );
+		$expected                                           = $this->metatag( 'card', 'summary_large_image' );
 
 		self::$class_instance->type();
 		$this->expectOutput( $expected );
@@ -86,8 +85,8 @@ class WPSEO_Twitter_Test extends WPSEO_UnitTestCase {
 	}
 
 	/**
-	 * @param string $name  Name.
-	 * @param string $value Value.
+	 * @param  string $name  Name.
+	 * @param  string $value Value.
 	 *
 	 * @return string
 	 */
@@ -191,7 +190,6 @@ class WPSEO_Twitter_Test extends WPSEO_UnitTestCase {
 	 * Tests static page set as front page.
 	 */
 	public function test_static_front_page() {
-
 		$post_id = $this->factory->post->create(
 			array(
 				'post_title' => 'front-page',
@@ -223,7 +221,6 @@ class WPSEO_Twitter_Test extends WPSEO_UnitTestCase {
 	 * Tests static page set as posts page.
 	 */
 	public function test_static_posts_page() {
-
 		$post_id = $this->factory->post->create(
 			array(
 				'post_title' => 'front-page',
@@ -310,19 +307,18 @@ class WPSEO_Twitter_Test extends WPSEO_UnitTestCase {
 		$image_url = 'http://url-default-image.jpg';
 
 		self::$class_instance->options['og_default_image'] = $image_url;
-		$expected = $this->get_expected_image_output( $image_url );
+		$expected                                          = $this->get_expected_image_output( $image_url );
 
 		self::$class_instance->image();
 		$this->expectOutput( $expected );
 	}
 
 	/**
-	 * @param string $url URL.
+	 * @param  string $url URL.
 	 *
 	 * @return string
 	 */
 	private function get_expected_image_output( $url ) {
-
 		// Get expected output.
 		self::$class_instance->image_output( $url );
 		$expected = ob_get_contents();
@@ -368,7 +364,6 @@ class WPSEO_Twitter_Test extends WPSEO_UnitTestCase {
 
 		self::$class_instance->image();
 		$this->expectOutput( $expected );
-
 	}
 
 	/**
@@ -440,7 +435,6 @@ class WPSEO_Twitter_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Twitter::gallery_images_output()
 	 */
 	public function test_gallery_images() {
-
 		$expected = $this->metatag( 'card', 'summary_large_image' );
 
 		// Insert image into DB so we have something to test against.

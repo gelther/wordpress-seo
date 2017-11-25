@@ -64,18 +64,18 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	 * the main meta box definition array in the class WPSEO_Meta() as well!!!!
 	 */
 	public static function translate_meta_boxes() {
-		self::$meta_fields['general']['snippetpreview']['title'] = __( 'Snippet editor', 'wordpress-seo' );
+		self::$meta_fields['general']['snippetpreview']['title']       = __( 'Snippet editor', 'wordpress-seo' );
 		/* translators: 1: link open tag; 2: link close tag. */
 		self::$meta_fields['general']['snippetpreview']['help']        = sprintf( __( 'This is a rendering of what this post might look like in Google\'s search results. %1$sLearn more about the Snippet Preview%2$s.', 'wordpress-seo' ), '<a target="_blank" href="' . WPSEO_Shortlinker::get( 'https://yoa.st/snippet-preview' ) . '">', '</a>' );
 		self::$meta_fields['general']['snippetpreview']['help-button'] = __( 'Show information about the snippet editor', 'wordpress-seo' );
 
-		self::$meta_fields['general']['pageanalysis']['title'] = __( 'Analysis', 'wordpress-seo' );
+		self::$meta_fields['general']['pageanalysis']['title']       = __( 'Analysis', 'wordpress-seo' );
 		/* translators: 1: link open tag; 2: link close tag. */
 		self::$meta_fields['general']['pageanalysis']['help']        = sprintf( __( 'This is the content analysis, a collection of content checks that analyze the content of your page. %1$sLearn more about the Content Analysis Tool%2$s.', 'wordpress-seo' ), '<a target="_blank" href="' . WPSEO_Shortlinker::get( 'https://yoa.st/content-analysis' ) . '">', '</a>' );
 		self::$meta_fields['general']['pageanalysis']['help-button'] = __( 'Show information about the content analysis', 'wordpress-seo' );
 
-		self::$meta_fields['general']['focuskw_text_input']['title'] = __( 'Focus keyword', 'wordpress-seo' );
-		self::$meta_fields['general']['focuskw_text_input']['label'] = __( 'Enter a focus keyword', 'wordpress-seo' );
+		self::$meta_fields['general']['focuskw_text_input']['title']       = __( 'Focus keyword', 'wordpress-seo' );
+		self::$meta_fields['general']['focuskw_text_input']['label']       = __( 'Enter a focus keyword', 'wordpress-seo' );
 		/* translators: 1: link open tag; 2: link close tag. */
 		self::$meta_fields['general']['focuskw_text_input']['help']        = sprintf( __( 'Pick the main keyword or keyphrase that this post/page is about. %1$sLearn more about the Focus Keyword%2$s.', 'wordpress-seo' ), '<a target="_blank" href="' . WPSEO_Shortlinker::get( 'https://yoa.st/focus-keyword' ) . '">', '</a>' );
 		self::$meta_fields['general']['focuskw_text_input']['help-button'] = __( 'Show information about the focus keyword', 'wordpress-seo' );
@@ -84,8 +84,8 @@ class WPSEO_Metabox extends WPSEO_Meta {
 
 		self::$meta_fields['general']['metadesc']['title'] = __( 'Meta description', 'wordpress-seo' );
 
-		self::$meta_fields['general']['metakeywords']['title'] = __( 'Meta keywords', 'wordpress-seo' );
-		self::$meta_fields['general']['metakeywords']['label'] = __( 'Enter the meta keywords', 'wordpress-seo' );
+		self::$meta_fields['general']['metakeywords']['title']       = __( 'Meta keywords', 'wordpress-seo' );
+		self::$meta_fields['general']['metakeywords']['label']       = __( 'Enter the meta keywords', 'wordpress-seo' );
 		/* translators: 1: link open tag; 2: link close tag. */
 		self::$meta_fields['general']['metakeywords']['description'] = __( 'If you type something above it will override your %1$smeta keywords template%2$s.', 'wordpress-seo' );
 
@@ -103,8 +103,8 @@ class WPSEO_Metabox extends WPSEO_Meta {
 		self::$meta_fields['advanced']['meta-robots-nofollow']['options']['0'] = 'follow';
 		self::$meta_fields['advanced']['meta-robots-nofollow']['options']['1'] = 'nofollow';
 
-		self::$meta_fields['advanced']['meta-robots-adv']['title']       = __( 'Meta robots advanced', 'wordpress-seo' );
-		self::$meta_fields['advanced']['meta-robots-adv']['description'] = __( 'Advanced <code>meta</code> robots settings for this page.', 'wordpress-seo' );
+		self::$meta_fields['advanced']['meta-robots-adv']['title']                   = __( 'Meta robots advanced', 'wordpress-seo' );
+		self::$meta_fields['advanced']['meta-robots-adv']['description']             = __( 'Advanced <code>meta</code> robots settings for this page.', 'wordpress-seo' );
 		/* translators: %s expands to the advanced robots settings default as set in the site-wide settings.*/
 		self::$meta_fields['advanced']['meta-robots-adv']['options']['-']            = __( 'Site-wide default: %s', 'wordpress-seo' );
 		self::$meta_fields['advanced']['meta-robots-adv']['options']['none']         = __( 'None', 'wordpress-seo' );
@@ -115,7 +115,7 @@ class WPSEO_Metabox extends WPSEO_Meta {
 		self::$meta_fields['advanced']['bctitle']['title']       = __( 'Breadcrumbs Title', 'wordpress-seo' );
 		self::$meta_fields['advanced']['bctitle']['description'] = __( 'Title to use for this page in breadcrumb paths', 'wordpress-seo' );
 
-		self::$meta_fields['advanced']['canonical']['title'] = __( 'Canonical URL', 'wordpress-seo' );
+		self::$meta_fields['advanced']['canonical']['title']       = __( 'Canonical URL', 'wordpress-seo' );
 		/* translators: 1: link open tag; 2: link close tag. */
 		self::$meta_fields['advanced']['canonical']['description'] = sprintf( __( 'The canonical URL that this page should point to, leave empty to default to permalink. %1$sCross domain canonical%2$s supported too.', 'wordpress-seo' ), '<a target="_blank" href="http://googlewebmastercentral.blogspot.com/2009/12/handling-legitimate-cross-domain.html">', '</a>' );
 
@@ -133,7 +133,7 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	 *
 	 * @param  string $post_type Optional. The post type to test, defaults to the current post post_type.
 	 *
-	 * @return  bool        Whether or not the meta box (and associated columns etc) should be hidden.
+	 * @return bool              Whether or not the meta box (and associated columns etc) should be hidden.
 	 */
 	public function is_metabox_hidden( $post_type = null ) {
 		if ( ! isset( $post_type ) && ( isset( $GLOBALS['post'] ) && ( is_object( $GLOBALS['post'] ) && isset( $GLOBALS['post']->post_type ) ) ) ) {
@@ -172,14 +172,12 @@ class WPSEO_Metabox extends WPSEO_Meta {
 			$score_label = 'noindex';
 			$title       = __( 'Post is set to noindex.', 'wordpress-seo' );
 			$score_title = $title;
-		}
-		else {
+		} else {
 			$score = self::get_value( 'linkdex', $post->ID );
 			if ( $score === '' ) {
 				$score_label = 'na';
 				$title       = __( 'No focus keyword set.', 'wordpress-seo' );
-			}
-			else {
+			} else {
 				$score_label = WPSEO_Utils::translate_score( $score );
 			}
 
@@ -222,7 +220,7 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	/**
 	 * Adds CSS classes to the meta box.
 	 *
-	 * @param array $classes An array of postbox CSS classes.
+	 * @param  array $classes An array of postbox CSS classes.
 	 *
 	 * @return array
 	 */
@@ -282,7 +280,7 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	/**
 	 * Pass some variables to js for the edit / post page overview, snippet preview, etc.
 	 *
-	 * @return  array
+	 * @return array
 	 */
 	public function localize_shortcode_plugin_script() {
 		return array(
@@ -530,7 +528,7 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	/**
 	 * Gets the contents for the metabox tab.
 	 *
-	 * @param string $tab_name Tab for which to retrieve the field definitions.
+	 * @param  string $tab_name Tab for which to retrieve the field definitions.
 	 *
 	 * @return string
 	 */
@@ -549,10 +547,10 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	 *
 	 * @todo [JRF] Check if $class is added appropriately everywhere.
 	 *
-	 * @param   array  $meta_field_def Contains the vars based on which output is generated.
-	 * @param   string $key            Internal key (without prefix).
+	 * @param  array  $meta_field_def Contains the vars based on which output is generated.
+	 * @param  string $key            Internal key (without prefix).
 	 *
-	 * @return  string
+	 * @return string
 	 */
 	public function do_meta_box( $meta_field_def, $key = '' ) {
 		$content      = '';
@@ -651,8 +649,8 @@ class WPSEO_Metabox extends WPSEO_Meta {
 				if ( isset( $meta_field_def['options'] ) && is_array( $meta_field_def['options'] ) && $meta_field_def['options'] !== array() ) {
 					$content .= '<select name="' . $esc_form_key . '" id="' . $esc_form_key . '" class="yoast' . $class . '">';
 					foreach ( $meta_field_def['options'] as $val => $option ) {
-						$selected = selected( $meta_value, $val, false );
-						$content .= '<option ' . $selected . ' value="' . esc_attr( $val ) . '">' . esc_html( $option ) . '</option>';
+						$selected  = selected( $meta_value, $val, false );
+						$content  .= '<option ' . $selected . ' value="' . esc_attr( $val ) . '">' . esc_html( $option ) . '</option>';
 					}
 					unset( $val, $option, $selected );
 					$content .= '</select>';
@@ -758,8 +756,7 @@ class WPSEO_Metabox extends WPSEO_Meta {
 			// Other meta box content or form fields.
 			if ( $meta_field_def['type'] === 'hidden' ) {
 				$html = $content;
-			}
-			else {
+			} else {
 				$html = $label . $help_button . $help_panel . $content . $description;
 			}
 		}
@@ -770,10 +767,10 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	/**
 	 * Creates a sections specific row.
 	 *
-	 * @param string $content          The content to show.
-	 * @param string $hidden_help_name Escaped form key name.
-	 * @param string $help_button      The help button.
-	 * @param string $help_panel       The help text.
+	 * @param  string $content          The content to show.
+	 * @param  string $hidden_help_name Escaped form key name.
+	 * @param  string $help_button      The help button.
+	 * @param  string $help_panel       The help text.
 	 *
 	 * @return string
 	 */
@@ -788,9 +785,9 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	 *
 	 * {@internal $_POST parameters are validated via sanitize_post_meta().}}
 	 *
-	 * @param int $post_id Post ID.
+	 * @param  int       $post_id Post ID.
 	 *
-	 * @return  bool|void   Boolean false if invalid save post request.
+	 * @return bool|void          Boolean false if invalid save post request.
 	 */
 	public function save_postdata( $post_id ) {
 		// Bail if this is a multisite installation and the site has been switched.
@@ -841,8 +838,7 @@ class WPSEO_Metabox extends WPSEO_Meta {
 			if ( 'checkbox' === $meta_box['type'] ) {
 				// @codingStandardsIgnoreLine
 				$data = isset( $_POST[ self::$form_prefix . $key ] ) ? 'on' : 'off';
-			}
-			else {
+			} else {
 				// @codingStandardsIgnoreLine
 				if ( isset( $_POST[ self::$form_prefix . $key ] ) ) {
 					// @codingStandardsIgnoreLine
@@ -860,8 +856,8 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	/**
 	 * Determines if the given meta value key is disabled.
 	 *
-	 * @param string $key The key of the meta value.
-	 * @return bool Whether the given meta value key is disabled.
+	 * @param  string $key The key of the meta value.
+	 * @return bool        Whether the given meta value key is disabled.
 	 */
 	public function is_meta_value_disabled( $key ) {
 		if ( 'linkdex' === $key && ! $this->analysis_seo->is_enabled() ) {
@@ -896,8 +892,7 @@ class WPSEO_Metabox extends WPSEO_Meta {
 		if ( self::is_post_overview( $pagenow ) ) {
 			$asset_manager->enqueue_style( 'edit-page' );
 			$asset_manager->enqueue_script( 'edit-page-script' );
-		}
-		else {
+		} else {
 
 			if ( 0 !== get_queried_object_id() ) {
 				wp_enqueue_media( array( 'post' => get_queried_object_id() ) ); // Enqueue files needed for upload functionality.
@@ -940,7 +935,7 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	/**
 	 * Pass some variables to js for upload module.
 	 *
-	 * @return  array
+	 * @return array
 	 */
 	public function localize_media_script() {
 		return array(
@@ -951,7 +946,7 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	/**
 	 * Returns post in metabox context.
 	 *
-	 * @returns WP_Post|array
+	 * @return s WP_Post|array
 	 */
 	protected function get_metabox_post() {
 		$post = filter_input( INPUT_GET, 'post' );
@@ -968,8 +963,6 @@ class WPSEO_Metabox extends WPSEO_Meta {
 
 		return array();
 	}
-
-
 
 	/**
 	 * Returns an array with shortcode tags for all registered shortcodes.
@@ -1021,9 +1014,9 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	/**
 	 * Gets the custom replace variables for custom taxonomies and fields.
 	 *
-	 * @param WP_Post $post The post to check for custom taxonomies and fields.
+	 * @param  WP_Post $post The post to check for custom taxonomies and fields.
 	 *
-	 * @return array Array containing all the replacement variables.
+	 * @return array         Array containing all the replacement variables.
 	 */
 	private function get_custom_replace_vars( $post ) {
 		return array(
@@ -1035,9 +1028,9 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	/**
 	 * Gets the custom replace variables for custom taxonomies.
 	 *
-	 * @param WP_Post $post The post to check for custom taxonomies.
+	 * @param  WP_Post $post The post to check for custom taxonomies.
 	 *
-	 * @return array Array containing all the replacement variables.
+	 * @return array         Array containing all the replacement variables.
 	 */
 	private function get_custom_taxonomies_replace_vars( $post ) {
 		$taxonomies          = get_object_taxonomies( $post, 'objects' );
@@ -1066,9 +1059,9 @@ class WPSEO_Metabox extends WPSEO_Meta {
 	/**
 	 * Gets the custom replace variables for custom fields.
 	 *
-	 * @param WP_Post $post The post to check for custom fields.
+	 * @param  WP_Post $post The post to check for custom fields.
 	 *
-	 * @return array Array containing all the replacement variables.
+	 * @return array         Array containing all the replacement variables.
 	 */
 	private function get_custom_fields_replace_vars( $post ) {
 		$custom_replace_vars = array();
@@ -1091,15 +1084,14 @@ class WPSEO_Metabox extends WPSEO_Meta {
 		return $custom_replace_vars;
 	}
 
-
 	/**
 	 * Return the SVG for the traffic light in the metabox.
 	 */
 	public function traffic_light_svg() {
 		return <<<SVG
 <svg class="yst-traffic-light init" version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-	 x="0px" y="0px" viewBox="0 0 30 47" enable-background="new 0 0 30 47" xml:space="preserve">
+	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	x="0px" y="0px" viewBox="0 0 30 47" enable-background="new 0 0 30 47" xml:space="preserve">
 <g id="BG_1_">
 </g>
 <g id="traffic_light">
@@ -1107,7 +1099,7 @@ class WPSEO_Metabox extends WPSEO_Meta {
 		<g>
 			<g>
 				<path fill="#5B2942" d="M22,0H8C3.6,0,0,3.6,0,7.9v31.1C0,43.4,3.6,47,8,47h14c4.4,0,8-3.6,8-7.9V7.9C30,3.6,26.4,0,22,0z
-					 M27.5,38.8c0,3.1-2.6,5.7-5.8,5.7H8.3c-3.2,0-5.8-2.5-5.8-5.7V8.3c0-1.5,0.6-2.9,1.7-4c1.1-1,2.5-1.6,4.1-1.6h13.4
+					M27.5,38.8c0,3.1-2.6,5.7-5.8,5.7H8.3c-3.2,0-5.8-2.5-5.8-5.7V8.3c0-1.5,0.6-2.9,1.7-4c1.1-1,2.5-1.6,4.1-1.6h13.4
 					c1.5,0,3,0.6,4.1,1.6c1.1,1.1,1.7,2.5,1.7,4V38.8z"/>
 			</g>
 			<g class="traffic-light-color traffic-light-red">
@@ -1140,7 +1132,6 @@ class WPSEO_Metabox extends WPSEO_Meta {
 </g>
 </svg>
 SVG;
-
 	}
 
 	/**
@@ -1192,18 +1183,18 @@ SVG;
 	}
 
 	/**
-	 * @param string $page The page to check for the post overview page.
+	 * @param  string $page The page to check for the post overview page.
 	 *
-	 * @return bool Whether or not the given page is the post overview page.
+	 * @return bool         Whether or not the given page is the post overview page.
 	 */
 	public static function is_post_overview( $page ) {
 		return 'edit.php' === $page;
 	}
 
 	/**
-	 * @param string $page The page to check for the post edit page.
+	 * @param  string $page The page to check for the post edit page.
 	 *
-	 * @return bool Whether or not the given page is the post edit page.
+	 * @return bool         Whether or not the given page is the post edit page.
 	 */
 	public static function is_post_edit( $page ) {
 		return 'post.php' === $page
@@ -1234,7 +1225,7 @@ SVG;
 	 *
 	 * @param  string $post_type The post type for which to get the meta fields.
 	 *
-	 * @return  array
+	 * @return array
 	 */
 	public function get_meta_boxes( $post_type = 'post' ) {
 		_deprecated_function( __METHOD__, 'WPSEO 1.5.0', 'WPSEO_Meta::get_meta_field_defs()' );
@@ -1258,7 +1249,7 @@ SVG;
 	/**
 	 * @deprecated 3.0 Removed, use javascript functions instead.
 	 *
-	 * @param string $string Deprecated.
+	 * @param  string $string Deprecated.
 	 *
 	 * @return string
 	 */
@@ -1305,7 +1296,7 @@ SVG;
 	/**
 	 * @deprecated 3.0 Use WPSEO_Meta_Columns::column_heading instead.
 	 *
-	 * @param array $columns Already existing columns.
+	 * @param  array $columns Already existing columns.
 	 *
 	 * @return array
 	 */
@@ -1334,7 +1325,7 @@ SVG;
 	/**
 	 * @deprecated 3.0 Use WPSEO_Meta_Columns::column_sort instead.
 	 *
-	 * @param array $columns Columns appended with their orderby variable.
+	 * @param  array $columns Columns appended with their orderby variable.
 	 *
 	 * @return array
 	 */
@@ -1349,7 +1340,7 @@ SVG;
 	/**
 	 * @deprecated 3.0 Use WPSEO_Meta_Columns::column_sort_orderby instead.
 	 *
-	 * @param array $vars Query variables.
+	 * @param  array $vars Query variables.
 	 *
 	 * @return array
 	 */
@@ -1364,9 +1355,9 @@ SVG;
 	/**
 	 * @deprecated 3.0 Use WPSEO_Meta_Columns::column_hidden instead.
 	 *
-	 * @param array|false $result The hidden columns.
-	 * @param string      $option The option name used to set which columns should be hidden.
-	 * @param WP_User     $user   The User.
+	 * @param  array|false $result The hidden columns.
+	 * @param  string      $option The option name used to set which columns should be hidden.
+	 * @param  WP_User     $user   The User.
 	 *
 	 * @return array|false $result
 	 */
@@ -1381,7 +1372,7 @@ SVG;
 	/**
 	 * @deprecated 3.0 Use WPSEO_Meta_Columns::seo_score_posts_where instead.
 	 *
-	 * @param string $where  Where clause.
+	 * @param  string $where Where clause.
 	 *
 	 * @return string
 	 */
@@ -1396,7 +1387,7 @@ SVG;
 	/**
 	 * @deprecated 3.0 Removed.
 	 *
-	 * @param int $post_id Post to retrieve the title for.
+	 * @param  int    $post_id Post to retrieve the title for.
 	 *
 	 * @return string
 	 */
@@ -1414,13 +1405,12 @@ SVG;
 	 */
 	public function aasort( &$array, $key ) {
 		_deprecated_function( __METHOD__, 'WPSEO 3.0' );
-
 	}
 
 	/**
 	 * @deprecated 3.0
 	 *
-	 * @param object $post Post to output the page analysis results for.
+	 * @param  object $post Post to output the page analysis results for.
 	 *
 	 * @return string
 	 */
@@ -1428,29 +1418,27 @@ SVG;
 		_deprecated_function( __METHOD__, 'WPSEO 3.0' );
 
 		return '';
-
 	}
 
 	/**
 	 * @deprecated 3.0
 	 *
-	 * @param  object $post Post to calculate the results for.
+	 * @param  object         $post Post to calculate the results for.
 	 *
-	 * @return  array|WP_Error
+	 * @return array|WP_Error
 	 */
 	public function calculate_results( $post ) {
 		_deprecated_function( __METHOD__, 'WPSEO 3.0' );
 
 		return array();
-
 	}
 
 	/**
 	 * @deprecated 3.0
 	 *
-	 * @param WP_Post $post Post object instance.
+	 * @param  WP_Post $post Post object instance.
 	 *
-	 * @return    array
+	 * @return array
 	 */
 	public function get_sample_permalink( $post ) {
 		_deprecated_function( __METHOD__, 'WPSEO 3.0' );
@@ -1468,15 +1456,14 @@ SVG;
 	 * @param string $raw_score     The raw score, to be used by other filters.
 	 */
 	public function save_score_result( &$results, $score_value, $score_message, $score_label, $raw_score = null ) {
-
 		_deprecated_function( __METHOD__, 'WPSEO 3.0' );
 	}
 
 	/**
 	 * @deprecated 3.0
 	 *
-	 * @param string $input_string               String to clean up.
-	 * @param bool   $remove_optional_characters Whether or not to do a cleanup of optional chars too.
+	 * @param  string $input_string               String to clean up.
+	 * @param  bool   $remove_optional_characters Whether or not to do a cleanup of optional chars too.
 	 *
 	 * @return string
 	 */
@@ -1494,7 +1481,6 @@ SVG;
 	 */
 	public function check_double_focus_keyword( $job, &$results ) {
 		_deprecated_function( __METHOD__, 'WPSEO 3.0' );
-
 	}
 
 	/**
@@ -1542,7 +1528,7 @@ SVG;
 	/**
 	 * @deprecated 3.0
 	 *
-	 * @param object $xpath An XPATH object of the current document.
+	 * @param  object $xpath An XPATH object of the current document.
 	 *
 	 * @return array
 	 */
@@ -1555,7 +1541,7 @@ SVG;
 	/**
 	 * @deprecated 3.0
 	 *
-	 * @param object $xpath An XPATH object of the current document.
+	 * @param  object $xpath An XPATH object of the current document.
 	 *
 	 * @return array
 	 */
@@ -1579,11 +1565,11 @@ SVG;
 	/**
 	 * @deprecated 3.0
 	 *
-	 * @param int    $post_id The post to find images in.
-	 * @param string $body    The post content to find images in.
-	 * @param array  $imgs    The array holding the image information.
+	 * @param  int    $post_id The post to find images in.
+	 * @param  string $body    The post content to find images in.
+	 * @param  array  $imgs    The array holding the image information.
 	 *
-	 * @return array The updated images array.
+	 * @return array           The updated images array.
 	 */
 	public function get_images_alt_text( $post_id, $body, $imgs ) {
 		_deprecated_function( __METHOD__, 'WPSEO 3.0' );
@@ -1605,9 +1591,9 @@ SVG;
 	/**
 	 * @deprecated 3.0
 	 *
-	 * @param string $postcontent Post content to find headings in.
+	 * @param  string $postcontent Post content to find headings in.
 	 *
-	 * @return array Array of heading texts.
+	 * @return array               Array of heading texts.
 	 */
 	public function get_headings( $postcontent ) {
 		_deprecated_function( __METHOD__, 'WPSEO 3.0' );
@@ -1642,9 +1628,9 @@ SVG;
 	/**
 	 * @deprecated 3.0
 	 *
-	 * @param object $post The post object.
+	 * @param  object $post The post object.
 	 *
-	 * @return string The post content.
+	 * @return string       The post content.
 	 */
 	public function get_body( $post ) {
 		_deprecated_function( __METHOD__, 'WPSEO 3.0' );
@@ -1655,7 +1641,7 @@ SVG;
 	/**
 	 * @deprecated 3.0
 	 *
-	 * @param string $body The post content to retrieve the first paragraph from.
+	 * @param  string $body The post content to retrieve the first paragraph from.
 	 *
 	 * @return string
 	 */
@@ -1670,7 +1656,7 @@ SVG;
 	 *
 	 * Retrieves the title template.
 	 *
-	 * @param object $post Metabox post.
+	 * @param  object $post Metabox post.
 	 *
 	 * @return string
 	 */
@@ -1685,7 +1671,7 @@ SVG;
 	 *
 	 * Retrieves the metadesc template.
 	 *
-	 * @param object $post Metabox post.
+	 * @param  object $post Metabox post.
 	 *
 	 * @return string
 	 */
@@ -1698,7 +1684,7 @@ SVG;
 	 * @deprecated 3.2
 	 * Retrieve a post date when post is published, or return current date when it's not.
 	 *
-	 * @param WP_Post $post The post for which to retrieve the post date.
+	 * @param  WP_Post $post The post for which to retrieve the post date.
 	 *
 	 * @return string
 	 */
@@ -1707,5 +1693,6 @@ SVG;
 
 		return '';
 	}
+
 	// @codeCoverageIgnoreEnd
 }

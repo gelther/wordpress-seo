@@ -88,8 +88,7 @@ if ( isset( $msg ) && ! empty( $msg ) ) {
 
 if ( is_multisite() ) {
 	$action_url = network_admin_url( 'admin.php?page=wpseo_files' );
-}
-else {
+} else {
 	$action_url = admin_url( 'admin.php?page=wpseo_tools&tool=file-editor' );
 }
 
@@ -126,8 +125,7 @@ if ( ! file_exists( $robots_file ) ) {
 			)
 		);
 		echo '</form>';
-	}
-	else {
+	} else {
 		echo '<p>';
 		printf(
 			/* translators: %s expands to robots.txt. */
@@ -136,8 +134,7 @@ if ( ! file_exists( $robots_file ) ) {
 		);
 		echo '</p>';
 	}
-}
-else {
+} else {
 	$f = fopen( $robots_file, 'r' );
 
 	$content = '';
@@ -154,8 +151,7 @@ else {
 		);
 		echo '</em></p>';
 		echo '<textarea class="large-text code" disabled="disabled" rows="15" name="robotsnew">', esc_textarea( $content ), '</textarea><br/>';
-	}
-	else {
+	} else {
 		echo '<form action="', esc_url( $action_url ), '" method="post" id="robotstxtform">';
 		wp_nonce_field( 'wpseo-robotstxt', '_wpnonce', true, true );
 		echo '<p><label for="robotsnew" class="yoast-inline-label">';
@@ -204,8 +200,7 @@ if ( ( isset( $_SERVER['SERVER_SOFTWARE'] ) && stristr( $_SERVER['SERVER_SOFTWAR
 			);
 			echo '</em></p>';
 			echo '<textarea class="large-text code" disabled="disabled" rows="15" name="robotsnew">', esc_textarea( $contentht ), '</textarea><br/>';
-		}
-		else {
+		} else {
 			echo '<form action="', esc_url( $action_url ), '" method="post" id="htaccessform">';
 			wp_nonce_field( 'wpseo-htaccess', '_wpnonce', true, true );
 			echo '<p><label for="htaccessnew" class="yoast-inline-label">';
@@ -226,8 +221,7 @@ if ( ( isset( $_SERVER['SERVER_SOFTWARE'] ) && stristr( $_SERVER['SERVER_SOFTWAR
 			);
 			echo '</form>';
 		}
-	}
-	else {
+	} else {
 		echo '<p>';
 		printf(
 			/* translators: %s expands to ".htaccess". */

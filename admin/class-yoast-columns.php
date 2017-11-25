@@ -39,4 +39,5 @@ class WPSEO_Yoast_Columns implements WPSEO_WordPress_Integration {
 			)
 		);
 	}
+
 }

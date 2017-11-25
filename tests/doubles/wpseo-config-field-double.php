@@ -14,4 +14,5 @@ class WPSEO_Config_Field_Double extends WPSEO_Config_Field {
 	public function set_data( $data ) {
 		$this->data = $data;
 	}
+
 }

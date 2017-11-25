@@ -18,4 +18,5 @@ class WPSEO_Register_Capabilities_Tests extends PHPUnit_Framework_TestCase {
 		$this->assertContains( 'wpseo_bulk_edit', $registered );
 		$this->assertContains( 'wpseo_manage_options', $registered );
 	}
+
 }

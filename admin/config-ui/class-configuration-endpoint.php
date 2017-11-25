@@ -75,4 +75,5 @@ class WPSEO_Configuration_Endpoint {
 	public function can_save_data() {
 		return current_user_can( self::CAPABILITY_STORE );
 	}
+
 }

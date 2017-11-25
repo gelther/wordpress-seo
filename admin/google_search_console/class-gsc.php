@@ -49,7 +49,6 @@ class WPSEO_GSC {
 	 * Run init logic.
 	 */
 	public function init() {
-
 		// Setting the screen option.
 		if ( filter_input( INPUT_GET, 'page' ) === 'wpseo_search_console' ) {
 
@@ -71,14 +70,12 @@ class WPSEO_GSC {
 	 * If the Google Search Console has no credentials, add a notification for the user to give him a heads up. This message is dismissable.
 	 */
 	public function register_gsc_notification() {
-
 		$notification        = $this->get_profile_notification();
 		$notification_center = Yoast_Notification_Center::get();
 
 		if ( WPSEO_GSC_Settings::get_profile() === '' ) {
 			$notification_center->add_notification( $notification );
-		}
-		else {
+		} else {
 			$notification_center->remove_notification( $notification );
 		}
 	}
@@ -138,7 +135,6 @@ class WPSEO_GSC {
 	 * Load the admin redirects scripts
 	 */
 	public function page_scripts() {
-
 		$asset_manager = new WPSEO_Admin_Asset_Manager();
 		$asset_manager->enqueue_script( 'admin-gsc' );
 		$asset_manager->enqueue_style( 'metabox-css' );
@@ -152,9 +148,9 @@ class WPSEO_GSC {
 	/**
 	 * Set the screen options
 	 *
-	 * @param string $status Status string.
-	 * @param string $option Option key.
-	 * @param string $value  Value to return.
+	 * @param  string $status Status string.
+	 * @param  string $option Option key.
+	 * @param  string $value  Value to return.
 	 *
 	 * @return mixed
 	 */
@@ -176,7 +172,6 @@ class WPSEO_GSC {
 	 * Handles the POST and GET requests
 	 */
 	private function request_handler() {
-
 		// List the table search post to a get.
 		$this->list_table_search_post_to_get();
 
@@ -233,7 +228,6 @@ class WPSEO_GSC {
 		// Do the redirect.
 		wp_redirect( $url );
 		exit;
-
 	}
 
 	/**
@@ -308,4 +302,5 @@ class WPSEO_GSC {
 			)
 		);
 	}
+
 }

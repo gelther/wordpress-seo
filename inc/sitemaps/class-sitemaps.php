@@ -65,7 +65,6 @@ class WPSEO_Sitemaps {
 	 * Class constructor
 	 */
 	public function __construct() {
-
 		add_action( 'after_setup_theme', array( $this, 'init_sitemaps_providers' ) );
 		add_action( 'after_setup_theme', array( $this, 'reduce_query_load' ), 99 );
 		add_action( 'pre_get_posts', array( $this, 'redirect' ), 1 );
@@ -90,7 +89,6 @@ class WPSEO_Sitemaps {
 	 * @since 5.3
 	 */
 	public function init_sitemaps_providers() {
-
 		$this->providers = array(
 			new WPSEO_Post_Type_Sitemap_Provider(),
 			new WPSEO_Taxonomy_Sitemap_Provider(),
@@ -110,7 +108,6 @@ class WPSEO_Sitemaps {
 	 * Check the current request URI, if we can determine it's probably an XML sitemap, kill loading the widgets
 	 */
 	public function reduce_query_load() {
-
 		if ( ! isset( $_SERVER['REQUEST_URI'] ) ) {
 			return;
 		}
@@ -199,7 +196,6 @@ class WPSEO_Sitemaps {
 	 * @param \WP_Query $query Main query instance.
 	 */
 	public function redirect( $query ) {
-
 		if ( ! $query->is_main_query() ) {
 			return;
 		}
@@ -239,13 +235,12 @@ class WPSEO_Sitemaps {
 	/**
 	 * Try to get the sitemap from cache
 	 *
-	 * @param string $type        Sitemap type.
-	 * @param int    $page_number The page number to retrieve.
+	 * @param  string $type        Sitemap type.
+	 * @param  int    $page_number The page number to retrieve.
 	 *
-	 * @return bool If the sitemap has been retrieved from cache.
+	 * @return bool                If the sitemap has been retrieved from cache.
 	 */
 	private function get_sitemap_from_cache( $type, $page_number ) {
-
 		$this->transient = false;
 
 		if ( true !== $this->cache->is_enabled() ) {
@@ -278,8 +273,8 @@ class WPSEO_Sitemaps {
 	/**
 	 * Build and save sitemap to cache.
 	 *
-	 * @param string $type        Sitemap type.
-	 * @param int    $page_number The page number to save to.
+	 * @param  string $type        Sitemap type.
+	 * @param  int    $page_number The page number to save to.
 	 *
 	 * @return bool
 	 */
@@ -298,7 +293,6 @@ class WPSEO_Sitemaps {
 	 * @param string $type The requested sitemap's identifier.
 	 */
 	public function build_sitemap( $type ) {
-
 		/**
 		 * Filter the type of sitemap to build.
 		 *
@@ -346,7 +340,6 @@ class WPSEO_Sitemaps {
 	 * Build the root sitemap (example.com/sitemap_index.xml) which lists sub-sitemaps for other content types.
 	 */
 	public function build_root_map() {
-
 		$links = array();
 
 		foreach ( $this->providers as $provider ) {
@@ -371,7 +364,6 @@ class WPSEO_Sitemaps {
 	 * @since 1.4.13
 	 */
 	public function xsl_output( $type ) {
-
 		if ( $type !== 'main' ) {
 
 			/**
@@ -400,7 +392,6 @@ class WPSEO_Sitemaps {
 	 * Spit out the generated sitemap and relevant headers and encoding information.
 	 */
 	public function output() {
-
 		if ( ! headers_sent() ) {
 			header( $this->http_protocol . ' 200 OK', true, 200 );
 			// Prevent the search engines from indexing the XML Sitemap.
@@ -423,13 +414,12 @@ class WPSEO_Sitemaps {
 	 *
 	 * @since 3.2
 	 *
-	 * @param string|array $post_types Post type or array of types.
-	 * @param bool         $return_all Flag to return array of values.
+	 * @param  string|array       $post_types Post type or array of types.
+	 * @param  bool               $return_all Flag to return array of values.
 	 *
 	 * @return string|array|false
 	 */
 	public static function get_last_modified_gmt( $post_types, $return_all = false ) {
-
 		global $wpdb;
 
 		static $post_type_dates = null;
@@ -480,12 +470,11 @@ class WPSEO_Sitemaps {
 	/**
 	 * Get the modification date for the last modified post in the post type.
 	 *
-	 * @param array $post_types Post types to get the last modification date for.
+	 * @param  array  $post_types Post types to get the last modification date for.
 	 *
 	 * @return string
 	 */
 	public function get_last_modified( $post_types ) {
-
 		return $this->timezone->format_date( self::get_last_modified_gmt( $post_types ) );
 	}
 
@@ -495,7 +484,6 @@ class WPSEO_Sitemaps {
 	 * @param string|null $url Optional URL to make the ping for.
 	 */
 	public static function ping_search_engines( $url = null ) {
-
 		/**
 		 * Filter: 'wpseo_allow_xml_sitemap_ping' - Check if pinging is not allowed (allowed by default)
 		 *
@@ -524,7 +512,7 @@ class WPSEO_Sitemaps {
 	 * @deprecated 3.2
 	 * @see WPSEO_Sitemaps_Renderer::sitemap_url()
 	 *
-	 * @param array $url Array of parts that make up this entry.
+	 * @param  array  $url Array of parts that make up this entry.
 	 *
 	 * @return string
 	 */
@@ -551,10 +539,10 @@ class WPSEO_Sitemaps {
 	 *
 	 * @deprecated 3.5 Change frequency data dropped from sitemaps.
 	 *
-	 * @param string $filter  Expands to wpseo_sitemap_$filter_change_freq, allowing for a change of the frequency for
+	 * @param  string     $filter  Expands to wpseo_sitemap_$filter_change_freq, allowing for a change of the frequency for
 	 *                        numerous specific URLs.
-	 * @param string $default The default value for the frequency.
-	 * @param string $url     The URL of the current entry.
+	 * @param  string     $default The default value for the frequency.
+	 * @param  string     $url     The URL of the current entry.
 	 *
 	 * @return mixed|void
 	 */
@@ -584,4 +572,5 @@ class WPSEO_Sitemaps {
 
 		return $change_freq;
 	}
+
 }

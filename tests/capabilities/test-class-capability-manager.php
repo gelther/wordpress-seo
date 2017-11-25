@@ -71,4 +71,5 @@ class Capability_Manager_Tests extends PHPUnit_Framework_TestCase {
 	public function do_filter_roles( $roles ) {
 		return array( 'elor' );
 	}
+
 }

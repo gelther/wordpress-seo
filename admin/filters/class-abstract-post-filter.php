@@ -13,9 +13,9 @@ abstract class WPSEO_Abstract_Post_Filter implements WPSEO_WordPress_Integration
 	/**
 	 * Modify the query based on the FILTER_QUERY_ARG variable in $_GET
 	 *
-	 * @param string $where Query variables.
+	 * @param  string $where Query variables.
 	 *
-	 * @return string The modified query.
+	 * @return string        The modified query.
 	 */
 	abstract public function filter_posts( $where );
 
@@ -87,9 +87,9 @@ abstract class WPSEO_Abstract_Post_Filter implements WPSEO_WordPress_Integration
 	/**
 	 * Adds a filter link to the views.
 	 *
-	 * @param array $views Array with the views.
+	 * @param  array $views Array with the views.
 	 *
-	 * @return array Array of views including the added view.
+	 * @return array        Array of views including the added view.
 	 */
 	public function add_filter_link( array $views ) {
 		$views[ 'yoast_' . $this->get_query_val() ] = sprintf(
@@ -168,11 +168,12 @@ abstract class WPSEO_Abstract_Post_Filter implements WPSEO_WordPress_Integration
 	/**
 	 * Checks if the post type is supported.
 	 *
-	 * @param string $post_type Post type to check against.
+	 * @param  string $post_type Post type to check against.
 	 *
-	 * @return bool True when it is supported.
+	 * @return bool              True when it is supported.
 	 */
 	protected function is_supported_post_type( $post_type ) {
 		return in_array( $post_type, $this->get_post_types(), true );
 	}
+
 }

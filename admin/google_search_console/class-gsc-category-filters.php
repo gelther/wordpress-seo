@@ -141,8 +141,8 @@ class WPSEO_GSC_Category_Filters {
 	/**
 	 * Creates a filter link
 	 *
-	 * @param string  $category Issue type.
-	 * @param integer $count    Count for the type.
+	 * @param  string  $category Issue type.
+	 * @param  integer $count    Count for the type.
 	 *
 	 * @return string
 	 */
@@ -183,7 +183,7 @@ class WPSEO_GSC_Category_Filters {
 	/**
 	 * Parsing the category counts. When there are 0 issues for a specific category, just remove that one from the array
 	 *
-	 * @param array $category_counts Set of counts for categories.
+	 * @param  array $category_counts Set of counts for categories.
 	 *
 	 * @return mixed
 	 */
@@ -196,4 +196,5 @@ class WPSEO_GSC_Category_Filters {
 
 		return $category_counts;
 	}
+
 }

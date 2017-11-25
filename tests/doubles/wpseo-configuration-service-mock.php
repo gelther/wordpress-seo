@@ -8,7 +8,7 @@
  */
 class WPSEO_Configuration_Service_Mock extends WPSEO_Configuration_Service {
 	/**
-	 * @param string $item Property to get.
+	 * @param  string     $item Property to get.
 	 *
 	 * @return null|mixed
 	 */
@@ -19,4 +19,5 @@ class WPSEO_Configuration_Service_Mock extends WPSEO_Configuration_Service {
 
 		return null;
 	}
+
 }

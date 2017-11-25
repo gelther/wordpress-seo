@@ -26,7 +26,6 @@ class WPSEO_Sitemaps_Renderer_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Sitemaps_Renderer::get_index
 	 */
 	public function test_get_index() {
-
 		$loc     = 'http://example.com/';
 		$lastmod = date( 'c' );
 		$links   = array(
@@ -45,7 +44,6 @@ class WPSEO_Sitemaps_Renderer_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Sitemaps_Renderer::get_sitemap
 	 */
 	public function test_get_sitemap() {
-
 		$loc   = 'http://example.com/';
 		$mod   = date( 'c' );
 		$src   = 'http://example.com/image.jpg';
@@ -74,6 +72,5 @@ class WPSEO_Sitemaps_Renderer_Test extends WPSEO_UnitTestCase {
 		$this->assertContains( "<image:title><![CDATA[{$title}]]></image:title>", $index );
 		$this->assertContains( "<image:caption><![CDATA[{$alt}]]></image:caption>", $index );
 	}
+
 }
-
-

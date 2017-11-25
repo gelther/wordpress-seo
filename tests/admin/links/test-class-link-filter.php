@@ -27,7 +27,6 @@ class WPSEO_Link_Filter_Test extends WPSEO_UnitTestCase {
 	 * @return array
 	 */
 	public function link_provider() {
-
 		return array(
 			array(
 				'page',
@@ -86,4 +85,5 @@ class WPSEO_Link_Filter_Test extends WPSEO_UnitTestCase {
 			),
 		);
 	}
+
 }

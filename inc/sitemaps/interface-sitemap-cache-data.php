@@ -20,7 +20,7 @@ interface WPSEO_Sitemap_Cache_Data_Interface {
 	/**
 	 * Set the content of the sitemap
 	 *
-	 * @param string $sitemap The XML content of the sitemap.
+	 * @param  string $sitemap The XML content of the sitemap.
 	 *
 	 * @return void
 	 */
@@ -29,7 +29,7 @@ interface WPSEO_Sitemap_Cache_Data_Interface {
 	/**
 	 * Set the status of the sitemap
 	 *
-	 * @param bool|string $usable True/False or 'ok'/'error' for status.
+	 * @param  bool|string $usable True/False or 'ok'/'error' for status.
 	 *
 	 * @return void
 	 */

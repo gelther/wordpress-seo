@@ -80,4 +80,5 @@ class WPSEO_Tracking_Server_Data implements WPSEO_Collection {
 			'xml'     => extension_loaded( 'xml' ),
 		);
 	}
+
 }

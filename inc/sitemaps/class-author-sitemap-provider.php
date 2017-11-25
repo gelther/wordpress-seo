@@ -11,22 +11,20 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Check if provider supports given item type.
 	 *
-	 * @param string $type Type string to check for.
+	 * @param  string  $type Type string to check for.
 	 *
 	 * @return boolean
 	 */
 	public function handles_type( $type ) {
-
 		return $type === 'author';
 	}
 
 	/**
-	 * @param int $max_entries Entries per sitemap.
+	 * @param  int   $max_entries Entries per sitemap.
 	 *
 	 * @return array
 	 */
 	public function get_index_links( $max_entries ) {
-
 		$options = WPSEO_Options::get_all();
 
 		if ( $options['disable-author'] || $options['disable_author_sitemap'] ) {
@@ -81,12 +79,11 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Retrieve users, taking account of all necessary exclusions.
 	 *
-	 * @param array $arguments Arguments to add.
+	 * @param  array $arguments Arguments to add.
 	 *
 	 * @return array
 	 */
 	protected function get_users( $arguments = array() ) {
-
 		global $wpdb;
 
 		$options = WPSEO_Options::get_all();
@@ -140,7 +137,6 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	 * @return array
 	 */
 	protected function get_excluded_roles() {
-
 		static $excluded_roles;
 
 		if ( isset( $excluded_roles ) ) {
@@ -152,7 +148,7 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 
 		foreach ( $roles as $role_slug => $role_name ) {
 
-			if ( ! empty( $options[ "user_role-{$role_slug}-not_in_sitemap" ] ) ) {
+			if ( ! empty( $options["user_role-{$role_slug}-not_in_sitemap"] ) ) {
 				$excluded_roles[] = $role_name;
 			}
 		}
@@ -167,14 +163,13 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Get set of sitemap link data.
 	 *
-	 * @param string $type         Sitemap type.
-	 * @param int    $max_entries  Entries per sitemap.
-	 * @param int    $current_page Current page of the sitemap.
+	 * @param  string $type         Sitemap type.
+	 * @param  int    $max_entries  Entries per sitemap.
+	 * @param  int    $current_page Current page of the sitemap.
 	 *
 	 * @return array
 	 */
 	public function get_sitemap_links( $type, $max_entries, $current_page ) {
-
 		$options = WPSEO_Options::get_all();
 
 		$links = array();
@@ -236,7 +231,6 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	 * @return int Count of users updated.
 	 */
 	protected function update_user_meta() {
-
 		$users = get_users( array(
 			'who'        => 'authors',
 			'meta_query' => array(
@@ -259,12 +253,11 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	/**
 	 * Wrap legacy filter to deduplicate calls.
 	 *
-	 * @param array $users Array of user objects to filter.
+	 * @param  array $users Array of user objects to filter.
 	 *
 	 * @return array
 	 */
 	protected function exclude_users( $users ) {
-
 		/**
 		 * Filter the authors, included in XML sitemap.
 		 *
@@ -280,10 +273,10 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 	 *
 	 * @deprecated 3.3 User meta sort can now be done by queries.
 	 *
-	 * @param WP_User $first  The first WP user.
-	 * @param WP_User $second The second WP user.
+	 * @param  WP_User $first  The first WP user.
+	 * @param  WP_User $second The second WP user.
 	 *
-	 * @return int 0 if equal, 1 if $a is larger else or -1;
+	 * @return int             0 if equal, 1 if $a is larger else or -1;
 	 */
 	public function user_map_sorter( $first, $second ) {
 		_deprecated_function( __METHOD__, 'WPSEO 3.3', esc_html__( 'Use queries instead', 'wordpress-seo' ) );
@@ -302,4 +295,5 @@ class WPSEO_Author_Sitemap_Provider implements WPSEO_Sitemap_Provider {
 
 		return ( ( $first->_yoast_wpseo_profile_updated > $second->_yoast_wpseo_profile_updated ) ? 1 : -1 );
 	}
+
 }

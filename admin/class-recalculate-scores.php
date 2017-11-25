@@ -49,4 +49,5 @@ class WPSEO_Recalculate_Scores {
 		</div>
 		<?php
 	}
+
 }

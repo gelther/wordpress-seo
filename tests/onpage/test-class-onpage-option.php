@@ -70,4 +70,5 @@ class WPSEO_OnPage_Option_Test extends WPSEO_UnitTestCase {
 		$this->class_instance->set_last_fetch( strtotime( '-2 hours' ) );
 		$this->assertTrue( $this->class_instance->should_be_fetched() );
 	}
+
 }

@@ -125,8 +125,7 @@ class WPSEO_Sitemaps_Admin {
 
 			if ( defined( 'YOAST_SEO_PING_IMMEDIATELY' ) && YOAST_SEO_PING_IMMEDIATELY ) {
 				WPSEO_Sitemaps::ping_search_engines();
-			}
-			elseif ( ! wp_next_scheduled( 'wpseo_ping_search_engines' ) ) {
+			} elseif ( ! wp_next_scheduled( 'wpseo_ping_search_engines' ) ) {
 				wp_schedule_single_event( ( time() + 300 ), 'wpseo_ping_search_engines' );
 			}
 		}
@@ -188,4 +187,5 @@ class WPSEO_Sitemaps_Admin {
 
 		WPSEO_Sitemaps::ping_search_engines();
 	}
+
 } /* End of class */

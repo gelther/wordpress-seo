@@ -84,4 +84,5 @@ class WPSEO_Config_Component_Connect_Google_Search_Console_Mock extends WPSEO_Co
 	public function clear_gsc_data() {
 		$this->test->stub_call_register( 'clear_data' );
 	}
+
 }

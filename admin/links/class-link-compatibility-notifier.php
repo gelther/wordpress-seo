@@ -53,4 +53,5 @@ class WPSEO_Link_Compatibility_Notifier {
 			)
 		);
 	}
+
 }

@@ -48,7 +48,6 @@ class WPSEO_Admin_Pages {
 	 * Run admin-specific actions.
 	 */
 	public function admin_init() {
-
 		$page         = filter_input( INPUT_GET, 'page' );
 		$tool         = filter_input( INPUT_GET, 'tool' );
 		$export_nonce = filter_input( INPUT_POST, WPSEO_Export::NONCE_NAME );
@@ -100,7 +99,7 @@ class WPSEO_Admin_Pages {
 	/**
 	 * Pass some variables to js for upload module.
 	 *
-	 * @return  array
+	 * @return array
 	 */
 	public function localize_media_script() {
 		return array(
@@ -151,9 +150,9 @@ class WPSEO_Admin_Pages {
 	 *
 	 * @deprecated 2.0
 	 *
-	 * @param bool $include_taxonomy Whether to include the taxonomy metadata the plugin creates.
+	 * @param  bool        $include_taxonomy Whether to include the taxonomy metadata the plugin creates.
 	 *
-	 * @return bool|string $return False when failed, the URL to the export file when succeeded.
+	 * @return bool|string $return           False when failed, the URL to the export file when succeeded.
 	 */
 	public function export_settings( $include_taxonomy ) {
 		_deprecated_function( __METHOD__, 'WPSEO 2.0', 'This method is deprecated, please use the <code>WPSEO_Export</code> class.' );
@@ -386,7 +385,7 @@ class WPSEO_Admin_Pages {
 	 *
 	 * @deprecated 2.0
 	 *
-	 * @param array $rows Rows to include in the table.
+	 * @param  array  $rows Rows to include in the table.
 	 *
 	 * @return string
 	 */
@@ -402,8 +401,7 @@ class WPSEO_Admin_Pages {
 			$content .= '<tr><th scope="row">';
 			if ( ! empty( $row['id'] ) ) {
 				$content .= '<label for="' . esc_attr( $row['id'] ) . '">' . esc_html( $row['label'] ) . ':</label>';
-			}
-			else {
+			} else {
 				$content .= esc_html( $row['label'] );
 			}
 			if ( ! empty( $row['desc'] ) ) {
@@ -430,5 +428,6 @@ class WPSEO_Admin_Pages {
 		_deprecated_function( __METHOD__, 'WPSEO 1.5.0', 'WPSEO_Options::reset()' );
 		WPSEO_Options::reset();
 	}
+
 	// @codeCoverageIgnoreEnd
 } /* End of class */

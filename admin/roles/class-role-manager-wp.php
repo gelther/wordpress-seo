@@ -11,9 +11,9 @@ final class WPSEO_Role_Manager_WP extends WPSEO_Abstract_Role_Manager {
 	/**
 	 * Adds a role to the system.
 	 *
-	 * @param string $role         Role to add.
-	 * @param string $display_name Name to display for the role.
-	 * @param array  $capabilities Capabilities to add to the role.
+	 * @param  string $role         Role to add.
+	 * @param  string $display_name Name to display for the role.
+	 * @param  array  $capabilities Capabilities to add to the role.
 	 *
 	 * @return void
 	 */
@@ -34,7 +34,7 @@ final class WPSEO_Role_Manager_WP extends WPSEO_Abstract_Role_Manager {
 	/**
 	 * Removes a role from the system.
 	 *
-	 * @param string $role Role to remove.
+	 * @param  string $role Role to remove.
 	 *
 	 * @return void
 	 */
@@ -45,10 +45,10 @@ final class WPSEO_Role_Manager_WP extends WPSEO_Abstract_Role_Manager {
 	/**
 	 * Formats the capabilities to the required format.
 	 *
-	 * @param array $capabilities Capabilities to format.
-	 * @param bool  $enabled      Whether these capabilities should be enabled or not.
+	 * @param  array $capabilities Capabilities to format.
+	 * @param  bool  $enabled      Whether these capabilities should be enabled or not.
 	 *
-	 * @return array Formatted capabilities.
+	 * @return array               Formatted capabilities.
 	 */
 	protected function format_capabilities( array $capabilities, $enabled = true ) {
 		// Flip keys and values.
@@ -57,4 +57,5 @@ final class WPSEO_Role_Manager_WP extends WPSEO_Abstract_Role_Manager {
 		// Set all values to $enabled.
 		return array_fill_keys( array_keys( $capabilities ), $enabled );
 	}
+
 }

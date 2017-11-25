@@ -30,12 +30,11 @@ $yform->admin_footer();
 /**
  * Adds help tabs.
  *
- * @param array $tabs Current help center tabs.
+ * @param  array $tabs Current help center tabs.
  *
- * @return array List containing all the additional tabs.
+ * @return array       List containing all the additional tabs.
  */
 function yoast_add_meta_options_help_center_tabs( $tabs ) {
-
 	$tabs[] = new WPSEO_Help_Center_Item(
 		'template-variables',
 		__( 'Template explanation', 'wordpress-seo' ),

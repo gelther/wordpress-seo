@@ -15,7 +15,7 @@ abstract class WPSEO_Abstract_Capability_Manager implements WPSEO_Capability_Man
 	 *
 	 * @param string $capability Capability to register.
 	 * @param array  $roles      Roles to add the capability to.
-	 * @param bool   $overwrite        Optional. Use add or overwrite as registration method.
+	 * @param bool   $overwrite  Optional. Use add or overwrite as registration method.
 	 */
 	public function register( $capability, array $roles, $overwrite = false ) {
 		if ( $overwrite || ! isset( $this->capabilities[ $capability ] ) ) {
@@ -46,9 +46,9 @@ abstract class WPSEO_Abstract_Capability_Manager implements WPSEO_Capability_Man
 	 * The string array of role names are converted to actual WP_Role objects.
 	 * These are needed to be able to use the API on them.
 	 *
-	 * @param array $roles Roles to retrieve the objects for.
+	 * @param  array     $roles Roles to retrieve the objects for.
 	 *
-	 * @return WP_Role[] List of WP_Role objects.
+	 * @return WP_Role[]        List of WP_Role objects.
 	 */
 	protected function get_wp_roles( array $roles ) {
 		$wp_roles = array_map( 'get_role', $roles );
@@ -59,10 +59,10 @@ abstract class WPSEO_Abstract_Capability_Manager implements WPSEO_Capability_Man
 	/**
 	 * Filter capability roles.
 	 *
-	 * @param string $capability Capability to filter roles for.
-	 * @param array  $roles      List of roles which can be filtered.
+	 * @param  string $capability Capability to filter roles for.
+	 * @param  array  $roles      List of roles which can be filtered.
 	 *
-	 * @return array Filtered list of roles for the capability.
+	 * @return array              Filtered list of roles for the capability.
 	 */
 	protected function filter_roles( $capability, array $roles ) {
 		/**
@@ -79,4 +79,5 @@ abstract class WPSEO_Abstract_Capability_Manager implements WPSEO_Capability_Man
 
 		return $filtered;
 	}
+
 }

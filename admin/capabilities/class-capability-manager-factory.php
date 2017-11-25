@@ -27,4 +27,5 @@ class WPSEO_Capability_Manager_Factory {
 
 		return $manager;
 	}
+
 }

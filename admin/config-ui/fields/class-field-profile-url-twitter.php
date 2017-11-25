@@ -25,4 +25,5 @@ class WPSEO_Config_Field_Profile_URL_Twitter extends WPSEO_Config_Field {
 	public function set_adapter( WPSEO_Configuration_Options_Adapter $adapter ) {
 		$adapter->add_yoast_lookup( $this->get_identifier(), 'wpseo_social', 'twitter_site' );
 	}
+
 }

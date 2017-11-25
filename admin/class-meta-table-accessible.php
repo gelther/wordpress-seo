@@ -58,4 +58,5 @@ class WPSEO_Meta_Table_Accessible {
 	protected static function transient_name() {
 		return 'wpseo_meta_table_accessible';
 	}
+
 }

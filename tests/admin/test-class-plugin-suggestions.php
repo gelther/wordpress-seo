@@ -61,4 +61,5 @@ class WPSEO_Plugin_Suggestions_Test extends WPSEO_UnitTestCase {
 
 		$this->class_instance->add_notifications();
 	}
+
 }

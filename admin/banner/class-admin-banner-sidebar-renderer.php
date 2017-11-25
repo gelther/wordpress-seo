@@ -23,7 +23,7 @@ class WPSEO_Admin_Banner_Sidebar_Renderer {
 	/**
 	 * Renders the admin banner sidebar.
 	 *
-	 * @param WPSEO_Admin_Banner_Sidebar $banner_sidebar The sidebar to render.
+	 * @param  WPSEO_Admin_Banner_Sidebar $banner_sidebar The sidebar to render.
 	 *
 	 * @return string
 	 */
@@ -45,7 +45,7 @@ class WPSEO_Admin_Banner_Sidebar_Renderer {
 	/**
 	 * Renders the admin banner spots.
 	 *
-	 * @param WPSEO_Admin_Banner_Spot[] $banner_spots The banner spots to render.
+	 * @param  WPSEO_Admin_Banner_Spot[] $banner_spots The banner spots to render.
 	 *
 	 * @return string
 	 */
@@ -57,4 +57,5 @@ class WPSEO_Admin_Banner_Sidebar_Renderer {
 
 		return $return;
 	}
+
 }

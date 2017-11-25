@@ -45,7 +45,6 @@ class WPSEO_Admin_Banner_Spot_Renderer_Test extends WPSEO_UnitTestCase {
 		$actual_output   = $this->admin_banner_spot_renderer->render( $banner_spot );
 
 		$this->assertEquals( $expected_output, $actual_output );
-
 	}
 
 	/**
@@ -78,4 +77,5 @@ class WPSEO_Admin_Banner_Spot_Renderer_Test extends WPSEO_UnitTestCase {
 
 		$this->assertStringStartsWith( $expected_output, $actual_output );
 	}
+
 }

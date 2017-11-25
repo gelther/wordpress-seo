@@ -131,4 +131,5 @@ class WPSEO_Config_Field {
 	public function get_requires() {
 		return $this->requires;
 	}
+
 }

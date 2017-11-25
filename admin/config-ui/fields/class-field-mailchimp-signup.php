@@ -43,7 +43,6 @@ class WPSEO_Config_Field_Mailchimp_Signup extends WPSEO_Config_Field {
 		return array(
 			'hasSignup' => $this->has_mailchimp_signup(),
 		);
-
 	}
 
 	/**
@@ -55,4 +54,5 @@ class WPSEO_Config_Field_Mailchimp_Signup extends WPSEO_Config_Field {
 		$user_meta = get_user_meta( get_current_user_id(), WPSEO_Config_Component_Mailchimp_Signup::META_NAME, true );
 		return ( ! empty( $user_meta ) );
 	}
+
 }

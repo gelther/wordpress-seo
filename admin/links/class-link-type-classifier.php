@@ -20,7 +20,6 @@ class WPSEO_Link_Type_Classifier {
 	 * @param string $base_url The base url to set.
 	 */
 	public function __construct( $base_url ) {
-
 		$this->base_host = WPSEO_Link_Utils::get_url_part( $base_url, 'host' );
 
 		$base_path = WPSEO_Link_Utils::get_url_part( $base_url, 'path' );
@@ -32,9 +31,9 @@ class WPSEO_Link_Type_Classifier {
 	/**
 	 * Determines if the given link is an outbound or an internal link.
 	 *
-	 * @param string $link The link to classify.
+	 * @param  string $link The link to classify.
 	 *
-	 * @return string Returns outbound or internal.
+	 * @return string       Returns outbound or internal.
 	 */
 	public function classify( $link ) {
 		$url_parts = wp_parse_url( $link );
@@ -54,9 +53,9 @@ class WPSEO_Link_Type_Classifier {
 	/**
 	 * Returns true when the link starts with https:// or http://
 	 *
-	 * @param array $url_parts The url parts to use.
+	 * @param  array $url_parts The url parts to use.
 	 *
-	 * @return bool True if the url starts with a protocol.
+	 * @return bool             True if the url starts with a protocol.
 	 */
 	protected function contains_protocol( array $url_parts ) {
 		return isset( $url_parts['scheme'] ) && $url_parts['scheme'] !== null;
@@ -65,9 +64,9 @@ class WPSEO_Link_Type_Classifier {
 	/**
 	 * Checks if the link contains the home_url. Returns true if this isn't the case.
 	 *
-	 * @param array $url_parts The url parts to use.
+	 * @param  array $url_parts The url parts to use.
 	 *
-	 * @return bool True when the link doesn't contain the home url.
+	 * @return bool             True when the link doesn't contain the home url.
 	 */
 	protected function is_external_link( array $url_parts ) {
 		if ( isset( $url_parts['scheme'] ) && ! in_array( $url_parts['scheme'], array( 'http', 'https' ), true ) ) {
@@ -90,4 +89,5 @@ class WPSEO_Link_Type_Classifier {
 
 		return true;
 	}
+
 }

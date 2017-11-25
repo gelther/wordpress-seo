@@ -62,7 +62,7 @@ class WPSEO_Premium_Popup {
 	/**
 	 * Returns the premium popup as an HTML string.
 	 *
-	 * @param bool $popup Show this message as a popup show it straight away.
+	 * @param  bool   $popup Show this message as a popup show it straight away.
 	 *
 	 * @return string
 	 */
@@ -94,4 +94,5 @@ EO_POPUP;
 
 		return $popup;
 	}
+
 }

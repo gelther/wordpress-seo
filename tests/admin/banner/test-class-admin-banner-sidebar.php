@@ -32,7 +32,7 @@ class WPSEO_Admin_Banner_Sidebar_Test extends WPSEO_UnitTestCase {
 	/**
 	 * Returns a mock from the WPSEO_Admin_Banner_Sidebar.
 	 *
-	 * @param array $methods_to_mock Array of method names.
+	 * @param  array                      $methods_to_mock Array of method names.
 	 *
 	 * @return WPSEO_Admin_Banner_Sidebar
 	 */
@@ -42,7 +42,6 @@ class WPSEO_Admin_Banner_Sidebar_Test extends WPSEO_UnitTestCase {
 			->setMethods( $methods_to_mock )
 			->getMock();
 	}
-
 
 	/**
 	 * Tests the constructor by checking if the title is set properly.
@@ -114,9 +113,7 @@ class WPSEO_Admin_Banner_Sidebar_Test extends WPSEO_UnitTestCase {
 		$mock->initialize( new WPSEO_Features() );
 	}
 
-
 	/**
-	 *
 	 * @covers WPSEO_Admin_Banner_Sidebar::get_premium_spot
 	 */
 	public function test_get_premium_spot_with_premium() {
@@ -211,9 +208,5 @@ class WPSEO_Admin_Banner_Sidebar_Test extends WPSEO_UnitTestCase {
 
 		$mock->initialize( new WPSEO_Features() );
 	}
-
-
-
-
 
 }

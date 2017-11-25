@@ -47,4 +47,5 @@ class WPSEO_Config_Field_Choice_Test extends PHPUnit_Framework_TestCase {
 		$this->assertEquals( null, $field->add_choice( $value, $label, $screen_reader_text ) );
 		$this->assertEquals( $expected, $field->get_properties() );
 	}
+
 }

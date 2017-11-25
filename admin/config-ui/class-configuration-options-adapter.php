@@ -28,7 +28,6 @@ class WPSEO_Configuration_Options_Adapter {
 	 * @throws InvalidArgumentException Thrown when invalid input is provided.
 	 */
 	public function add_wordpress_lookup( $class_name, $option ) {
-
 		if ( ! is_string( $option ) ) {
 			throw new InvalidArgumentException( 'WordPress option must be a string.' );
 		}
@@ -46,7 +45,6 @@ class WPSEO_Configuration_Options_Adapter {
 	 * @throws InvalidArgumentException Thrown when invalid input is provided.
 	 */
 	public function add_yoast_lookup( $class_name, $option, $key ) {
-
 		$test = WPSEO_Options::get_option( $option );
 		if ( is_null( $test ) ) {
 			/* translators: %1$s resolves to the option name passed to the lookup registration */
@@ -69,7 +67,6 @@ class WPSEO_Configuration_Options_Adapter {
 	 * @throws InvalidArgumentException Thrown when invalid input is provided.
 	 */
 	public function add_custom_lookup( $class_name, $callback_get, $callback_set ) {
-
 		if ( ! is_callable( $callback_get ) || ! is_callable( $callback_set ) ) {
 			throw new InvalidArgumentException( 'Custom option must be callable.' );
 		}
@@ -99,7 +96,7 @@ class WPSEO_Configuration_Options_Adapter {
 	/**
 	 * Get the data for the provided field
 	 *
-	 * @param WPSEO_Config_Field $field Field to get data for.
+	 * @param  WPSEO_Config_Field $field Field to get data for.
 	 *
 	 * @return mixed
 	 */
@@ -129,8 +126,8 @@ class WPSEO_Configuration_Options_Adapter {
 	/**
 	 * Save data from a field
 	 *
-	 * @param WPSEO_Config_Field $field Field to use for lookup.
-	 * @param mixed              $value Value to save to the lookup of the field.
+	 * @param  WPSEO_Config_Field $field Field to use for lookup.
+	 * @param  mixed              $value Value to save to the lookup of the field.
 	 *
 	 * @return bool
 	 */
@@ -165,7 +162,7 @@ class WPSEO_Configuration_Options_Adapter {
 	/**
 	 * Get the lookup type for a specific class
 	 *
-	 * @param string $class_name Class to get the type of.
+	 * @param  string      $class_name Class to get the type of.
 	 *
 	 * @return null|string
 	 */
@@ -180,7 +177,7 @@ class WPSEO_Configuration_Options_Adapter {
 	/**
 	 * Get the option for a specific class
 	 *
-	 * @param string $class_name Class to get the option of.
+	 * @param  string            $class_name Class to get the option of.
 	 *
 	 * @return null|string|array
 	 */
@@ -191,4 +188,5 @@ class WPSEO_Configuration_Options_Adapter {
 
 		return $this->lookup[ $class_name ]['option'];
 	}
+
 }

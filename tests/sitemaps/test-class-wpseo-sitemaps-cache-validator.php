@@ -12,7 +12,6 @@ class WPSEO_Sitemaps_Cache_Validator_Test extends WPSEO_UnitTestCase {
 	 * Test the building of cache keys
 	 */
 	public function test_get_validator_key_global() {
-
 		$result = WPSEO_Sitemaps_Cache_Validator::get_validator_key();
 
 		$this->assertEquals( WPSEO_Sitemaps_Cache_Validator::VALIDATION_GLOBAL_KEY, $result );
@@ -22,7 +21,6 @@ class WPSEO_Sitemaps_Cache_Validator_Test extends WPSEO_UnitTestCase {
 	 * Test the building of cache keys
 	 */
 	public function test_get_validator_key_type() {
-
 		$type     = 'blabla';
 		$expected = sprintf( WPSEO_Sitemaps_Cache_Validator::VALIDATION_TYPE_KEY_FORMAT, $type );
 
@@ -35,7 +33,6 @@ class WPSEO_Sitemaps_Cache_Validator_Test extends WPSEO_UnitTestCase {
 	 * Normal cache key retrieval
 	 */
 	public function test_get_storage_key() {
-
 		$page             = 1;
 		$type             = 'page';
 		$global_validator = 'global';
@@ -65,7 +62,6 @@ class WPSEO_Sitemaps_Cache_Validator_Test extends WPSEO_UnitTestCase {
 	 * This would be 53 if we don't use a timeout, but we can't because all sitemaps would be autoloaded every request.
 	 */
 	public function test_get_storage_key_very_long_type() {
-
 		$page = 1;
 		$type = str_repeat( 'a', 60 );
 
@@ -82,7 +78,6 @@ class WPSEO_Sitemaps_Cache_Validator_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Sitemaps_Cache_Validator::convert_base10_to_base61
 	 */
 	public function test_base_10_to_base_61() {
-
 		// Because of not using 0, everything has an offset.
 		$this->assertEquals( '1', WPSEO_Sitemaps_Cache_Validator::convert_base10_to_base61( 0 ) );
 		$this->assertEquals( '2', WPSEO_Sitemaps_Cache_Validator::convert_base10_to_base61( 1 ) );
@@ -101,7 +96,7 @@ class WPSEO_Sitemaps_Cache_Validator_Test extends WPSEO_UnitTestCase {
 	 * @expectedException InvalidArgumentException
 	 */
 	public function test_base_10_to_base_61_non_integer() {
-
 		WPSEO_Sitemaps_Cache_Validator::convert_base10_to_base61( 'ab' );
 	}
+
 }

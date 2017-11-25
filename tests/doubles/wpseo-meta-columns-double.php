@@ -22,4 +22,5 @@ class WPSEO_Meta_Columns_Double extends WPSEO_Meta_Columns {
 	public function build_filter_query( $vars, $filter ) {
 		return parent::build_filter_query( $vars, $filter );
 	}
+
 }

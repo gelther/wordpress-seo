@@ -26,10 +26,10 @@ function wpseo_admin_bar_menu() {
 
 	global $wp_admin_bar, $post;
 
-	$focuskw = '';
-	$score   = '';
+	$focuskw                 = '';
+	$score                   = '';
 	// By default, the top level menu item has no link.
-	$seo_url = '';
+	$seo_url                 = '';
 	// By default, make the no-link top level menu item focusable.
 	$top_level_link_tabindex = '0';
 
@@ -42,8 +42,7 @@ function wpseo_admin_bar_menu() {
 
 		if ( $analysis_seo->is_enabled() ) {
 			$score = wpseo_adminbar_seo_score();
-		}
-		elseif ( $analysis_readability->is_enabled() ) {
+		} elseif ( $analysis_readability->is_enabled() ) {
 			$score = wpseo_adminbar_content_score();
 		}
 	}
@@ -51,8 +50,7 @@ function wpseo_admin_bar_menu() {
 	if ( is_category() || is_tag() || ( WPSEO_Taxonomy::is_term_edit( $GLOBALS['pagenow'] ) && ! WPSEO_Taxonomy::is_term_overview( $GLOBALS['pagenow'] ) ) || is_tax() ) {
 		if ( $analysis_seo->is_enabled() ) {
 			$score = wpseo_tax_adminbar_seo_score();
-		}
-		elseif ( $analysis_readability->is_enabled() ) {
+		} elseif ( $analysis_readability->is_enabled() ) {
 			$score = wpseo_tax_adminbar_content_score();
 		}
 	}
@@ -68,7 +66,7 @@ function wpseo_admin_bar_menu() {
 	if ( $can_manage_seo ) {
 
 		// Link the top level menu item to the Yoast Dashboard page.
-		$seo_url = get_admin_url( null, 'admin.php?page=' . WPSEO_Admin::PAGE_IDENTIFIER );
+		$seo_url                 = get_admin_url( null, 'admin.php?page=' . WPSEO_Admin::PAGE_IDENTIFIER );
 		// Since admins will get a real link, there's no need for a tabindex attribute.
 		$top_level_link_tabindex = false;
 
@@ -94,8 +92,7 @@ function wpseo_admin_bar_menu() {
 						__( 'You have a new issue concerning your SEO!', 'wordpress-seo' ),
 						$new_notifications_count
 					);
-				}
-				else {
+				} else {
 					$notification = sprintf(
 						/* translators: %d resolves to the number of alerts being added. */
 						_n( 'You have %d new issue concerning your SEO!', 'You have %d new issues concerning your SEO!', $new_notifications_count, 'wordpress-seo' ),
@@ -321,7 +318,6 @@ function wpseo_admin_bar_menu() {
 			'href'   => admin_url( 'admin.php?page=wpseo_licenses' ),
 		) );
 	}
-
 }
 
 /**
@@ -379,7 +375,7 @@ function wpseo_tax_adminbar_content_score() {
 /**
  * Takes The SEO score and makes the score icon for the adminbar with it.
  *
- * @param int $score The 0-100 rating of the score. Can be either SEO score or content score.
+ * @param  int    $score                  The 0-100 rating of the score. Can be either SEO score or content score.
  *
  * @return string $score_adminbar_element
  */
@@ -413,9 +409,9 @@ add_action( 'admin_enqueue_scripts', 'wpseo_admin_bar_style' );
 /**
  * Allows editing of the meta fields through weblog editors like Marsedit.
  *
- * @param array $allcaps Capabilities that must all be true to allow action.
- * @param array $cap     Array of capabilities to be checked, unused here.
- * @param array $args    List of arguments for the specific cap to be checked.
+ * @param  array $allcaps Capabilities that must all be true to allow action.
+ * @param  array $cap     Array of capabilities to be checked, unused here.
+ * @param  array $args    List of arguments for the specific cap to be checked.
  *
  * @return array $allcaps
  */
@@ -441,9 +437,9 @@ add_filter( 'user_has_cap', 'allow_custom_field_edits', 0, 3 );
 /**
  * Detects if the advanced settings are enabled.
  *
- * @param array $wpseo_options The wpseo settings.
+ * @param  array $wpseo_options The wpseo settings.
  *
- * @returns boolean True if the advanced settings are enabled, false if not.
+ * @return s                    boolean True if the advanced settings are enabled, false if not.
  */
 function wpseo_advanced_settings_enabled( $wpseo_options ) {
 	return ( $wpseo_options['enable_setting_pages'] === true );
@@ -470,8 +466,8 @@ function wpseo_defaults() {
  * @deprecated use WPSEO_Utils::translate_score()
  * @see        WPSEO_Utils::translate_score()
  *
- * @param int  $val       The decimal score to translate.
- * @param bool $css_value Whether to return the i18n translated score or the CSS class value.
+ * @param  int    $val       The decimal score to translate.
+ * @param  bool   $css_value Whether to return the i18n translated score or the CSS class value.
  *
  * @return string
  */
@@ -530,11 +526,11 @@ function wpseo_description_test() {
  *
  * @deprecated 3.3
  *
- * @param WP_Upgrader $upgrader_object Upgrader object instance.
- * @param array       $context_array   Context data array.
- * @param mixed       $themes          Optional themes set.
+ * @param  WP_Upgrader $upgrader_object Upgrader object instance.
+ * @param  array       $context_array   Context data array.
+ * @param  mixed       $themes          Optional themes set.
  *
- * @return  void
+ * @return void
  */
 function wpseo_upgrader_process_complete( $upgrader_object, $context_array, $themes = null ) {
 	_deprecated_function( __FUNCTION__, 'WPSEO 3.3.0' );
@@ -547,8 +543,8 @@ function wpseo_upgrader_process_complete( $upgrader_object, $context_array, $the
  * @since 1.4.14
  * @deprecated 3.3
  *
- * @param   array           $update_actions Updated actions set.
- * @param   WP_Theme|string $updated_theme  Theme object instance or stylesheet name.
+ * @param array           $update_actions Updated actions set.
+ * @param WP_Theme|string $updated_theme  Theme object instance or stylesheet name.
  */
 function wpseo_update_theme_complete_actions( $update_actions, $updated_theme ) {
 	_deprecated_function( __FUNCTION__, 'WPSEO 3.3.0' );

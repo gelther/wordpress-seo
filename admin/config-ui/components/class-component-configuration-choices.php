@@ -86,11 +86,12 @@ class WPSEO_Config_Component_Configuration_Choices implements WPSEO_Config_Compo
 	/**
 	 * Save data
 	 *
-	 * @param array $data Data containing changes.
+	 * @param  array $data Data containing changes.
 	 *
 	 * @return bool
 	 */
 	public function set_data( $data ) {
 		return true;
 	}
+
 }

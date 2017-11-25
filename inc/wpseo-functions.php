@@ -16,15 +16,16 @@ if ( ! function_exists( 'initialize_wpseo_front' ) ) {
 	function initialize_wpseo_front() {
 		WPSEO_Frontend::get_instance();
 	}
+
 }
 
 if ( ! function_exists( 'yoast_breadcrumb' ) ) {
 	/**
 	 * Template tag for breadcrumbs.
 	 *
-	 * @param string $before  What to show before the breadcrumb.
-	 * @param string $after   What to show after the breadcrumb.
-	 * @param bool   $display Whether to display the breadcrumb (true) or return it (false).
+	 * @param  string $before  What to show before the breadcrumb.
+	 * @param  string $after   What to show after the breadcrumb.
+	 * @param  bool   $display Whether to display the breadcrumb (true) or return it (false).
 	 *
 	 * @return string
 	 */
@@ -39,14 +40,15 @@ if ( ! function_exists( 'yoast_breadcrumb' ) ) {
 			return WPSEO_Breadcrumbs::breadcrumb( $before, $after, $display );
 		}
 	}
+
 }
 
 if ( ! function_exists( 'yoast_get_primary_term_id' ) ) {
 	/**
 	 * Get the primary term ID.
 	 *
-	 * @param string           $taxonomy Optional. The taxonomy to get the primary term ID for. Defaults to category.
-	 * @param null|int|WP_Post $post     Optional. Post to get the primary term ID for.
+	 * @param  string           $taxonomy Optional. The taxonomy to get the primary term ID for. Defaults to category.
+	 * @param  null|int|WP_Post $post     Optional. Post to get the primary term ID for.
 	 *
 	 * @return bool|int
 	 */
@@ -56,16 +58,17 @@ if ( ! function_exists( 'yoast_get_primary_term_id' ) ) {
 		$primary_term = new WPSEO_Primary_Term( $taxonomy, $post->ID );
 		return $primary_term->get_primary_term();
 	}
+
 }
 
 if ( ! function_exists( 'yoast_get_primary_term' ) ) {
 	/**
 	 * Get the primary term name.
 	 *
-	 * @param string           $taxonomy Optional. The taxonomy to get the primary term for. Defaults to category.
-	 * @param null|int|WP_Post $post     Optional. Post to get the primary term for.
+	 * @param  string           $taxonomy Optional. The taxonomy to get the primary term for. Defaults to category.
+	 * @param  null|int|WP_Post $post     Optional. Post to get the primary term for.
 	 *
-	 * @return string Name of the primary term.
+	 * @return string                     Name of the primary term.
 	 */
 	function yoast_get_primary_term( $taxonomy = 'category', $post = null ) {
 		$primary_term_id = yoast_get_primary_term_id( $taxonomy, $post );
@@ -77,14 +80,15 @@ if ( ! function_exists( 'yoast_get_primary_term' ) ) {
 
 		return '';
 	}
+
 }
 
 /**
  * Replace `%%variable_placeholders%%` with their real value based on the current requested page/post/cpt.
  *
- * @param string $string The string to replace the variables in.
- * @param object $args   The object some of the replacement values might come from, could be a post, taxonomy or term.
- * @param array  $omit   Variables that should not be replaced by this function.
+ * @param  string $string The string to replace the variables in.
+ * @param  object $args   The object some of the replacement values might come from, could be a post, taxonomy or term.
+ * @param  array  $omit   Variables that should not be replaced by this function.
  *
  * @return string
  */
@@ -135,7 +139,7 @@ function wpseo_replace_vars( $string, $args, $omit = array() ) {
  * @param  string $type             Type of variable: 'basic' or 'advanced', defaults to 'advanced'.
  * @param  string $help_text        Help text to be added to the help tab for this variable.
  *
- * @return bool  Whether the replacement function was succesfully registered.
+ * @return bool                     Whether the replacement function was succesfully registered.
  */
 function wpseo_register_var_replacement( $var, $replace_function, $type = 'advanced', $help_text = '' ) {
 	return WPSEO_Replace_Vars::register_replacement( $var, $replace_function, $type, $help_text );
@@ -148,7 +152,7 @@ function wpseo_register_var_replacement( $var, $replace_function, $type = 'advan
  *
  * @global      $sitepress
  *
- * @param array $config WPML configuration data to filter.
+ * @param  array $config WPML configuration data to filter.
  *
  * @return array
  */
@@ -206,14 +210,14 @@ add_shortcode( 'wpseo_breadcrumb', 'wpseo_shortcode_yoast_breadcrumb' );
  * Emulate PHP native ctype_digit() function for when the ctype extension would be disabled *sigh*.
  * Only emulates the behaviour for when the input is a string, does not handle integer input as ascii value.
  *
- * @param    string $string
+ * @param  string $string
  *
- * @return    bool
+ * @return bool
  */
 if ( ! extension_loaded( 'ctype' ) || ! function_exists( 'ctype_digit' ) ) {
 
 	/**
-	 * @param string $string String input to validate.
+	 * @param  string $string String input to validate.
 	 *
 	 * @return bool
 	 */
@@ -225,6 +229,7 @@ if ( ! extension_loaded( 'ctype' ) || ! function_exists( 'ctype_digit' ) ) {
 
 		return $return;
 	}
+
 }
 
 /**

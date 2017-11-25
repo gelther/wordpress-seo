@@ -11,7 +11,7 @@ interface WPSEO_Sitemap_Provider {
 	/**
 	 * Check if provider supports given item type.
 	 *
-	 * @param string $type Type string to check for.
+	 * @param  string  $type Type string to check for.
 	 *
 	 * @return boolean
 	 */
@@ -20,7 +20,7 @@ interface WPSEO_Sitemap_Provider {
 	/**
 	 * Get set of sitemaps index link data.
 	 *
-	 * @param int $max_entries Entries per sitemap.
+	 * @param  int   $max_entries Entries per sitemap.
 	 *
 	 * @return array
 	 */
@@ -29,9 +29,9 @@ interface WPSEO_Sitemap_Provider {
 	/**
 	 * Get set of sitemap link data.
 	 *
-	 * @param string $type         Sitemap type.
-	 * @param int    $max_entries  Entries per sitemap.
-	 * @param int    $current_page Current page of the sitemap.
+	 * @param  string $type         Sitemap type.
+	 * @param  int    $max_entries  Entries per sitemap.
+	 * @param  int    $current_page Current page of the sitemap.
 	 *
 	 * @return array
 	 */

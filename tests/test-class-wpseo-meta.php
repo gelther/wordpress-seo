@@ -24,7 +24,6 @@ class WPSEO_Meta_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Meta::get_value()
 	 */
 	public function test_get_value() {
-
 		// Create and go to post.
 		$post_id = $this->factory->post->create();
 		$this->go_to( get_permalink( $post_id ) );
@@ -95,7 +94,6 @@ class WPSEO_Meta_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Meta::array_merge_recursive_distinct
 	 */
 	public function test_array_merge_recursive_distinct() {
-
 		$input_array1 = array(
 			'one' => array(
 				'one-one' => array(),
@@ -116,7 +114,6 @@ class WPSEO_Meta_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Meta::validate_meta_robots_adv
 	 */
 	public function test_validate_meta_robots_adv() {
-
 		// None should take precedence.
 		$this->assertEquals( 'none', WPSEO_Meta::validate_meta_robots_adv( 'none, something-invalid, noarchive' ) );
 		$this->assertEquals( 'none', WPSEO_Meta::validate_meta_robots_adv( array( 'none', 'something-invalid', 'noarchive' ) ) );
@@ -128,7 +125,6 @@ class WPSEO_Meta_Test extends WPSEO_UnitTestCase {
 		// String should be cleaned.
 		$this->assertEquals( 'noarchive,nosnippet', WPSEO_Meta::validate_meta_robots_adv( 'noarchive, nosnippet' ) );
 		$this->assertEquals( 'noarchive,nosnippet', WPSEO_Meta::validate_meta_robots_adv( array( 'noarchive', 'nosnippet' ) ) );
-
 	}
 
 	/**
@@ -150,4 +146,5 @@ class WPSEO_Meta_Test extends WPSEO_UnitTestCase {
 	public function test_get_post_value_default() {
 		$this->assertEquals( '', WPSEO_Meta::get_post_value( 'my_missing_test_key' ) );
 	}
+
 }

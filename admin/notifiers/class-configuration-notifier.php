@@ -110,4 +110,5 @@ class WPSEO_Configuration_Notifier implements WPSEO_Listener {
 	protected function show_notification() {
 		return $this->show_notification && ! $this->is_dismissed();
 	}
+
 }

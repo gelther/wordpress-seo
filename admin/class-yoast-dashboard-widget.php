@@ -54,7 +54,7 @@ class Yoast_Dashboard_Widget {
 	/**
 	 * Adds CSS classes to the dashboard widget.
 	 *
-	 * @param array $classes An array of postbox CSS classes.
+	 * @param  array $classes An array of postbox CSS classes.
 	 *
 	 * @return array
 	 */
@@ -138,4 +138,5 @@ class Yoast_Dashboard_Widget {
 
 		return $analysis_seo->is_enabled() && current_user_can( 'edit_posts' );
 	}
+
 }

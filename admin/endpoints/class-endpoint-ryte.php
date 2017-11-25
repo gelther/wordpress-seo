@@ -51,4 +51,5 @@ class WPSEO_Endpoint_Ryte implements WPSEO_Endpoint {
 	public function can_retrieve_data() {
 		return current_user_can( self::CAPABILITY_RETRIEVE );
 	}
+
 }

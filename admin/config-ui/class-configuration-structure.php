@@ -95,4 +95,5 @@ class WPSEO_Configuration_Structure {
 	public function retrieve() {
 		return $this->steps;
 	}
+
 }

@@ -26,7 +26,7 @@ class WPSEO_Plugin_Compatibility {
 	/**
 	 * WPSEO_Plugin_Compatibility constructor.
 	 *
-	 * @param string     $version The version to check against.
+	 * @param string     $version              The version to check against.
 	 * @param null|class $availability_checker The checker to use.
 	 */
 	public function __construct( $version, $availability_checker = null ) {
@@ -39,9 +39,9 @@ class WPSEO_Plugin_Compatibility {
 	/**
 	 * Retrieves the availability checker.
 	 *
-	 * @param null|object $checker The checker to set.
+	 * @param  null|object               $checker The checker to set.
 	 *
-	 * @return WPSEO_Plugin_Availability The checker to use.
+	 * @return WPSEO_Plugin_Availability          The checker to use.
 	 */
 	private function retrieve_availability_checker( $checker ) {
 		if ( is_null( $checker ) || ! is_object( $checker ) ) {
@@ -78,9 +78,9 @@ class WPSEO_Plugin_Compatibility {
 	/**
 	 * Checks whether or not a plugin is compatible.
 	 *
-	 * @param string $plugin The plugin to look for and match.
+	 * @param  string $plugin The plugin to look for and match.
 	 *
-	 * @return bool Whether or not the plugin is compatible.
+	 * @return bool           Whether or not the plugin is compatible.
 	 */
 	public function is_compatible( $plugin ) {
 		$plugin = $this->availability_checker->get_plugin( $plugin );
@@ -97,11 +97,12 @@ class WPSEO_Plugin_Compatibility {
 	/**
 	 * Gets the major/minor version of the plugin for easier comparing.
 	 *
-	 * @param string $version The version to trim.
+	 * @param  string $version The version to trim.
 	 *
-	 * @return string The major/minor version of the plugin.
+	 * @return string          The major/minor version of the plugin.
 	 */
 	protected function get_major_minor_version( $version ) {
 		return substr( $version, 0, 3 );
 	}
+
 }

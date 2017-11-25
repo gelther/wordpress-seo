@@ -74,7 +74,7 @@ class WPSEO_Export {
 	 * Sets the error hook, to display the error to the user.
 	 */
 	public function set_error_hook() {
-		$class = 'notice notice-error';
+		$class   = 'notice notice-error';
 		/* translators: %1$s expands to Yoast SEO */
 		$message = sprintf( __( 'Error creating %1$s export: ', 'wordpress-seo' ), 'Yoast SEO' ) . $this->error;
 
@@ -85,7 +85,6 @@ class WPSEO_Export {
 	 * Exports the current site's WP SEO settings.
 	 */
 	private function export_settings() {
-
 		$this->export_header();
 
 		foreach ( WPSEO_Options::get_option_names() as $opt_group ) {
@@ -136,7 +135,6 @@ class WPSEO_Export {
 	 * @param string $opt_group Option group name.
 	 */
 	private function write_opt_group( $opt_group ) {
-
 		$this->write_line( '[' . $opt_group . ']', true );
 
 		$options = get_option( $opt_group );
@@ -151,8 +149,7 @@ class WPSEO_Export {
 				for ( $i = 0; $i < $count; $i ++ ) {
 					$this->write_setting( $key . '[]', $elem[ $i ] );
 				}
-			}
-			else {
+			} else {
 				$this->write_setting( $key, $elem );
 			}
 		}
@@ -180,8 +177,7 @@ class WPSEO_Export {
 			if ( is_array( $taxonomy_meta ) ) {
 				$this->write_line( '[wpseo_taxonomy_meta]', true );
 				$this->write_setting( 'wpseo_taxonomy_meta', urlencode( wp_json_encode( $taxonomy_meta ) ) );
-			}
-			else {
+			} else {
 				$this->write_line( '; ' . __( 'No taxonomy metadata found', 'wordpress-seo' ), true );
 			}
 		}
@@ -275,4 +271,5 @@ class WPSEO_Export {
 	private function remove_zip() {
 		unlink( './' . self::ZIP_FILENAME );
 	}
+
 }

@@ -106,4 +106,5 @@ class WPSEO_Meta_Storage implements WPSEO_Installable {
 			$this->save_meta_data( $post_id, array( 'incoming_link_count' => 0 ) );
 		}
 	}
+
 }

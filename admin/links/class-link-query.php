@@ -10,9 +10,9 @@ class WPSEO_Link_Query {
 	/**
 	 * Determine if there are any unprocessed public posts.
 	 *
-	 * @param array $post_types List of post types to check with.
+	 * @param  array $post_types List of post types to check with.
 	 *
-	 * @return bool True if unprocessed posts are found, false if none are found.
+	 * @return bool              True if unprocessed posts are found, false if none are found.
 	 */
 	public static function has_unprocessed_posts( array $post_types ) {
 		global $wpdb;
@@ -27,13 +27,13 @@ class WPSEO_Link_Query {
 		// Get any object which has not got the processed meta key.
 		$query = '
 			SELECT ID
-			  FROM ' . $wpdb->posts . ' AS posts
-		 LEFT JOIN ' . $count_table . ' AS yoast_meta
+				FROM ' . $wpdb->posts . ' AS posts
+		LEFT JOIN ' . $count_table . ' AS yoast_meta
 				ON yoast_meta.object_id = posts.ID
-			 WHERE posts.post_status = "publish"
-			   AND posts.post_type IN ( ' . $post_types . ' )
-			   AND yoast_meta.internal_link_count IS NULL
-			 LIMIT 1';
+			WHERE posts.post_status = "publish"
+				AND posts.post_type IN ( ' . $post_types . ' )
+				AND yoast_meta.internal_link_count IS NULL
+			LIMIT 1';
 
 		// If anything is found, we have unprocessed posts.
 		$results = $wpdb->get_var( $query );
@@ -44,7 +44,7 @@ class WPSEO_Link_Query {
 	/**
 	 * Filter out posts that have not been processed yet.
 	 *
-	 * @param array $post_ids Post IDs to filter.
+	 * @param  array $post_ids Post IDs to filter.
 	 *
 	 * @return array
 	 */
@@ -60,8 +60,8 @@ class WPSEO_Link_Query {
 
 		$query = '
 			SELECT object_id
-			  FROM ' . $count_table . '
-			 WHERE object_id IN ( ' . implode( ',', $post_ids ) . ' )
+				FROM ' . $count_table . '
+			WHERE object_id IN ( ' . implode( ',', $post_ids ) . ' )
 			';
 
 		$results = $wpdb->get_results( $query, ARRAY_A );
@@ -72,10 +72,10 @@ class WPSEO_Link_Query {
 	/**
 	 * Returns a limited set of unindexed posts.
 	 *
-	 * @param array $post_types The post type.
-	 * @param int   $limit      The limit for the resultset.
+	 * @param  array             $post_types The post type.
+	 * @param  int               $limit      The limit for the resultset.
 	 *
-	 * @return array|null|object The set of unindexed posts.
+	 * @return array|null|object             The set of unindexed posts.
 	 */
 	public static function get_unprocessed_posts( array $post_types, $limit = 5 ) {
 		global $wpdb;
@@ -87,13 +87,13 @@ class WPSEO_Link_Query {
 		$results = $wpdb->get_results(
 			$wpdb->prepare( '
 				SELECT posts.ID, posts.post_content
-				  FROM ' . $wpdb->posts . ' AS posts
-			 LEFT JOIN ' . $count_table . ' AS yoast_meta
-			 		ON yoast_meta.object_id = posts.ID
-				 WHERE posts.post_status = "publish"
-				   AND posts.post_type IN ( ' . $post_types . ' )
-				   AND yoast_meta.internal_link_count IS NULL
-				 LIMIT %d
+					FROM ' . $wpdb->posts . ' AS posts
+			LEFT JOIN ' . $count_table . ' AS yoast_meta
+					ON yoast_meta.object_id = posts.ID
+				WHERE posts.post_status = "publish"
+					AND posts.post_type IN ( ' . $post_types . ' )
+					AND yoast_meta.internal_link_count IS NULL
+				LIMIT %d
 				',
 				$limit
 			)
@@ -106,9 +106,9 @@ class WPSEO_Link_Query {
 	/**
 	 * Returns the total amount of unindexed posts for given post type.
 	 *
-	 * @param array $post_types The post types.
+	 * @param  array $post_types The post types.
 	 *
-	 * @return int The total of unindexed posts.
+	 * @return int               The total of unindexed posts.
 	 */
 	public static function get_unprocessed_count( array $post_types ) {
 		global $wpdb;
@@ -123,12 +123,12 @@ class WPSEO_Link_Query {
 		// @codingStandardsIgnoreStart
 		$query = '
 			SELECT COUNT( posts.ID )
-			  FROM ' . $wpdb->posts . ' AS posts
-		 LEFT JOIN ' . $count_table . ' AS yoast_meta
+				FROM ' . $wpdb->posts . ' AS posts
+		LEFT JOIN ' . $count_table . ' AS yoast_meta
 				ON yoast_meta.object_id = posts.ID
-			 WHERE posts.post_status = "publish"
-			   AND posts.post_type IN ( ' . $post_types . ' )
-			   AND yoast_meta.internal_link_count IS NULL';
+			WHERE posts.post_status = "publish"
+				AND posts.post_type IN ( ' . $post_types . ' )
+				AND yoast_meta.internal_link_count IS NULL';
 		// @codingStandardsIgnoreEnd
 
 		return (int) $wpdb->get_var( $query );
@@ -149,7 +149,7 @@ class WPSEO_Link_Query {
 	/**
 	 * Formats an array with post types as an SQL string.
 	 *
-	 * @param array $post_types The post types to format.
+	 * @param  array        $post_types The post types to format.
 	 *
 	 * @return array|string
 	 */
@@ -159,4 +159,5 @@ class WPSEO_Link_Query {
 
 		return $post_types;
 	}
+
 }
