@@ -19,34 +19,34 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 	 */
 	protected $defaults = array(
 		// Non-form fields, set via (ajax) function.
-		'blocking_files'                  => array(),
-		'ms_defaults_set'                 => false,
+		'blocking_files'             => array(),
+		'ms_defaults_set'            => false,
 		// Non-form field, should only be set via validation routine.
-		'version'                         => '', // Leave default as empty to ensure activation/upgrade works.
+		'version'                    => '', // Leave default as empty to ensure activation/upgrade works.
 
 		// Form fields.
-		'company_logo'                    => '',
-		'company_name'                    => '',
-		'company_or_person'               => '',
-		'disableadvanced_meta'            => true,
-		'onpage_indexability'             => true,
-		'googleverify'                    => '', // Text field.
-		'msverify'                        => '', // Text field.
-		'person_name'                     => '',
-		'website_name'                    => '',
-		'alternate_website_name'          => '',
-		'yandexverify'                    => '',
-		'site_type'                       => '', // List of options.
-		'has_multiple_authors'            => '',
-		'environment_type'                => '',
-		'content_analysis_active'         => true,
-		'keyword_analysis_active'         => true,
-		'enable_setting_pages'            => true,
-		'enable_admin_bar_menu'           => true,
-		'enable_cornerstone_content'      => true,
-		'enable_text_link_counter'        => true,
-		'show_onboarding_notice'          => false,
-		'first_activated_on'              => false,
+		'company_logo'               => '',
+		'company_name'               => '',
+		'company_or_person'          => '',
+		'disableadvanced_meta'       => true,
+		'onpage_indexability'        => true,
+		'googleverify'               => '', // Text field.
+		'msverify'                   => '', // Text field.
+		'person_name'                => '',
+		'website_name'               => '',
+		'alternate_website_name'     => '',
+		'yandexverify'               => '',
+		'site_type'                  => '', // List of options.
+		'has_multiple_authors'       => '',
+		'environment_type'           => '',
+		'content_analysis_active'    => true,
+		'keyword_analysis_active'    => true,
+		'enable_setting_pages'       => true,
+		'enable_admin_bar_menu'      => true,
+		'enable_cornerstone_content' => true,
+		'enable_text_link_counter'   => true,
+		'show_onboarding_notice'     => false,
+		'first_activated_on'         => false,
 	);
 
 	/**
@@ -111,7 +111,6 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 		$this->defaults = apply_filters( 'wpseo_option_wpseo_defaults', $this->defaults );
 	}
 
-
 	/**
 	 * Get the singleton instance of this class.
 	 *
@@ -132,10 +131,9 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 	 * @param  array $clean Clean value for the option, normally the defaults.
 	 * @param  array $old   Old value of the option.
 	 *
-	 * @return  array      Validated clean value for the option to be saved to the database.
+	 * @return array        Validated clean value for the option to be saved to the database.
 	 */
 	protected function validate_option( $dirty, $clean, $old ) {
-
 		foreach ( $clean as $key => $value ) {
 			switch ( $key ) {
 				case 'version':
@@ -144,14 +142,13 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 
 
 				case 'blocking_files':
-					/*
+					/**
 					 * {@internal [JRF] To really validate this we should also do a file_exists()
 					 * on each array entry and remove files which no longer exist, but that might be overkill.}}
 					 */
 					if ( isset( $dirty[ $key ] ) && is_array( $dirty[ $key ] ) ) {
 						$clean[ $key ] = array_unique( $dirty[ $key ] );
-					}
-					elseif ( isset( $old[ $key ] ) && is_array( $old[ $key ] ) ) {
+					} elseif ( isset( $old[ $key ] ) && is_array( $old[ $key ] ) ) {
 						$clean[ $key ] = array_unique( $old[ $key ] );
 					}
 					break;
@@ -185,15 +182,14 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 					$this->validate_verification_string( $key, $dirty, $old, $clean );
 					break;
 
-				/*
+				/**
 				 * Boolean dismiss warnings - not fields - may not be in form
 				 * (and don't need to be either as long as the default is false).
 				 */
 				case 'ms_defaults_set':
 					if ( isset( $dirty[ $key ] ) ) {
 						$clean[ $key ] = WPSEO_Utils::validate_bool( $dirty[ $key ] );
-					}
-					elseif ( isset( $old[ $key ] ) ) {
+					} elseif ( isset( $old[ $key ] ) ) {
 						$clean[ $key ] = WPSEO_Utils::validate_bool( $old[ $key ] );
 					}
 					break;
@@ -229,14 +225,14 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 					}
 					break;
 
-				/*
+				/**
 				 * Boolean (checkbox) fields.
 				 */
 
-				/*
+				/**
 				 * Covers:
-				 *  'disableadvanced_meta'
-				 *  'yoast_tracking'
+				 * 'disableadvanced_meta'
+				 * 'yoast_tracking'
 				 */
 				default:
 					$clean[ $key ] = ( isset( $dirty[ $key ] ) ? WPSEO_Utils::validate_bool( $dirty[ $key ] ) : false );
@@ -258,9 +254,10 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 	 * @param  array  $all_old_option_values Optional. Only used when importing old options to have
 	 *                                       access to the real old values, in contrast to the saved ones.
 	 *
-	 * @return  array            Cleaned option.
+	 * @return array                         Cleaned option.
 	 */
 	protected function clean_option( $option_value, $current_version = null, $all_old_option_values = null ) {
 		return $option_value;
 	}
+
 }
