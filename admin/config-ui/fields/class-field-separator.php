@@ -40,4 +40,5 @@ class WPSEO_Config_Field_Separator extends WPSEO_Config_Field_Choice {
 	public function set_adapter( WPSEO_Configuration_Options_Adapter $adapter ) {
 		$adapter->add_yoast_lookup( $this->get_identifier(), 'wpseo_titles', 'separator' );
 	}
+
 }
