@@ -185,7 +185,6 @@ class Yoast_Form {
 	 * @since 2.0
 	 */
 	public function admin_sidebar() {
-
 		// No banners in Premium.
 		if ( class_exists( 'WPSEO_Product_Premium' ) ) {
 			$license_manager = new Yoast_Plugin_License_Manager( new WPSEO_Product_Premium() );
@@ -204,7 +203,6 @@ class Yoast_Form {
 		$sidebar->initialize( new WPSEO_Features() );
 
 		echo $sidebar_renderer->render( $sidebar );
-
 	}
 
 	/**
@@ -271,8 +269,7 @@ class Yoast_Form {
 				$label_left .= ':';
 			}
 			$this->label( $label_left, array( 'for' => $var ) );
-		}
-		else {
+		} else {
 			$class = 'double';
 		}
 
@@ -290,13 +287,12 @@ class Yoast_Form {
 	 *
 	 * @since 3.1
 	 *
-	 * @param string  $var        The variable within the option to create the checkbox for.
-	 * @param string  $label      The label to show for the variable.
-	 * @param array   $buttons    Array of two labels for the buttons (defaults Off/On).
-	 * @param boolean $reverse    Reverse order of buttons (default true).
+	 * @param string  $var     The variable within the option to create the checkbox for.
+	 * @param string  $label   The label to show for the variable.
+	 * @param array   $buttons Array of two labels for the buttons (defaults Off/On).
+	 * @param boolean $reverse Reverse order of buttons (default true).
 	 */
 	public function light_switch( $var, $label, $buttons = array(), $reverse = true ) {
-
 		if ( ! isset( $this->options[ $var ] ) ) {
 			$this->options[ $var ] = false;
 		}
@@ -326,8 +322,8 @@ class Yoast_Form {
 			<span>', esc_html( $off_button ) ,'</span>
 			<span>', esc_html( $on_button ) ,'</span>
 			<a></a>
-		 </span>
-		 </label><div class="clear"></div></div>';
+		</span>
+		</label><div class="clear"></div></div>';
 	}
 
 	/**
@@ -425,7 +421,6 @@ class Yoast_Form {
 	 * @param array  $select_options The select options to choose from.
 	 */
 	public function select( $field_name, $label, array $select_options ) {
-
 		if ( empty( $select_options ) ) {
 			return;
 		}
@@ -555,7 +550,6 @@ class Yoast_Form {
 		echo '</fieldset>';
 	}
 
-
 	/**
 	 * Create a toggle switch input field.
 	 *
@@ -594,4 +588,5 @@ class Yoast_Form {
 
 		echo '<a></a></div></fieldset><div class="clear"></div></div>' . "\n\n";
 	}
+
 }
