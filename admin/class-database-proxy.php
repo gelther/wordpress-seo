@@ -36,10 +36,10 @@ class WPSEO_Database_Proxy {
 	/**
 	 * Inserts data into the database.
 	 *
-	 * @param array $data   Data to insert.
-	 * @param null  $format Formats for the data.
+	 * @param  array     $data   Data to insert.
+	 * @param  null      $format Formats for the data.
 	 *
-	 * @return false|int Total amount of inserted rows or false on error.
+	 * @return false|int         Total amount of inserted rows or false on error.
 	 */
 	public function insert( array $data, $format = null ) {
 		$this->pre_execution();
@@ -54,12 +54,12 @@ class WPSEO_Database_Proxy {
 	/**
 	 * Updates data in the database.
 	 *
-	 * @param array $data         Data to update on the table.
-	 * @param array $where        Where condition as key => value array.
-	 * @param null  $format       Optional. data prepare format.
-	 * @param null  $where_format Optional. Where prepare format.
+	 * @param  array     $data         Data to update on the table.
+	 * @param  array     $where        Where condition as key => value array.
+	 * @param  null      $format       Optional. data prepare format.
+	 * @param  null      $where_format Optional. Where prepare format.
 	 *
-	 * @return false|int False when the update request is invalid, int on number of rows changed.
+	 * @return false|int               False when the update request is invalid, int on number of rows changed.
 	 */
 	public function update( array $data, array $where, $format = null, $where_format = null ) {
 		$this->pre_execution();
@@ -76,12 +76,12 @@ class WPSEO_Database_Proxy {
 	 *
 	 * Tries to insert the data first, if this fails an update is attempted.
 	 *
-	 * @param array $data         Data to update on the table.
-	 * @param array $where        Where condition as key => value array.
-	 * @param null  $format       Optional. data prepare format.
-	 * @param null  $where_format Optional. Where prepare format.
+	 * @param  array     $data         Data to update on the table.
+	 * @param  array     $where        Where condition as key => value array.
+	 * @param  null      $format       Optional. data prepare format.
+	 * @param  null      $where_format Optional. Where prepare format.
 	 *
-	 * @return false|int False when the upsert request is invalid, int on number of rows changed.
+	 * @return false|int               False when the upsert request is invalid, int on number of rows changed.
 	 */
 	public function upsert( array $data, array $where, $format = null, $where_format = null ) {
 		$result = $this->insert( $data, $format );
@@ -96,8 +96,8 @@ class WPSEO_Database_Proxy {
 	/**
 	 * Deletes a record from the database.
 	 *
-	 * @param array      $where  Where clauses for the query.
-	 * @param null|array $format Formats for the data.
+	 * @param  array      $where  Where clauses for the query.
+	 * @param  null|array $format Formats for the data.
 	 *
 	 * @return false|int
 	 */
@@ -114,9 +114,9 @@ class WPSEO_Database_Proxy {
 	/**
 	 * Executes the given query and returns the results.
 	 *
-	 * @param string $query The query to execute.
+	 * @param  string            $query The query to execute.
 	 *
-	 * @return array|null|object The resultset
+	 * @return array|null|object        The resultset
 	 */
 	public function get_results( $query ) {
 		$this->pre_execution();
@@ -131,10 +131,10 @@ class WPSEO_Database_Proxy {
 	/**
 	 * Creates a table to the database.
 	 *
-	 * @param array $columns The columns to create.
-	 * @param array $indexes The indexes to use.
+	 * @param  array $columns The columns to create.
+	 * @param  array $indexes The indexes to use.
 	 *
-	 * @return bool True when creation is successful.
+	 * @return bool           True when creation is successful.
 	 */
 	public function create_table( array $columns, array $indexes = array() ) {
 		$create_table = sprintf( '
@@ -188,4 +188,5 @@ class WPSEO_Database_Proxy {
 	protected function get_table_name() {
 		return $this->table_name;
 	}
+
 }
