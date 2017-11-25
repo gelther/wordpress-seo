@@ -143,4 +143,5 @@ class WPSEO_Import_WooThemes_SEO extends WPSEO_Import_External {
 			$this->perhaps_delete( $option );
 		}
 	}
+
 }
