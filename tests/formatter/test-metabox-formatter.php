@@ -67,7 +67,6 @@ class WPSEO_Metabox_Formatter_Test extends WPSEO_UnitTestCase {
 		$result = $class_instance->get_values();
 
 		$this->assertEquals( $result['translations'], array() );
-
 	}
 
 }
