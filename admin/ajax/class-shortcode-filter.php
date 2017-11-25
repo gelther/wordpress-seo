@@ -36,4 +36,5 @@ class WPSEO_Shortcode_Filter {
 
 		wp_die( wp_json_encode( $parsed_shortcodes ) );
 	}
+
 }
