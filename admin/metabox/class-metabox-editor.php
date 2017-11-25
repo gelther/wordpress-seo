@@ -19,8 +19,8 @@ class WPSEO_Metabox_Editor {
 	/**
 	 * Adds our inside the editor CSS file to the list of CSS files to be loaded inside the editor.
 	 *
-	 * @param string $css_files The CSS files that WordPress wants to load inside the editor.
-	 * @return string The CSS files WordPress wants to load and our CSS file.
+	 * @param  string $css_files The CSS files that WordPress wants to load inside the editor.
+	 * @return string            The CSS files WordPress wants to load and our CSS file.
 	 */
 	public function add_css_inside_editor( $css_files ) {
 		$asset_manager = new WPSEO_Admin_Asset_Manager();
@@ -32,8 +32,7 @@ class WPSEO_Metabox_Editor {
 
 		if ( '' === $css_files ) {
 			$css_files = $url;
-		}
-		else {
+		} else {
 			$css_files .= ',' . $url;
 		}
 
@@ -43,17 +42,16 @@ class WPSEO_Metabox_Editor {
 	/**
 	 * Adds a custom element to the tinyMCE editor that we need for marking the content.
 	 *
-	 * @param array $tinymce_config The tinyMCE config as configured by WordPress.
+	 * @param  array $tinymce_config The tinyMCE config as configured by WordPress.
 	 *
-	 * @return array The new tinyMCE config with our added custom elements.
+	 * @return array                 The new tinyMCE config with our added custom elements.
 	 */
 	public function add_custom_element( $tinymce_config ) {
 		if ( ! empty( $tinymce_config['custom_elements'] ) ) {
 			$custom_elements = $tinymce_config['custom_elements'];
 
 			$custom_elements .= ',~yoastmark';
-		}
-		else {
+		} else {
 			$custom_elements = '~yoastmark';
 		}
 
@@ -61,4 +59,5 @@ class WPSEO_Metabox_Editor {
 
 		return $tinymce_config;
 	}
+
 }
