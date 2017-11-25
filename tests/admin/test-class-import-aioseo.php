@@ -77,4 +77,5 @@ class WPSEO_Import_AIOSEO_Test extends WPSEO_UnitTestCase {
 
 		update_option( 'aioseop_options', $actual_option );
 	}
+
 }
