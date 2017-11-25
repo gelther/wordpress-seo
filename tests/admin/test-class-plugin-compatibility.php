@@ -41,7 +41,7 @@ class WPSEO_Plugin_Compatibility_Test extends WPSEO_UnitTestCase {
 	 */
 	public function test_plugin_version_matches() {
 		$expected = array(
-			'test-plugin' => array(
+			'test-plugin'                    => array(
 				'url'          => 'https://yoast.com/',
 				'title'        => 'Test Plugin',
 				'description'  => '',
@@ -51,7 +51,7 @@ class WPSEO_Plugin_Compatibility_Test extends WPSEO_UnitTestCase {
 				'compatible'   => true,
 				'slug'         => 'test-plugin/test-plugin.php',
 			),
-			'test-plugin-dependency' => array(
+			'test-plugin-dependency'         => array(
 				'url'           => 'https://yoast.com/',
 				'title'         => 'Test Plugin With Dependency',
 				'description'   => '',
@@ -65,7 +65,7 @@ class WPSEO_Plugin_Compatibility_Test extends WPSEO_UnitTestCase {
 				'compatible'    => true,
 				'slug'          => 'test-plugin-with-dependency/test-plugin-with-dependency.php',
 			),
-			'test-plugin-invalid-version' => array(
+			'test-plugin-invalid-version'    => array(
 				'url'          => 'https://yoast.com/',
 				'title'        => 'Test Plugin',
 				'description'  => '',
@@ -99,7 +99,7 @@ class WPSEO_Plugin_Compatibility_Test extends WPSEO_UnitTestCase {
 
 	public function test_get_installed_plugins() {
 		$expected = array(
-			'test-plugin' => array(
+			'test-plugin'                    => array(
 				'url'          => 'https://yoast.com/',
 				'title'        => 'Test Plugin',
 				'description'  => '',
@@ -121,7 +121,7 @@ class WPSEO_Plugin_Compatibility_Test extends WPSEO_UnitTestCase {
 				),
 				'slug'          => 'test-plugin-with-dependency/test-plugin-with-dependency.php',
 			),
-			'test-plugin-invalid-version' => array(
+			'test-plugin-invalid-version'    => array(
 				'url'          => 'https://yoast.com/',
 				'title'        => 'Test Plugin',
 				'description'  => '',
@@ -144,6 +144,5 @@ class WPSEO_Plugin_Compatibility_Test extends WPSEO_UnitTestCase {
 
 		$this->assertEquals( $expected, self::$class_instance->get_installed_plugins() );
 	}
-
 
 }
