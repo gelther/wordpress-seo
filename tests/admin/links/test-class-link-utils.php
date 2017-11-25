@@ -16,4 +16,5 @@ class WPSEO_Link_Utils_Test extends WPSEO_UnitTestCase {
 
 		$this->assertEquals( $result, 'www.example.com', 'URL Parsed Host does not match www.example.com' );
 	}
+
 }
