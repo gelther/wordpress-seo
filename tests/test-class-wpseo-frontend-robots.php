@@ -40,8 +40,6 @@ class WPSEO_Frontend_Robots_Test extends WPSEO_UnitTestCase {
 		parent::tearDown();
 
 		ob_clean();
-
-
 	}
 
 	/**
@@ -72,12 +70,11 @@ class WPSEO_Frontend_Robots_Test extends WPSEO_UnitTestCase {
 		update_option( 'blog_public', '1' );
 	}
 
-
 	public function test_with_replytocom_attribute() {
 		// Go to home.
 		$this->go_to_home();
 
-		$expected = 'noindex,follow';
+		$expected           = 'noindex,follow';
 		// Test replytocom.
 		$_GET['replytocom'] = '1';
 		$this->assertEquals( $expected, self::$class_instance->robots() );
@@ -86,9 +83,7 @@ class WPSEO_Frontend_Robots_Test extends WPSEO_UnitTestCase {
 		unset( $_GET['replytocom'] );
 	}
 
-
 	public function test_subpages_with_robots_using_default_state() {
-
 		// Go to home.
 		$this->go_to_home();
 
@@ -110,9 +105,7 @@ class WPSEO_Frontend_Robots_Test extends WPSEO_UnitTestCase {
 		// Clean-up.
 		self::$class_instance->options['noindex-subpages-wpseo'] = false;
 		set_query_var( 'paged', 0 );
-
 	}
-
 
 	public function test_post_robots_default_state() {
 		// Create and go to post.
@@ -122,10 +115,7 @@ class WPSEO_Frontend_Robots_Test extends WPSEO_UnitTestCase {
 		// Test regular post with no special options.
 		$expected = '';
 		$this->assertEquals( $expected, self::$class_instance->robots() );
-
 	}
-
-
 
 	public function test_post_noindex() {
 		// Create and go to post.
@@ -138,9 +128,7 @@ class WPSEO_Frontend_Robots_Test extends WPSEO_UnitTestCase {
 
 		// clean-up
 //		self::$class_instance->options['noindex-post'] = false;
-
 	}
-
 
 	public function test_private_post() {
 		// Create and go to post.
@@ -151,9 +139,7 @@ class WPSEO_Frontend_Robots_Test extends WPSEO_UnitTestCase {
 		$this->assertEquals( 'noindex,follow', self::$class_instance->robots() );
 	}
 
-
 	public function test_category() {
-
 		// Go to category page.
 		$category_id = wp_create_category( 'Category Name' );
 		flush_rewrite_rules();
@@ -181,7 +167,7 @@ class WPSEO_Frontend_Robots_Test extends WPSEO_UnitTestCase {
 		$this->go_to( $category_link );
 
 		// Test category with noindex-tax-category option.
-		$expected = 'noindex,follow';
+		$expected                                              = 'noindex,follow';
 		self::$class_instance->options['noindex-tax-category'] = true;
 		$this->assertEquals( $expected, self::$class_instance->robots() );
 
@@ -190,7 +176,6 @@ class WPSEO_Frontend_Robots_Test extends WPSEO_UnitTestCase {
 	}
 
 	public function test_subpages_category_archives() {
-
 		// Go to category page.
 		$category_id = wp_create_category( 'Category Name' );
 		flush_rewrite_rules();
@@ -209,12 +194,9 @@ class WPSEO_Frontend_Robots_Test extends WPSEO_UnitTestCase {
 
 		$expected = 'noindex,follow';
 		$this->assertEquals( $expected, self::$class_instance->robots() );
-
 	}
 
-
 	public function test_author_archive() {
-
 		// Go to author page.
 		$user_id = $this->factory->user->create();
 		$this->go_to( get_author_posts_url( $user_id ) );
@@ -222,26 +204,22 @@ class WPSEO_Frontend_Robots_Test extends WPSEO_UnitTestCase {
 		// Test author archive with no special options.
 		$expected = '';
 		$this->assertEquals( $expected, self::$class_instance->robots() );
-
 	}
 
 	public function test_author_archive_noindex() {
-
 		// Go to author page.
 		$user_id = $this->factory->user->create();
 		$this->go_to( get_author_posts_url( $user_id ) );
 
 
 		// Test author archive with 'noindex-author-wpseo'.
-		$expected = 'noindex,follow';
+		$expected                                              = 'noindex,follow';
 		self::$class_instance->options['noindex-author-wpseo'] = true;
 		$this->assertEquals( $expected, self::$class_instance->robots() );
 
 		// Clean-up.
 		self::$class_instance->options['noindex-author-wpseo'] = false;
-
 	}
-
 
 	/**
 	 * This test was broken when it was located in test-class-wpseo-frontend.php.
@@ -255,7 +233,7 @@ class WPSEO_Frontend_Robots_Test extends WPSEO_UnitTestCase {
 
 		// Assertion.
 		$wp_query->is_404 = true;
-		$expected         = 'noindex,follow';
+		$expected = 'noindex,follow';
 		$this->assertEquals( $expected, self::$class_instance->robots() );
 
 		// Clean-up.
@@ -266,7 +244,6 @@ class WPSEO_Frontend_Robots_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Frontend::robots_for_single_post
 	 */
 	public function test_robots_for_single_post() {
-
 		// Create and go to post.
 		$post_id = $this->factory->post->create();
 		$this->go_to( get_permalink( $post_id ) );
@@ -304,7 +281,6 @@ class WPSEO_Frontend_Robots_Test extends WPSEO_UnitTestCase {
 	public function test_noindex_page() {
 		$expected = '<meta name="robots" content="noindex" />' . "\n";
 		$this->expectOutput( $expected, self::$class_instance->noindex_page() );
-
 	}
 
 	/**
