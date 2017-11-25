@@ -27,10 +27,10 @@ class WPSEO_Link_Column_Count {
 	/**
 	 * Gets the link count for given post id.
 	 *
-	 * @param int    $post_id      The post id.
-	 * @param string $target_field The field to show.
+	 * @param  int      $post_id      The post id.
+	 * @param  string   $target_field The field to show.
 	 *
-	 * @return int|null The total amount of links or null if the target field
+	 * @return int|null               The total amount of links or null if the target field
 	 *                  does not exist for the given post id.
 	 */
 	public function get( $post_id, $target_field = 'internal_link_count' ) {
@@ -44,7 +44,7 @@ class WPSEO_Link_Column_Count {
 	/**
 	 * Gets the link count for the given post ids.
 	 *
-	 * @param array $post_ids Array with post_ids.
+	 * @param  array $post_ids Array with post_ids.
 	 *
 	 * @return array
 	 */
@@ -83,4 +83,5 @@ class WPSEO_Link_Column_Count {
 
 		return $output;
 	}
+
 }
