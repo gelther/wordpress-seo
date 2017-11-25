@@ -41,4 +41,5 @@ class WPSEO_Advanced_Settings_Test extends WPSEO_UnitTestCase {
 
 		$this->assertTrue( WPSEO_Advanced_Settings::is_advanced_settings_page( $current_page ) );
 	}
+
 }
