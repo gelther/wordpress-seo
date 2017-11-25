@@ -36,7 +36,7 @@ class WPSEO_Admin_Menu implements WPSEO_WordPress_Integration {
 		$can_manage_options = WPSEO_Capability_Utils::current_user_can( $this->get_manage_capability() );
 
 		if ( $can_manage_options ) {
-			/*
+			/**
 			 * The current user has the capability to control anything.
 			 * This means that all submenus and dashboard can be shown.
 			 */
@@ -63,7 +63,7 @@ class WPSEO_Admin_Menu implements WPSEO_WordPress_Integration {
 			$this->register_submenu_pages( $submenu_pages );
 		}
 
-		/*
+		/**
 		 * If the user does not have the general manage options capability,
 		 * we need to make sure the desired sub-item can be reached.
 		 */
@@ -140,12 +140,12 @@ class WPSEO_Admin_Menu implements WPSEO_WordPress_Integration {
 	/**
 	 * Creates a submenu formatted array.
 	 *
-	 * @param string     $page_title Page title to use.
-	 * @param string     $page_slug  Page slug to use.
-	 * @param callable   $callback   Optional. Callback which handles the page request.
-	 * @param callable[] $hook       Optional. Hook to trigger when the page is registered.
+	 * @param  string     $page_title Page title to use.
+	 * @param  string     $page_slug  Page slug to use.
+	 * @param  callable   $callback   Optional. Callback which handles the page request.
+	 * @param  callable[] $hook       Optional. Hook to trigger when the page is registered.
 	 *
-	 * @return array Formatted submenu.
+	 * @return array                  Formatted submenu.
 	 */
 	protected function get_submenu_page( $page_title, $page_slug, $callback = null, $hook = null ) {
 		if ( $callback === null ) {
@@ -169,7 +169,7 @@ class WPSEO_Admin_Menu implements WPSEO_WordPress_Integration {
 	 * This is only done when the user has the `wpseo_manage_options` capability,
 	 * thus all capabilities can be set to this capability.
 	 *
-	 * @param array $submenu_pages List of submenu pages to register.
+	 * @param  array $submenu_pages List of submenu pages to register.
 	 *
 	 * @return void
 	 */
@@ -189,7 +189,7 @@ class WPSEO_Admin_Menu implements WPSEO_WordPress_Integration {
 
 			$page_title .= ' - Yoast SEO';
 
-			/*
+			/**
 			 * Add submenu page.
 			 *
 			 * If we don't register this on `wpseo_manage_options`, admin users with only this capability
@@ -269,4 +269,5 @@ class WPSEO_Admin_Menu implements WPSEO_WordPress_Integration {
 
 		return $title;
 	}
+
 }
