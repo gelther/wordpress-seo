@@ -48,7 +48,7 @@ class WPSEO_OnPage {
 	/**
 	 * Adding a weekly schedule to the schedules array
 	 *
-	 * @param array $schedules Array with schedules.
+	 * @param  array $schedules Array with schedules.
 	 *
 	 * @return array
 	 */
@@ -99,7 +99,6 @@ class WPSEO_OnPage {
 	 * Show a notice when the website is not indexable
 	 */
 	public function show_notice() {
-
 		$notification        = $this->get_indexability_notification();
 		$notification_center = Yoast_Notification_Center::get();
 
@@ -174,7 +173,7 @@ class WPSEO_OnPage {
 	 * Notify the admins
 	 */
 	protected function notify_admins() {
-		/*
+		/**
 		 * Let's start showing the notices to all admins by removing the hide-notice meta data for each admin resulting
 		 * in popping up the notice again.
 		 */
@@ -234,4 +233,5 @@ class WPSEO_OnPage {
 
 		return (bool) wfConfig::get( 'blockFakeBots' );
 	}
+
 }
