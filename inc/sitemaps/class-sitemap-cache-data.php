@@ -20,7 +20,6 @@ class WPSEO_Sitemap_Cache_Data implements WPSEO_Sitemap_Cache_Data_Interface, Se
 	 * @param string $sitemap XML Content of the sitemap.
 	 */
 	public function set_sitemap( $sitemap ) {
-
 		if ( ! is_string( $sitemap ) ) {
 			$sitemap = '';
 		}
@@ -32,8 +31,7 @@ class WPSEO_Sitemap_Cache_Data implements WPSEO_Sitemap_Cache_Data_Interface, Se
 		 */
 		if ( ! empty( $sitemap ) ) {
 			$this->set_status( self::OK );
-		}
-		else {
+		} else {
 			$this->set_status( self::ERROR );
 		}
 	}
@@ -41,12 +39,11 @@ class WPSEO_Sitemap_Cache_Data implements WPSEO_Sitemap_Cache_Data_Interface, Se
 	/**
 	 * Set the status of the sitemap, is it usable.
 	 *
-	 * @param bool|string $valid Is the sitemap valid or not.
+	 * @param  bool|string $valid Is the sitemap valid or not.
 	 *
 	 * @return void
 	 */
 	public function set_status( $valid ) {
-
 		if ( self::OK === $valid ) {
 			$this->status = self::OK;
 
@@ -69,7 +66,6 @@ class WPSEO_Sitemap_Cache_Data implements WPSEO_Sitemap_Cache_Data_Interface, Se
 	 * @return bool True if usable, False if bad or unknown.
 	 */
 	public function is_usable() {
-
 		return self::OK === $this->status;
 	}
 
@@ -79,7 +75,6 @@ class WPSEO_Sitemap_Cache_Data implements WPSEO_Sitemap_Cache_Data_Interface, Se
 	 * @return string The content of the sitemap.
 	 */
 	public function get_sitemap() {
-
 		return $this->sitemap;
 	}
 
@@ -89,7 +84,6 @@ class WPSEO_Sitemap_Cache_Data implements WPSEO_Sitemap_Cache_Data_Interface, Se
 	 * @return string Status of the sitemap, 'ok'/'error'/'unknown'
 	 */
 	public function get_status() {
-
 		return $this->status;
 	}
 
@@ -101,7 +95,6 @@ class WPSEO_Sitemap_Cache_Data implements WPSEO_Sitemap_Cache_Data_Interface, Se
 	 * @since 5.1.0
 	 */
 	public function serialize() {
-
 		$data = array(
 			'status' => $this->status,
 			'xml'    => $this->sitemap,
@@ -115,15 +108,15 @@ class WPSEO_Sitemap_Cache_Data implements WPSEO_Sitemap_Cache_Data_Interface, Se
 	 *
 	 * @link  http://php.net/manual/en/serializable.unserialize.php
 	 *
-	 * @param string $serialized The string representation of the object.
+	 * @param  string $serialized The string representation of the object.
 	 *
 	 * @return void
 	 * @since 5.1.0
 	 */
 	public function unserialize( $serialized ) {
-
 		$data = unserialize( $serialized );
 		$this->set_sitemap( $data['xml'] );
 		$this->set_status( $data['status'] );
 	}
+
 }
