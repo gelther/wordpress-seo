@@ -196,4 +196,5 @@ class WPSEO_Primary_Term_Admin_Test extends WPSEO_UnitTestCase {
 
 		$this->class_instance->save_primary_terms( 1 );
 	}
+
 }
