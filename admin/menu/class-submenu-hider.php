@@ -18,9 +18,9 @@ class WPSEO_Submenu_Hider implements WPSEO_WordPress_Integration {
 	/**
 	 * Filters all advanced settings pages from the given pages.
 	 *
-	 * @param array $pages The pages to filter.
+	 * @param  array $pages The pages to filter.
 	 *
-	 * @return array Filtered list of submenu pages to show.
+	 * @return array        Filtered list of submenu pages to show.
 	 */
 	public function filter_settings_pages( array $pages ) {
 		$options = WPSEO_Options::get_options( array( 'wpseo' ) );
@@ -51,10 +51,10 @@ class WPSEO_Submenu_Hider implements WPSEO_WordPress_Integration {
 	/**
 	 * Given a list of passed pages that will be disabled, removes the given page from the list so that it will no longer be disabled.
 	 *
-	 * @param array  $hidden_pages The pages to search through.
-	 * @param string $page         The page to temporarily enable.
+	 * @param  array  $hidden_pages The pages to search through.
+	 * @param  string $page         The page to temporarily enable.
 	 *
-	 * @return array The remaining pages that need to be disabled.
+	 * @return array                The remaining pages that need to be disabled.
 	 */
 	private function unhide_page( $hidden_pages, $page ) {
 		$enable_page = array_search( $page, $hidden_pages, true );
@@ -65,4 +65,5 @@ class WPSEO_Submenu_Hider implements WPSEO_WordPress_Integration {
 
 		return $hidden_pages;
 	}
+
 }
