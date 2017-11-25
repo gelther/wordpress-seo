@@ -71,4 +71,5 @@ class WPSEO_Primary_Term {
 
 		return $terms;
 	}
+
 }
