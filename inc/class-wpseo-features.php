@@ -26,4 +26,5 @@ class WPSEO_Features {
 	public function is_free() {
 		return ! $this->is_premium();
 	}
+
 }
