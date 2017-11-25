@@ -40,4 +40,5 @@ class WPSEO_Config_Field_Upsell_Configuration_Service extends WPSEO_Config_Field
 
 		$this->set_property( 'html', $html );
 	}
+
 }
