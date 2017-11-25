@@ -73,7 +73,7 @@ $feature_toggles = apply_filters( 'wpseo_feature_toggles', $feature_toggles );
 	/* translators: %1$s expands to Yoast SEO */
 	__( '%1$s comes with a lot of features. You can enable / disable some of them below.', 'wordpress-seo' ),
 	'Yoast SEO'
-) ) ?>
+) ); ?>
 <?php foreach ( $feature_toggles as $feature ) : ?>
 <h3><?php echo esc_html( $feature->name ); ?></h3>
 <p>
@@ -95,4 +95,3 @@ $feature_toggles = apply_filters( 'wpseo_feature_toggles', $feature_toggles );
 <?php
 	// Required to prevent our settings framework from saving the default because the field isn't explicitly set when saving the Dashboard page.
 	$yform->hidden( 'show_onboarding_notice', 'wpseo_show_onboarding_notice' );
-?>
