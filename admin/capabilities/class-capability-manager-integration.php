@@ -78,7 +78,7 @@ class WPSEO_Capability_Manager_Integration implements WPSEO_WordPress_Integratio
 	 *
 	 * @param  array $groups Current groups.
 	 *
-	 * @return array Filtered list of capabilty groups.
+	 * @return array         Filtered list of capabilty groups.
 	 */
 	public function filter_ure_capabilities_groups_tree( $groups = array() ) {
 		$groups = (array) $groups;
@@ -100,7 +100,7 @@ class WPSEO_Capability_Manager_Integration implements WPSEO_WordPress_Integratio
 	 * @param  array  $groups Current capability groups.
 	 * @param  string $cap_id Capability identifier.
 	 *
-	 * @return array List of filtered groups.
+	 * @return array          List of filtered groups.
 	 */
 	public function filter_ure_custom_capability_groups( $groups = array(), $cap_id = '' ) {
 		if ( in_array( $cap_id, $this->get_capabilities(), true ) ) {
@@ -110,4 +110,5 @@ class WPSEO_Capability_Manager_Integration implements WPSEO_WordPress_Integratio
 
 		return $groups;
 	}
+
 }
