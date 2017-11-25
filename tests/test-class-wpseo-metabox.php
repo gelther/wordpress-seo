@@ -70,7 +70,6 @@ class WPSEO_Metabox_Test extends WPSEO_UnitTestCase {
 	}
 
 	public function test_save_postdata() {
-
 		// Create and go to post.
 		$post_id = $this->factory->post->create();
 		$this->go_to( get_permalink( $post_id ) );
@@ -94,8 +93,7 @@ class WPSEO_Metabox_Test extends WPSEO_UnitTestCase {
 			// Set text fields.
 			if ( $field['type'] === 'text' ) {
 				$_POST[ WPSEO_Metabox::$form_prefix . $key ] = 'text';
-			}
-			elseif ( $field['type'] === 'checkbox' ) {
+			} elseif ( $field['type'] === 'checkbox' ) {
 				$_POST[ WPSEO_Metabox::$form_prefix . $key ] = 'on';
 			}
 		}
@@ -116,10 +114,10 @@ class WPSEO_Metabox_Test extends WPSEO_UnitTestCase {
 			// Set text fields.
 			if ( $field['type'] === 'text' ) {
 				$this->assertNotEmpty( $value );
-			}
-			elseif ( $field['type'] === 'checkbox' ) {
+			} elseif ( $field['type'] === 'checkbox' ) {
 				$this->assertEquals( $value, 'on' );
 			}
 		}
 	}
+
 }
