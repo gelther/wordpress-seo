@@ -42,9 +42,9 @@ class WPSEO_Option_Tabs {
 	/**
 	 * Add a tab
 	 *
-	 * @param WPSEO_Option_Tab $tab Tab to add.
+	 * @param  WPSEO_Option_Tab $tab  Tab to add.
 	 *
-	 * @return $this
+	 * @return                  $this
 	 */
 	public function add_tab( WPSEO_Option_Tab $tab ) {
 		$this->tabs[] = $tab;
@@ -76,7 +76,7 @@ class WPSEO_Option_Tabs {
 	/**
 	 * Is the tab the active tab
 	 *
-	 * @param WPSEO_Option_Tab $tab Tab to check for active tab.
+	 * @param  WPSEO_Option_Tab $tab Tab to check for active tab.
 	 *
 	 * @return bool
 	 */
@@ -103,4 +103,5 @@ class WPSEO_Option_Tabs {
 		$formatter = new WPSEO_Option_Tabs_Formatter();
 		$formatter->run( $this, $yform, $options );
 	}
+
 }
