@@ -115,4 +115,5 @@ class WPSEO_Admin_Banner_Spot {
 	protected function get_random_banner() {
 		return $this->banners[ array_rand( $this->banners, 1 ) ];
 	}
+
 }
