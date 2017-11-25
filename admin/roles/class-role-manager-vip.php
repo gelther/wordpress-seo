@@ -10,9 +10,9 @@ final class WPSEO_Role_Manager_VIP extends WPSEO_Abstract_Role_Manager {
 	/**
 	 * Adds a role to the system.
 	 *
-	 * @param string $role         Role to add.
-	 * @param string $display_name Name to display for the role.
-	 * @param array  $capabilities Capabilities to add to the role.
+	 * @param  string $role         Role to add.
+	 * @param  string $display_name Name to display for the role.
+	 * @param  array  $capabilities Capabilities to add to the role.
 	 *
 	 * @return void
 	 */
@@ -40,11 +40,12 @@ final class WPSEO_Role_Manager_VIP extends WPSEO_Abstract_Role_Manager {
 	/**
 	 * Removes a role from the system.
 	 *
-	 * @param string $role Role to remove.
+	 * @param  string $role Role to remove.
 	 *
 	 * @return void
 	 */
 	protected function remove_role( $role ) {
 		remove_role( $role );
 	}
+
 }
