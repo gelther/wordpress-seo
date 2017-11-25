@@ -16,8 +16,8 @@ class WPSEO_Config_Field_Environment extends WPSEO_Config_Field_Choice {
 		$this->set_property( 'label', __( 'Please specify if your site is under construction or already active.', 'wordpress-seo' ) );
 
 		$this->set_property( 'description', __( 'Choose under construction if you want to keep the site out of the index
- of search engines. Don\'t forget to activate it once you\'re ready to
- publish your site.', 'wordpress-seo' ) );
+	of search engines. Don\'t forget to activate it once you\'re ready to
+	publish your site.', 'wordpress-seo' ) );
 
 		$this->add_choice( 'production', __( 'Option A: My site is live and ready to be indexed', 'wordpress-seo' ) );
 		$this->add_choice( 'staging', __( 'Option B: My site is under construction and should not be indexed', 'wordpress-seo' ) );
@@ -50,9 +50,9 @@ class WPSEO_Config_Field_Environment extends WPSEO_Config_Field_Choice {
 	/**
 	 * Set new data.
 	 *
-	 * @param string $environment_type The site's environment type.
+	 * @param  string $environment_type The site's environment type.
 	 *
-	 * @return bool Returns whether the value is successfully set.
+	 * @return bool                     Returns whether the value is successfully set.
 	 */
 	public function set_data( $environment_type ) {
 		$option = WPSEO_Options::get_option( 'wpseo' );
@@ -73,9 +73,9 @@ class WPSEO_Config_Field_Environment extends WPSEO_Config_Field_Choice {
 	/**
 	 * Set the WordPress Search Engine Visibility option based on the environment type.
 	 *
-	 * @param string $environment_type The environment the site is running in.
+	 * @param  string $environment_type The environment the site is running in.
 	 *
-	 * @return bool Returns if the options is set successfully.
+	 * @return bool                     Returns if the options is set successfully.
 	 */
 	protected function set_indexation( $environment_type ) {
 		$new_blog_public_value     = 0;
@@ -94,4 +94,5 @@ class WPSEO_Config_Field_Environment extends WPSEO_Config_Field_Choice {
 
 		return ( $saved_blog_public_value === $new_blog_public_value );
 	}
+
 }
