@@ -31,7 +31,7 @@ class WPSEO_Taxonomy_Social_Fields extends WPSEO_Taxonomy_Fields {
 	/**
 	 * Gets the social meta fields by social network for the taxonomy.
 	 *
-	 * @param string $network The social network for which to fetch the fields.
+	 * @param  string $network The social network for which to fetch the fields.
 	 *
 	 * @return array
 	 */
@@ -107,9 +107,9 @@ class WPSEO_Taxonomy_Social_Fields extends WPSEO_Taxonomy_Fields {
 	/**
 	 * Returns array with the config fields for the social network
 	 *
-	 * @param string $network    The name of the social network.
-	 * @param string $label      The label for the social network.
-	 * @param string $image_size The image dimensions.
+	 * @param  string $network    The name of the social network.
+	 * @param  string $label      The label for the social network.
+	 * @param  string $image_size The image dimensions.
 	 *
 	 * @return array
 	 */
@@ -124,7 +124,7 @@ class WPSEO_Taxonomy_Social_Fields extends WPSEO_Taxonomy_Fields {
 	/**
 	 * Filter the social networks which are disabled in the configuration
 	 *
-	 * @param array $social_networks Array with the social networks that have to be filtered.
+	 * @param  array $social_networks Array with the social networks that have to be filtered.
 	 *
 	 * @return array
 	 */
@@ -137,4 +137,5 @@ class WPSEO_Taxonomy_Social_Fields extends WPSEO_Taxonomy_Fields {
 
 		return $social_networks;
 	}
+
 }
