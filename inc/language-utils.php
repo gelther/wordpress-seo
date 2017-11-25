@@ -12,9 +12,9 @@ class WPSEO_Language_Utils {
 	/**
 	 * Returns the language part of a given locale, defaults to english when the $locale is empty.
 	 *
-	 * @param string $locale The locale to get the language of.
+	 * @param  string $locale The locale to get the language of.
 	 *
-	 * @returns string The language part of the locale.
+	 * @return s              string The language part of the locale.
 	 */
 	public static function get_language( $locale = null ) {
 		$language = 'en';
@@ -35,7 +35,7 @@ class WPSEO_Language_Utils {
 	 * Can be removed when support for WordPress 4.6 will be dropped, in favor
 	 * of WordPress get_user_locale() that already fallbacks to the site's locale.
 	 *
-	 * @returns string The locale.
+	 * @return s string The locale.
 	 */
 	public static function get_user_locale() {
 		if ( function_exists( 'get_user_locale' ) ) {
@@ -59,4 +59,5 @@ class WPSEO_Language_Utils {
 
 		return $language;
 	}
+
 }
