@@ -26,6 +26,7 @@ if ( ! function_exists( '_yoast_display_alerts' ) ) {
 			printf( '<div class="yoast-alert-holder" id="%1$s" data-nonce="%2$s" data-json="%3$s">%4$s%5$s</div>', $notification->get_id(), $notification->get_nonce(), $notification->get_json(), $notification, $button );
 		}
 	}
+
 }
 
 if ( ! $active ) {
