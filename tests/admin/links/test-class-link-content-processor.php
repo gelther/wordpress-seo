@@ -59,4 +59,5 @@ class WPSEO_Link_Content_Processor_Test extends WPSEO_UnitTestCase {
 		$processor = new WPSEO_Link_Content_Processor( $storage, new WPSEO_Meta_Storage() );
 		$processor->process( 1, "<a href='http://example.org/post'>example post</a>" );
 	}
+
 }
