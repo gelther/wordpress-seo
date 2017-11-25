@@ -18,4 +18,5 @@ class WPSEO_Configuration_Storage_Mock extends WPSEO_Configuration_Storage {
 	public function get_field_data( WPSEO_Config_Field $field ) {
 		return parent::get_field_data( $field );
 	}
+
 }
