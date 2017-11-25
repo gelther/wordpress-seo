@@ -155,13 +155,12 @@ class WPSEO_Admin_Asset {
 	/**
 	 * Returns the full URL for this asset based on the path to the plugin file.
 	 *
-	 * @param string $type        Type of asset.
-	 * @param string $plugin_file Absolute path to the plugin file.
+	 * @param  string $type        Type of asset.
+	 * @param  string $plugin_file Absolute path to the plugin file.
 	 *
-	 * @return string The full URL to the asset.
+	 * @return string              The full URL to the asset.
 	 */
 	public function get_url( $type, $plugin_file ) {
-
 		$relative_path = $this->get_relative_path( $type );
 		if ( empty( $relative_path ) ) {
 			return '';
@@ -193,8 +192,8 @@ class WPSEO_Admin_Asset {
 	/**
 	 * Get the relative file for this asset
 	 *
-	 * @param string $type         Type of this asset.
-	 * @param null   $force_suffix Force use suffix.
+	 * @param  string $type         Type of this asset.
+	 * @param  null   $force_suffix Force use suffix.
 	 *
 	 * @return string
 	 */
@@ -221,4 +220,5 @@ class WPSEO_Admin_Asset {
 
 		return $relative_path;
 	}
+
 }
