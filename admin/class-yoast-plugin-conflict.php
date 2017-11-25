@@ -43,12 +43,11 @@ class Yoast_Plugin_Conflict {
 	/**
 	 * For the use of singleton pattern. Create instance of itself and return his instance
 	 *
-	 * @param string $class_name Give the classname to initialize. If classname is false (empty) it will use it's own __CLASS__.
+	 * @param  string                $class_name Give the classname to initialize. If classname is false (empty) it will use it's own __CLASS__.
 	 *
 	 * @return Yoast_Plugin_Conflict
 	 */
 	public static function get_instance( $class_name = '' ) {
-
 		if ( is_null( self::$instance ) ) {
 			if ( ! is_string( $class_name ) || $class_name === '' ) {
 				$class_name = __CLASS__;
@@ -81,12 +80,11 @@ class Yoast_Plugin_Conflict {
 	/**
 	 * Check if there are conflicting plugins for given $plugin_section
 	 *
-	 * @param string $plugin_section Type of plugin conflict (such as Open Graph or sitemap).
+	 * @param  string $plugin_section Type of plugin conflict (such as Open Graph or sitemap).
 	 *
 	 * @return bool
 	 */
 	public function check_for_conflicts( $plugin_section ) {
-
 		static $sections_checked;
 
 		if ( $sections_checked === null ) {
@@ -109,7 +107,7 @@ class Yoast_Plugin_Conflict {
 	 * This method will loop through all conflicting plugins to get the details of each plugin. The plugin name
 	 * will be taken from the details to parse a comma separated string, which can be use for by example a notice
 	 *
-	 * @param string $plugin_section Plugin conflict type (such as Open Graph or sitemap).
+	 * @param  string $plugin_section Plugin conflict type (such as Open Graph or sitemap).
 	 *
 	 * @return string
 	 */
@@ -149,11 +147,11 @@ class Yoast_Plugin_Conflict {
 		}
 
 		// List of all active sections.
-		$sections = array_keys( $plugin_sections );
+		$sections            = array_keys( $plugin_sections );
 		// List of all sections.
 		$all_plugin_sections = array_keys( $this->plugins );
 
-		/*
+		/**
 		 * Get all sections that are inactive.
 		 * These plugins need to be cleared.
 		 *
@@ -187,14 +185,13 @@ class Yoast_Plugin_Conflict {
 	 * @param string $readable_plugin_section This is the value for the translation.
 	 */
 	protected function set_error( $plugin_section, $readable_plugin_section ) {
-
 		$notification_center = Yoast_Notification_Center::get();
 
 		foreach ( $this->active_plugins[ $plugin_section ] as $plugin_file ) {
 
 			$plugin_name = WPSEO_Utils::get_plugin_name( $plugin_file );
 
-			$error_message = '';
+			$error_message  = '';
 			/* translators: %1$s: 'Facebook & Open Graph' plugin name(s) of possibly conflicting plugin(s), %2$s to Yoast SEO */
 			$error_message .= '<p>' . sprintf( __( 'The %1$s plugin might cause issues when used in conjunction with %2$s.', 'wordpress-seo' ), '<em>' . $plugin_name . '</em>', 'Yoast SEO' ) . '</p>';
 			$error_message .= '<p>' . sprintf( $readable_plugin_section, 'Yoast SEO', $plugin_name ) . '</p>';
@@ -258,11 +255,10 @@ class Yoast_Plugin_Conflict {
 		}
 	}
 
-
 	/**
 	 * Check if given plugin exists in array with all_active_plugins
 	 *
-	 * @param string $plugin Plugin basename string.
+	 * @param  string $plugin Plugin basename string.
 	 *
 	 * @return bool
 	 */
@@ -280,7 +276,6 @@ class Yoast_Plugin_Conflict {
 	 * @param string $plugin         Plugin basename string.
 	 */
 	protected function add_active_plugin( $plugin_section, $plugin ) {
-
 		if ( ! array_key_exists( $plugin_section, $this->active_plugins ) ) {
 			$this->active_plugins[ $plugin_section ] = array();
 		}
@@ -295,18 +290,16 @@ class Yoast_Plugin_Conflict {
 	 *
 	 * If there is a result it will return the plugin category
 	 *
-	 * @param string $plugin Plugin basename string.
+	 * @param  string     $plugin Plugin basename string.
 	 *
 	 * @return int|string
 	 */
 	protected function find_plugin_category( $plugin ) {
-
 		foreach ( $this->plugins as $plugin_section => $plugins ) {
 			if ( in_array( $plugin, $plugins, true ) ) {
 				return $plugin_section;
 			}
 		}
-
 	}
 
 	/**
@@ -324,11 +317,12 @@ class Yoast_Plugin_Conflict {
 	/**
 	 * Get the identifier from the plugin file
 	 *
-	 * @param string $plugin_file Plugin file to get Identifier from.
+	 * @param  string $plugin_file Plugin file to get Identifier from.
 	 *
 	 * @return string
 	 */
 	private function get_notification_identifier( $plugin_file ) {
 		return md5( $plugin_file );
 	}
+
 }
