@@ -42,7 +42,6 @@ class WPSEO_Primary_Term_Test extends WPSEO_UnitTestCase {
 		$class_instance->set_primary_term( $this->primary_term_id );
 
 		$this->assertEquals( $this->primary_term_id, $class_instance->get_primary_term() );
-
 	}
 
 	/**
@@ -100,4 +99,5 @@ class WPSEO_Primary_Term_Test extends WPSEO_UnitTestCase {
 
 		$this->assertEquals( array( $this->primary_term_id ), get_post_meta( $this->post_id, '_yoast_wpseo_primary_' . $this->taxonomy_name ) );
 	}
+
 }
