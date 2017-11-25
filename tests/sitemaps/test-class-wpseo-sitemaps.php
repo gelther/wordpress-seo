@@ -85,7 +85,6 @@ class WPSEO_Sitemaps_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Sitemaps::get_last_modified_gmt
 	 */
 	public function test_last_modified_post_type() {
-
 		$older_date  = '2015-01-01 12:00:00';
 		$newest_date = '2016-01-01 12:00:00';
 
@@ -123,4 +122,5 @@ class WPSEO_Sitemaps_Test extends WPSEO_UnitTestCase {
 	public function test_last_modified_with_invalid_post_type() {
 		$this->assertFalse( WPSEO_Sitemaps::get_last_modified_gmt( array( 'invalid_post_type' ) ) );
 	}
+
 }
