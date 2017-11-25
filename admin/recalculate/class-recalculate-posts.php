@@ -31,7 +31,7 @@ class WPSEO_Recalculate_Posts extends WPSEO_Recalculate {
 	/**
 	 * Get the posts from the database by doing a WP_Query.
 	 *
-	 * @param integer $paged The page.
+	 * @param  integer $paged The page.
 	 *
 	 * @return string
 	 */
@@ -52,7 +52,7 @@ class WPSEO_Recalculate_Posts extends WPSEO_Recalculate {
 	/**
 	 * Map the posts to a response array
 	 *
-	 * @param WP_Post $item The post for which to build the analyzer data.
+	 * @param  WP_Post $item The post for which to build the analyzer data.
 	 *
 	 * @return array
 	 */
@@ -67,8 +67,8 @@ class WPSEO_Recalculate_Posts extends WPSEO_Recalculate {
 		/**
 		 * Filter the post content for use in the SEO score recalculation.
 		 *
-		 * @param string $content Content of the post. Modify to reflect front-end content.
-		 * @param WP_Post $item The Post object the content comes from.
+		 * @param string  $content Content of the post. Modify to reflect front-end content.
+		 * @param WP_Post $item    The Post object the content comes from.
 		 */
 		$content = apply_filters( 'wpseo_post_content_for_recalculation', $content, $item );
 
@@ -91,8 +91,8 @@ class WPSEO_Recalculate_Posts extends WPSEO_Recalculate {
 	/**
 	 * Get the title for given post
 	 *
-	 * @param integer $post_id   The ID of the post for which to get the title.
-	 * @param string  $post_type The post type.
+	 * @param  integer      $post_id   The ID of the post for which to get the title.
+	 * @param  string       $post_type The post type.
 	 *
 	 * @return mixed|string
 	 */
@@ -113,8 +113,8 @@ class WPSEO_Recalculate_Posts extends WPSEO_Recalculate {
 	/**
 	 * Get the meta description for given post
 	 *
-	 * @param integer $post_id   The ID of the post for which to get the meta description.
-	 * @param string  $post_type The post type.
+	 * @param  integer     $post_id   The ID of the post for which to get the meta description.
+	 * @param  string      $post_type The post type.
 	 *
 	 * @return bool|string
 	 */
@@ -135,9 +135,9 @@ class WPSEO_Recalculate_Posts extends WPSEO_Recalculate {
 	/**
 	 * Retrieves the associated featured image if there is one present.
 	 *
-	 * @param WP_Post $item The post item to check for a featured image.
+	 * @param  WP_Post $item The post item to check for a featured image.
 	 *
-	 * @return string The image string.
+	 * @return string        The image string.
 	 */
 	private function add_featured_image( $item ) {
 		if ( ! has_post_thumbnail( $item->ID ) ) {
@@ -146,4 +146,5 @@ class WPSEO_Recalculate_Posts extends WPSEO_Recalculate {
 
 		return ' ' . get_the_post_thumbnail( $item->ID );
 	}
+
 }
