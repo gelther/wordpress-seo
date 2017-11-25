@@ -20,4 +20,5 @@ class Statistics_Mock extends WPSEO_Statistics {
 
 		return 0;
 	}
+
 }
