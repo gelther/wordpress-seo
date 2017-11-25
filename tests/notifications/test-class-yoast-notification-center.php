@@ -147,7 +147,6 @@ class Yoast_Notification_Center_Test extends WPSEO_UnitTestCase {
 	 * Saving notifications to storage
 	 */
 	public function test_update_storage() {
-
 		wp_set_current_user( 1 );
 
 		$message = 'b';
@@ -411,7 +410,6 @@ class Yoast_Notification_Center_Test extends WPSEO_UnitTestCase {
 	 * @covers Yoast_Notification_Center::get_resolved_notification_count
 	 */
 	public function test_resolved_notifications() {
-
 		$notification_center = Yoast_Notification_Center::get();
 		$count               = $notification_center->get_resolved_notification_count();
 
@@ -436,7 +434,6 @@ class Yoast_Notification_Center_Test extends WPSEO_UnitTestCase {
 	 * @covers Yoast_Notification_Center::get_notification_count
 	 */
 	public function test_get_notification_count() {
-
 		$notification_center = Yoast_Notification_Center::get();
 
 		$this->assertEquals( 0, $notification_center->get_notification_count() );
@@ -446,4 +443,5 @@ class Yoast_Notification_Center_Test extends WPSEO_UnitTestCase {
 		$this->assertEquals( 1, $notification_center->get_notification_count() );
 		$this->assertEquals( 1, $notification_center->get_notification_count( true ) );
 	}
+
 }
