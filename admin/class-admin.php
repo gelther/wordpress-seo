@@ -109,7 +109,6 @@ class WPSEO_Admin {
 		foreach ( $integrations as $integration ) {
 			$integration->register_hooks();
 		}
-
 	}
 
 	/**
@@ -118,8 +117,8 @@ class WPSEO_Admin {
 	public function import_plugin_hooks() {
 		if ( current_user_can( $this->get_manage_options_cap() ) ) {
 			$plugin_imports = array(
-				'wpSEO'       => new WPSEO_Import_WPSEO_Hooks(),
-				'aioseo'      => new WPSEO_Import_AIOSEO_Hooks(),
+				'wpSEO'  => new WPSEO_Import_WPSEO_Hooks(),
+				'aioseo' => new WPSEO_Import_AIOSEO_Hooks(),
 			);
 		}
 	}
@@ -192,9 +191,9 @@ class WPSEO_Admin {
 	/**
 	 * Saves the posts per page limit for bulk edit pages.
 	 *
-	 * @param int    $status Status value to pass through.
-	 * @param string $option Option name.
-	 * @param int    $value  Count value to check.
+	 * @param  int    $status Status value to pass through.
+	 * @param  string $option Option name.
+	 * @param  int    $value  Count value to check.
 	 *
 	 * @return int
 	 */
@@ -211,10 +210,10 @@ class WPSEO_Admin {
 	 *
 	 * @staticvar string $this_plugin Holds the directory & filename for the plugin.
 	 *
-	 * @param array  $links Array of links for the plugins, adapted when the current plugin is found.
-	 * @param string $file  The filename for the current plugin, which the filter loops through.
+	 * @param  array  $links Array of links for the plugins, adapted when the current plugin is found.
+	 * @param  string $file  The filename for the current plugin, which the filter loops through.
 	 *
-	 * @return array $links
+	 * @return array  $links
 	 */
 	public function add_action_link( $links, $file ) {
 		if ( WPSEO_BASENAME === $file && WPSEO_Capability_Utils::current_user_can( 'wpseo_manage_options' ) ) {
@@ -263,7 +262,7 @@ class WPSEO_Admin {
 	 *
 	 * These are used with the Facebook author, rel="author" and Twitter cards implementation.
 	 *
-	 * @param array $contactmethods Currently set contactmethods.
+	 * @param  array $contactmethods Currently set contactmethods.
 	 *
 	 * @return array $contactmethods with added contactmethods.
 	 */
@@ -271,9 +270,9 @@ class WPSEO_Admin {
 		// Add Google+.
 		$contactmethods['googleplus'] = __( 'Google+', 'wordpress-seo' );
 		// Add Twitter.
-		$contactmethods['twitter'] = __( 'Twitter username (without @)', 'wordpress-seo' );
+		$contactmethods['twitter']    = __( 'Twitter username (without @)', 'wordpress-seo' );
 		// Add Facebook.
-		$contactmethods['facebook'] = __( 'Facebook profile URL', 'wordpress-seo' );
+		$contactmethods['facebook']   = __( 'Facebook profile URL', 'wordpress-seo' );
 
 		return $contactmethods;
 	}
@@ -283,7 +282,7 @@ class WPSEO_Admin {
 	 *
 	 * @since 1.1.7
 	 *
-	 * @param string $slug If this isn't empty, the function will return an unaltered slug.
+	 * @param  string $slug       If this isn't empty, the function will return an unaltered slug.
 	 *
 	 * @return string $clean_slug cleaned slug
 	 */
@@ -294,8 +293,8 @@ class WPSEO_Admin {
 	/**
 	 * Filter the stopwords from the slug
 	 *
-	 * @param string $slug       The current slug, if not empty there will be done nothing.
-	 * @param string $post_title The title which will be used in case of an empty slug.
+	 * @param  string $slug       The current slug, if not empty there will be done nothing.
+	 * @param  string $post_title The title which will be used in case of an empty slug.
 	 *
 	 * @return string
 	 */
@@ -358,7 +357,7 @@ class WPSEO_Admin {
 	/**
 	 * Extending the current page URL with two params to be able to ignore the notice.
 	 *
-	 * @param string $dismiss_param The param used to dismiss the notification.
+	 * @param  string $dismiss_param The param used to dismiss the notification.
 	 *
 	 * @return string
 	 */
@@ -400,7 +399,7 @@ class WPSEO_Admin {
 	/**
 	 * Whether we are on the admin dashboard page.
 	 *
-	 * @returns bool
+	 * @return s bool
 	 */
 	protected function on_dashboard_page() {
 		return 'index.php' === $GLOBALS['pagenow'];
@@ -424,7 +423,7 @@ class WPSEO_Admin {
 	/**
 	 * Initializes the seo link watcher.
 	 *
-	 * @returns WPSEO_WordPress_Integration[]
+	 * @return s WPSEO_WordPress_Integration[]
 	 */
 	protected function initialize_seo_links() {
 		$integrations = array();
@@ -619,8 +618,8 @@ class WPSEO_Admin {
 	 *
 	 * @deprecated 3.1
 	 *
-	 * @param string $haystack     The string to be checked for the stopword.
-	 * @param bool   $checking_url Whether or not we're checking a URL.
+	 * @param  string     $haystack     The string to be checked for the stopword.
+	 * @param  bool       $checking_url Whether or not we're checking a URL.
 	 *
 	 * @return bool|mixed
 	 */
