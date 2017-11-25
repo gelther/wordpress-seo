@@ -91,4 +91,5 @@ class WPSEO_Help_Center_Item {
 
 		return '';
 	}
+
 }
