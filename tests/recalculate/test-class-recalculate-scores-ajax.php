@@ -48,9 +48,9 @@ class WPSEO_Recalculate_Scores_Ajax_Test extends WPSEO_UnitTestCase {
 	/**
 	 * Override die handler for test_get_total()
 	 *
-	 * @param mixed $response Fake response.
+	 * @param  mixed $response Fake response.
 	 *
-	 * @return array Callable handler for wp_die
+	 * @return array           Callable handler for wp_die
 	 */
 	public function set_total_response_no_posts( $response ) {
 		return array( $this, 'get_total_response_no_posts' );
@@ -88,9 +88,9 @@ class WPSEO_Recalculate_Scores_Ajax_Test extends WPSEO_UnitTestCase {
 	/**
 	 * Override die handler for test_get_total_with_posts()
 	 *
-	 * @param mixed $response Fake response.
+	 * @param  mixed $response Fake response.
 	 *
-	 * @return array Callable handler for wp_die
+	 * @return array           Callable handler for wp_die
 	 */
 	public function set_total_response_two_posts( $response ) {
 		return array( $this, 'get_total_response_two_posts' );
@@ -105,4 +105,5 @@ class WPSEO_Recalculate_Scores_Ajax_Test extends WPSEO_UnitTestCase {
 		$object = json_decode( $response );
 		$this->assertEquals( 2, $object->posts );
 	}
+
 }
