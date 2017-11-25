@@ -61,7 +61,6 @@ class WPSEO_OpenGraph_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_OpenGraph::og_tag
 	 */
 	public function test_og_tag() {
-
 		// There should be no output when $content is empty.
 		$this->assertFalse( self::$class_instance->og_tag( 'property', '' ) );
 		$this->expectOutput( '' );
@@ -79,7 +78,6 @@ class WPSEO_OpenGraph_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_OpenGraph::facebook_filter
 	 */
 	public function test_facebook_filter() {
-
 		$post_id = $this->factory->post->create();
 		$this->go_to( get_permalink( $post_id ) );
 
@@ -112,7 +110,6 @@ class WPSEO_OpenGraph_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_OpenGraph::article_author_facebook
 	 */
 	public function test_article_author_facebook() {
-
 		// Test not on singular page.
 		$this->assertFalse( self::$class_instance->article_author_facebook() );
 
@@ -168,7 +165,6 @@ class WPSEO_OpenGraph_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_OpenGraph::og_title
 	 */
 	public function test_og_title() {
-
 		// Create and go to post.
 		$post_id = $this->factory->post->create();
 		$this->go_to( get_permalink( $post_id ) );
@@ -180,14 +176,12 @@ class WPSEO_OpenGraph_Test extends WPSEO_UnitTestCase {
 		$this->expectOutput( $expected_html );
 
 		$this->assertEquals( self::$class_instance->og_title( false ), $expected_title );
-
 	}
 
 	/**
 	 * @covers WPSEO_OpenGraph::url
 	 */
 	public function test_url() {
-
 		// Create and go to post.
 		$post_id = $this->factory->post->create();
 		$url     = get_permalink( $post_id );
@@ -239,7 +233,6 @@ class WPSEO_OpenGraph_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_OpenGraph::image
 	 */
 	public function test_image_HAS_front_page_image() {
-
 		$stub =
 			$this
 				->getMockBuilder( 'WPSEO_OpenGraph' )
@@ -263,7 +256,6 @@ class WPSEO_OpenGraph_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_OpenGraph::image
 	 */
 	public function test_image_HAS_NO_image() {
-
 		$stub =
 			$this
 				->getMockBuilder( 'WPSEO_OpenGraph' )
@@ -420,8 +412,6 @@ class WPSEO_OpenGraph_Test extends WPSEO_UnitTestCase {
 		$this->assertContains( $expected_output, $output );
 	}
 
-
-
 	/**
 	 * Tests whether the correct OG tag for an image via HTTP is generated.
 	 */
@@ -438,8 +428,6 @@ class WPSEO_OpenGraph_Test extends WPSEO_UnitTestCase {
 
 		$stub->image( 'http://example.org/test.png' );
 	}
-
-
 
 	/**
 	 * Tests whether the correct OG tag for an image via HTTPS is generated.
@@ -458,25 +446,21 @@ class WPSEO_OpenGraph_Test extends WPSEO_UnitTestCase {
 		$stub->image( 'https://example.org/test.png' );
 	}
 
-
 	/**
 	 * @covers WPSEO_OpenGraph::description
 	 */
 	public function test_description_frontpage() {
-
 		$this->go_to_home();
 
 		$expected_frontpage_description = self::$class_instance->description( false );
 
 		$this->assertEquals( get_bloginfo( 'description' ), $expected_frontpage_description );
-
 	}
 
 	/**
 	 * Tests static page set as front page.
 	 */
 	public function test_static_front_page() {
-
 		$post_id = $this->factory->post->create(
 			array(
 				'post_title' => 'front-page',
@@ -508,7 +492,6 @@ class WPSEO_OpenGraph_Test extends WPSEO_UnitTestCase {
 	 * Tests static page set as posts page.
 	 */
 	public function test_static_posts_page() {
-
 		$post_id = $this->factory->post->create(
 			array(
 				'post_title' => 'front-page',
@@ -609,7 +592,6 @@ EXPECTED;
 	 * @covers WPSEO_OpenGraph::description
 	 */
 	public function test_description_category() {
-
 		$expected_meta_description = '';
 
 		$category_id = wp_create_category( 'Yoast SEO' );
@@ -631,7 +613,6 @@ EXPECTED;
 	 * @covers WPSEO_OpenGraph::tags
 	 */
 	public function test_tags() {
-
 		// Not singular, return false.
 		$this->assertFalse( self::$class_instance->tags() );
 
@@ -656,7 +637,6 @@ EXPECTED;
 	 * @covers WPSEO_OpenGraph::category
 	 */
 	public function test_category() {
-
 		// Not singular, should return false.
 		$this->assertFalse( self::$class_instance->category() );
 
@@ -673,7 +653,6 @@ EXPECTED;
 	 * @covers WPSEO_OpenGraph::publish_date
 	 */
 	public function test_publish_date() {
-
 		// Not on singular, should return false.
 		$this->assertFalse( self::$class_instance->publish_date() );
 
@@ -769,15 +748,13 @@ EXPECTED;
 		$this->assertContains( '<meta property="og:image" content="' . home_url( 'custom_twitter_image.png' ) . '" />', $output );
 	}
 
-
 	/**
-	 * @param string  $image   Path.
-	 * @param integer $post_id Post ID.
+	 * @param  string  $image   Path.
+	 * @param  integer $post_id Post ID.
 	 *
 	 * @return int
 	 */
 	private function create_featured_image( $image, $post_id ) {
-
 		$basename       = basename( $image );
 		$upload_dir     = wp_upload_dir();
 		$source_image   = dirname( __FILE__ ) . $image;
