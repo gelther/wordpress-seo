@@ -32,7 +32,6 @@ class WPSEO_Tracking {
 	 * Registers all hooks to WordPress
 	 */
 	public function send() {
-
 		$current_time = time();
 		if ( ! $this->should_send_tracking( $current_time ) ) {
 			return;
@@ -50,9 +49,9 @@ class WPSEO_Tracking {
 	/**
 	 * Returns true when last tracking data was send more than two weeks ago.
 	 *
-	 * @param int $current_time The current timestamp.
+	 * @param  int  $current_time The current timestamp.
 	 *
-	 * @return bool True when tracking data should be send.
+	 * @return bool               True when tracking data should be send.
 	 */
 	protected function should_send_tracking( $current_time ) {
 		$last_time = get_option( $this->option_name );
@@ -68,9 +67,9 @@ class WPSEO_Tracking {
 	/**
 	 * Checks if the given amount of seconds exceeds the set threshold.
 	 *
-	 * @param int $seconds The amount of seconds to check.
+	 * @param  int  $seconds The amount of seconds to check.
 	 *
-	 * @return bool True when seconds is bigger than threshold.
+	 * @return bool          True when seconds is bigger than threshold.
 	 */
 	protected function exceeds_treshhold( $seconds ) {
 		return ( $seconds > $this->threshold );
@@ -90,4 +89,5 @@ class WPSEO_Tracking {
 
 		return $collector;
 	}
+
 }
