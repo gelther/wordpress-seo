@@ -41,4 +41,5 @@ class WPSEO_Ryte_Service_Test extends WPSEO_UnitTestCase {
 
 		$user->remove_cap( 'manage_options' );
 	}
+
 }
