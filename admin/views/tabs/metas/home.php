@@ -18,8 +18,7 @@ if ( 'posts' === get_option( 'show_on_front' ) ) {
 		$yform->textinput( 'metakey-home-wpseo', __( 'Meta keywords template', 'wordpress-seo' ) );
 	}
 	echo '</div>';
-}
-else {
+} else {
 	echo '<h2>', esc_html__( 'Homepage &amp; Front page', 'wordpress-seo' ), '</h2>';
 	echo '<p>';
 	/* translators: 1: link open tag; 2: link close tag. */
