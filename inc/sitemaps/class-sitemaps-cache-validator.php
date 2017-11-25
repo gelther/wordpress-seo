@@ -28,13 +28,12 @@ class WPSEO_Sitemaps_Cache_Validator {
 	 *
 	 * @since 3.2
 	 *
-	 * @param null|string $type The type to get the key for. Null or self::SITEMAP_INDEX_TYPE for index cache.
-	 * @param int         $page The page of cache to get the key for.
+	 * @param  null|string $type The type to get the key for. Null or self::SITEMAP_INDEX_TYPE for index cache.
+	 * @param  int         $page The page of cache to get the key for.
 	 *
-	 * @return bool|string The key where the cache is stored on. False if the key could not be generated.
+	 * @return bool|string       The key where the cache is stored on. False if the key could not be generated.
 	 */
 	public static function get_storage_key( $type = null, $page = 1 ) {
-
 		// Using SITEMAP_INDEX_TYPE for sitemap index cache.
 		$type = is_null( $type ) ? WPSEO_Sitemaps::SITEMAP_INDEX_TYPE : $type;
 
@@ -65,11 +64,11 @@ class WPSEO_Sitemaps_Cache_Validator {
 	 *
 	 * @since 3.2
 	 *
-	 * @param string $type    The type of sitemap to be used.
-	 * @param string $prefix  The part before the type in the cache key. Only the length is used.
-	 * @param string $postfix The part after the type in the cache key. Only the length is used.
+	 * @param  string $type    The type of sitemap to be used.
+	 * @param  string $prefix  The part before the type in the cache key. Only the length is used.
+	 * @param  string $postfix The part after the type in the cache key. Only the length is used.
 	 *
-	 * @return string The type with a safe length to use
+	 * @return string          The type with a safe length to use
 	 *
 	 * @throws OutOfRangeException When there is less than 15 characters of space for a key that is originally longer.
 	 */
@@ -117,12 +116,11 @@ class WPSEO_Sitemaps_Cache_Validator {
 	 *
 	 * @since 3.2
 	 *
-	 * @param null|string $type The type to get the key for. Null for all caches.
+	 * @param  null|string $type The type to get the key for. Null for all caches.
 	 *
 	 * @return void
 	 */
 	public static function invalidate_storage( $type = null ) {
-
 		// Global validator gets cleared when no type is provided.
 		$old_validator = null;
 
@@ -147,20 +145,18 @@ class WPSEO_Sitemaps_Cache_Validator {
 	 *
 	 * @since 3.2
 	 *
-	 * @param null|string $type      The type of sitemap to clear cache for.
-	 * @param null|string $validator The validator to clear cache of.
+	 * @param  null|string $type      The type of sitemap to clear cache for.
+	 * @param  null|string $validator The validator to clear cache of.
 	 *
 	 * @return void
 	 */
 	public static function cleanup_database( $type = null, $validator = null ) {
-
 		global $wpdb;
 
 		if ( is_null( $type ) ) {
 			// Clear all cache if no type is provided.
 			$like = sprintf( '%s%%', self::STORAGE_KEY_PREFIX );
-		}
-		else {
+		} else {
 			// Clear type cache for all type keys.
 			$like = sprintf( '%1$s%2$s_%%', self::STORAGE_KEY_PREFIX, $type );
 		}
@@ -183,19 +179,18 @@ class WPSEO_Sitemaps_Cache_Validator {
 	 * Get the current cache validator
 	 *
 	 * Without the type the global validator is returned.
-	 *  This can invalidate -all- keys in cache at once
+	 * This can invalidate -all- keys in cache at once
 	 *
 	 * With the type parameter the validator for that specific
-	 *  type can be invalidated
+	 * type can be invalidated
 	 *
 	 * @since 3.2
 	 *
-	 * @param string $type Provide a type for a specific type validator, empty for global validator.
+	 * @param  string      $type Provide a type for a specific type validator, empty for global validator.
 	 *
-	 * @return null|string The validator for the supplied type.
+	 * @return null|string       The validator for the supplied type.
 	 */
 	public static function get_validator( $type = '' ) {
-
 		$key = self::get_validator_key( $type );
 
 		$current = get_option( $key, null );
@@ -215,12 +210,11 @@ class WPSEO_Sitemaps_Cache_Validator {
 	 *
 	 * @since 3.2
 	 *
-	 * @param string $type Provide a type for a specific type validator, empty for global validator.
+	 * @param  string $type Provide a type for a specific type validator, empty for global validator.
 	 *
-	 * @return string Validator to be used to generate the cache key.
+	 * @return string       Validator to be used to generate the cache key.
 	 */
 	public static function get_validator_key( $type = '' ) {
-
 		if ( empty( $type ) ) {
 			return self::VALIDATION_GLOBAL_KEY;
 		}
@@ -233,12 +227,11 @@ class WPSEO_Sitemaps_Cache_Validator {
 	 *
 	 * @since 3.2
 	 *
-	 * @param string $type Provide a type for a specific type validator, empty for global validator.
+	 * @param  string $type Provide a type for a specific type validator, empty for global validator.
 	 *
-	 * @return bool True if validator key has been saved as option.
+	 * @return bool         True if validator key has been saved as option.
 	 */
 	public static function create_validator( $type = '' ) {
-
 		$key = self::get_validator_key( $type );
 
 		// Generate new validator.
@@ -267,14 +260,13 @@ class WPSEO_Sitemaps_Cache_Validator {
 	 *
 	 * This is base64 (numeric + alpha + alpha upper case) without the 0.
 	 *
-	 * @param int $base10 The number that has to be converted to base 61.
+	 * @param  int    $base10 The number that has to be converted to base 61.
 	 *
-	 * @return string Base 61 converted string.
+	 * @return string         Base 61 converted string.
 	 *
 	 * @throws InvalidArgumentException When the input is not an integer.
 	 */
 	public static function convert_base10_to_base61( $base10 ) {
-
 		if ( ! is_int( $base10 ) ) {
 			throw new InvalidArgumentException( __( 'Expected an integer as input.', 'wordpress-seo' ) );
 		}
@@ -301,4 +293,5 @@ class WPSEO_Sitemaps_Cache_Validator {
 
 		return $output;
 	}
+
 }
