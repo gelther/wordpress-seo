@@ -34,9 +34,9 @@ class WPSEO_Link_Factory {
 	/**
 	 * Formats an array of links to WPSEO_Link object.
 	 *
-	 * @param array $extracted_links The links for format.
+	 * @param  array        $extracted_links The links for format.
 	 *
-	 * @return WPSEO_Link[] The formatted links.
+	 * @return WPSEO_Link[]                  The formatted links.
 	 */
 	public function build( array $extracted_links ) {
 		$extracted_links = array_map( array( $this, 'build_link' ), $extracted_links );
@@ -51,9 +51,9 @@ class WPSEO_Link_Factory {
 	/**
 	 * Builds the link.
 	 *
-	 * @param string $link The link to build.
+	 * @param  string     $link The link to build.
 	 *
-	 * @return WPSEO_Link The built link.
+	 * @return WPSEO_Link       The built link.
 	 */
 	public function build_link( $link ) {
 		$link_type = $this->classifier->classify( $link );
@@ -69,13 +69,14 @@ class WPSEO_Link_Factory {
 	/**
 	 * Returns the link object.
 	 *
-	 * @param string $url            The URL of the link.
-	 * @param int    $target_post_id The target post ID.
-	 * @param string $type           The link type.
+	 * @param  string     $url            The URL of the link.
+	 * @param  int        $target_post_id The target post ID.
+	 * @param  string     $type           The link type.
 	 *
-	 * @return WPSEO_Link Generated link object.
+	 * @return WPSEO_Link                 Generated link object.
 	 */
 	public static function get_link( $url, $target_post_id, $type ) {
 		return new WPSEO_Link( $url, $target_post_id, $type );
 	}
+
 }
