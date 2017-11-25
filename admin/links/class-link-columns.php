@@ -85,8 +85,8 @@ class WPSEO_Link_Columns {
 	/**
 	 * Modifies the query pieces to allow ordering column by links to post.
 	 *
-	 * @param array     $pieces Array of Query pieces.
-	 * @param \WP_Query $query  The Query on which to apply.
+	 * @param  array     $pieces Array of Query pieces.
+	 * @param  \WP_Query $query  The Query on which to apply.
 	 *
 	 * @return array
 	 */
@@ -101,8 +101,8 @@ class WPSEO_Link_Columns {
 	/**
 	 * Modifies the query pieces to allow ordering column by links to post.
 	 *
-	 * @param array     $pieces Array of Query pieces.
-	 * @param \WP_Query $query  The Query on which to apply.
+	 * @param  array     $pieces Array of Query pieces.
+	 * @param  \WP_Query $query  The Query on which to apply.
 	 *
 	 * @return array
 	 */
@@ -117,11 +117,11 @@ class WPSEO_Link_Columns {
 	/**
 	 * Builds the pieces for a sorting query.
 	 *
-	 * @param array     $pieces Array of Query pieces.
-	 * @param \WP_Query $query  The Query on which to apply.
-	 * @param string    $field  The field in the table to JOIN on.
+	 * @param  array     $pieces Array of Query pieces.
+	 * @param  \WP_Query $query  The Query on which to apply.
+	 * @param  string    $field  The field in the table to JOIN on.
 	 *
-	 * @return array Modified Query pieces.
+	 * @return array             Modified Query pieces.
 	 */
 	protected function build_sort_query_pieces( $pieces, $query, $field ) {
 		global $wpdb;
@@ -141,8 +141,8 @@ class WPSEO_Link_Columns {
 
 		$table = $this->storage->get_table_name();
 
-		$pieces['join']   .= " LEFT JOIN $table AS yst_links ON yst_links.object_id = {$wpdb->posts}.ID ";
-		$pieces['orderby'] = "{$field} $order, FIELD( {$wpdb->posts}.post_status, 'publish' ) $order, {$pieces['orderby']}";
+		$pieces['join']    .= " LEFT JOIN $table AS yst_links ON yst_links.object_id = {$wpdb->posts}.ID ";
+		$pieces['orderby']  = "{$field} $order, FIELD( {$wpdb->posts}.post_status, 'publish' ) $order, {$pieces['orderby']}";
 
 		return $pieces;
 	}
@@ -161,9 +161,9 @@ class WPSEO_Link_Columns {
 	/**
 	 * Adds the columns for the post overview.
 	 *
-	 * @param array $columns Array with columns.
+	 * @param  array $columns Array with columns.
 	 *
-	 * @return array The extended array with columns.
+	 * @return array          The extended array with columns.
 	 */
 	public function add_post_columns( array $columns ) {
 		$columns[ 'wpseo-' . self::COLUMN_LINKS ] = '<span class="yoast-linked-to yoast-column-header-has-tooltip" data-label="' . esc_attr__( 'Number of internal links in this post. See "Yoast Columns" text in the help tab for more info.', 'wordpress-seo' ) . '"><span class="screen-reader-text">' . __( '# links in post', 'wordpress-seo' ) . '</span></span>';
@@ -198,8 +198,7 @@ class WPSEO_Link_Columns {
 		// Post lists return a list of objects.
 		if ( isset( $posts[0] ) && is_object( $posts[0] ) ) {
 			$post_ids = wp_list_pluck( $posts, 'ID' );
-		}
-		elseif ( ! empty( $posts ) ) {
+		} elseif ( ! empty( $posts ) ) {
 			// Page list returns an array of post IDs.
 			$post_ids = array_keys( $posts );
 		}
@@ -240,9 +239,9 @@ class WPSEO_Link_Columns {
 	/**
 	 * Sets the sortable columns.
 	 *
-	 * @param array $columns Array with sortable columns.
+	 * @param  array $columns Array with sortable columns.
 	 *
-	 * @return array The extended array with sortable columns.
+	 * @return array          The extended array with sortable columns.
 	 */
 	public function column_sort( array $columns ) {
 		$columns[ 'wpseo-' . self::COLUMN_LINKS ]  = 'wpseo-' . self::COLUMN_LINKS;
@@ -250,4 +249,5 @@ class WPSEO_Link_Columns {
 
 		return $columns;
 	}
+
 }
