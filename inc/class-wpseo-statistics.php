@@ -13,7 +13,7 @@ class WPSEO_Statistics {
 	 *
 	 * @todo Merge/DRY this with the logic virtually the same in WPSEO_Metabox::column_sort_orderby()
 	 *
-	 * @param WPSEO_Rank $rank The SEO rank to get the post count for.
+	 * @param  WPSEO_Rank $rank The SEO rank to get the post count for.
 	 *
 	 * @return int
 	 */
@@ -29,15 +29,13 @@ class WPSEO_Statistics {
 					),
 				),
 			);
-		}
-		elseif ( WPSEO_Rank::NO_INDEX === $rank->get_rank() ) {
+		} elseif ( WPSEO_Rank::NO_INDEX === $rank->get_rank() ) {
 			$posts = array(
 				'meta_key'   => WPSEO_Meta::$meta_prefix . 'meta-robots-noindex',
 				'meta_value' => '1',
 				'compare'    => '=',
 			);
-		}
-		else {
+		} else {
 			$posts = array(
 				'meta_key'     => WPSEO_Meta::$meta_prefix . 'linkdex',
 				'meta_value'   => array( $rank->get_starting_score(), $rank->get_end_score() ),
@@ -138,5 +136,6 @@ class WPSEO_Statistics {
 
 		return $this->get_post_count( new WPSEO_Rank( WPSEO_Rank::NO_INDEX ) );
 	}
+
 	// @codeCoverageIgnoreEnd
 }
