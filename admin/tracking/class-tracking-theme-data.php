@@ -33,9 +33,9 @@ class WPSEO_Tracking_Theme_Data implements WPSEO_Collection {
 	/**
 	 * Returns the name of the parent theme.
 	 *
-	 * @param WP_Theme $theme The theme object.
+	 * @param  WP_Theme    $theme The theme object.
 	 *
-	 * @return null|string The name of the parent theme or null.
+	 * @return null|string        The name of the parent theme or null.
 	 */
 	private function get_parent_theme( WP_Theme $theme ) {
 		if ( is_child_theme() ) {
@@ -44,4 +44,5 @@ class WPSEO_Tracking_Theme_Data implements WPSEO_Collection {
 
 		return null;
 	}
+
 }
