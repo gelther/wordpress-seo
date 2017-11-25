@@ -38,4 +38,5 @@ class WPSEO_Config_Field_Configuration_Choices extends WPSEO_Config_Field {
 
 		$this->properties['choices'][] = $choice;
 	}
+
 }
