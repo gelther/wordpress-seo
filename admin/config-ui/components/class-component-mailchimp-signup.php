@@ -44,12 +44,11 @@ class WPSEO_Config_Component_Mailchimp_Signup implements WPSEO_Config_Component 
 	/**
 	 * Save data
 	 *
-	 * @param array $data Data containing changes.
+	 * @param  array $data Data containing changes.
 	 *
 	 * @return mixed
 	 */
 	public function set_data( $data ) {
-
 		$has_saved = false;
 		if ( ! empty( $data['hasSignup'] ) ) {
 			// Saves the user meta.
@@ -76,4 +75,5 @@ class WPSEO_Config_Component_Mailchimp_Signup implements WPSEO_Config_Component 
 
 		return ( ! empty( $user_meta ) );
 	}
+
 }
