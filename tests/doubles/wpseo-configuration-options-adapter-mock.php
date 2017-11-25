@@ -22,4 +22,5 @@ class WPSEO_Configuration_Options_Adapter_Mock extends WPSEO_Configuration_Optio
 	public function get_option( $class_name ) {
 		return parent::get_option( $class_name );
 	}
+
 }
