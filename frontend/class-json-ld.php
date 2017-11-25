@@ -272,4 +272,5 @@ class WPSEO_JSON_LD implements WPSEO_WordPress_Integration {
 
 		$this->website();
 	}
+
 }
