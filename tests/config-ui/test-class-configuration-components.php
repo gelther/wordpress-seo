@@ -149,4 +149,5 @@ class WPSEO_Configuration_Components_Tests extends PHPUnit_Framework_TestCase {
 		$this->components->add_component( $component );
 		$this->components->set_storage( $storage );
 	}
+
 }
