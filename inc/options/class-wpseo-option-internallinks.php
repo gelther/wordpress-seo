@@ -59,7 +59,6 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 		return self::$instance;
 	}
 
-
 	/**
 	 * Translate strings used in the option defaults.
 	 *
@@ -72,14 +71,12 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 		$this->defaults['breadcrumbs-searchprefix']  = __( 'You searched for', 'wordpress-seo' );
 	}
 
-
 	/**
 	 * Add dynamically created default options based on available post types and taxonomies.
 	 *
-	 * @return  void
+	 * @return void
 	 */
 	public function enrich_defaults() {
-
 		// Retrieve all the relevant post type and taxonomy arrays.
 		$post_type_names       = get_post_types( array( 'public' => true ), 'names' );
 		$taxonomy_names_custom = get_taxonomies(
@@ -109,7 +106,6 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 		}
 	}
 
-
 	/**
 	 * Validate the option.
 	 *
@@ -117,10 +113,9 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 	 * @param  array $clean Clean value for the option, normally the defaults.
 	 * @param  array $old   Old value of the option.
 	 *
-	 * @return  array      Validated clean value for the option to be saved to the database.
+	 * @return array        Validated clean value for the option to be saved to the database.
 	 */
 	protected function validate_option( $dirty, $clean, $old ) {
-
 		$allowed_post_types = $this->get_allowed_post_types();
 
 		foreach ( $clean as $key => $value ) {
@@ -149,15 +144,12 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 					if ( isset( $dirty[ $key ] ) ) {
 						if ( $taxonomies !== array() && in_array( $dirty[ $key ], $taxonomies, true ) ) {
 							$clean[ $key ] = $dirty[ $key ];
-						}
-						elseif ( (string) $dirty[ $key ] === '0' || (string) $dirty[ $key ] === '' ) {
+						} elseif ( (string) $dirty[ $key ] === '0' || (string) $dirty[ $key ] === '' ) {
 							$clean[ $key ] = 0;
-						}
-						elseif ( sanitize_title_with_dashes( $dirty[ $key ] ) === $dirty[ $key ] ) {
+						} elseif ( sanitize_title_with_dashes( $dirty[ $key ] ) === $dirty[ $key ] ) {
 							// Allow taxonomies which may not be registered yet.
 							$clean[ $key ] = $dirty[ $key ];
-						}
-						else {
+						} else {
 							if ( isset( $old[ $key ] ) ) {
 								$clean[ $key ] = sanitize_title_with_dashes( $old[ $key ] );
 							}
@@ -175,8 +167,7 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 								);
 							}
 						}
-					}
-					elseif ( isset( $old[ $key ] ) ) {
+					} elseif ( isset( $old[ $key ] ) ) {
 						$clean[ $key ] = sanitize_title_with_dashes( $old[ $key ] );
 					}
 					unset( $taxonomies, $post_type );
@@ -188,15 +179,12 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 					if ( isset( $dirty[ $key ] ) ) {
 						if ( $allowed_post_types !== array() && in_array( $dirty[ $key ], $allowed_post_types, true ) ) {
 							$clean[ $key ] = $dirty[ $key ];
-						}
-						elseif ( (string) $dirty[ $key ] === '0' || (string) $dirty[ $key ] === '' ) {
+						} elseif ( (string) $dirty[ $key ] === '0' || (string) $dirty[ $key ] === '' ) {
 							$clean[ $key ] = 0;
-						}
-						elseif ( sanitize_key( $dirty[ $key ] ) === $dirty[ $key ] ) {
+						} elseif ( sanitize_key( $dirty[ $key ] ) === $dirty[ $key ] ) {
 							// Allow taxonomies which may not be registered yet.
 							$clean[ $key ] = $dirty[ $key ];
-						}
-						else {
+						} else {
 							if ( isset( $old[ $key ] ) ) {
 								$clean[ $key ] = sanitize_key( $old[ $key ] );
 							}
@@ -216,8 +204,7 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 								unset( $tax );
 							}
 						}
-					}
-					elseif ( isset( $old[ $key ] ) ) {
+					} elseif ( isset( $old[ $key ] ) ) {
 						$clean[ $key ] = sanitize_key( $old[ $key ] );
 					}
 					break;
@@ -241,7 +228,6 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 
 		return $clean;
 	}
-
 
 	/**
 	 * Retrieve a list of the allowed post types as breadcrumb parent for a taxonomy.
@@ -271,7 +257,6 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 		return $allowed_post_types;
 	}
 
-
 	/**
 	 * Clean a given option value.
 	 *
@@ -282,10 +267,9 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 	 * @param  array  $all_old_option_values Optional. Only used when importing old options to have
 	 *                                       access to the real old values, in contrast to the saved ones.
 	 *
-	 * @return  array Cleaned option.
+	 * @return array                         Cleaned option.
 	 */
 	protected function clean_option( $option_value, $current_version = null, $all_old_option_values = null ) {
-
 		/* Make sure the old fall-back defaults for empty option keys are now added to the option .*/
 		if ( isset( $current_version ) && version_compare( $current_version, '1.5.2.3', '<' ) ) {
 			if ( has_action( 'init', array( 'WPSEO_Options', 'bring_back_breadcrumb_defaults' ) ) === false ) {
@@ -293,7 +277,7 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 			}
 		}
 
-		/*
+		/**
 		 * Make sure the values of the variable option key options are cleaned as they
 		 * may be retained and would not be cleaned/validated then.
 		 */
@@ -313,11 +297,9 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 
 						if ( $taxonomies !== array() && in_array( $value, $taxonomies, true ) ) {
 							$option_value[ $key ] = $value;
-						}
-						elseif ( (string) $value === '0' || (string) $value === '' ) {
+						} elseif ( (string) $value === '0' || (string) $value === '' ) {
 							$option_value[ $key ] = 0;
-						}
-						elseif ( sanitize_title_with_dashes( $value ) === $value ) {
+						} elseif ( sanitize_title_with_dashes( $value ) === $value ) {
 							// Allow taxonomies which may not be registered yet.
 							$option_value[ $key ] = $value;
 						}
@@ -329,11 +311,9 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 					case 'taxonomy-':
 						if ( $allowed_post_types !== array() && in_array( $value, $allowed_post_types, true ) ) {
 							$option_value[ $key ] = $value;
-						}
-						elseif ( (string) $value === '0' || (string) $value === '' ) {
+						} elseif ( (string) $value === '0' || (string) $value === '' ) {
 							$option_value[ $key ] = 0;
-						}
-						elseif ( sanitize_key( $option_value[ $key ] ) === $option_value[ $key ] ) {
+						} elseif ( sanitize_key( $option_value[ $key ] ) === $option_value[ $key ] ) {
 							// Allow post types which may not be registered yet.
 							$option_value[ $key ] = $value;
 						}
@@ -369,4 +349,5 @@ class WPSEO_Option_InternalLinks extends WPSEO_Option {
 		}
 		update_option( $this->option_name, $option );
 	}
+
 }
