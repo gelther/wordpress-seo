@@ -198,7 +198,7 @@ class WPSEO_Admin_Banner_Sidebar {
 	/**
 	 * Returns the extensions banner spot.
 	 *
-	 * @param array $active_extensions The active extensions.
+	 * @param  array                   $active_extensions The active extensions.
 	 *
 	 * @return WPSEO_Admin_Banner_Spot
 	 */
@@ -371,7 +371,6 @@ class WPSEO_Admin_Banner_Sidebar {
 	 * @return WPSEO_Admin_Banner_Spot
 	 */
 	protected function get_remove_banner_spot() {
-
 		$remove_banner_spot = new WPSEO_Admin_Banner_Spot(
 			__( 'Remove these ads?', 'wordpress-seo' )
 		);
@@ -385,4 +384,5 @@ class WPSEO_Admin_Banner_Sidebar {
 
 		return $remove_banner_spot;
 	}
+
 }
