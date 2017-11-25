@@ -125,4 +125,5 @@ class Yoast_Input_Select {
 	private function parse_attribute( & $value, $attribute ) {
 		$value = sprintf( '%s="%s"', esc_html( $attribute ), esc_attr( $value ) );
 	}
+
 }
