@@ -37,4 +37,5 @@ class WPSEO_Import_AIOSEO_Hooks extends WPSEO_Import_Hooks {
 	public function show_deactivate_notice() {
 		echo '<div class="updated"><p>', esc_html__( 'All-In-One-SEO has been deactivated', 'wordpress-seo' ), '</p></div>';
 	}
+
 }
