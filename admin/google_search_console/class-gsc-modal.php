@@ -53,4 +53,5 @@ class WPSEO_GSC_Modal {
 		echo '</div>';
 		echo '</div>';
 	}
+
 }
