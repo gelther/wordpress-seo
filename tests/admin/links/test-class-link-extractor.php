@@ -25,4 +25,5 @@ class WPSEO_Link_Extractor_Test extends WPSEO_UnitTestCase {
 
 		$this->assertEquals( array( 'http://www.test.com' ), $extractor->extract() );
 	}
+
 }
