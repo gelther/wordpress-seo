@@ -50,7 +50,6 @@ class WPSEO_Rewrite_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Rewrite::no_category_base
 	 */
 	public function test_no_category_base() {
-
 		$input         = 'http://yoast.com/cat/link/';
 		$category_base = get_option( 'category_base' );
 
@@ -92,7 +91,6 @@ class WPSEO_Rewrite_Test extends WPSEO_UnitTestCase {
 	 * @covers WPSEO_Rewrite::category_rewrite_rules
 	 */
 	public function test_category_rewrite_rules() {
-
 		$c = self::$class_instance;
 
 		$categories          = get_categories( array( 'hide_empty' => false ) );
@@ -101,16 +99,15 @@ class WPSEO_Rewrite_Test extends WPSEO_UnitTestCase {
 		if ( ! ( is_multisite() && 0 === strpos( $permalink_structure, '/blog/' ) ) ) {
 			$expected = array(
 				'(uncategorized)/(?:feed/)?(feed|rdf|rss|rss2|atom)/?$' => 'index.php?category_name=$matches[1]&feed=$matches[2]',
-				'(uncategorized)/page/?([0-9]{1,})/?$' => 'index.php?category_name=$matches[1]&paged=$matches[2]',
-				'(uncategorized)/?$'                   => 'index.php?category_name=$matches[1]',
-				'$'                                    => 'index.php?wpseo_category_redirect=$matches[1]',
+				'(uncategorized)/page/?([0-9]{1,})/?$'                  => 'index.php?category_name=$matches[1]&paged=$matches[2]',
+				'(uncategorized)/?$'                                    => 'index.php?category_name=$matches[1]',
+				'$'                                                     => 'index.php?wpseo_category_redirect=$matches[1]',
 			);
-		}
-		else {
+		} else {
 			$expected = array(
 				'blog/(uncategorized)/(?:feed/)?(feed|rdf|rss|rss2|atom)/?$' => 'index.php?category_name=$matches[1]&feed=$matches[2]',
-				'blog/(uncategorized)/page/?([0-9]{1,})/?$' => 'index.php?category_name=$matches[1]&paged=$matches[2]',
-				'blog/(uncategorized)/?$' => 'index.php?category_name=$matches[1]',
+				'blog/(uncategorized)/page/?([0-9]{1,})/?$'                  => 'index.php?category_name=$matches[1]&paged=$matches[2]',
+				'blog/(uncategorized)/?$'                                    => 'index.php?category_name=$matches[1]',
 			);
 
 			global $wp_rewrite;
