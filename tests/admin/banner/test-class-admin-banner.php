@@ -22,7 +22,6 @@ class WPSEO_Admin_Banner_Test extends WPSEO_UnitTestCase {
 		$this->admin_banner = new WPSEO_Admin_Banner( 'url', 'image.png', 200, 300, 'alt' );
 	}
 
-
 	/**
 	 * Tests the url getter.
 	 *
@@ -36,7 +35,6 @@ class WPSEO_Admin_Banner_Test extends WPSEO_UnitTestCase {
 		$this->assertEquals( 'the-alt', $admin_banner->get_alt() );
 		$this->assertEquals( 700, $admin_banner->get_width() );
 		$this->assertEquals( 900, $admin_banner->get_height() );
-
 	}
 
 	/**
