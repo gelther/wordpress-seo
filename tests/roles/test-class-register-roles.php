@@ -18,4 +18,5 @@ class WPSEO_Register_Roles_Tests extends PHPUnit_Framework_TestCase {
 		$this->assertContains( 'wpseo_manager', $registered );
 		$this->assertContains( 'wpseo_editor', $registered );
 	}
+
 }
