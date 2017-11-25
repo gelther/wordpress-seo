@@ -35,4 +35,5 @@ class Expose_WPSEO_Twitter extends WPSEO_Twitter {
 	public function image() {
 		return parent::image();
 	}
+
 }
